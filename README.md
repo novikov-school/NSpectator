@@ -1,8 +1,9 @@
-# NSpec
+# NSpectator
 
-NSpec is a BDD framework for .NET of the xSpec (context/specification) flavor. NSpec is intended to be used to drive development through specifying behavior at the unit level. NSpec is heavily inspired by RSpec and built upon the NUnit assertion library.
+NSpectator is inspired by RSpec and originally based on [NSpec](https://github.com/mattflo/NSpec) BDD framework for .NET of the xSpec (context/specification) flavor. NSpectator is intended to be used to drive development through specifying behavior at the unit level. 
+NSpec and NSpectator are heavily inspired by RSpec but this framework use more flexible [FluentAssertions](https://github.com/dennisdoomen/fluentassertions) library.
 
-NSpec is written by [Matt Florence](http://twitter.com/mattflo) and [Amir Rajan] (http://twitter.com/amirrajan). It's shaped and benefited by hard work from our [contributors](https://github.com/mattflo/NSpec/contributors)
+NSpec is written by [Matt Florence](http://twitter.com/mattflo) and [Amir Rajan] (http://twitter.com/amirrajan). They shaped and benefited by hard work from our [contributors](https://github.com/mattflo/NSpec/contributors)
 
 ## Additional info
 
