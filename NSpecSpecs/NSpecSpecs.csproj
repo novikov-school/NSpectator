@@ -36,6 +36,14 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentAssertions, Version=4.2.2.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentAssertions.4.2.2\lib\net45\FluentAssertions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentAssertions.Core, Version=4.2.2.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentAssertions.4.2.2\lib\net45\FluentAssertions.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -153,7 +161,7 @@
     <Compile Include="describe_RunningSpecs\when_running_specs.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NSpec\NSpec.csproj">
+    <ProjectReference Include="..\NSpectator\NSpectator.csproj">
       <Project>{36862628-1F0C-4EA5-8963-C79BAF958DC1}</Project>
       <Name>NSpec</Name>
     </ProjectReference>

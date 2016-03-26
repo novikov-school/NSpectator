@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
-using NSpec;
-using NSpec.Domain;
+using NSpectator;
+using NSpectator.Domain;
 using NSpecSpecs.WhenRunningSpecs;
 using NUnit.Framework;
 using System.Threading.Tasks;
@@ -40,7 +40,7 @@ namespace NSpecSpecs.describe_RunningSpecs.Exceptions
             classContext.AllExamples()
                         .First()
                         .Exception
-                        .should_cast_to<ExampleFailureException>();
+                        .ShouldCastTo<ExampleFailureException>();
         }
     }
 }

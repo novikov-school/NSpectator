@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using NSpec;
-using NSpec.Domain;
+using NSpectator;
+using NSpectator.Domain;
 using NSpecSpecs.describe_RunningSpecs;
 using NUnit.Framework;
 

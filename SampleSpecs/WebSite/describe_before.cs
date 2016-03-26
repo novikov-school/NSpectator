@@ -1,4 +1,4 @@
-using NSpec;
+using NSpectator;
 
 public class describe_before : nspec
 {

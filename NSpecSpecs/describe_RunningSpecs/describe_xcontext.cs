@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using NSpec;
+using NSpectator;
 using NUnit.Framework;
 
 namespace NSpecSpecs.WhenRunningSpecs

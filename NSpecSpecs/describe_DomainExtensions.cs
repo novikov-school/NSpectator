@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using NSpec;
-using NSpec.Domain.Extensions;
+using NSpectator;
+using NSpectator.Domain.Extensions;
 using NUnit.Framework;
 using System.Threading.Tasks;
 

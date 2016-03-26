@@ -5,8 +5,8 @@
 // associated with an assembly.
 
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("NSpec")]
-[assembly: AssemblyCopyright("Copyright (c) 2011 Matt Florence, Amir Rajan, The NSpec Development Team")]
+[assembly: AssemblyProduct("NSpectator")]
+[assembly: AssemblyCopyright("Copyright (c) 2011 Matt Florence, Amir Rajan, Ivan Novikov. The NSpec and NSpectator Development Teams")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -21,5 +21,5 @@
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 
-[assembly: AssemblyVersion("1.0.4")]
-[assembly: AssemblyFileVersion("1.0.4")]
+[assembly: AssemblyVersion("0.9.1")]
+[assembly: AssemblyFileVersion("0.9.1")]

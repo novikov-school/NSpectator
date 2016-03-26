@@ -94,7 +94,7 @@
     <Compile Include="Model\Tea.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NSpec\NSpec.csproj">
+    <ProjectReference Include="..\NSpectator\NSpectator.csproj">
       <Project>{36862628-1F0C-4EA5-8963-C79BAF958DC1}</Project>
       <Name>NSpec</Name>
     </ProjectReference>

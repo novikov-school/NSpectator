@@ -1,4 +1,4 @@
-using NSpec;
+using NSpectator;
 using NSpecSpecs.WhenRunningSpecs;
 using NUnit.Framework;
 using System.Threading.Tasks;

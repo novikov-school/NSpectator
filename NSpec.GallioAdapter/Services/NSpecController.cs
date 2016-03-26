@@ -6,10 +6,10 @@ using Gallio.Model.Commands;
 using Gallio.Model.Contexts;
 using Gallio.Model.Helpers;
 using Gallio.Runtime.ProgressMonitoring;
-using NSpec.GallioAdapter.Model;
+using NSpectator.GallioAdapter.Model;
 using TestStep = Gallio.Model.Tree.TestStep;
 
-namespace NSpec.GallioAdapter.Services
+namespace NSpectator.GallioAdapter.Services
 {
     public class NSpecController : TestController
     {

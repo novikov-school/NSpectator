@@ -1,9 +1,9 @@
 using Gallio.Model;
 using Gallio.Model.Tree;
-using NSpec.Domain;
+using NSpectator.Domain;
 using Reflector = Gallio.Common.Reflection.Reflector;
 
-namespace NSpec.GallioAdapter.Model
+namespace NSpectator.GallioAdapter.Model
 {
     public class NSpecContextTest : Test
     {

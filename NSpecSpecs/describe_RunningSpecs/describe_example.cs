@@ -1,5 +1,5 @@
 ﻿using System;
-using NSpec;
+using NSpectator;
 using NUnit.Framework;
 
 namespace NSpecSpecs.WhenRunningSpecs

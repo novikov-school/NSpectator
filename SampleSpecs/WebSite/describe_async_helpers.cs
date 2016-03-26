@@ -1,4 +1,4 @@
-using NSpec;
+using NSpectator;
 using System.Threading.Tasks;
 
 public class describe_async_helpers : nspec

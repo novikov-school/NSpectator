@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using NSpec;
-using NSpec.Domain;
+using NSpectator;
+using NSpectator.Domain;
 using NUnit.Framework;
 
 namespace NSpecSpecs

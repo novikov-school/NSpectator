@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using NSpec;
+using NSpectator;
 
 public class describe_changing_stacktrace_message : nspec
 {

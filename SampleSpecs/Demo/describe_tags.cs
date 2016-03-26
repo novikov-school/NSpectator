@@ -1,4 +1,4 @@
-﻿using NSpec;
+﻿using NSpectator;
 
 namespace SampleSpecs.Demo
 {

@@ -5,10 +5,11 @@ using Gallio.Common.Reflection;
 using Gallio.Model;
 using Gallio.Model.Helpers;
 using Gallio.Model.Tree;
-using NSpec.GallioAdapter.Model;
-using NSpec.Domain;
+using NSpectator.Domain;
+using NSpectator.GallioAdapter.Model;
+using Reflector = NSpectator.Domain.Reflector;
 
-namespace NSpec.GallioAdapter.Services
+namespace NSpectator.GallioAdapter.Services
 {
     class NSpecTestExplorer : TestExplorer
     {
@@ -54,7 +55,7 @@ namespace NSpec.GallioAdapter.Services
 
             if (populateRecursively)
             {
-                var reflector = new NSpec.Domain.Reflector(assembly.Path);
+                var reflector = new Reflector(assembly.Path);
                 var finder = new SpecFinder(reflector);
                 var builder = new ContextBuilder(finder, new DefaultConventions());
 

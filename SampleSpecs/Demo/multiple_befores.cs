@@ -1,4 +1,4 @@
-using NSpec;
+using NSpectator;
 using System.Collections.Generic;
 
 class multiple_befores : nspec

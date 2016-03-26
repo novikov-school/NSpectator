@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using System.Reflection;
-using NSpec;
-using NSpec.Domain;
-using NSpec.Domain.Formatters;
+using NSpectator;
+using NSpectator.Domain;
+using NSpectator.Domain.Formatters;
 
 /*
  * Howdy,

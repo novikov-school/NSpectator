@@ -1,5 +1,5 @@
 ﻿using System;
-using NSpec.Domain;
+using NSpectator.Domain;
 
 namespace NSpecRunner
 {

@@ -1,7 +1,7 @@
 ﻿using System.Linq;
-using NSpec;
-using NSpec.Domain;
-using NSpec.Domain.Formatters;
+using NSpectator;
+using NSpectator.Domain;
+using NSpectator.Domain.Formatters;
 using NUnit.Framework;
 using Rhino.Mocks;
 using System.Threading.Tasks;
@@ -72,7 +72,7 @@ namespace NSpecSpecs.WhenRunningSpecs
         [Test]
         public void the_last_example_should_be_failing()
         {
-            classContext.Examples.Last().Exception.should_cast_to<AssertionException>();
+            classContext.Examples.Last().Exception.ShouldCastTo<AssertionException>();
         }
 
         [Test]

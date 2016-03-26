@@ -2,7 +2,7 @@
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using NSpec.Domain;
+using NSpectator.Domain;
 
 namespace NSpecRunner
 {

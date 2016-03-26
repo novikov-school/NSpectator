@@ -1,4 +1,4 @@
-﻿using NSpec;
+﻿using NSpectator;
 
 [Tag("describe_inheritance")]
 public class given_the_sequence_continues_with_2 : given_the_sequence_starts_with_1

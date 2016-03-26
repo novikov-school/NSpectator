@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
-using NSpec;
-using NSpec.Domain;
+using NSpectator;
+using NSpectator.Domain;
 using NUnit.Framework;
 using System.Threading.Tasks;
 

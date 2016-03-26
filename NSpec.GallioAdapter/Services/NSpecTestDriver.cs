@@ -1,7 +1,7 @@
 ﻿using Gallio.Model.Helpers;
-using NSpec.GallioAdapter.Model;
+using NSpectator.GallioAdapter.Model;
 
-namespace NSpec.GallioAdapter.Services
+namespace NSpectator.GallioAdapter.Services
 {
     class NSpecTestDriver : SimpleTestDriver 
     {

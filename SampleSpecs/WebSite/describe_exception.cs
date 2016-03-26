@@ -1,5 +1,5 @@
 ﻿using System;
-using NSpec;
+using NSpectator;
 
 public class describe_exception : nspec
 {

@@ -1,4 +1,4 @@
-﻿using NSpec;
+﻿using NSpectator;
 
 public class my_first_spec : nspec
 {

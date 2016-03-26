@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using Gallio.Model;
-using NSpec.GallioAdapter.Services;
 using Gallio.Runtime.Extensibility;
 using Gallio.Runtime.Logging;
+using NSpectator.GallioAdapter.Services;
 
-namespace NSpec.GallioAdapter
+namespace NSpectator.GallioAdapter
 {
     /// <summary>
     /// Builds a test object model based on reflection against NUnit framework attributes.

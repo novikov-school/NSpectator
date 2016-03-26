@@ -1,7 +1,8 @@
 ﻿using System;
-using NSpec;
+using NSpectator;
 using NUnit.Framework;
 using System.Collections.Generic;
+using FluentAssertions;
 
 namespace NSpecSpecs
 {
@@ -19,7 +20,7 @@ namespace NSpecSpecs
             var tenMinuteTolerance = new TimeSpan(0, 10, 0);
 
             thirtyMinutes.is_close_to(twentyMinutes, tenMinuteTolerance);
-            thirtyMinutes.should_be_close_to(twentyMinutes, tenMinuteTolerance);
+            thirtyMinutes.ShouldBeCloseTo(twentyMinutes, tenMinuteTolerance);
         }
 
         [Test]
@@ -30,7 +31,7 @@ namespace NSpecSpecs
             var oneDayTolerance = new DateTime(TimeSpan.TicksPerDay);
 
             arg1.is_close_to(arg2, oneDayTolerance);
-            arg1.should_be_close_to(arg2, oneDayTolerance);
+            arg1.ShouldBeCloseTo(arg2, oneDayTolerance);
         }
 
         [Test]
@@ -51,42 +52,42 @@ namespace NSpecSpecs
         public void should_be_able_to_assert_on_less_than()
         {
             2.is_less_than(3);
-            2.should_be_less_than(3);
+            2.Should().BeLessThan(3);
         }
 
         [Test]
         public void should_be_able_to_assert_on_less_or_equal_to()
         {
             2.is_less_or_equal_to(2);
-            2.should_be_less_or_equal_to(3);
+            2.Should().BeLessOrEqualTo(3);
         }
 
         [Test]
         public void given_floats_should_be_able_to_assert_on_is_close_to_with_default_tolerance()
         {
             1e-9f.is_close_to(1e-8f);
-            1e-9f.should_be_close_to(1e-8f);
+            1e-9f.Should().BeCloseTo(1e-8f);
         }
 
         [Test]
         public void given_floats_should_be_able_to_assert_on_is_close_to_with_custom_tolerance()
         {
             200f.is_close_to(300f, 100f);
-            200f.should_be_close_to(300f, 100f);
+            200f.Should().BeCloseTo(300f, 100f);
         }
 
         [Test]
         public void given_doubles_should_be_able_to_assert_on_is_close_to_with_default_tolerance()
         {
             1e-9.is_close_to(1e-8);
-            1e-9.should_be_close_to(1e-8);
+            1e-9.Should().BeCloseTo(1e-8);
         }
 
         [Test]
         public void given_doubles_should_be_able_to_assert_on_is_close_to_with_custom_tolerance()
         {
             200.0.is_close_to(200.5, .5);
-            200.0.should_be_close_to(200.5, .5);
+            200.0.Should().BeCloseTo(200.5, .5);
         }
 
 		[Test]
@@ -120,7 +121,7 @@ namespace NSpecSpecs
 		public void given_a_null_nullable_struct_it_should_be_null()
 		{
 			int? i = null;
-			Nullable<decimal> j = null;
+			decimal? j = null;
 			i.should_be_null();
 			j.should_be_null();
 		}
@@ -129,7 +130,7 @@ namespace NSpecSpecs
 		public void given_a_null_nullable_struct_it_should_not_be_null()
 		{
 			int? i = 2;
-			Nullable<decimal> j = 3;
+			decimal? j = 3;
 			i.should_not_be_null();
 			j.should_not_be_null();
 		}

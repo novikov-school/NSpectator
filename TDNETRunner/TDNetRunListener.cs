@@ -1,5 +1,5 @@
 ﻿using System;
-using NSpec;
+using NSpectator;
 using TestDriven.Framework;
 
 namespace TDNETRunner

@@ -1,4 +1,4 @@
-﻿using NSpec;
+﻿using NSpectator;
 
 [Tag("describe_act")]
 public class describe_batman_sound_effects_as_text : nspec

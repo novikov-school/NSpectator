@@ -1,6 +1,6 @@
 ﻿using System;
-using NSpec;
-using NSpec.Domain;
+using NSpectator;
+using NSpectator.Domain;
 using NSpecSpecs.WhenRunningSpecs;
 using NUnit.Framework;
 

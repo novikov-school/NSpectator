@@ -1,4 +1,4 @@
-﻿using NSpec;
+﻿using NSpectator;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;

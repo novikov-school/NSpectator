@@ -4,9 +4,9 @@ using System.Reflection;
 using System.Linq;
 using NUnit.Framework;
 using System;
-using NSpec;
-using NSpec.Domain;
-using NSpec.Domain.Formatters;
+using NSpectator;
+using NSpectator.Domain;
+using NSpectator.Domain.Formatters;
 using SampleSpecs.Bug;
 
 namespace NSpecSpecs

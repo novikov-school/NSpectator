@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using NSpec;
+using NSpectator;
 
 public abstract class describe_ICollection : nspec
 {

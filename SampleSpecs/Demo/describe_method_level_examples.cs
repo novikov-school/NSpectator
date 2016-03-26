@@ -1,4 +1,4 @@
-﻿using NSpec;
+﻿using NSpectator;
 
 class describe_method_level_examples : nspec
 {

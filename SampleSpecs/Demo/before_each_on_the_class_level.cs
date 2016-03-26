@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using NSpec;
+using NSpectator;
 
 namespace SampleSpecs.Demo
 {
