@@ -1,0 +1,6 @@
+language: csharp
+solution: NSpectator.sln
+install:
+  - nuget restore NSpectator.sln
+script:
+  - xbuild /p:Configuration=Debug NSpectator.sln
