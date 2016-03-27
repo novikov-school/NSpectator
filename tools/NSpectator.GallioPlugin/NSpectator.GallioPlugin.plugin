@@ -14,7 +14,8 @@
     <file path="NSpectator.Gallio.plugin"/>
     <file path="NSpectator.Gallio.dll"/>
     <file path="NSpectator.dll"/>
-    <file path="nunit.framework.dll"/>
+    <file path="FluentAssertions.Core.dll"/>
+    <file path="FluentAssertions.dll"/>
   </files>
 
   <assemblies>
