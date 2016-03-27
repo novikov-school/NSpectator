@@ -1,10 +1,17 @@
-﻿using NSpectator;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
+using NSpectator;
 using System;
 
 namespace SampleSpecs.Demo
 {
     // this can be either an abstract class, or just a class
-    abstract class parent_class : nspec
+    abstract class Parent_class : Spec
     {
         public const int indentSize = 3;
         public static string order = "\n\n";
@@ -64,7 +71,7 @@ namespace SampleSpecs.Demo
         }
     }
 
-    class child_class : parent_class
+    class Child_class : Parent_class
     {
         void before_all()
         {

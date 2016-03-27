@@ -5,7 +5,7 @@ namespace NSpectator.Domain
 {
     public class MethodContext : Context
     {
-        public override void Build(nspec instance)
+        public override void Build(Spec instance)
         {
             base.Build(instance);
 

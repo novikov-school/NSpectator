@@ -1,10 +1,17 @@
+#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
 using NSpectator;
 
 namespace SampleSpecs.Bug
 {
-    public class given_a_subcontext_that_fails : nspec
+    class Given_a_subcontext_that_fails : Spec
     {
-        void when_totaling_failures()
+        void When_totaling_failures()
         {
             //could not find a way to exercise this requirement using nspec
             //that didn't require using the broken behavior

@@ -1,12 +1,19 @@
-﻿using NSpectator;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
+using NSpectator;
 
 namespace SampleSpecs.Demo
 {
-    class SomeSharedSpec : nspec
+    class SomeSharedSpec : Spec
     {
     }
 
-    class when_inherting_from_some_shared_spec : SomeSharedSpec
+    class When_inherting_from_some_shared_spec : SomeSharedSpec
     {
         void should_still_run_tests()
         {

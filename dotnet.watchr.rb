@@ -19,7 +19,7 @@ MSTestRunner.ms_test_path =
 #if you choose :NUnitRunner as your :test_runner
 #this is the execution path for NUnit.exe
 NUnitRunner.nunit_path = 
-  '.\libs\NUnit.Runners.2.6.0.12051\tools\nunit-console.exe'
+  '.\lib\NUnit.Runners.2.6.0.12051\tools\nunit-console.exe'
 
 #if you choose :MSBuilder as your :builder
 #this is the execution path for MSBuild.exe

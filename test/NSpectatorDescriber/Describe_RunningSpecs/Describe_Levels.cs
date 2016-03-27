@@ -6,7 +6,7 @@ namespace NSpectator.Describer.describe_RunningSpecs
 {
     public class describe_Levels : When_running_specs
     {
-        class describe_numbers : nspec
+        class describe_numbers : Spec
         {
             void method_level_context()
             {

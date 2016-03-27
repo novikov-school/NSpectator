@@ -1,9 +1,16 @@
-﻿using System.Collections.Generic;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
+using System.Collections.Generic;
 using NSpectator;
 
 namespace SampleSpecs.Demo
 {
-    class before_each_on_the_class_level : nspec
+    class Before_each_on_the_class_level : Spec
     {
         List<int> ints = null;
 

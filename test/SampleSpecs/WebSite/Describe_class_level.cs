@@ -1,6 +1,6 @@
 ﻿using NSpectator;
 
-public class describe_class_level : nspec
+public class describe_class_level : Spec
 {
     //before, act, and it can also be declared at the class level like so
     void before_each()

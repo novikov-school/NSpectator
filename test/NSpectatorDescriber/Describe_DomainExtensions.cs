@@ -12,7 +12,7 @@ namespace NSpectator.Describer
     [Category("DomainExtensions")]
     public class Describe_DomainExtensions
     {
-        abstract class indirectAbstractAncestor : nspec
+        abstract class indirectAbstractAncestor : Spec
         {
             void indirect_ancestor_method() { }
         }

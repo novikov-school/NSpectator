@@ -10,7 +10,7 @@ namespace NSpectator.Describer.describe_RunningSpecs.Exceptions
     [Category("RunningSpecs")]
     public class when_before_all_contains_exception : When_running_specs
     {
-        class SpecClass : nspec
+        class SpecClass : Spec
         {
             void method_level_context()
             {

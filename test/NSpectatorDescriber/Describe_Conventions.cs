@@ -10,7 +10,7 @@ namespace NSpectator.Describer
     {
         private Conventions conventions;
 
-        public class class_with_before : nspec
+        public class class_with_before : Spec
         {
             void before_each()
             {
@@ -29,7 +29,7 @@ namespace NSpectator.Describer
     [Category("Conventions")]
     public class specifying_new_before_convension
     {
-        public class ClassWithBefore : nspec
+        public class ClassWithBefore : Spec
         {
             void BeforeEach()
             {

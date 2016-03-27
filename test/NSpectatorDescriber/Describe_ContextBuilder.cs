@@ -55,7 +55,7 @@ namespace NSpecNUnit.when_building_contexts
 
         public class sibling : parent { }
 
-        public class parent : nspec { }
+        public class parent : Spec { }
 
         [SetUp]
         public void setup()
@@ -100,7 +100,7 @@ namespace NSpecNUnit.when_building_contexts
     [TestFixture]
     public class when_finding_method_level_examples : describe_ContextBuilder
     {
-        class class_with_method_level_example : nspec
+        class class_with_method_level_example : Spec
         {
             void it_should_be_considered_an_example() { }
 
@@ -176,7 +176,7 @@ namespace NSpecNUnit.when_building_contexts
     {
         private Context classContext;
 
-        private class SpecClass : nspec
+        private class SpecClass : Spec
         {
             public void public_method() { }
 
@@ -232,7 +232,7 @@ namespace NSpecNUnit.when_building_contexts
     public class when_building_class_and_method_contexts_with_tag_attributes : describe_ContextBuilder
     {
         [Tag("@class-tag")]
-        class SpecClass : nspec
+        class SpecClass : Spec
         {
             [Tag("@method-tag")]
             void public_method() { }
@@ -263,7 +263,7 @@ namespace NSpecNUnit.when_building_contexts
     [Category("ContextBuilder")]
     public class describe_second_order_inheritance : describe_ContextBuilder
     {
-        class base_spec : nspec { }
+        class base_spec : Spec { }
 
         class child_spec : base_spec { }
 

@@ -8,7 +8,7 @@ namespace NSpectator.Describer.WhenRunningSpecs
     [Category("RunningSpecs")]
     public class describe_xdescribe : When_running_specs
     {
-        class SpecClass : nspec
+        class SpecClass : Spec
         {
             void method_level_context()
             {

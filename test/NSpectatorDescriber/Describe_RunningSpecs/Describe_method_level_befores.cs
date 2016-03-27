@@ -11,7 +11,7 @@ namespace NSpectator.Describer.WhenRunningSpecs
     [Category("RunningSpecs")]
     public class describe_method_level_befores : When_running_specs
     {
-        class SpecClass : nspec
+        class SpecClass : Spec
         {
             public static Action ContextLevelBefore = () => { };
             public static Action SubContextBefore = () => { };

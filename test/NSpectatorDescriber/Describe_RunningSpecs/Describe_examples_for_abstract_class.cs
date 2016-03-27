@@ -8,7 +8,7 @@ namespace NSpectator.Describer.describe_RunningSpecs
     [TestFixture]
     class describe_examples_for_abstract_class : When_running_specs
     {
-        class Base : nspec
+        class Base : Spec
         {
             protected List<int> ints;
             

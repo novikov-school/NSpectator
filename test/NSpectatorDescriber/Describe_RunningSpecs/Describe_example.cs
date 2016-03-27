@@ -8,7 +8,7 @@ namespace NSpectator.Describer.WhenRunningSpecs
     [Category("RunningSpecs")]
     public class describe_example : When_running_specs
     {
-        class SpecClass : nspec
+        class SpecClass : Spec
         {
             void it_changes_status_after_run()
             {
@@ -52,7 +52,7 @@ namespace NSpectator.Describer.WhenRunningSpecs
             TheExample("it fails").should_have_failed();
         }
 
-        class SpecClassWithAnonymouseLambdas : nspec
+        class SpecClassWithAnonymouseLambdas : Spec
         {
             void describe_specs_with_anonymous_lambdas()
             {

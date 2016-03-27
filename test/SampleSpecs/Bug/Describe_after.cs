@@ -1,8 +1,15 @@
-﻿using NSpectator;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
+using NSpectator;
 
 namespace SampleSpecs.Bug
 {
-    public class describe_after : nspec
+    public class Describe_after : Spec
     {
         string sequence = "";
 

@@ -1,9 +1,16 @@
-﻿using NSpectator;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
+using NSpectator;
 using SampleSpecs.Model;
 
 namespace SampleSpecs.Demo
 {
-    class action_indexer_approach : nspec
+    class Action_indexer_approach : Spec
     {
         User user;
 

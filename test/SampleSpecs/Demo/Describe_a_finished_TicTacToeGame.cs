@@ -1,10 +1,17 @@
+#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
 using NSpectator;
 
 namespace SampleSpecs.Demo
 {
-    class describe_a_finished_TicTacToeGame : describe_TicTacToeGame
+    class Describe_a_finished_TicTacToeGame : Describe_TicTacToeGame
     {
-        void describe_a_draw()
+        void Describe_a_draw()
         {
             context["all squares taken with no 3 in a row"] = () =>
             {
@@ -20,7 +27,7 @@ namespace SampleSpecs.Demo
             };
         }
 
-        void describe_a_winning_game()
+        void Describe_a_winning_game()
         {
             players = new[] { "x", "o" };
 
@@ -79,6 +86,7 @@ namespace SampleSpecs.Demo
 
             return user = (user == "x") ? "y" : "x";
         }
+
         public string user;
     }
 }

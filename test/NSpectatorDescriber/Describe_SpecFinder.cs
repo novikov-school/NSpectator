@@ -10,25 +10,25 @@ using describe_SomeNameSpace;
 
 namespace NSpecNUnit
 {
-    public class SpecClass : nspec
+    public class SpecClass : Spec
     {
         public void public_method() { }
         private void private_method() { }
     }
 
-    public class AnotherSpecClass : nspec
+    public class AnotherSpecClass : Spec
     {
         void public_method() { }
     }
 
     public class NonSpecClass { }
 
-    public class SpecClassWithNoVoidMethods : nspec
+    public class SpecClassWithNoVoidMethods : Spec
     {
         string parameter_less_method() { return ""; }
     }
 
-    public class SpecClassWithNoParameterLessMethods : nspec
+    public class SpecClassWithNoParameterLessMethods : Spec
     {
         void private_method(string parameter) { }
 
@@ -203,7 +203,7 @@ namespace NSpecNUnit
 
 namespace describe_SomeNameSpace
 {
-    class SomeClass : nspec
+    class SomeClass : Spec
     {
         void context_method()
         {
@@ -230,7 +230,7 @@ namespace describe_SomeNameSpace
 
 namespace describe_OtherNameSpace
 {
-    class SomeClassInOtherNameSpace : nspec
+    class SomeClassInOtherNameSpace : Spec
     {
         void context_method()
         {

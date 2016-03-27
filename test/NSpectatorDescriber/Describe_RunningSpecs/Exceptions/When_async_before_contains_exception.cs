@@ -12,7 +12,7 @@ namespace NSpectator.Describer.describe_RunningSpecs.Exceptions
     [Category("Async")]
     public class when_async_before_contains_exception : When_running_specs
     {
-        class SpecClass : nspec
+        class SpecClass : Spec
         {
             void method_level_context()
             {

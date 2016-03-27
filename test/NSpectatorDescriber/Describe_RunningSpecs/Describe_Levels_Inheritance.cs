@@ -6,7 +6,7 @@ namespace NSpectator.Describer.describe_RunningSpecs
 {
     public class describe_Levels_Inheritance : When_running_specs
     {
-        class parent_context : nspec { }
+        class parent_context : Spec { }
 
         class child_context : parent_context
         {

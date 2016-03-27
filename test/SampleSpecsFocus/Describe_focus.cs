@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using NSpectator;
 
-public class describe_focus : nspec
+public class describe_focus : Spec
 {
     [Tag("focus")]
     void it_is_run() { }

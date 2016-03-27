@@ -8,7 +8,7 @@ namespace NSpectator.Describer.describe_RunningSpecs.describe_before_and_after
     [TestFixture]
     public class improperly_formed_context_methods : When_running_specs
     {
-        class before_all_sampleSpec : nspec
+        class before_all_sampleSpec : Spec
         {
             public static List<string> sequence = new List<string>();
 

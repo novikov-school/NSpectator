@@ -10,9 +10,9 @@ namespace NSpectator.Domain
         {
         }
 
-        public override void Run(nspec nspec)
+        public override void Run(Spec spec)
         {
-            method.Invoke(nspec, null);
+            method.Invoke(spec, null);
         }
     }
 }

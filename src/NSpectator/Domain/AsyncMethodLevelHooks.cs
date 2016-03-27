@@ -14,9 +14,9 @@ namespace NSpectator.Domain
             runner = new AsyncMethodRunner(method, hookName);
         }
 
-        public virtual void Run(nspec nspec)
+        public virtual void Run(Spec spec)
         {
-            runner.Run(nspec);
+            runner.Run(spec);
         }
 
         readonly AsyncMethodRunner runner;

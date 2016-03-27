@@ -1,34 +1,44 @@
-using NSpectator;
+#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
 using System.Threading.Tasks;
+using NSpectator;
+using SampleSpecs.Model;
 
-public class describe_async_helpers : nspec
+namespace SampleSpecs.WebSite
 {
-    void when_making_tea()
+    public class Describe_async_helpers : Spec
     {
-        context["that is 210 degrees"] = () =>
+        void When_making_tea()
         {
-            beforeAsync = async () => await MakeTeaAsync(210);
-            it["should be hot"] = () => tea.Taste().should_be("hot");
-        };
-        context["that is 90 degrees"] = () =>
+            context["that is 210 degrees"] = () =>
+            {
+                beforeAsync = async () => await MakeTeaAsync(210);
+                it["should be hot"] = () => tea.Taste().should_be("hot");
+            };
+            context["that is 90 degrees"] = () =>
+            {
+                beforeAsync = async () => await MakeTeaAsync(90);
+                it["should be cold"] = () => tea.Taste().should_be("cold");
+            };
+        }
+
+        //helper methods do not have underscores
+        async Task MakeTeaAsync(int temperature)
         {
-            beforeAsync = async () => await MakeTeaAsync(90);
-            it["should be cold"] = () => tea.Taste().should_be("cold");
-        };
+            tea = await Task.Run(() => new Tea(temperature));
+        }
+
+        Tea tea;
     }
 
-    //helper methods do not have underscores
-    async Task MakeTeaAsync(int temperature)
+    public static class describe_async_helpers_output
     {
-        tea = await Task.Run(() => new Tea(temperature));
-    }
-
-    Tea tea;
-}
-
-public static class describe_async_helpers_output
-{
-    public static string Output = @"
+        public static string Output = @"
 describe async helpers
   when making tea
     that is 210 degrees
@@ -39,5 +49,6 @@ describe async helpers
 2 Examples, 0 Failed, 0 Pending
 ";
 
-    public static int ExitCode = 0;
+        public static int ExitCode = 0;
+    }
 }

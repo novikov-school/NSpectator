@@ -2,7 +2,7 @@ using NSpectator;
 
 namespace NSpectator.Describer.ClassContextBug
 {
-    class Grand_Parent : nspec
+    class Grand_Parent : Spec
     {
         public string TestValue;
 

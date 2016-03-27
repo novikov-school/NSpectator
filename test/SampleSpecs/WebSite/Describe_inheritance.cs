@@ -17,7 +17,7 @@ public class given_the_sequence_continues_with_2 : given_the_sequence_starts_wit
     }
 }
 
-public class given_the_sequence_starts_with_1 : nspec
+public class given_the_sequence_starts_with_1 : Spec
 {
     void before_each()
     {

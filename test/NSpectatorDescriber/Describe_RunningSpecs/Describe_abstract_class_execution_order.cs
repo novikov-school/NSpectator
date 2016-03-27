@@ -8,7 +8,7 @@ namespace NSpectator.Describer.describe_RunningSpecs
     [TestFixture]
     public class describe_abstract_class_execution_order : When_running_specs
     {
-        abstract class Class1 : nspec
+        abstract class Class1 : Spec
         {
             public string beforeExecutionOrder = "", actExecutionOrder = "", afterExecutionOrder = "", allExecutions = "";
 

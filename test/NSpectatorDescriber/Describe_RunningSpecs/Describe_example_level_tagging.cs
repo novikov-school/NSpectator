@@ -7,7 +7,7 @@ namespace NSpectator.Describer.WhenRunningSpecs
     [Category("RunningSpecs")]
     public class describe_example_level_tagging : When_running_specs
     {
-        class SpecClass : nspec
+        class SpecClass : Spec
         {
             void has_tags_in_examples()
             {

@@ -8,7 +8,7 @@ namespace NSpectator.Describer.WhenRunningSpecs
     public class describe_tag_filtering : When_running_specs
     {
         [Tag("class-tag-zero")]
-        class SpecClass0 : nspec
+        class SpecClass0 : Spec
         {
             [Tag("method-tag-zero")]
             void it_has_an_empty_example()
@@ -17,7 +17,7 @@ namespace NSpectator.Describer.WhenRunningSpecs
             }
         }
 
-        abstract class SpecClassBase : nspec
+        abstract class SpecClassBase : Spec
         {
             void specify_empty_example()
             {
@@ -34,7 +34,7 @@ namespace NSpectator.Describer.WhenRunningSpecs
         }
 
         [Tag("class-tag")]
-        class SpecClass : nspec
+        class SpecClass : Spec
         {
             [Tag("method-tag-one")]
             void has_tag_at_method_level_context()
@@ -70,7 +70,7 @@ namespace NSpectator.Describer.WhenRunningSpecs
             }
         }
 
-        class SpecClass1 : nspec
+        class SpecClass1 : Spec
         {
             void filters_out_not_run_examples()
             {

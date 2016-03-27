@@ -11,7 +11,7 @@ namespace NSpectator.Describer.describe_RunningSpecs
     [TestFixture]
     public class describe_LiveFormatter_with_context_filter : When_running_specs
     {
-        class liveconsole_sample_spec : nspec
+        class liveconsole_sample_spec : Spec
         {
             void a_context_with_a_pending_example()
             {

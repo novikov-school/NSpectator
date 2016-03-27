@@ -7,7 +7,7 @@ namespace NSpectator.Domain
 {
     public class AsyncExample : ExampleBase
     {
-        public override void Run(nspec nspec)
+        public override void Run(Spec spec)
         {
             asyncAction.Offload();
         }
