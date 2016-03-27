@@ -6,7 +6,7 @@ using NUnit.Framework;
 namespace NSpecSpecs.describe_RunningSpecs
 {
     [TestFixture]
-    public class describe_abstract_class_execution_order : when_running_specs
+    public class describe_abstract_class_execution_order : When_running_specs
     {
         abstract class Class1 : nspec
         {

@@ -4,7 +4,7 @@ using NUnit.Framework;
 
 namespace NSpecSpecs
 {
-    public class describe_DefaultConventions
+    public class Describe_DefaultConventions
     {
         protected Conventions defaultConvention;
 
@@ -19,7 +19,7 @@ namespace NSpecSpecs
 
     [TestFixture]
     [Category("DefaultConvention")]
-    public class when_determining_before_methods : describe_DefaultConventions
+    public class when_determining_before_methods : Describe_DefaultConventions
     {
         [Test]
         public void should_match_before_each()
@@ -43,7 +43,7 @@ namespace NSpecSpecs
 
     [TestFixture]
     [Category("DefaultConvention")]
-    public class when_determining_act_methods : describe_DefaultConventions
+    public class when_determining_act_methods : Describe_DefaultConventions
     {
         [Test]
         public void should_match_act_each()
@@ -67,7 +67,7 @@ namespace NSpecSpecs
 
     [TestFixture]
     [Category("DefaultConvention")]
-    public class when_determining_example_methods : describe_DefaultConventions
+    public class when_determining_example_methods : Describe_DefaultConventions
     {
         [Test]
         public void should_match_it()
@@ -109,7 +109,7 @@ namespace NSpecSpecs
 
     [TestFixture]
     [Category("DefaultConvention")]
-    public class when_determining_context_methods : describe_DefaultConventions
+    public class when_determining_context_methods : Describe_DefaultConventions
     {
         [Test]
         public void should_be_match_describe_a_specification()

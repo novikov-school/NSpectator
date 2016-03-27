@@ -6,7 +6,7 @@ namespace NSpecSpecs.WhenRunningSpecs
 {
     [TestFixture]
     [Category("RunningSpecs")]
-    public class describe_example : when_running_specs
+    public class describe_example : When_running_specs
     {
         class SpecClass : nspec
         {

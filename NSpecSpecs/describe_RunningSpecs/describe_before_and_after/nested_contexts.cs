@@ -5,7 +5,7 @@ using NUnit.Framework;
 namespace NSpecSpecs.describe_RunningSpecs.describe_before_and_after
 {
     [TestFixture]
-    public class nested_contexts : when_running_specs
+    public class nested_contexts : When_running_specs
     {
         class SpecClass : sequence_spec
         {

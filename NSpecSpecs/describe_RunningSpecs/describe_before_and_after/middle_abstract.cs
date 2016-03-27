@@ -6,7 +6,7 @@ namespace NSpecSpecs.describe_RunningSpecs.describe_before_and_after
 {
     [TestFixture]
     [Category("RunningSpecs")]
-    public class middle_abstract : when_running_specs
+    public class middle_abstract : When_running_specs
     {
         class Base : sequence_spec
         {

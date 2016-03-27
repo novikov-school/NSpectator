@@ -7,7 +7,7 @@ namespace NSpecSpecs.describe_RunningSpecs.describe_before_and_after
 {
     [TestFixture]
     [Category("Async")]
-    public class async_inheritance : when_running_specs
+    public class async_inheritance : When_running_specs
     {
         class BaseSpec : sequence_spec
         {

@@ -6,7 +6,7 @@ using NUnit.Framework;
 namespace NSpecSpecs.describe_RunningSpecs
 {
     [TestFixture]
-    public class describe_fail_fast : when_running_specs
+    public class describe_fail_fast : When_running_specs
     {
         class SpecClass : nspec
         {

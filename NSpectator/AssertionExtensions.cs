@@ -11,23 +11,9 @@ namespace NSpectator
 {
     public static class AssertionExtensions
     {
-        public static void should<T>(this T o, Expression<Predicate<T>> predicate)
+        public static void Should<T>(this T o, Expression<Predicate<T>> predicate)
         {
-            // TODO: add because as lambda
             predicate.Compile()(o).Should().BeTrue(ExampleBase.Parse(predicate.Body));
-            // Assert.IsTrue(predicate.Compile()(o), ExampleBase.Parse(predicate.Body));
-        }
-
-        public static T should_not_be_null<T>(this T target) where T : class
-        {
-            target.Should().NotBeNull();
-            return target;
-        }
-
-        public static T? should_not_be_null<T>(this T? target) where T : struct
-        {
-            target.HasValue.Should().BeTrue();
-            return target;
         }
 
         public static T should_be_null<T>(this T target) where T : class
@@ -198,6 +184,7 @@ namespace NSpectator
             actual.ShouldBeCloseTo(expected, 0.0000001f);
         }
 
+       
         public static void is_close_to(this float actual, float expected, float tolerance){ actual.ShouldBeCloseTo(expected, tolerance);}
         public static void ShouldBeCloseTo(this float actual, float expected, float tolerance)
         {

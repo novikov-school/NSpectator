@@ -1,5 +1,6 @@
 using NSpectator;
 using System.Collections.Generic;
+using FluentAssertions;
 
 class multiple_befores : nspec
 {
@@ -9,7 +10,7 @@ class multiple_befores : nspec
     {
         before = () => ints = new List<int>();
 
-        it["the ints collection should not be null"] = () => ints.should_not_be_null();
+        it["the ints collection should not be null"] = () => ints.Should().NotBeNull();
 
         context["one item in list"] = () =>
         {

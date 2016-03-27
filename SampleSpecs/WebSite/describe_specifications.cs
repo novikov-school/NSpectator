@@ -1,4 +1,5 @@
 using NSpectator;
+using FluentAssertions;
 
 public class describe_specifications : nspec
 {
@@ -13,8 +14,8 @@ public class describe_specifications : nspec
         it["1 should be 1"] = () => 1.should_be(1);
         it["1 should not be 1"] = () => 1.should_not_be(1);
         it["1 should not be 2"] = () => 1.should_not_be(2);
-        it["\"\" should not be null"] = () => "".should_not_be_null();
-        it["some object should not be null"] = () => someObject.should_not_be_null();
+        it["\"\" should not be null"] = () => "".Should().NotBeNull();
+        it["some object should not be null"] = () => someObject.Should().NotBeNull();
         //EXPERIMENTAL - specify only takes a lambda and does
         //its best to make a sentence out of the code. YMMV.
         specify = ()=> "ninja".should_not_be("pirate");

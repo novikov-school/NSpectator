@@ -3,12 +3,13 @@ using System.Linq;
 using NSpectator;
 using NUnit.Framework;
 using System.Threading.Tasks;
+using FluentAssertions;
 
 namespace NSpecSpecs.WhenRunningSpecs
 {
     [TestFixture]
     [Category("RunningSpecs")]
-    public class describe_method_level_afters : when_running_specs
+    public class describe_method_level_afters : When_running_specs
     {
         class SpecClass : nspec
         {
@@ -53,7 +54,7 @@ namespace NSpecSpecs.WhenRunningSpecs
             // Could not find a way to actually verify that deep inside 
             // 'AfterInstance' there is a reference to 'SpecClass.after_each()'
 
-            classContext.AfterInstance.should_not_be_null();
+            classContext.AfterInstance.Should().NotBeNull();
         }
 
         [Test]

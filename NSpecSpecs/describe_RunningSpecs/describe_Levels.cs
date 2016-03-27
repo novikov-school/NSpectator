@@ -4,7 +4,7 @@ using NUnit.Framework;
 
 namespace NSpecSpecs.describe_RunningSpecs
 {
-    public class describe_Levels : when_running_specs
+    public class describe_Levels : When_running_specs
     {
         class describe_numbers : nspec
         {

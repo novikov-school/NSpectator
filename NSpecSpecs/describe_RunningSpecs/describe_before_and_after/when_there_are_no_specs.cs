@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace NSpecSpecs.describe_RunningSpecs.describe_before_and_after
 {
     [TestFixture]
-    public class when_there_are_no_specs : when_running_specs
+    public class when_there_are_no_specs : When_running_specs
     {
         [SetUp]
         public void setup()

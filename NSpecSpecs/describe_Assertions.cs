@@ -7,7 +7,7 @@ using FluentAssertions;
 namespace NSpecSpecs
 {
     // PlaceHolder for future
-    public class describe_Assertions {}
+    public class Describe_Assertions {}
 
     [TestFixture]
     public class when_comparing_two_objects
@@ -113,8 +113,8 @@ namespace NSpecSpecs
 		[Test]
 		public void given_a_non_null_class_instance_it_should_not_be_null()
 		{
-			((string)"").should_not_be_null();
-			(new List<int>()).should_not_be_null();
+			((string)"").Should().NotBeNull();
+			(new List<int>()).Should().NotBeNull();
 		}
 
 		[Test]
@@ -131,8 +131,8 @@ namespace NSpecSpecs
 		{
 			int? i = 2;
 			decimal? j = 3;
-			i.should_not_be_null();
-			j.should_not_be_null();
+		    i.Should().HaveValue();
+		    j.Should().HaveValue();
 		}
     }
 }

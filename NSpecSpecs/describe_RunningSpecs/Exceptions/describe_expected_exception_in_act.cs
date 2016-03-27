@@ -156,7 +156,7 @@ namespace NSpecSpecs.describe_RunningSpecs.Exceptions
         }
     }
 
-    public abstract class when_expecting_exception_in_act : when_running_specs
+    public abstract class when_expecting_exception_in_act : When_running_specs
     {
         [Test]
         public void should_be_three_failures()

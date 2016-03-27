@@ -6,7 +6,7 @@ using NUnit.Framework;
 namespace NSpecSpecs.describe_RunningSpecs
 {
     [TestFixture]
-    class describe_examples_for_abstract_class : when_running_specs
+    class describe_examples_for_abstract_class : When_running_specs
     {
         class Base : nspec
         {

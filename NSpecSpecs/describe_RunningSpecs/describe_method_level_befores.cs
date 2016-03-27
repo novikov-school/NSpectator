@@ -3,12 +3,13 @@ using System.Linq;
 using NSpectator;
 using NUnit.Framework;
 using System.Threading.Tasks;
+using FluentAssertions;
 
 namespace NSpecSpecs.WhenRunningSpecs
 {
     [TestFixture]
     [Category("RunningSpecs")]
-    public class describe_method_level_befores : when_running_specs
+    public class describe_method_level_befores : When_running_specs
     {
         class SpecClass : nspec
         {
@@ -53,7 +54,7 @@ namespace NSpecSpecs.WhenRunningSpecs
             // Could not find a way to actually verify that deep inside 
             // 'BeforeInstance' there is a reference to 'SpecClass.before_each()'
 
-            classContext.BeforeInstance.should_not_be_null();
+            classContext.BeforeInstance.Should().NotBeNull();
         }
 
         [Test]

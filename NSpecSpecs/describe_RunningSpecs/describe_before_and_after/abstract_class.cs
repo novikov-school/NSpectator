@@ -5,7 +5,7 @@ using NUnit.Framework;
 namespace NSpecSpecs.describe_RunningSpecs.describe_before_and_after
 {
     [TestFixture]
-    public class abstract_class : when_running_specs
+    public class Abstract_class : When_running_specs
     {
         abstract class Abstract : sequence_spec
         {

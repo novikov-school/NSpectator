@@ -6,7 +6,7 @@ using NUnit.Framework;
 namespace NSpecSpecs
 {
     [TestFixture]
-    public class describe_cecil
+    public class Describe_cecil
     {
         [Test, Ignore("It has to be completed yet")]
         public void it_reflects_methods()
