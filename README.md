@@ -9,14 +9,10 @@ NSpectator development was statarted by [Novikov Ivan](http://jonnynovikov.com),
 
 # Installation
 
-We recommended installing [the NuGet package](https://www.nuget.org/packages/NSpectator). Install on the command line from your solution directory:
-
-```bash
-cmd> nuget install NSpectator
-
-Or use the Package Manager console in Visual Studio:
+We recommended installing [the NuGet package](https://www.nuget.org/packages/NSpectator). Install on the command line from your solution directory or use the Package Manager console in Visual Studio:
 
 ```powershell
+
 PM> Install-Package NSpectator
 
 ```
