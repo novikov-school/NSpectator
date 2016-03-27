@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleSpecs", "SampleSpecs\SampleSpecs.csproj", "{DCE738AF-2C14-4279-96FB-16930BD1F459}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleSpecs", "test\SampleSpecs\SampleSpecs.csproj", "{DCE738AF-2C14-4279-96FB-16930BD1F459}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSpectator", "NSpectator\NSpectator.csproj", "{36862628-1F0C-4EA5-8963-C79BAF958DC1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSpectator", "src\NSpectator\NSpectator.csproj", "{36862628-1F0C-4EA5-8963-C79BAF958DC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSpecRunner", "NSpecRunner\NSpecRunner.csproj", "{24F513D3-3D65-42B9-893A-0D3196E45043}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSpecRunner", "tools\NSpecRunner\NSpecRunner.csproj", "{24F513D3-3D65-42B9-893A-0D3196E45043}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSpecSpecs", "NSpecSpecs\NSpecSpecs.csproj", "{DC55CE3B-BB8C-42BB-A363-D3F1ED825A86}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSpectatorDescriber", "test\NSpectatorDescriber\NSpectatorDescriber.csproj", "{DC55CE3B-BB8C-42BB-A363-D3F1ED825A86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSpec.GallioAdapter", "NSpec.GallioAdapter\NSpec.GallioAdapter.csproj", "{25B0B581-D3DD-4FE8-B7E9-DA6F86622E17}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSpec.GallioAdapter", "tools\NSpec.GallioAdapter\NSpec.GallioAdapter.csproj", "{25B0B581-D3DD-4FE8-B7E9-DA6F86622E17}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDNETRunner", "TDNETRunner\TDNETRunner.csproj", "{CF6C7612-7CBD-4259-AC3D-045C310BC37E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDNETRunner", "tools\TDNETRunner\TDNETRunner.csproj", "{CF6C7612-7CBD-4259-AC3D-045C310BC37E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{13126E01-6530-4761-909F-5A8BCE21FE13}"
 	ProjectSection(SolutionItems) = preProject
@@ -22,7 +22,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{39769B8A-A541-429F-B879-000698D23BF0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleSpecsFocus", "SampleSpecsFocus\SampleSpecsFocus.csproj", "{17D2A12B-FCB1-4528-BA18-80FCE760249B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleSpecsFocus", "test\SampleSpecsFocus\SampleSpecsFocus.csproj", "{17D2A12B-FCB1-4528-BA18-80FCE760249B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "spec", "spec", "{26AE14E5-CB42-48B3-AF58-563F9C783EE4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{D3F7937A-0B06-402D-A579-98DCFA0720DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -107,5 +111,13 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DCE738AF-2C14-4279-96FB-16930BD1F459} = {26AE14E5-CB42-48B3-AF58-563F9C783EE4}
+		{24F513D3-3D65-42B9-893A-0D3196E45043} = {D3F7937A-0B06-402D-A579-98DCFA0720DF}
+		{DC55CE3B-BB8C-42BB-A363-D3F1ED825A86} = {26AE14E5-CB42-48B3-AF58-563F9C783EE4}
+		{25B0B581-D3DD-4FE8-B7E9-DA6F86622E17} = {D3F7937A-0B06-402D-A579-98DCFA0720DF}
+		{CF6C7612-7CBD-4259-AC3D-045C310BC37E} = {D3F7937A-0B06-402D-A579-98DCFA0720DF}
+		{17D2A12B-FCB1-4528-BA18-80FCE760249B} = {26AE14E5-CB42-48B3-AF58-563F9C783EE4}
 	EndGlobalSection
 EndGlobal

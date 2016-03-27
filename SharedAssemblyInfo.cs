@@ -4,9 +4,9 @@
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("NSpectator")]
 [assembly: AssemblyProduct("NSpectator")]
-[assembly: AssemblyCopyright("Copyright (c) 2011 Matt Florence, Amir Rajan, Ivan Novikov. The NSpec and NSpectator Development Teams")]
+[assembly: AssemblyCopyright("Copyright (c) 2011-2016 Matt Florence, Amir Rajan, Ivan Novikov. The NSpec and NSpectator Development Teams")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
