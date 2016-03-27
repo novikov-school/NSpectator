@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <id>NSpectator</id>
+    <version>0.9.1</version>
+    <iconUrl>http://nspectator.org/assets/logo.png</iconUrl>
+    <licenseUrl>https://github.com/nspectator/NSpectator/blob/master/license.txt</licenseUrl>
+    <authors>Novikov Ivan, Matt Florence, Amir Rajan</authors>
+    <owners>Novikov Ivan</owners>
+    <projectUrl>http://www.nspectator.org</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>NSpectator is a BDD (Behavior Driven Development) framework for .NET of the xSpec (context/specification) flavor. NSpectator is intended to be used to drive development through specifying behavior at the unit level. NSpectator are heavily inspired by RSpec but more flexible than NSpec because it uses more flexible FluentAssertions library.</description>
+    <language>en-US</language>
+    <tags>testing bdd tdd</tags>
+  </metadata>
+  <files>
+    <file src="tools\NSpecRunner\bin\Debug\*.*" target="tools/"/>
+    <file src="src\NSpectator\bin\Debug\NSpectator.dll" target="lib\NSpectator.dll"/>
+    <file src="test\NSpectatorDescriber\DebuggerShim.cs" target="content\DebuggerShim.cs"/>
+  </files>
+</package>

@@ -3,7 +3,7 @@ using Gallio.Model.Tree;
 using NSpectator.Domain;
 using Reflector = Gallio.Common.Reflection.Reflector;
 
-namespace NSpectator.GallioAdapter.Model
+namespace NSpectator.GallioPlugin.Model
 {
     public class NSpecExampleTest : Test
     {

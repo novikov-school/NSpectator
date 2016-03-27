@@ -6,12 +6,12 @@ using Gallio.Model.Commands;
 using Gallio.Model.Contexts;
 using Gallio.Model.Helpers;
 using Gallio.Runtime.ProgressMonitoring;
-using NSpectator.GallioAdapter.Model;
+using NSpectator.GallioPlugin.Model;
 using TestStep = Gallio.Model.Tree.TestStep;
 
-namespace NSpectator.GallioAdapter.Services
+namespace NSpectator.GallioPlugin.Services
 {
-    public class NSpecController : TestController
+    public class NSpectatorController : TestController
     {
         protected override TestResult RunImpl(ITestCommand rootTestCommand, TestStep parentTestStep, TestExecutionOptions options, IProgressMonitor progressMonitor)
         {

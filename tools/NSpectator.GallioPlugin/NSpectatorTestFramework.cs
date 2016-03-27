@@ -2,17 +2,17 @@ using System.Collections.Generic;
 using Gallio.Model;
 using Gallio.Runtime.Extensibility;
 using Gallio.Runtime.Logging;
-using NSpectator.GallioAdapter.Services;
+using NSpectator.GallioPlugin.Services;
 
-namespace NSpectator.GallioAdapter
+namespace NSpectator.GallioPlugin
 {
     /// <summary>
     /// Builds a test object model based on reflection against NUnit framework attributes.
     /// </summary>
-    public class NSpecTestFramework : BaseTestFramework
+    public class NSpectatorTestFramework : BaseTestFramework
     {
         /// <inheritdoc />
-        sealed public override TestDriverFactory GetTestDriverFactory()
+        public sealed override TestDriverFactory GetTestDriverFactory()
         {
             return CreateTestDriver;
         }
@@ -22,7 +22,7 @@ namespace NSpectator.GallioAdapter
             TestFrameworkOptions testFrameworkOptions,
             ILogger logger)
         {
-            return new NSpecTestDriver();
+            return new NSpectatorTestDriver();
         }
     }
 }

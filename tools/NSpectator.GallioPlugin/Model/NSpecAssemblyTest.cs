@@ -2,7 +2,7 @@ using System;
 using Gallio.Common.Reflection;
 using Gallio.Model.Tree;
 
-namespace NSpectator.GallioAdapter.Model
+namespace NSpectator.GallioPlugin.Model
 {
     public class NSpecAssemblyTest : Test
     {
