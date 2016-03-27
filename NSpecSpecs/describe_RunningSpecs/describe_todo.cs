@@ -105,7 +105,7 @@ namespace NSpecSpecs.WhenRunningSpecs
         }
     }
 
-    public class describe_todo : when_running_specs
+    public class describe_todo : When_running_specs
     {
         protected ExampleBase ExampleFrom(Type type)
         {

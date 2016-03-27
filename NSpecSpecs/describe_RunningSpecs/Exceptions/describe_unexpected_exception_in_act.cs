@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace NSpecSpecs.describe_RunningSpecs.Exceptions
 {
     [TestFixture]
-    public class describe_unexpected_exception_in_act_and_in_example : when_running_specs
+    public class describe_unexpected_exception_in_act_and_in_example : When_running_specs
     {
         private class SpecClass : nspec
         {
@@ -43,7 +43,7 @@ namespace NSpecSpecs.describe_RunningSpecs.Exceptions
     }
 
     [TestFixture]
-    public class describe_unexpected_exception_in_act_but_not_example : when_running_specs
+    public class describe_unexpected_exception_in_act_but_not_example : When_running_specs
     {
         private class SpecClass : nspec
         {
@@ -78,7 +78,7 @@ namespace NSpecSpecs.describe_RunningSpecs.Exceptions
         }
     }
     [TestFixture]
-    public class describe_unexpected_exception_in_async_act_and_in_example : when_running_specs
+    public class describe_unexpected_exception_in_async_act_and_in_example : When_running_specs
     {
         private class SpecClass : nspec
         {
@@ -114,7 +114,7 @@ namespace NSpecSpecs.describe_RunningSpecs.Exceptions
     }
 
     [TestFixture]
-    public class describe_unexpected_exception_in_async_act_but_not_example : when_running_specs
+    public class describe_unexpected_exception_in_async_act_but_not_example : When_running_specs
     {
         private class SpecClass : nspec
         {

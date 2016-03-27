@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace NSpecSpecs.describe_RunningSpecs
 {
     [TestFixture]
-    public class describe_overriding_exception : when_running_specs
+    public class describe_overriding_exception : When_running_specs
     {
         class SpecClass : nspec
         {

@@ -10,7 +10,7 @@ namespace NSpecSpecs.describe_RunningSpecs.Exceptions
 {
     [TestFixture]
     [Category("RunningSpecs")]
-    public class describe_expected_exception : when_expecting_exception
+    public class Describe_expected_exception : when_expecting_exception
     {
         private class SpecClass : nspec
         {
@@ -40,7 +40,7 @@ namespace NSpecSpecs.describe_RunningSpecs.Exceptions
     [TestFixture]
     [Category("RunningSpecs")]
     [Category("Async")]
-    public class describe_async_expected_exception_before_awaiting_a_task : when_expecting_exception
+    public class Describe_async_expected_exception_before_awaiting_a_task : when_expecting_exception
     {
         private class SpecClass : nspec
         {
@@ -78,7 +78,7 @@ namespace NSpecSpecs.describe_RunningSpecs.Exceptions
     [TestFixture]
     [Category("RunningSpecs")]
     [Category("Async")]
-    public class describe_async_expected_exception_after_awaiting_a_task : when_expecting_exception
+    public class Describe_async_expected_exception_after_awaiting_a_task : when_expecting_exception
     {
         private class SpecClass : nspec
         {
@@ -126,7 +126,7 @@ namespace NSpecSpecs.describe_RunningSpecs.Exceptions
         }
     }
 
-    public abstract class when_expecting_exception : when_running_specs
+    public abstract class when_expecting_exception : When_running_specs
     {
         [Test]
         public void should_be_three_failures()

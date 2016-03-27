@@ -6,7 +6,7 @@ using NUnit.Framework;
 namespace NSpecSpecs.describe_RunningSpecs
 {
     [TestFixture]
-    public class describe_skipped_before_alls_when_excluded_by_tag : when_running_specs
+    public class describe_skipped_before_alls_when_excluded_by_tag : When_running_specs
     {
         class InnocentBystander : nspec
         {
@@ -46,7 +46,7 @@ namespace NSpecSpecs.describe_RunningSpecs
     }
 
     [TestFixture]
-    public class describe_skipped_after_alls_when_excluded_by_tag : when_running_specs
+    public class describe_skipped_after_alls_when_excluded_by_tag : When_running_specs
     {
         class InnocentBystander : nspec
         {

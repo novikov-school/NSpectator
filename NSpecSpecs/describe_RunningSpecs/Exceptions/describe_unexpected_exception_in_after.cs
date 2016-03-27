@@ -6,12 +6,13 @@ using System;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FluentAssertions;
 
 namespace NSpecSpecs.describe_RunningSpecs.Exceptions
 {
     [TestFixture]
     [Category("RunningSpecs")]
-    public class describe_unexpected_exception_in_after : when_running_specs
+    public class describe_unexpected_exception_in_after : When_running_specs
     {
         private class SpecClass : nspec
         {
@@ -48,7 +49,7 @@ namespace NSpecSpecs.describe_RunningSpecs.Exceptions
         {
             var example = TheExample("fails because of same exception thrown again in after");
 
-            example.Exception.should_not_be_null();
+            example.Exception.Should().NotBeNull();
             example.Exception.GetType().should_be(typeof(ExampleFailureException));
         }
 
@@ -57,7 +58,7 @@ namespace NSpecSpecs.describe_RunningSpecs.Exceptions
         {
             var example = TheExample("fails because of different exception thrown in after");
 
-            example.Exception.should_not_be_null();
+            example.Exception.Should().NotBeNull();
             example.Exception.GetType().should_be(typeof(ExampleFailureException));
         }
     }

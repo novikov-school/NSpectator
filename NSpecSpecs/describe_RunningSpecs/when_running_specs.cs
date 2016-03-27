@@ -9,7 +9,7 @@ using NUnit.Framework;
 namespace NSpecSpecs.WhenRunningSpecs
 {
     [TestFixture]
-    public class when_running_specs
+    public class When_running_specs
     {
         [SetUp]
         public void InitializeRunnerInvocation()
@@ -17,7 +17,7 @@ namespace NSpecSpecs.WhenRunningSpecs
             formatter = new FormatterStub();
         }
 
-        protected when_running_specs Run(params Type[] types)
+        protected When_running_specs Run(params Type[] types)
         {
             //if (types.Count() == 1) tags = types.First().Name;
 

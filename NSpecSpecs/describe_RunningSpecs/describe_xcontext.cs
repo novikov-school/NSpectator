@@ -7,7 +7,7 @@ namespace NSpecSpecs.WhenRunningSpecs
 {
     [TestFixture]
     [Category("RunningSpecs")]
-    public class describe_it_behaviour_in_xcontext : when_running_specs
+    public class describe_it_behaviour_in_xcontext : When_running_specs
     {
         class SpecClass : nspec
         {
@@ -36,7 +36,7 @@ namespace NSpecSpecs.WhenRunningSpecs
 
     [TestFixture]
     [Category("RunningSpecs")]
-    public class describe_xcontext : when_running_specs
+    public class describe_xcontext : When_running_specs
     {
         class SpecClass : nspec
         {

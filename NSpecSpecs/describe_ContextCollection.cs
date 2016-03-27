@@ -8,7 +8,7 @@ namespace NSpecSpecs
 {
     [TestFixture]
     [Category("ContextCollection")]
-    public class describe_ContextCollection
+    public class Describe_ContextCollection
     {
         private ContextCollection contexts;
 

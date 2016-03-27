@@ -9,7 +9,7 @@ using NUnit.Framework;
 namespace NSpecSpecs.describe_RunningSpecs
 {
     [TestFixture]
-    public class describe_LiveFormatter_with_context_filter : when_running_specs
+    public class describe_LiveFormatter_with_context_filter : When_running_specs
     {
         class liveconsole_sample_spec : nspec
         {

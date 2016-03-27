@@ -10,7 +10,7 @@ namespace NSpecSpecs
 {
     [TestFixture]
     [Category("DomainExtensions")]
-    public class describe_DomainExtensions
+    public class Describe_DomainExtensions
     {
         abstract class indirectAbstractAncestor : nspec
         {

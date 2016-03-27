@@ -7,10 +7,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FluentAssertions;
 
 namespace NSpecSpecs.describe_RunningSpecs
 {
-    public abstract class when_describing_async_hooks : when_running_specs
+    public abstract class when_describing_async_hooks : When_running_specs
     {
         protected class BaseSpecClass : nspec
         {
@@ -77,7 +78,7 @@ namespace NSpecSpecs.describe_RunningSpecs
 
             example.HasRun.should_be_true();
 
-            example.Exception.should_not_be_null();
+            example.Exception.Should().NotBeNull();
         }
     }
 }

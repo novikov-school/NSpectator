@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FluentAssertions;
 
 namespace NSpecSpecs.WhenRunningSpecs
 {
@@ -42,8 +43,9 @@ namespace NSpecSpecs.WhenRunningSpecs
             RunWithReflector(typeof(AsyncSpecClass));
         }
 
-        protected override bool FirstExampleExecuted { get { return AsyncSpecClass.first_async_example_executed; } }
-        protected override bool LastExampleExecuted { get { return AsyncSpecClass.last_async_example_executed; } }
+        protected override bool FirstExampleExecuted => AsyncSpecClass.first_async_example_executed;
+
+        protected override bool LastExampleExecuted => AsyncSpecClass.last_async_example_executed;
     }
 
     [TestFixture]
@@ -81,7 +83,7 @@ namespace NSpecSpecs.WhenRunningSpecs
         [Test]
         public void async_example_with_result_should_fail()
         {
-            classContext.Examples[0].Exception.should_not_be_null();
+            classContext.Examples[0].Exception.Should().NotBeNull();
         }
 
         [Test]
@@ -93,7 +95,7 @@ namespace NSpecSpecs.WhenRunningSpecs
         [Test]
         public void async_example_with_void_should_fail()
         {
-            classContext.Examples[1].Exception.should_not_be_null();
+            classContext.Examples[1].Exception.Should().NotBeNull();
         }
     }
 }

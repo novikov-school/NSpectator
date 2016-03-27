@@ -4,7 +4,7 @@ using NUnit.Framework;
 
 namespace NSpecSpecs.describe_RunningSpecs
 {
-    public class describe_Levels_Inheritance : when_running_specs
+    public class describe_Levels_Inheritance : When_running_specs
     {
         class parent_context : nspec { }
 

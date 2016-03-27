@@ -4,7 +4,7 @@ using NUnit.Framework;
 namespace NSpecSpecs.WhenRunningSpecs
 {
     [TestFixture]
-    public class describe_context_level_tagging : when_running_specs
+    public class describe_context_level_tagging : When_running_specs
     {
         class SpecClass : nspec
         {

@@ -8,7 +8,7 @@ namespace NSpecSpecs.describe_RunningSpecs.describe_before_and_after
     [TestFixture]
     [Category("RunningSpecs")]
     [Category("Async")]
-    public class async_middle_abstract : when_running_specs
+    public class async_middle_abstract : When_running_specs
     {
         class Base : sequence_spec
         {

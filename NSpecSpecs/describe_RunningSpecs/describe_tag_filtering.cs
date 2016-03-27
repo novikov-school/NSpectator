@@ -5,7 +5,7 @@ using NUnit.Framework;
 namespace NSpecSpecs.WhenRunningSpecs
 {
     [TestFixture]
-    public class describe_tag_filtering : when_running_specs
+    public class describe_tag_filtering : When_running_specs
     {
         [Tag("class-tag-zero")]
         class SpecClass0 : nspec

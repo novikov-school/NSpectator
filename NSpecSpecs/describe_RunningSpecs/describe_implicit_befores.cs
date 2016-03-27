@@ -8,7 +8,7 @@ namespace NSpecSpecs.WhenRunningSpecs
 {
     [TestFixture]
     [Category("RunningSpecs")]
-    public class describe_implicit_befores : when_running_specs
+    public class describe_implicit_befores : When_running_specs
     {
         class SpecClass : nspec
         {

@@ -10,7 +10,7 @@ namespace NSpecSpecs.describe_RunningSpecs.Exceptions
     [TestFixture]
     [Category("RunningSpecs")]
     [Category("Async")]
-    public class when_async_act_contains_exception : when_running_specs
+    public class when_async_act_contains_exception : When_running_specs
     {
         private class SpecClass : nspec
         {
