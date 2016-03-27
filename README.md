@@ -5,7 +5,21 @@
 NSpectator is inspired by [RSpec](http://rspec.info/) and originally based on [NSpec](https://github.com/mattflo/NSpec) BDD framework for .NET of the xSpec (context/specification) flavor. NSpectator is intended to be used to drive development through specifying behavior at the unit level. 
 NSpectator using more flexible [FluentAssertions](https://github.com/dennisdoomen/fluentassertions) library. It`s important not to depend on specific unit test framework.
 
-NSpec is written by [Matt Florence](http://twitter.com/mattflo) and [Amir Rajan] (http://twitter.com/amirrajan). They shaped and benefited by hard work from our [contributors](https://github.com/mattflo/NSpec/contributors)
+NSpectator development was statarted by [Novikov Ivan](http://jonnynovikov.com), it`s parent is written by [Matt Florence](http://twitter.com/mattflo) and [Amir Rajan] (http://twitter.com/amirrajan). They shaped and benefited by hard work from our [contributors](https://github.com/mattflo/NSpec/contributors)
+
+# Installation
+
+We recommended installing [the NuGet package](https://www.nuget.org/packages/NSpectator). Install on the command line from your solution directory:
+
+```bash
+cmd> nuget install NSpectator
+
+Or use the Package Manager console in Visual Studio:
+
+```powershell
+PM> Install-Package NSpectator
+
+```
 
 ## Additional info
 
