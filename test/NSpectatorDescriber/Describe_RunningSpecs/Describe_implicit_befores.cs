@@ -10,7 +10,7 @@ namespace NSpectator.Describer.WhenRunningSpecs
     [Category("RunningSpecs")]
     public class describe_implicit_befores : When_running_specs
     {
-        class SpecClass : nspec
+        class SpecClass : Spec
         {
             void method_level_context()
             {

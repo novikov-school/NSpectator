@@ -9,7 +9,7 @@ namespace NSpectator.Describer.describe_RunningSpecs
     [TestFixture]
     public class describe_abstract_class_examples : When_running_specs
     {
-        abstract class AbstractClass : nspec
+        abstract class AbstractClass : Spec
         {
             void specify_an_example_in_abstract_class()
             {

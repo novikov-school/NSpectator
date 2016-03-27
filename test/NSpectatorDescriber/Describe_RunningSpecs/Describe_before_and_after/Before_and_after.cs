@@ -4,7 +4,7 @@ using NUnit.Framework;
 
 namespace NSpectator.Describer.describe_RunningSpecs.describe_before_and_after
 {
-    class sequence_spec : nspec { public static string sequence; }
+    class sequence_spec : Spec { public static string sequence; }
 
     [TestFixture]
     [Category("RunningSpecs")]

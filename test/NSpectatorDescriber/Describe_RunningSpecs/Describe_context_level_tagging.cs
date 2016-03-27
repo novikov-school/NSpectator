@@ -6,7 +6,7 @@ namespace NSpectator.Describer.WhenRunningSpecs
     [TestFixture]
     public class describe_context_level_tagging : When_running_specs
     {
-        class SpecClass : nspec
+        class SpecClass : Spec
         {
             void has_tags_in_contexts()
             {

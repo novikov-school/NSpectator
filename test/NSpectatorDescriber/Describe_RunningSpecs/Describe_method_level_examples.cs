@@ -13,7 +13,7 @@ namespace NSpectator.Describer.WhenRunningSpecs
     [Category("RunningSpecs")]
     public class describe_method_level_examples : describe_method_level_examples_common_cases
     {
-        class SpecClass : nspec
+        class SpecClass : Spec
         {
             public static bool first_example_executed, last_example_executed;
 

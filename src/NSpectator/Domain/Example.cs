@@ -6,7 +6,7 @@ namespace NSpectator.Domain
 {
     public class Example : ExampleBase
     {
-        public override void Run(nspec nspec)
+        public override void Run(Spec spec)
         {
             action();
         }

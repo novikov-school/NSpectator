@@ -1,6 +1,7 @@
 using NSpectator;
+using SampleSpecs.Model;
 
-public class describe_contexts : nspec
+public class describe_contexts : Spec
 {
     //context methods require an underscore. For more info see DefaultConventions.cs.
     void describe_Account()

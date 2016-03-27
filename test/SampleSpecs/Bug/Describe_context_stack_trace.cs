@@ -1,13 +1,20 @@
-﻿using System;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
+using System;
 using NSpectator;
 
 namespace SampleSpecs.Bug
 {
-    public class describe_context_stack_trace : nspec
+    public class Describe_context_stack_trace : Spec
     {
         bool isTrue = false;
 
-        void exception_thrown_in_act()
+        void Exception_thrown_in_act()
         {
             act = () =>
             {
@@ -25,7 +32,7 @@ namespace SampleSpecs.Bug
         }
     }
 
-    public static class describe_context_stack_trace_output
+    public static class Describe_context_stack_trace_output
     {
         public static string Output = @"
 describe context stack trace

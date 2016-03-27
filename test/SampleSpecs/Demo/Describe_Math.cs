@@ -1,17 +1,29 @@
-﻿using NSpectator;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
 
-class describe_Math : nspec
+using NSpectator;
+using FluentAssertions;
+
+namespace SampleSpecs.Demo
 {
-    void verify_strictly_increasing_numbers()
+    class Describe_Math : Spec
     {
-        new[]
-        { 
-            1, 2, 3, 
-            4, 5, 6, 
-            7, 8, 9
-        }.EachConsecutive2(
-            (smaller, larger) =>
-                it["{0} should be greater than {1}".With(larger, smaller)] =
-                    () => larger.should_be_greater_than(smaller));
+        void Verify_strictly_increasing_numbers()
+        {
+            new[]
+                {
+                1, 2, 3,
+                4, 5, 6,
+                7, 8, 9
+                }.EachConsecutive2(
+                    (smaller, larger) =>
+                        it["{0} should be greater than {1}".With(larger, smaller)] =
+                            () => larger.Should().BeGreaterThan(smaller));
+        }
     }
 }

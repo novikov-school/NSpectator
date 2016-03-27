@@ -1,6 +1,6 @@
 ﻿using NSpectator;
 
-public class my_first_spec : nspec
+public class my_first_spec : Spec
 {
     void given_the_world_has_not_come_to_an_end()
     {

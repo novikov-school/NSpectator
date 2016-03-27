@@ -1,7 +1,7 @@
 ﻿using System;
 using NSpectator;
 
-public class describe_exception : nspec
+public class describe_exception : Spec
 {
     void given_a_null_string()
     {

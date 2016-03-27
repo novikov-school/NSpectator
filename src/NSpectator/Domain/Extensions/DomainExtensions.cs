@@ -17,7 +17,7 @@ namespace NSpectator.Domain.Extensions
         {
             var flags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.DeclaredOnly;
 
-            var exclusions = typeof(nspec).GetMethods(flags).Select(m => m.Name);
+            var exclusions = typeof(Spec).GetMethods(flags).Select(m => m.Name);
 
             var methodInfos = type.GetAbstractBaseClassChainWithClass().SelectMany(t => t.GetMethods(flags));
 
@@ -32,7 +32,7 @@ namespace NSpectator.Domain.Extensions
         {
             var flags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.DeclaredOnly;
 
-            var exclusions = typeof(nspec).GetMethods(flags).Select(m => m.Name);
+            var exclusions = typeof(Spec).GetMethods(flags).Select(m => m.Name);
 
             var methodInfos = type.GetAbstractBaseClassChainWithClass().SelectMany(t => t.GetMethods(flags));
 

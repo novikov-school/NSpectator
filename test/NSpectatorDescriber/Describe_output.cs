@@ -8,6 +8,7 @@ using NSpectator;
 using NSpectator.Domain;
 using NSpectator.Domain.Formatters;
 using SampleSpecs.Bug;
+using SampleSpecs.WebSite;
 
 namespace NSpectator.Describer
 {
@@ -22,7 +23,7 @@ namespace NSpectator.Describer
                   new [] { typeof(describe_specifications) },
                   ""),
          TestCase(typeof(describe_before_output),
-                  new [] { typeof(describe_before) },
+                  new [] { typeof(Describe_before) },
                   ""),
          TestCase(typeof(describe_contexts_output),
                   new [] { typeof(describe_contexts) },
@@ -34,10 +35,10 @@ namespace NSpectator.Describer
                   new [] { typeof(describe_helpers) },
                   ""),
          TestCase(typeof(describe_async_helpers_output),
-                  new [] { typeof(describe_async_helpers) },
+                  new [] { typeof(Describe_async_helpers) },
                   ""),
          TestCase(typeof(describe_batman_sound_effects_as_text_output),
-                  new [] { typeof(describe_batman_sound_effects_as_text) },
+                  new [] { typeof(Describe_batman_sound_effects_as_text) },
                   ""),
          TestCase(typeof(describe_class_level_output),
                   new [] { typeof(describe_class_level) },
@@ -52,8 +53,8 @@ namespace NSpectator.Describer
          TestCase(typeof(describe_exception_output),
                   new [] { typeof(describe_exception) },
                   ""),
-         TestCase(typeof(describe_context_stack_trace_output),
-                  new [] { typeof(describe_context_stack_trace) },
+         TestCase(typeof(Describe_context_stack_trace_output),
+                  new [] { typeof(Describe_context_stack_trace) },
                   ""),
          TestCase(typeof(describe_ICollection_output),
                   new []
@@ -63,11 +64,11 @@ namespace NSpectator.Describer
                       typeof(describe_List)
                   },
                   ""),
-         TestCase(typeof(describe_changing_stacktrace_message_output),
-                  new [] { typeof(describe_changing_stacktrace_message) },
+         TestCase(typeof(Describe_changing_stacktrace_message_output),
+                  new [] { typeof(Describe_changing_stacktrace_message) },
                   ""),
          TestCase(typeof(describe_changing_failure_exception_output),
-                  new [] { typeof(describe_changing_failure_exception) },
+                  new [] { typeof(Describe_changing_failure_exception) },
                   ""),
          TestCase(typeof(describe_focus_output),
                   new [] { typeof(describe_focus) },

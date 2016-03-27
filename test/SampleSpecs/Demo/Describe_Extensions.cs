@@ -1,15 +1,23 @@
+#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
 using NSpectator;
+using FluentAssertions;
 
 namespace SampleSpecs.Demo
 {
-    class describe_Extensions : nspec
+    class Describe_Extensions : Spec
     {
-        void when_creating_ranges()
+        void When_creating_ranges()
         {
-            it["1.To(2) should be [1,2]"]= () => 1.To(2).should_be(1,2); 
+            it["1.To(2) should be [1,2]"]= () => 1.To(2).Should().Equal(1, 2);
         }
 
-        void describe_Flatten()
+        void Describe_Flatten()
         {
             it["[\"fifty\",\"two\"] should be fiftytwo"] = () => new[] { "fifty", "two" }.Flatten(",").should_be("fifty,two");
         }

@@ -8,7 +8,7 @@ namespace NSpectator.Describer.describe_RunningSpecs
     [TestFixture]
     public class describe_fail_fast : When_running_specs
     {
-        class SpecClass : nspec
+        class SpecClass : Spec
         {
             void given_a_spec_with_multiple_failures()
             {

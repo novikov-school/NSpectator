@@ -17,7 +17,7 @@ namespace NSpectator.Domain
 
             var specClasses = finder.SpecClasses();
 
-            var container = new ClassContext(typeof(nspec), conventions, tagsFilter);
+            var container = new ClassContext(typeof(Spec), conventions, tagsFilter);
 
             Build(container, specClasses);
 

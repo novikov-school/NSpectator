@@ -1,6 +1,7 @@
 using NSpectator;
+using SampleSpecs.Model;
 
-public class describe_helpers : nspec
+public class describe_helpers : Spec
 {
     void when_making_tea()
     {

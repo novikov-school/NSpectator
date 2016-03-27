@@ -11,7 +11,7 @@ namespace NSpectator.Describer.WhenRunningSpecs
     [Category("RunningSpecs")]
     public class using_xit : describe_todo
     {
-        class XitClass : nspec
+        class XitClass : Spec
         {
             void method_level_context()
             {
@@ -31,7 +31,7 @@ namespace NSpectator.Describer.WhenRunningSpecs
     [Category("Async")]
     public class using_async_xit : describe_todo
     {
-        class AsyncXitClass : nspec
+        class AsyncXitClass : Spec
         {
             void method_level_context()
             {
@@ -50,7 +50,7 @@ namespace NSpectator.Describer.WhenRunningSpecs
     [Category("RunningSpecs")]
     public class using_todo : describe_todo
     {
-        class TodoClass : nspec
+        class TodoClass : Spec
         {
             void method_level_context()
             {
@@ -70,7 +70,7 @@ namespace NSpectator.Describer.WhenRunningSpecs
     [Category("Async")]
     public class using_async_todo : describe_todo
     {
-        class AsyncTodoClass : nspec
+        class AsyncTodoClass : Spec
         {
             void method_level_context()
             {
@@ -89,7 +89,7 @@ namespace NSpectator.Describer.WhenRunningSpecs
     [Category("RunningSpecs")]
     public class using_todo_with_throwing_before : describe_todo
     {
-        class TodoClass : nspec
+        class TodoClass : Spec
         {
             void method_level_context()
             {

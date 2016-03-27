@@ -1,17 +1,20 @@
 ﻿using System;
 
-internal class Account
+namespace SampleSpecs.Model
 {
-    public decimal Balance { get; set; }
-
-    public bool CanWithdraw(int amount)
+    internal class Account
     {
-        return amount <= Balance;
-    }
+        public decimal Balance { get; set; }
 
-    public void Withdraw(int amount)
-    {
-        throw new Exception();
-        //if (amount < 0) throw new InvalidOperationException();
+        public bool CanWithdraw(int amount)
+        {
+            return amount <= Balance;
+        }
+
+        public void Withdraw(int amount)
+        {
+            throw new Exception();
+            //if (amount < 0) throw new InvalidOperationException();
+        }
     }
 }

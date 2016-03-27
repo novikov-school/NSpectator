@@ -1,4 +1,11 @@
-﻿using System;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
+using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using NSpectator;
@@ -6,13 +13,13 @@ using FluentAssertions;
 
 namespace SampleSpecs.Bug
 {
-    public class describe_failing_deserialization : nspec
+    public class Describe_failing_deserialization : Spec
     {
         MemoryStream stream;
         BinaryFormatter formatter;
         object _object;
 
-        void when_serializing_objects()
+        void When_serializing_objects()
         {
             before = () =>
             {

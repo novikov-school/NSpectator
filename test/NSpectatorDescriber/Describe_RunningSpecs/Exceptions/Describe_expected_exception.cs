@@ -12,7 +12,7 @@ namespace NSpectator.Describer.describe_RunningSpecs.Exceptions
     [Category("RunningSpecs")]
     public class Describe_expected_exception : when_expecting_exception
     {
-        private class SpecClass : nspec
+        private class SpecClass : Spec
         {
             void method_level_context()
             {
@@ -42,7 +42,7 @@ namespace NSpectator.Describer.describe_RunningSpecs.Exceptions
     [Category("Async")]
     public class Describe_async_expected_exception_before_awaiting_a_task : when_expecting_exception
     {
-        private class SpecClass : nspec
+        private class SpecClass : Spec
         {
             void method_level_context()
             {
@@ -80,7 +80,7 @@ namespace NSpectator.Describer.describe_RunningSpecs.Exceptions
     [Category("Async")]
     public class Describe_async_expected_exception_after_awaiting_a_task : when_expecting_exception
     {
-        private class SpecClass : nspec
+        private class SpecClass : Spec
         {
             void method_level_context()
             {

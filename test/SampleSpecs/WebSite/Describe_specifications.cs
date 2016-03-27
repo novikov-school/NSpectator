@@ -1,7 +1,7 @@
 using NSpectator;
 using FluentAssertions;
 
-public class describe_specifications : nspec
+public class describe_specifications : Spec
 {
     void when_creating_specifications()
     {

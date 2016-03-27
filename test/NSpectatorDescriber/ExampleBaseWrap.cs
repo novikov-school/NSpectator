@@ -24,7 +24,7 @@ namespace NSpectator.Describer
         {
         }
 
-        public override void Run(nspec nspec)
+        public override void Run(Spec spec)
         {
             throw new NotImplementedException();
         }

@@ -9,9 +9,9 @@ namespace NSpectator
     /// Inherit from this class to create your own specifications.  NSpecRunner will look through your project for
     /// classes that derive from this class (inheritance chain is taken into consideration).
     /// </summary>
-    public class nspec
+    public class Spec
     {
-        public nspec()
+        public Spec()
         {
             context = new ActionRegister(AddContext);
             xcontext = new ActionRegister(AddIgnoredContext);

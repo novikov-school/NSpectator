@@ -43,7 +43,7 @@ namespace NSpecNUnit
         }
     }
 
-    public class Parent_act : nspec
+    public class Parent_act : Spec
     {
         public string actResult;
         void act_each()
@@ -90,7 +90,7 @@ namespace NSpecNUnit
         }
     }
 
-    public class Parent_before : nspec
+    public class Parent_before : Spec
     {
         public string beforeResult;
         void before_each()

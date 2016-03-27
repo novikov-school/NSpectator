@@ -5,7 +5,7 @@ using NSpectator;
 
 namespace SampleSpecs.Compare.NSpec
 {
-    class VendingMachineSpec : nspec
+    class VendingMachineSpec : Spec
     {
         void given_new_vending_machine()
         {

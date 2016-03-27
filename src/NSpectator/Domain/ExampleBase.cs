@@ -24,7 +24,7 @@ namespace NSpectator.Domain
             return Parse(exp.Body);
         }
 
-        public abstract void Run(nspec nspec);
+        public abstract void Run(Spec spec);
 
         public string FullName()
         {

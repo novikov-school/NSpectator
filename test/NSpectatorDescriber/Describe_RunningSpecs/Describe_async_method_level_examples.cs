@@ -14,7 +14,7 @@ namespace NSpectator.Describer.WhenRunningSpecs
     [Category("Async")]
     public class describe_async_method_level_examples : describe_method_level_examples_common_cases
     {
-        class AsyncSpecClass : nspec
+        class AsyncSpecClass : Spec
         {
             public static bool first_async_example_executed, last_async_example_executed;
 
@@ -53,7 +53,7 @@ namespace NSpectator.Describer.WhenRunningSpecs
     [Category("Async")]
     public class describe_async_wrong_method_level_examples : when_running_method_level_examples
     {
-        class WrongAsyncSpecClass : nspec
+        class WrongAsyncSpecClass : Spec
         {
             async Task<long> it_should_be_failing_with_task_result()
             {

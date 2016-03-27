@@ -8,7 +8,7 @@ namespace NSpectator.Domain
 {
     public class ClassContext : Context
     {
-        public override void Build(nspec instance = null)
+        public override void Build(Spec instance = null)
         {
             BuildMethodLevelBefore();
 
@@ -20,7 +20,7 @@ namespace NSpectator.Domain
 
             BuildMethodLevelAfterAll();
 
-            var nspec = type.Instance<nspec>();
+            var nspec = type.Instance<Spec>();
 
             nspec.tagsFilter = tagsFilter ?? new Tags();
 
@@ -136,7 +136,7 @@ namespace NSpectator.Domain
 
             this.tagsFilter = tagsFilter;
 
-            if (type != typeof(nspec))
+            if (type != typeof(Spec))
             {
                 classHierarchyToClass.AddRange(type.GetAbstractBaseClassChainWithClass());
             }

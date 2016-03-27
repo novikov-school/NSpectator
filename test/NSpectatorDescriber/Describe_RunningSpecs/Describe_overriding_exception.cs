@@ -12,7 +12,7 @@ namespace NSpectator.Describer.describe_RunningSpecs
     [TestFixture]
     public class describe_overriding_exception : When_running_specs
     {
-        class SpecClass : nspec
+        class SpecClass : Spec
         {
             void before_each()
             {

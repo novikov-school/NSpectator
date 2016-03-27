@@ -9,7 +9,7 @@ namespace NSpectator.Domain
 {
     public class Context
     {
-        public void RunBefores(nspec instance)
+        public void RunBefores(Spec instance)
         {
             // parent chain
 
@@ -38,7 +38,7 @@ namespace NSpectator.Domain
             BeforeAsync.SafeInvoke();
         }
 
-        void RunBeforeAll(nspec instance)
+        void RunBeforeAll(Spec instance)
         {
             // context-level
 
@@ -63,7 +63,7 @@ namespace NSpectator.Domain
             BeforeAllInstanceAsync.SafeInvoke(instance);
         }
 
-        public void RunActs(nspec instance)
+        public void RunActs(Spec instance)
         {
             // parent chain
 
@@ -92,7 +92,7 @@ namespace NSpectator.Domain
             ActAsync.SafeInvoke();
         }
 
-        public void RunAfters(nspec instance)
+        public void RunAfters(Spec instance)
         {
             // context-level
 
@@ -121,7 +121,7 @@ namespace NSpectator.Domain
             RecurseAncestors(c => c.RunAfters(instance));
         }
 
-        public void RunAfterAll(nspec instance)
+        public void RunAfterAll(Spec instance)
         {
             // context-level
 
@@ -190,7 +190,7 @@ namespace NSpectator.Domain
         /// Here all contexts and all their examples are run, collecting distinct exceptions 
         /// from context itself (befores/ acts/ it/ afters), beforeAll, afterAll.
         /// </remarks>
-        public virtual void Run(ILiveFormatter formatter, bool failFast, nspec instance = null)
+        public virtual void Run(ILiveFormatter formatter, bool failFast, Spec instance = null)
         {
             if (failFast && Parent.HasAnyFailures()) return;
 
@@ -259,7 +259,7 @@ namespace NSpectator.Domain
             Contexts.Do(c => c.AssignExceptions(inheritedBeforeAllException, inheritedAfterAllException));
         }
 
-        public virtual void Build(nspec instance = null)
+        public virtual void Build(Spec instance = null)
         {
             instance.Context = this;
 
@@ -273,23 +273,23 @@ namespace NSpectator.Domain
             return Parent != null ? Parent.FullContext() + ". " + Name : Name;
         }
 
-        public bool RunAndHandleException(Action<nspec> action, nspec nspec, ref Exception exceptionToSet)
+        public bool RunAndHandleException(Action<Spec> action, Spec spec, ref Exception exceptionToSet)
         {
             bool hasThrown = false;
 
             try
             {
-                action(nspec);
+                action(spec);
             }
             catch (TargetInvocationException invocationException)
             {
-                if (exceptionToSet == null) exceptionToSet = nspec.ExceptionToReturn(invocationException.InnerException);
+                if (exceptionToSet == null) exceptionToSet = spec.ExceptionToReturn(invocationException.InnerException);
 
                 hasThrown = true;
             }
             catch (Exception exception)
             {
-                if (exceptionToSet == null) exceptionToSet = nspec.ExceptionToReturn(exception);
+                if (exceptionToSet == null) exceptionToSet = spec.ExceptionToReturn(exception);
 
                 hasThrown = true;
             }
@@ -297,17 +297,17 @@ namespace NSpectator.Domain
             return hasThrown;
         }
 
-        public void Exercise(ExampleBase example, nspec nspec)
+        public void Exercise(ExampleBase example, Spec spec)
         {
-            if (example.ShouldSkip(nspec.tagsFilter)) return;
+            if (example.ShouldSkip(spec.tagsFilter)) return;
 
-            RunAndHandleException(RunBefores, nspec, ref Exception);
+            RunAndHandleException(RunBefores, spec, ref Exception);
 
-            RunAndHandleException(RunActs, nspec, ref Exception);
+            RunAndHandleException(RunActs, spec, ref Exception);
 
-            RunAndHandleException(example.Run, nspec, ref example.Exception);
+            RunAndHandleException(example.Run, spec, ref example.Exception);
 
-            bool exceptionThrownInAfters = RunAndHandleException(RunAfters, nspec, ref Exception);
+            bool exceptionThrownInAfters = RunAndHandleException(RunAfters, spec, ref Exception);
 
             // when an expected exception is thrown and is set to be cleared by 'expect<>',
             // a subsequent exception thrown in 'after' hooks would go unnoticed, so do not clear in this case
@@ -320,7 +320,7 @@ namespace NSpectator.Domain
             return false;
         }
 
-        public nspec GetInstance()
+        public Spec GetInstance()
         {
             return savedInstance ?? Parent.GetInstance();
         }
@@ -354,9 +354,9 @@ namespace NSpectator.Domain
             Contexts.Do(c => c.TrimSkippedDescendants());
         }
 
-        bool AnyUnfilteredExampleInSubTree(nspec nspec)
+        bool AnyUnfilteredExampleInSubTree(Spec spec)
         {
-            Func<ExampleBase, bool> shouldNotSkip = e => e.ShouldNotSkip(nspec.tagsFilter);
+            Func<ExampleBase, bool> shouldNotSkip = e => e.ShouldNotSkip(spec.tagsFilter);
 
             bool anyExampleOrSubExample = Examples.Any(shouldNotSkip) || Contexts.Examples().Any(shouldNotSkip);
 
@@ -401,14 +401,14 @@ namespace NSpectator.Domain
         public List<ExampleBase> Examples;
         public ContextCollection Contexts;
         public Action Before, Act, After, BeforeAll, AfterAll;
-        public Action<nspec> BeforeInstance, ActInstance, AfterInstance, BeforeAllInstance, AfterAllInstance;
+        public Action<Spec> BeforeInstance, ActInstance, AfterInstance, BeforeAllInstance, AfterAllInstance;
         public Func<Task> BeforeAsync, ActAsync, AfterAsync, BeforeAllAsync, AfterAllAsync;
-        public Action<nspec> BeforeInstanceAsync, ActInstanceAsync, AfterInstanceAsync, BeforeAllInstanceAsync, AfterAllInstanceAsync;
+        public Action<Spec> BeforeInstanceAsync, ActInstanceAsync, AfterInstanceAsync, BeforeAllInstanceAsync, AfterAllInstanceAsync;
         public Context Parent;
         public Exception ExceptionBeforeAll, Exception, ExceptionAfterAll;
         public bool ClearExpectedException;
 
-        nspec savedInstance;
+        Spec savedInstance;
         bool alreadyWritten, isPending;
     }
 }

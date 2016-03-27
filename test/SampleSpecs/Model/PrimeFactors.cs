@@ -1,16 +1,18 @@
 using System.Collections.Generic;
 using System.Linq;
 
-
-public static class PrimeFactors
+namespace SampleSpecs.Model
 {
-    public static IEnumerable<int> Primes(this int number)
+    public static class PrimeFactors
     {
-        if (number == 1 || number == 0) return new int[] { };
+        public static IEnumerable<int> Primes(this int number)
+        {
+            if (number == 1 || number == 0) return new int[] { };
 
-        for (int i = 2; i < number; i++)
-            if (number % i == 0) return new[] { i }.Concat(Primes(number / i));
+            for (int i = 2; i < number; i++)
+                if (number % i == 0) return new[] { i }.Concat(Primes(number / i));
 
-        return new[] { number };
+            return new[] { number };
+        }
     }
 }

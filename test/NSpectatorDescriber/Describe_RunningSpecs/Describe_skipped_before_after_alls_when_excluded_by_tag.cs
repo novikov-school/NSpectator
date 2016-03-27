@@ -1,4 +1,11 @@
-﻿using System.Linq;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
+using System.Linq;
 using NSpectator;
 using NSpectator.Describer.WhenRunningSpecs;
 using NUnit.Framework;
@@ -6,9 +13,9 @@ using NUnit.Framework;
 namespace NSpectator.Describer.describe_RunningSpecs
 {
     [TestFixture]
-    public class describe_skipped_before_alls_when_excluded_by_tag : When_running_specs
+    public class Describe_skipped_before_alls_when_excluded_by_tag : When_running_specs
     {
-        class InnocentBystander : nspec
+        class InnocentBystander : Spec
         {
             public static string sequence = "";
 
@@ -23,7 +30,7 @@ namespace NSpectator.Describer.describe_RunningSpecs
             }
         }
 
-        class Target : nspec
+        class Target : Spec
         {
             void it_specifies_something()
             {
@@ -46,9 +53,9 @@ namespace NSpectator.Describer.describe_RunningSpecs
     }
 
     [TestFixture]
-    public class describe_skipped_after_alls_when_excluded_by_tag : When_running_specs
+    public class Describe_skipped_after_alls_when_excluded_by_tag : When_running_specs
     {
-        class InnocentBystander : nspec
+        class InnocentBystander : Spec
         {
             public static string sequence = "";
 
@@ -63,7 +70,7 @@ namespace NSpectator.Describer.describe_RunningSpecs
             }
         }
 
-        class Target : nspec
+        class Target : Spec
         {
             void it_specifies_something()
             {

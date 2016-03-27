@@ -14,7 +14,7 @@ namespace NSpectator.Describer.describe_RunningSpecs.Exceptions
     [Category("RunningSpecs")]
     public class describe_unexpected_exception_in_after : When_running_specs
     {
-        private class SpecClass : nspec
+        private class SpecClass : Spec
         {
             void method_level_context()
             {

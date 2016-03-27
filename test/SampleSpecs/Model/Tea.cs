@@ -1,15 +1,18 @@
-﻿class Tea
+﻿namespace SampleSpecs.Model
 {
-    private readonly int temperature;
-
-    public Tea(int temperature)
+    class Tea
     {
-        this.temperature = temperature;
-    }
+        private readonly int temperature;
 
-    public string Taste()
-    {
-        return temperature >= 210 ? "hot" : "cold";
+        public Tea(int temperature)
+        {
+            this.temperature = temperature;
+        }
+
+        public string Taste()
+        {
+            return temperature >= 210 ? "hot" : "cold";
+        }
+        public double Temperature { get; set; }
     }
-    public double Temperature { get; set; }
 }

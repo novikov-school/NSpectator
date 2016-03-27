@@ -13,7 +13,7 @@ namespace NSpectator.Describer.describe_RunningSpecs
 {
     public abstract class when_describing_async_hooks : When_running_specs
     {
-        protected class BaseSpecClass : nspec
+        protected class BaseSpecClass : Spec
         {
             public static int state = -2;
             public static int expected = 1;

@@ -9,7 +9,7 @@ namespace NSpectator.Describer.WhenRunningSpecs
     [Category("RunningSpecs")]
     public class describe_it_behaviour_in_xcontext : When_running_specs
     {
-        class SpecClass : nspec
+        class SpecClass : Spec
         {
             void method_level_context()
             {
@@ -38,7 +38,7 @@ namespace NSpectator.Describer.WhenRunningSpecs
     [Category("RunningSpecs")]
     public class describe_xcontext : When_running_specs
     {
-        class SpecClass : nspec
+        class SpecClass : Spec
         {
             public static string output = string.Empty;
             public static Action MethodLevelBefore = () => { throw new Exception("this should not run."); };

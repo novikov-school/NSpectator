@@ -10,7 +10,7 @@ namespace NSpectator.Describer.WhenRunningSpecs
     [Category("RunningSpecs")]
     public class describe_action_indexer_add_operator : When_running_specs
     {
-        private class SpecClass : nspec
+        private class SpecClass : Spec
         {
             void method_level_context()
             {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using NSpectator;
 
-public abstract class describe_ICollection : nspec
+public abstract class describe_ICollection : Spec
 {
     protected ICollection<string> collection;
 

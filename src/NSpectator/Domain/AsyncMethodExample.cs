@@ -12,9 +12,9 @@ namespace NSpectator.Domain
             runner = new AsyncMethodRunner(method, "example");
         }
 
-        public override void Run(nspec nspec)
+        public override void Run(Spec spec)
         {
-            runner.Run(nspec);
+            runner.Run(spec);
         }
 
         readonly AsyncMethodRunner runner;
@@ -28,7 +28,7 @@ namespace NSpectator.Domain
             this.hookName = hookName;
         }
 
-        public void Run(nspec nspec)
+        public void Run(Spec spec)
         {
             if (method.ReturnType == typeof(void))
             {
@@ -40,7 +40,7 @@ namespace NSpectator.Domain
                 throw new ArgumentException("'async Task<T>' method-level {0} is not supported, please use 'async Task' instead", hookName);
             }
 
-            Func<Task> asyncWork = () => (Task)method.Invoke(nspec, null);
+            Func<Task> asyncWork = () => (Task)method.Invoke(spec, null);
 
             asyncWork.Offload();
         }

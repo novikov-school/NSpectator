@@ -1,8 +1,15 @@
-﻿using NSpectator;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
+using NSpectator;
 
 namespace SampleSpecs.Demo
 {
-    class describe_tags : nspec
+    class Describe_tags : Spec
     {
         public void tags_at_context_level()
         {
