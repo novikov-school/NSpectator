@@ -2,8 +2,9 @@
 
 [![Join the chat at https://gitter.im/nspectator/NSpectator](https://badges.gitter.im/nspectator/NSpectator.svg)](https://gitter.im/nspectator/NSpectator?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://travis-ci.org/nspectator/NSpectator.svg?branch=master)](https://travis-ci.org/nspectator/NSpectator)
+[![Youtrack](https://img.shields.io/badge/issues-youtrack-orange.svg)](https://nspectator.myjetbrains.com)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/nspectator/NSpectator/master/license.txt)
-[![Youtrack](https://img.shields.io/badge/youtrack-opened-green.svg)](https://nspectator.myjetbrains.com)
+
 
 NSpectator is inspired by [RSpec](http://rspec.info/) and originally based on [NSpec](https://github.com/mattflo/NSpec) BDD framework for .NET of the xSpec (context/specification) flavor. NSpectator is intended to be used to drive development through specifying behavior at the unit level. 
 NSpectator using more flexible [FluentAssertions](https://github.com/dennisdoomen/fluentassertions) library. It`s important not to depend on specific unit test framework.
