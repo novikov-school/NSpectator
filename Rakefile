@@ -6,7 +6,7 @@ begin
   require 'zip/zipfilesystem'
 rescue LoadError => e
   puts e.message
-  puts "looks like you don't have all the ruby libraries needed to build NSpec, make sure you have latest on https://github.com/mattflo/NSpec and you have run the command 'bundle install' (the bundler gem is required to run this command)"
+  puts "looks like you don't have all the ruby libraries needed to build NSpectator, make sure you have latest on https://github.com/nspectator/NSpectator and you have run the command 'bundle install' (the bundler gem is required to run this command)"
   puts ""
   puts "If the 'bundle install' command fails, you have to install bundler first by running the command 'gem install bundler'"
   puts ""
@@ -29,15 +29,15 @@ end
 
 desc 'run specs'
 task :spec => :build do
-  sh '"libs\NUnit.Runners.2.6.0.12051\tools\nunit-console-x86.exe" /nologo NSpecSpecs/bin/Debug/NSpecSpecs.dll'
-  sh '"libs\NUnit.Runners.2.6.0.12051\tools\nunit-console-x86.exe" /nologo NSpecSpecsVB/bin/Debug/NSpecSpecsVB.dll'
+  sh '"lib\NUnit.Runners.2.6.0.12051\tools\nunit-console-x86.exe" /nologo NSpecSpecs/bin/Debug/NSpecSpecs.dll'
+  sh '"lib\NUnit.Runners.2.6.0.12051\tools\nunit-console-x86.exe" /nologo NSpecSpecsVB/bin/Debug/NSpecSpecsVB.dll'
 end
 
 desc 'run SampleSpecs with NSpecRunner. you can supply a single spec like so -> rake samples[spec_name]'
 task :samples, :spec do |t,args|
   spec = args[:spec] || ''
 
-  sh "NSpecRunner/bin/debug/NSpecRunner.exe SampleSpecs/bin/debug/SampleSpecs.dll #{spec}"
+  sh "tools/NSpecRunner/bin/debug/NSpecRunner.exe SampleSpecs/bin/debug/SampleSpecs.dll #{spec}"
 end
 
 desc 'supply commit message as parameter - rake all m="commit message" - version bump, nuget, zip and everything shall be done for you'
@@ -45,12 +45,12 @@ task :all => [:pull,:version,:nuget,:commit,:website]
 
 desc 'run the sample describe_before'
 task :before do
-  sh "NSpecRunner/bin/debug/NSpecRunner.exe SampleSpecs/bin/debug/SampleSpecs.dll describe_before"
+  sh "tools/NSpecRunner/bin/debug/NSpecRunner.exe SampleSpecs/bin/debug/SampleSpecs.dll describe_before"
 end
 
 desc 'run the sample describe_specfications'
 task :specifies do
-  sh "nspecrunner/bin/debug/nspecrunner.exe samplespecs/bin/debug/samplespecs.dll describe_specifications"
+  sh "tools/Nspecrunner/bin/debug/nspecrunner.exe samplespecs/bin/debug/samplespecs.dll describe_specifications"
 end
 
 desc 'test failure exit code'
@@ -77,25 +77,8 @@ task :commit => :pull do
   `git push --tags`
 end
 
-#############################################################################
-#
-# Packaging tasks
-#
-#############################################################################
-desc 'merge nunit dll into nspec'
-task :ilmerge do
-  File.rename 'NSpecRunner\bin\Debug\NSpec.dll','NSpecRunner\bin\Debug\NSpec-partial.dll'
-  sh 'ilmerge NSpecRunner\bin\Debug\NSpec-partial.dll NSpecRunner\bin\Debug\nunit.framework.dll /out:NSpecRunner\bin\Debug\NSpec.dll /internalize'
-  File.delete'NSpecRunner\bin\Debug\NSpec-partial.dll'
-  File.delete'NSpecRunner\bin\Debug\nunit.framework.dll'
-
-  File.rename 'NSpec\bin\Debug\NSpec.dll','NSpec\bin\Debug\NSpec-partial.dll'
-  sh 'ilmerge NSpec\bin\Debug\NSpec-partial.dll NSpec\bin\Debug\nunit.framework.dll /out:NSpec\bin\Debug\NSpec.dll /internalize'
-  File.delete'NSpec\bin\Debug\NSpec-partial.dll'
-end
-
 def create_zip_filename
-  "NSpec-#{get_version_node.text}.zip"
+  "NSpectator-#{get_version_node.text}.zip"
 end
 
 desc 'Increments version number.'
@@ -104,7 +87,7 @@ task :bump_version do
 
   nextVer = "1.0." + (node.text.split('.').last.to_i + 1).to_s
 
-  xml = Nokogiri::XML(File.read 'nspec.nuspec')
+  xml = Nokogiri::XML(File.read 'Nspectator.nuspec')
   xml.root.default_namespace = "http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd"
   node =  xml.root.xpath('//xmlns:version')[0]
 
@@ -126,7 +109,7 @@ task :nuget_pack do
 end
 
 def create_nuget_package
-  sh '.nuget\nuget.exe pack nspec.nuspec'
+  sh '.nuget\nuget.exe pack NSpectator.nuspec'
 end
 
 #############################################################################
@@ -135,104 +118,9 @@ end
 #
 #############################################################################
 def get_version_node
-  xml = Nokogiri::XML(File.read 'nspec.nuspec')
+  xml = Nokogiri::XML(File.read 'NSpectator.nuspec')
   xml.root.default_namespace = "http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd"
   xml.root.xpath('//xmlns:version')[0]
-end
-
-desc 'supply the current tutorial markup in index.html and generate a new index.html containing current source code and output'
-task :website => :spec do
-  if(!File.exists?("_includes"))
-    `mkdir _includes`
-  end
-
-  files_to_comment = Array.new
-
-  Dir['SampleSpecs/WebSite/**/*.*'].each do |f|
-    file_name = generate_html f
-
-    files_to_comment << file_name
-
-    sh "git add #{file_name}"
-
-    FileUtils.copy(file_name, "../gh-pages/_includes")
-  end
-
-  version_number = get_version_node.inner_html
-
-  file_name = "_includes/timestamp.html"
-
-  File.open(file_name, 'w') { |f| f.write("Sample code and output automatically executed against nspec version #{version_number} on #{Time.now}.") }
-
-  sh "git add #{file_name}"
-
-  FileUtils.copy(file_name, "../gh-pages/_includes")
-
-  files_to_comment << file_name
-
-  # sh "git commit -m \"updated website on master\""
-
-  cd "../gh-pages"
-
-  files_to_comment.each do |f|
-    sh "git add #{f}"
-  end
-
-  sh "git commit -m \"updated website\""
-
-  sh "git push"
-
-  cd "../src"
-end
-
-def generate_html file
-
-  file_name = file.split('/').last.split('.').first.gsub /describe_/, ""
-
-  anchor_name = file_name
-
-  title = file_name.gsub /_/, " "
-
-  file_name = "_includes/" + file_name + ".html"
-  file_output = code_markup(file) + "\r\n" + output_markup(file)
-
-  file_output = "<p><a name=\"#{anchor_name}\"></a></p>\r\n<div class=\"zone zone-sub-page-title\">\r\n<h1>#{title}</h1>\r\n</div>\r\n<div id=\"layout-content\" class=\"group\" style=\"padding-top: 10px;\">" +
-    "\r\n" +
-    file_output +
-    "\r\n" +
-    "</div>"
-
-  File.open(file_name, 'w') { |f| f.write(file_output) }
-
-  return file_name
-
-=begin
-  node = @doc.at("\##{class_for(file)}_code")
-
-  if node.nil?
-    puts "can't find pre with id = #{class_for(file)}_code"
-  else
-    node.add_next_sibling
-
-    node.remove
-
-    puts "pre with id = #{class_for(file)}_code replaced successfully"
-  end
-
-  node = nil
-
-  node = @doc.at("\##{class_for(file)}_output")
-
-  if node.nil?
-    puts "can't find pre with id = #{class_for(file)}_output"
-  else
-    node.add_next_sibling output_markup file
-
-    node.remove
-
-    puts "pre with id = #{class_for(file)}_outputreplaced successfully"
-  end
-=end
 end
 
 def class_for file
@@ -270,9 +158,9 @@ task :version => [:bump_version, :version_gallio_adapter] do
   update_version 'SharedAssemblyInfo.cs', lines
 end
 
-desc 'update GallioAdapter plugin version'
+desc 'update Gallio plugin version'
 task :version_gallio_adapter do
-  file = 'NSpec.GallioAdapter/NSpec.GallioAdapter.plugin'
+  file = 'tools/NSpectator.GallioPlugin/NSpectator.GallioPlugin.plugin'
 
   version = get_version_node.text
   if version.count('.') == 2
@@ -281,8 +169,8 @@ task :version_gallio_adapter do
 
   xml = Nokogiri::XML(File.read file)
 
-  xml.root.xpath('//xmlns:assembly[@codeBase="NSpec.dll"]')[0].set_attribute('fullName', "NSpec, Version=#{version}, Culture=neutral, PublicKeyToken=null")
-  xml.root.xpath('//xmlns:assembly[@codeBase="NSpec.GallioAdapter.dll"]')[0].set_attribute('fullName', "NSpec.GallioAdapter, Version=#{version}, Culture=neutral, PublicKeyToken=null")
+  xml.root.xpath('//xmlns:assembly[@codeBase="NSpectator.dll"]')[0].set_attribute('fullName', "NSpectator, Version=#{version}, Culture=neutral, PublicKeyToken=null")
+  xml.root.xpath('//xmlns:assembly[@codeBase="NSpectator.GallioPlugin.dll"]')[0].set_attribute('fullName', "NSpectator.GallioPlugin, Version=#{version}, Culture=neutral, PublicKeyToken=null")
 
   xml.root.xpath('//xmlns:version').each {|n| n.inner_html = version}
   xml.root.xpath('//xmlns:component[@componentId="NSpec.TestFramework"]/xmlns:traits/xmlns:frameworkAssemblies')[0].inner_html = "NSpec, Version=#{version}"

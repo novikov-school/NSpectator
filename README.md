@@ -20,12 +20,12 @@ Test frameworks of the xUnit family have dedicated attributes in order to suppor
 1. build a set of data points;
 1. name and assign an expectation for each data point by looping though the whole set.
 
-Any NSpec test runner will be able to detect all the (aptly) named expectations and run them. Here you can see a sample test case, where we took advantage of `NSpec.Each<>` class and `NSpec.Do()` extension to work more easily with data point enumeration, and `NSpec.With()` extension to have an easier time composing text:
+Any NSpectator runner will be able to detect all the (aptly) named expectations and run them. Here you can see a sample test case, where we took advantage of `NSpectator.Each<>` class and `NSpectator.Do()` extension to work more easily with data point enumeration, and `NSpec.With()` extension to have an easier time composing text:
 
 ```c#
-public class describe_prime_factors : nspec
+class Describe_prime_factors : nspec
 {
-  void given_first_ten_integer_numbers()
+  void Given_first_ten_integer_numbers()
   {
       new Each<int, int[]>
       {
@@ -41,7 +41,7 @@ public class describe_prime_factors : nspec
           { 9, new[] { 3, 3 } },
 
       }.Do((given, expected) =>
-          it["{0} should be {1}".With(given, expected)] = () => given.Primes().should_be(expected)
+          it["{0} should be {1}".With(given, expected)] = () => given.Primes().Should().Be(expected)
       );
   }
 }
@@ -49,7 +49,7 @@ public class describe_prime_factors : nspec
 
 ## Contributing
 
-The Nspec test suite is written in NUnit. The test project is NSpecSpecs. Not to be confused with SampleSpecs which hosts numerous tests written in NSpec, some of which are intended to fail.
+The Nspectator test suite is written in NUnit. The test project is NSpectatorDescriber. Not to be confused with SampleSpecs which hosts numerous tests written in NSpec, some of which are intended to fail.
 
 To run the NSpec test suite, you can use ncrunch or [Specwatchr](http://nspec.org/continuoustesting) which has support for `NUnit 2.5.9`. For Specwatchr, the `dotnet.watchr.rb` file contains a hard reference to the `2.5.9` binary which may need to be updated to your installed version. To do so, locate the following line:
 
