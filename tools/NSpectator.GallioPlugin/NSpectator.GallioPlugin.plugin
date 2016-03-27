@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.gallio.org/" pluginId="Gallio.NSpecAdapter" recommendedInstallationPath="NSpec">
+  <traits>
+    <name>NSpectator Adapter Plugin</name>
+    <version>0.9.1.0</version>
+    <description>Provides support for running NSpectates within Gallio. Requires the assemblies from NSpectator.</description>
+  </traits>
+
+  <dependencies>
+    <dependency pluginId="Gallio"/>
+  </dependencies>
+
+  <files>
+    <file path="NSpectator.Gallio.plugin"/>
+    <file path="NSpectator.Gallio.dll"/>
+    <file path="NSpectator.dll"/>
+    <file path="nunit.framework.dll"/>
+  </files>
+
+  <assemblies>
+    <assembly fullName="NSpectator.GallioPlugin, Version=0.9.1.0, Culture=neutral, PublicKeyToken=null" codeBase="NSpectator.GallioPlugin.dll" qualifyPartialName="true"/>
+    <assembly fullName="NSpectator, Version=0.9.1.0, Culture=neutral, PublicKeyToken=null" codeBase="NSpectator.dll"/>    
+    <assembly fullName="FluentAssertions.Core, Version=4.2.2.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a" codeBase="FluentAssertions.Core.dll"/>
+    <assembly fullName="FluentAssertions, Version=4.2.2.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a" codeBase="FluentAssertions.dll"/>
+  </assemblies>
+  
+  <components>
+    <component componentId="NSpectator.TestFramework" serviceId="Gallio.TestFramework" componentType="NSpectator.GallioPlugin.NSpectatorTestFramework, NSpectator.GallioPlugin">
+      <traits>
+        <name>NSpectator</name>        
+        <frameworkAssemblies>NSpectator, Version=0.9.1.0</frameworkAssemblies>
+        <version>0.9.1.0</version>
+        <fileTypes>Assembly</fileTypes>
+      </traits>
+    </component>
+  </components>
+
+</plugin>

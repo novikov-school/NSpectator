@@ -6,14 +6,14 @@ using Gallio.Model;
 using Gallio.Model.Helpers;
 using Gallio.Model.Tree;
 using NSpectator.Domain;
-using NSpectator.GallioAdapter.Model;
+using NSpectator.GallioPlugin.Model;
 using Reflector = NSpectator.Domain.Reflector;
 
-namespace NSpectator.GallioAdapter.Services
+namespace NSpectator.GallioPlugin.Services
 {
-    class NSpecTestExplorer : TestExplorer
+    class NSpectatorTestExplorer : TestExplorer
     {
-        public NSpecTestExplorer()
+        public NSpectatorTestExplorer()
         {
             assemblyTests = new Dictionary<IAssemblyInfo, NSpecAssemblyTest>();
         }
