@@ -1,11 +1,15 @@
 # NSpectator
 
-[![Join the chat at https://gitter.im/nspectator/NSpectator](https://badges.gitter.im/nspectator/NSpectator.svg)](https://gitter.im/nspectator/NSpectator?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Build Status](https://travis-ci.org/nspectator/NSpectator.svg?branch=master)](https://travis-ci.org/nspectator/NSpectator)
+[![Join the chat at https://gitter.im/nspectator/NSpectator](https://badges.gitter.im/nspectator/NSpectator.svg)](https://gitter.im/nspectator/NSpectator?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build Status](https://travis-ci.org/nspectator/NSpectator.svg?branch=master)](https://travis-ci.org/nspectator/NSpectator)
+[![Youtrack](https://img.shields.io/badge/issues-youtrack-orange.svg)](https://nspectator.myjetbrains.com)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/nspectator/NSpectator/master/license.txt)
+
 
 NSpectator is inspired by [RSpec](http://rspec.info/) and originally based on [NSpec](https://github.com/mattflo/NSpec) BDD framework for .NET of the xSpec (context/specification) flavor. NSpectator is intended to be used to drive development through specifying behavior at the unit level. 
 NSpectator using more flexible [FluentAssertions](https://github.com/dennisdoomen/fluentassertions) library. It`s important not to depend on specific unit test framework.
 
-NSpectator development was statarted by [Novikov Ivan](http://jonnynovikov.com), it`s parent is written by [Matt Florence](http://twitter.com/mattflo) and [Amir Rajan] (http://twitter.com/amirrajan). They shaped and benefited by hard work from our [contributors](https://github.com/mattflo/NSpec/contributors)
+NSpectator development was statarted by [Novikov Ivan](http://jonnynovikov.com), it`s parent is written by [Matt Florence](http://twitter.com/mattflo) and [Amir Rajan] (http://twitter.com/amirrajan). We shaped and benefited by hard work from our [contributors](https://github.com/nspectator/NSpectator/contributors)
 
 # Installation
 
