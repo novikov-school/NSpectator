@@ -86,13 +86,13 @@ namespace NSpectator.Specs
         [Test]
         public void the_primary_context_should_be_parent()
         {
-            TheContexts().First().Name.Should().Be(typeof(Parent).Name, StringComparison.InvariantCultureIgnoreCase);
+            TheContexts().First().Name.Should().BeEquals(typeof(Parent).Name, StringComparison.InvariantCultureIgnoreCase);
         }
 
         [Test]
         public void the_parent_should_have_the_child_context()
         {
-            TheContexts().First().Contexts.First().Name.Should().Be(typeof(Child).Name, StringComparison.InvariantCultureIgnoreCase);
+            TheContexts().First().Contexts.First().Name.Should().BeEquals(typeof(Child).Name, StringComparison.InvariantCultureIgnoreCase);
         }
 
         [Test]
@@ -312,7 +312,7 @@ namespace NSpectator.Specs
     {
         public static void should_be(this string actualName, Type expectedType)
         {
-            expectedType.Name.Replace("_", " ").Should().Be(actualName, StringComparison.InvariantCultureIgnoreCase);
+            expectedType.Name.Replace("_", " ").Should().BeEquals(actualName, StringComparison.InvariantCultureIgnoreCase);
         }
 
     }

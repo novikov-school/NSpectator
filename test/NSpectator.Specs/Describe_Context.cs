@@ -125,13 +125,13 @@ namespace NSpectator.Specs
         [Test]
         public void the_root_context_should_be_the_parent()
         {
-            parentContext.Name.Should().Be(typeof(Parent_before).Name.Replace("_", " "), StringComparison.InvariantCultureIgnoreCase);
+            parentContext.Name.Should().BeEquals(typeof(Parent_before).Name.Replace("_", " "), StringComparison.InvariantCultureIgnoreCase);
         }
 
         [Test]
         public void it_should_have_the_child_as_a_context()
         {
-            parentContext.Contexts.First().Name.Should().Be(typeof(Child_before).Name.Replace("_", " "), StringComparison.InvariantCultureIgnoreCase);
+            parentContext.Contexts.First().Name.Should().BeEquals(typeof(Child_before).Name.Replace("_", " "), StringComparison.InvariantCultureIgnoreCase);
         }
 
         private ClassContext childContext;

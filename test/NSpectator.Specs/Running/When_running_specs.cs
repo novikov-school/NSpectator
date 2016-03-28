@@ -58,7 +58,7 @@ namespace NSpectator.Specs.Running
                 .SelectMany(rootContext => rootContext.AllContexts())
                 .SelectMany(contexts => contexts.AllContexts().Where(context => context.Name.ToLower() == name.ToLower())).First();
 
-            theContext.Name.Should().Be(name, StringComparison.InvariantCultureIgnoreCase, "because we ignore case");
+            theContext.Name.Should().BeEquals(name, StringComparison.InvariantCultureIgnoreCase, "because we ignore case");
 
             return theContext;
         }
@@ -77,7 +77,7 @@ namespace NSpectator.Specs.Running
 
             if (theExample == null) Assert.Fail("Did not find example named: " + name);
 
-            theExample.Spec.Should().Be(name, StringComparison.InvariantCultureIgnoreCase);
+            theExample.Spec.Should().BeEquals(name, StringComparison.InvariantCultureIgnoreCase);
 
             return theExample;
         }

@@ -68,7 +68,7 @@ namespace NSpectator.Specs.Running
         [Test]
         public void only_executed_examples_are_printed()
         {
-            formatter.WrittenContexts.First().Name.Should().Be("SpecClass", StringComparison.InvariantCultureIgnoreCase);
+            formatter.WrittenContexts.First().Name.Should().BeEquals("SpecClass", StringComparison.InvariantCultureIgnoreCase);
 
             formatter.WrittenExamples.Count.Should().Be(2);
 
