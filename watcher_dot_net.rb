@@ -308,7 +308,7 @@ public class Person
     public string FirstName { get; set; }
 }
 
-//here is the test class (located in describe_Person.cs)...notice the category attribute
+//here is the test class (located in Describe_Person.cs)...notice the category attribute
 namespace YourUnitTests
 {
     [TestFixture]
