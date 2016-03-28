@@ -26,7 +26,7 @@ PM> Install-Package NSpectator
 
 ### Execution order
 
-Please have a look at [this wiki page](https://github.com/mattflo/NSpec/wiki/Execution-Orders) for an overview on which test hooks are executed when: execution order in xSpec family frameworks can get tricky when dealing with more complicated test configurations, like inherithing from an abstract test class or mixing `before_each` with `before_all` at different context levels.
+Please have a look at [this wiki page](https://github.com/nspectator/NSpectator/wiki/Execution-Orders) for an overview on which test hooks are executed when: execution order in xSpec family frameworks can get tricky when dealing with more complicated test configurations, like inherithing from an abstract test class or mixing `before_each` with `before_all` at different context levels.
 
 ### Data-driven test cases
 
@@ -38,7 +38,7 @@ Test frameworks of the xUnit family have dedicated attributes in order to suppor
 Any NSpectator runner will be able to detect all the (aptly) named expectations and run them. Here you can see a sample test case, where we took advantage of `NSpectator.Each<>` class and `NSpectator.Do()` extension to work more easily with data point enumeration, and `NSpec.With()` extension to have an easier time composing text:
 
 ```c#
-class Describe_prime_factors : nspec
+class Describe_prime_factors : Spec
 {
   void Given_first_ten_integer_numbers()
   {
@@ -64,21 +64,9 @@ class Describe_prime_factors : nspec
 
 ## Contributing
 
-The Nspectator test suite is written in NUnit. The test project is NSpectatorDescriber. Not to be confused with SampleSpecs which hosts numerous tests written in NSpec, some of which are intended to fail.
+The NSpectator test suite is written in NUnit. The test project is NSpectatorDescriber. Not to be confused with SampleSpecs which hosts numerous tests written with Specs, some of which are intended to fail.
 
-To run the NSpec test suite, you can use ncrunch or [Specwatchr](http://nspec.org/continuoustesting) which has support for `NUnit 2.5.9`. For Specwatchr, the `dotnet.watchr.rb` file contains a hard reference to the `2.5.9` binary which may need to be updated to your installed version. To do so, locate the following line:
-
-    NUnitRunner.nunit_path = 'C:\program files (x86)\nunit 2.5.9\bin\net-2.0\nunit-console-x86.exe'
-
-Otherwise you can get started by running the following commands:
-
-    bundle install              (installs all required gems)
-    rake                        (builds and runs unit tests)
-    rake build                  (builds solution)
-    rake spec                   (runs NSpecSpecs test suite with NUnit)
-    rake samples [spec_name]    (runs spec_name in SampleSpecs with NSpecRunner)
-
-If you have Resharper 6.1 there is a team-shared settings file in the repository. Please use the settings to format any new code you write.
+If you have Resharper there is a team-shared settings file in the repository. Please use the settings to format any new code you write.
 
 Fork the project, make your changes, and then send a Pull Request.
 
