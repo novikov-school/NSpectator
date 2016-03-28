@@ -1,10 +1,10 @@
 using NSpectator;
 using NSpectator.Domain;
-using NSpectator.Describer;
+using NSpectator.Specs;
 using NUnit.Framework;
 using System.Threading.Tasks;
 
-namespace NSpecNUnit
+namespace NSpectator.Specs
 {
     [TestFixture]
     [Category("Example")]

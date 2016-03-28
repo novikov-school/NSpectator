@@ -3,7 +3,7 @@ using System.Linq;
 using Mono.Cecil;
 using NUnit.Framework;
 
-namespace NSpectator.Describer
+namespace NSpectator.Specs
 {
     [TestFixture]
     public class Describe_cecil

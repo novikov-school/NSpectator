@@ -1,3 +1,10 @@
+#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
@@ -10,7 +17,7 @@ using NSpectator.Domain.Formatters;
 using SampleSpecs.Bug;
 using SampleSpecs.WebSite;
 
-namespace NSpectator.Describer
+namespace NSpectator.Specs
 {
     [TestFixture]
     public class Describe_output

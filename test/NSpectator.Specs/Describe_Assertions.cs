@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using FluentAssertions;
 using NUnit.Framework;
 
-namespace NSpectator.Describer
+namespace NSpectator.Specs
 {
     // PlaceHolder for future
     public class Describe_Assertions {}
 
     [TestFixture]
-    public class when_comparing_two_objects
+    public class When_comparing_two_objects
     {
         [Test]
-        public void given_timespans_should_be_able_to_assert_on_is_close_to_with_tolerance()
+        public void Given_timespans_should_be_able_to_assert_on_is_close_to_with_tolerance()
         {
             var thirtyMinutes = new TimeSpan(0, 30, 0);
             var twentyMinutes = new TimeSpan(0, 20, 0);
@@ -23,7 +23,7 @@ namespace NSpectator.Describer
         }
 
         [Test]
-        public void given_datetimes_should_be_able_to_assert_on_is_close_to_with_tolerance()
+        public void Given_datetimes_should_be_able_to_assert_on_is_close_to_with_tolerance()
         {
             var arg1 = new DateTime(2012, 2, 1); // {2/1/2012}
             var arg2 = new DateTime(2012, 2, 2); // {2/2/2012}

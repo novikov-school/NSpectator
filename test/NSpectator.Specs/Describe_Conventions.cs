@@ -2,7 +2,7 @@
 using NSpectator.Domain;
 using NUnit.Framework;
 
-namespace NSpectator.Describer
+namespace NSpectator.Specs
 {
     [TestFixture]
     [Category("Conventions")]

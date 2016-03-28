@@ -1,11 +1,19 @@
+#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
 using System;
 using System.Linq;
 using NSpectator;
 using NSpectator.Domain;
 using NUnit.Framework;
-using NSpectator.Describer;
+using NSpectator.Specs;
+using FluentAssertions;
 
-namespace NSpecNUnit
+namespace NSpectator.Specs
 {
     [TestFixture]
     public class Describe_Context
@@ -13,7 +21,7 @@ namespace NSpecNUnit
         [Test]
         public void it_should_make_a_sentence_from_underscored_context_names()
         {
-            new Context("i_love_underscores").Name.should_be("i love underscores");
+            new Context("i_love_underscores").Name.Should().Be("i love underscores");
         }
     }
 
@@ -31,7 +39,7 @@ namespace NSpecNUnit
 
             parent.AddContext(child);
 
-            parent.Failures().Count().should_be(1);
+            parent.Failures().Count().Should().Be(1);
         }
     }
 
@@ -119,13 +127,13 @@ namespace NSpecNUnit
         [Test]
         public void the_root_context_should_be_the_parent()
         {
-            parentContext.Name.should_be(typeof(Parent_before).Name.Replace("_", " "));
+            parentContext.Name.Should().Be(typeof(Parent_before).Name.Replace("_", " "));
         }
 
         [Test]
         public void it_should_have_the_child_as_a_context()
         {
-            parentContext.Contexts.First().Name.should_be(typeof(Child_before).Name.Replace("_", " "));
+            parentContext.Contexts.First().Name.Should().Be(typeof(Child_before).Name.Replace("_", " "));
         }
 
         private ClassContext childContext;

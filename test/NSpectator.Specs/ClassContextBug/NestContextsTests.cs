@@ -1,10 +1,16 @@
+#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
 using System.Reflection;
-using NSpectator;
 using NSpectator.Domain;
 using NSpectator.Domain.Formatters;
 using NUnit.Framework;
 
-namespace NSpectator.Describer.ClassContextBug
+namespace NSpectator.Specs.ClassContextBug
 {
     public class NestContextsTests
     {
@@ -12,7 +18,7 @@ namespace NSpectator.Describer.ClassContextBug
         {
             //the specification class you want to test
             //this can be a regular expression
-            var testClassYouWantToDebug = "NSpecSpecs.ClassContextBug.Child";
+            var testClassYouWantToDebug = "NSpectator.Specs.ClassContextBug.Child";
 
             //initialize NSpec's specfinder
             var finder = new SpecFinder(

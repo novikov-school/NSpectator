@@ -6,7 +6,7 @@ using NSpectator.Domain.Extensions;
 using NUnit.Framework;
 using System.Threading.Tasks;
 
-namespace NSpectator.Describer
+namespace NSpectator.Specs
 {
     [TestFixture]
     [Category("DomainExtensions")]

@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using NSpectator;
 using System.Configuration;
+using FluentAssertions;
 
 namespace SampleSpecs.Bug
 {
@@ -18,7 +19,7 @@ namespace SampleSpecs.Bug
     {
         void it_finds_app_config()
         {
-            ConfigurationManager.AppSettings["SomeConfigEntry"].should_be("Worky");
+            ConfigurationManager.AppSettings["SomeConfigEntry"].Should().Be("Worky");
         }
     }
 }

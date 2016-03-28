@@ -4,11 +4,12 @@ using System.Linq;
 using NSpectator;
 using NSpectator.Domain;
 using NUnit.Framework;
-using Rhino.Mocks;
+
 using describe_OtherNameSpace;
 using describe_SomeNameSpace;
+using Moq;
 
-namespace NSpecNUnit
+namespace NSpectator.Specs
 {
     public class SpecClass : Spec
     {
@@ -48,7 +49,7 @@ namespace NSpecNUnit
         [Test]
         public void it_should_get_types_from_reflection()
         {
-            reflector.AssertWasCalled(r => r.GetTypesFrom());
+            reflectorMock.Verify(r => r.GetTypesFrom());
         }
 
         [Test]
@@ -86,7 +87,7 @@ namespace NSpecNUnit
 
     [TestFixture]
     [Category("SpecFinder")]
-    public class when_filtering_specs : when_finding_specs
+    public class When_filtering_specs : when_finding_specs
     {
         [Test]
         public void it_should_filter_in()
@@ -111,7 +112,7 @@ namespace NSpecNUnit
 
     [TestFixture]
     [Category("SpecFinder")]
-    public class when_finding_specs_based_on_regex : when_finding_specs
+    public class When_finding_specs_based_on_regex : when_finding_specs
     {
         [SetUp]
         public void Setup()
@@ -176,18 +177,17 @@ namespace NSpecNUnit
     {
         protected void GivenDllContains(params Type[] types)
         {
-            reflector = MockRepository.GenerateMock<IReflector>();
+            reflectorMock = new Mock<IReflector>();
+            reflectorMock.Setup(r => r.GetTypesFrom()).Returns(types);
 
-            reflector.Stub(r => r.GetTypesFrom()).Return(types);
+            someDLL = "some specs project dll";
 
-            someDLL = "an nspec project dll";
-
-            finder = new SpecFinder(reflector);
+            finder = new SpecFinder(reflectorMock.Object);
         }
 
         protected void GivenFilter(string filter)
         {
-            finder = new SpecFinder(reflector, filter);
+            finder = new SpecFinder(reflectorMock.Object, filter);
         }
         
         protected IEnumerable<Type> TheSpecClasses()
@@ -196,7 +196,8 @@ namespace NSpecNUnit
         }
 
         protected ISpecFinder finder;
-        protected IReflector reflector;
+        
+        protected Mock<IReflector> reflectorMock;
         protected string someDLL;
     }
 }

@@ -1,19 +1,17 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using NSpectator;
-using NSpectator.Domain;
-using NSpectator.Describer;
-using NUnit.Framework;
-using Rhino.Mocks;
 using System.Threading.Tasks;
+using Moq;
+using NSpectator.Domain;
+using NUnit.Framework;
 
-namespace NSpecNUnit.when_building_contexts
+namespace NSpectator.Specs
 {
     [TestFixture]
-    public class describe_ContextBuilder
+    public class Describe_ContextBuilder
     {
-        protected ISpecFinder finder;
+        protected Mock<ISpecFinder> finderMock;
 
         protected ContextBuilder builder;
 
@@ -24,17 +22,16 @@ namespace NSpecNUnit.when_building_contexts
         [SetUp]
         public void setup_base()
         {
-            finder = MockRepository.GenerateMock<ISpecFinder>();
-
             typesForFinder = new List<Type>();
 
-            finder.Stub(f => f.SpecClasses()).IgnoreArguments().Return(typesForFinder);
-
+            finderMock = new Mock<ISpecFinder>();
+            finderMock.Setup(f => f.SpecClasses()).Returns(typesForFinder);
+            
             DefaultConventions conventions = new DefaultConventions();
 
             conventions.Initialize();
 
-            builder = new ContextBuilder(finder, conventions);
+            builder = new ContextBuilder(finderMock.Object, conventions);
         }
 
         public void GivenTypes(params Type[] types)
@@ -49,18 +46,18 @@ namespace NSpecNUnit.when_building_contexts
     }
 
     [TestFixture]
-    public class when_building_contexts : describe_ContextBuilder
+    public class When_building_contexts : Describe_ContextBuilder
     {
-        public class child : parent { }
+        public class Child : Parent { }
 
-        public class sibling : parent { }
+        public class Sibling : Parent { }
 
-        public class parent : Spec { }
+        public class Parent : Spec { }
 
         [SetUp]
         public void setup()
         {
-            GivenTypes(typeof(child), typeof(sibling), typeof(parent));
+            GivenTypes(typeof(Child), typeof(Sibling), typeof(Parent));
 
             TheContexts();
         }
@@ -68,19 +65,20 @@ namespace NSpecNUnit.when_building_contexts
         [Test]
         public void should_get_specs_from_specFinder()
         {
-            finder.AssertWasCalled(f => f.SpecClasses());
+            finderMock.Verify(f => f.SpecClasses());
+            // finderMock.AssertWasCalled(f => f.SpecClasses());
         }
 
         [Test]
         public void the_primary_context_should_be_parent()
         {
-            TheContexts().First().Name.should_be(typeof(parent).Name);
+            TheContexts().First().Name.should_be(typeof(Parent).Name);
         }
 
         [Test]
         public void the_parent_should_have_the_child_context()
         {
-            TheContexts().First().Contexts.First().Name.should_be(typeof(child).Name);
+            TheContexts().First().Contexts.First().Name.should_be(typeof(Child).Name);
         }
 
         [Test]
@@ -92,13 +90,13 @@ namespace NSpecNUnit.when_building_contexts
         [Test]
         public void it_should_have_the_sibling()
         {
-            TheContexts().First().Contexts.should_contain(c => c.Name == typeof(sibling).Name);
+            TheContexts().First().Contexts.should_contain(c => c.Name == typeof(Sibling).Name);
         }
 
     }
 
     [TestFixture]
-    public class when_finding_method_level_examples : describe_ContextBuilder
+    public class when_finding_method_level_examples : Describe_ContextBuilder
     {
         class class_with_method_level_example : Spec
         {
@@ -190,13 +188,13 @@ namespace NSpecNUnit.when_building_contexts
         [SetUp]
         public void setup()
         {
-            var finder = MockRepository.GenerateMock<ISpecFinder>();
+            var finderMock = new Mock<ISpecFinder>();
 
             DefaultConventions defaultConvention = new DefaultConventions();
 
             defaultConvention.Initialize();
 
-            var builder = new ContextBuilder(finder, defaultConvention);
+            var builder = new ContextBuilder(finderMock.Object, defaultConvention);
 
             classContext = new Context("class");
 
@@ -229,7 +227,7 @@ namespace NSpecNUnit.when_building_contexts
     }
 
     [TestFixture]
-    public class when_building_class_and_method_contexts_with_tag_attributes : describe_ContextBuilder
+    public class when_building_class_and_method_contexts_with_tag_attributes : Describe_ContextBuilder
     {
         [Tag("@class-tag")]
         class SpecClass : Spec
@@ -261,38 +259,38 @@ namespace NSpecNUnit.when_building_contexts
 
     [TestFixture]
     [Category("ContextBuilder")]
-    public class describe_second_order_inheritance : describe_ContextBuilder
+    public class Describe_second_order_inheritance : Describe_ContextBuilder
     {
-        class base_spec : Spec { }
+        class Base_spec : Spec { }
 
-        class child_spec : base_spec { }
+        class Child_spec : Base_spec { }
 
-        class grand_child_spec : child_spec { }
+        class Grand_child_spec : Child_spec { }
 
         [SetUp]
         public void setup()
         {
-            GivenTypes(typeof(base_spec),
-                typeof(child_spec),
-                typeof(grand_child_spec));
+            GivenTypes(typeof(Base_spec),
+                typeof(Child_spec),
+                typeof(Grand_child_spec));
         }
 
         [Test]
         public void the_root_context_should_be_base_spec()
         {
-            TheContexts().First().Name.should_be(typeof(base_spec));
+            TheContexts().First().Name.should_be(typeof(Base_spec));
         }
 
         [Test]
         public void the_next_context_should_be_derived_spec()
         {
-            TheContexts().First().Contexts.First().Name.should_be(typeof(child_spec));
+            TheContexts().First().Contexts.First().Name.should_be(typeof(Child_spec));
         }
 
         [Test]
         public void the_next_next_context_should_be_derived_spec()
         {
-            TheContexts().First().Contexts.First().Contexts.First().Name.should_be(typeof(grand_child_spec));
+            TheContexts().First().Contexts.First().Contexts.First().Name.should_be(typeof(Grand_child_spec));
         }
     }
     public static class InheritanceExtentions

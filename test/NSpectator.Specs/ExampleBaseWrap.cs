@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NSpectator.Describer
+namespace NSpectator.Specs
 {
     /// <summary>
     /// Abstract framework ExampleBase class implements functionalities common to both sync and async example implementations.

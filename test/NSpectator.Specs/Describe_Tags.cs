@@ -3,7 +3,7 @@ using NSpectator;
 using NSpectator.Domain;
 using NUnit.Framework;
 
-namespace NSpectator.Describer
+namespace NSpectator.Specs
 {
     [TestFixture]
     public class describe_parsing_tags

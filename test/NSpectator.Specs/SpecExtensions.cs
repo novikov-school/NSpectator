@@ -2,7 +2,7 @@ using System.Text.RegularExpressions;
 using NSpectator;
 using NSpectator.Domain;
 
-namespace NSpectator.Describer
+namespace NSpectator.Specs
 {
     public static class SpecExtensions
     {
