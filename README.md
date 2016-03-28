@@ -7,7 +7,7 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/nspectator/NSpectator/master/license.txt)
 
 
-NSpectator is inspired by [RSpec](http://rspec.info/) and originally based on [NSpec](https://github.com/mattflo/NSpec) BDD framework for .NET of the xSpec (context/specification) flavor. Toolset is intended to be used to drive development through specifying behavior at the unit level. 
+NSpectator is inspired by [RSpec](http://rspec.info/) and originally based on [NSpec](https://github.com/mattflo/NSpec) framework for .NET of the xSpec (context/specification) flavor. Toolset is intended to be used to drive development through specifying behavior at the unit level. 
 NSpectator using more flexible [FluentAssertions](https://github.com/dennisdoomen/fluentassertions) library. It`s important not to depend on specific unit test framework.
 
 NSpectator development was started by [Jonny Novikov](http://jonnynovikov.com), hereditary framework is written by [Matt Florence](http://twitter.com/mattflo) and [Amir Rajan] (http://twitter.com/amirrajan). We shaped and benefited by hard work from our [contributors](https://github.com/nspectator/NSpectator/contributors)
@@ -30,12 +30,12 @@ Please have a look at [this wiki page](https://github.com/nspectator/NSpectator/
 
 ### Data-driven test cases
 
-Test frameworks of the xUnit family have dedicated attributes in order to support data-driven test cases (so-called *theories*). NSpec, as a member of the xSpec family, does not make use of attributes and instead obtains the same result with a set of expectations automatically created through code. In detail, to set up a data-driven test case with NSpec you just: 
+Test frameworks of the xUnit family have dedicated attributes in order to support data-driven test cases (so-called *theories*). NSpectator, as a member of the xSpec family, does not make use of attributes and instead obtains the same result with a set of expectations automatically created through code. In detail, to set up a data-driven test case with NSpectator you just: 
 
 1. build a set of data points;
 1. name and assign an expectation for each data point by looping though the whole set.
 
-Any NSpectator runner will be able to detect all the (aptly) named expectations and run them. Here you can see a sample test case, where we took advantage of `NSpectator.Each<>` class and `NSpectator.Do()` extension to work more easily with data point enumeration, and `NSpec.With()` extension to have an easier time composing text:
+Any NSpectator runner will be able to detect all the (aptly) named expectations and run them. Here you can see a sample test case, where we took advantage of `NSpectator.Each<>` class and `NSpectator.Do()` extension to work more easily with data point enumeration, and `NSpectator.With()` extension to have an easier time composing text:
 
 ```c#
 class Describe_prime_factors : Spec
