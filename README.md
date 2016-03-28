@@ -7,10 +7,10 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/nspectator/NSpectator/master/license.txt)
 
 
-NSpectator is inspired by [RSpec](http://rspec.info/) and originally based on [NSpec](https://github.com/mattflo/NSpec) framework for .NET of the xSpec (context/specification) flavor. Toolset is intended to be used to drive development through specifying behavior at the unit level. 
-NSpectator using more flexible [FluentAssertions](https://github.com/dennisdoomen/fluentassertions) library. It`s important not to depend on specific unit test framework.
+NSpectator is for development in .NET of the xSpec (context/specification) flavor. Toolset is intended to be used to drive development through specifying behavior at the unit level. 
+NSpectator has only one dependency on popular flexible [FluentAssertions](https://github.com/dennisdoomen/fluentassertions) library. It`s important not to depend on specific unit test framework.
 
-NSpectator development was started by [Jonny Novikov](http://jonnynovikov.com), hereditary framework is written by [Matt Florence](http://twitter.com/mattflo) and [Amir Rajan] (http://twitter.com/amirrajan). We shaped and benefited by hard work from our [contributors](https://github.com/nspectator/NSpectator/contributors)
+Development was started by [Jonny Novikov](http://jonnynovikov.com) inspired by [RSpec](http://rspec.info/) and based upon hereditary framework [NSpec](https://github.com/mattflo/NSpec) written by [Matt Florence](http://twitter.com/mattflo) and [Amir Rajan] (http://twitter.com/amirrajan). We shaped and benefited by hard work from our [contributors](https://github.com/nspectator/NSpectator/contributors)
 
 # Installation
 
