@@ -1,6 +1,6 @@
 using NSpectator;
 
-public class describe_pending : Spec
+public class Describe_pending : Spec
 {
     void when_creating_pending_specifications()
     {
@@ -10,7 +10,7 @@ public class describe_pending : Spec
     }
 }
 
-public static class describe_pending_output
+public static class Describe_pending_output
 {
     public static string Output = @"
 describe pending

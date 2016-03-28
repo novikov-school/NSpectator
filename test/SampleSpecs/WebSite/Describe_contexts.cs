@@ -1,8 +1,9 @@
 using NSpectator;
 using SampleSpecs.Model;
 
-public class describe_contexts : Spec
+public class Describe_contexts : Spec
 {
+    private Account account;
     //context methods require an underscore. For more info see DefaultConventions.cs.
     void describe_Account()
     {
@@ -22,10 +23,9 @@ public class describe_contexts : Spec
             };
         };
     }
-    private Account account;
 }
 
-public static class describe_contexts_output
+public static class Describe_contexts_output
 {
     public static string Output = @"
 describe contexts

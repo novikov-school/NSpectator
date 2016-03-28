@@ -1,9 +1,11 @@
 ﻿#region [R# naming]
+
 // ReSharper disable ArrangeTypeModifiers
 // ReSharper disable UnusedMember.Local
 // ReSharper disable FieldCanBeMadeReadOnly.Local
 // ReSharper disable ArrangeTypeMemberModifiers
 // ReSharper disable InconsistentNaming
+
 #endregion
 
 using NSpectator;
@@ -27,7 +29,6 @@ namespace SampleSpecs.Demo
                 { 7, new[] { 7 } },
                 { 8, new[] { 2, 2, 2 } },
                 { 9, new[] { 3, 3 } },
-
                 }.Do((given, expected) =>
                     it["{0} should be {1}".With(given, expected)] = () =>
                         given.Primes().should_be(expected)

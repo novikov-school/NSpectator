@@ -1,14 +1,14 @@
 ﻿#region [R# naming]
+
 // ReSharper disable ArrangeTypeModifiers
 // ReSharper disable UnusedMember.Local
 // ReSharper disable FieldCanBeMadeReadOnly.Local
 // ReSharper disable ArrangeTypeMemberModifiers
 // ReSharper disable InconsistentNaming
+
 #endregion
+
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using NSpectator;
 
 namespace SampleSpecs.WebSite
@@ -27,7 +27,7 @@ namespace SampleSpecs.WebSite
         }
     }
 
-    public static class describe_changing_failure_exception_output
+    public static class Describe_changing_failure_exception_output
     {
         public static string Output = @"
 describe changing failure exception
@@ -36,7 +36,7 @@ describe changing failure exception
 
 **** FAILURES ****
 
-nspec. describe changing failure exception. given a context that throws an exception. the exception can be changed to provide out of proc information.
+spec. describe changing failure exception. given a context that throws an exception. the exception can be changed to provide out of proc information.
 A more detailed exception message.
 
 1 Examples, 1 Failed, 0 Pending

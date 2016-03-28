@@ -1,3 +1,10 @@
+#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -5,6 +12,7 @@ using System.Threading.Tasks;
 using Moq;
 using NSpectator.Domain;
 using NUnit.Framework;
+using FluentAssertions;
 
 namespace NSpectator.Specs
 {
@@ -43,6 +51,12 @@ namespace NSpectator.Specs
         {
             return builder.Contexts();
         }
+
+        [Test]
+        public void Should_be_parent_class_and_setup_works()
+        {
+
+        }
     }
 
     [TestFixture]
@@ -72,13 +86,13 @@ namespace NSpectator.Specs
         [Test]
         public void the_primary_context_should_be_parent()
         {
-            TheContexts().First().Name.should_be(typeof(Parent).Name);
+            TheContexts().First().Name.Should().Be(typeof(Parent).Name, StringComparison.InvariantCultureIgnoreCase);
         }
 
         [Test]
         public void the_parent_should_have_the_child_context()
         {
-            TheContexts().First().Contexts.First().Name.should_be(typeof(Child).Name);
+            TheContexts().First().Contexts.First().Name.Should().Be(typeof(Child).Name, StringComparison.InvariantCultureIgnoreCase);
         }
 
         [Test]
@@ -90,15 +104,14 @@ namespace NSpectator.Specs
         [Test]
         public void it_should_have_the_sibling()
         {
-            TheContexts().First().Contexts.should_contain(c => c.Name == typeof(Sibling).Name);
+            TheContexts().First().Contexts.Should().Contain(c => c.Name.Equals(typeof(Sibling).Name, StringComparison.InvariantCultureIgnoreCase));
         }
-
     }
 
     [TestFixture]
-    public class when_finding_method_level_examples : Describe_ContextBuilder
+    public class When_finding_method_level_examples : Describe_ContextBuilder
     {
-        class class_with_method_level_example : Spec
+        class Class_with_method_level_example : Spec
         {
             void it_should_be_considered_an_example() { }
 
@@ -116,9 +129,9 @@ namespace NSpectator.Specs
         }
 
         [SetUp]
-        public void setup()
+        public void Setup()
         {
-            GivenTypes(typeof(class_with_method_level_example));
+            GivenTypes(typeof(Class_with_method_level_example));
         }
 
         [Test]
@@ -246,14 +259,14 @@ namespace NSpectator.Specs
         public void it_should_tag_class_context()
         {
             var classContext = TheContexts()[0];
-            classContext.Tags.should_contain_tag("@class-tag");
+            classContext.Tags.Should_contain_tag("@class-tag");
         }
 
         [Test]
         public void it_should_tag_method_context()
         {
             var methodContext = TheContexts()[0].Contexts[0];
-            methodContext.Tags.should_contain_tag("@method-tag");
+            methodContext.Tags.Should_contain_tag("@method-tag");
         }
     }
 
@@ -268,9 +281,10 @@ namespace NSpectator.Specs
         class Grand_child_spec : Child_spec { }
 
         [SetUp]
-        public void setup()
+        public void Setup()
         {
-            GivenTypes(typeof(Base_spec),
+            GivenTypes(
+                typeof(Base_spec),
                 typeof(Child_spec),
                 typeof(Grand_child_spec));
         }
@@ -293,11 +307,12 @@ namespace NSpectator.Specs
             TheContexts().First().Contexts.First().Contexts.First().Name.should_be(typeof(Grand_child_spec));
         }
     }
+
     public static class InheritanceExtentions
     {
         public static void should_be(this string actualName, Type expectedType)
         {
-            Assert.AreEqual(expectedType.Name.Replace("_", " "), actualName);
+            expectedType.Name.Replace("_", " ").Should().Be(actualName, StringComparison.InvariantCultureIgnoreCase);
         }
 
     }

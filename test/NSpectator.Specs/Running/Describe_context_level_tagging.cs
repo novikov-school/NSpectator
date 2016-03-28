@@ -50,31 +50,31 @@ namespace NSpectator.Specs.Running
         [Test]
         public void is_tagged_with_mytag()
         {
-            TheContext("is tagged with 'mytag'").Tags.should_contain_tag("mytag");
+            TheContext("is tagged with 'mytag'").Tags.Should_contain_tag("mytag");
         }
 
         [Test]
         public void has_three_tags_and_the_default()
         {
-            TheContext("has three tags").Tags.should_contain_tag("SpecClass");
-            TheContext("has three tags").Tags.should_contain_tag("mytag");
-            TheContext("has three tags").Tags.should_contain_tag("expect-to-failure");
-            TheContext("has three tags").Tags.should_contain_tag("foobar");
+            TheContext("has three tags").Tags.Should_contain_tag("SpecClass");
+            TheContext("has three tags").Tags.Should_contain_tag("mytag");
+            TheContext("has three tags").Tags.Should_contain_tag("expect-to-failure");
+            TheContext("has three tags").Tags.Should_contain_tag("foobar");
             TheContext("has three tags").Tags.Count.should_be(4);
         }
 
         [Test]
         public void nested_contexts_should_inherit_the_tag()
         {
-            TheContext("has a nested context").Tags.should_contain_tag("nested-tag");
-            TheContext("is the nested context").Tags.should_contain_tag("nested-tag");
+            TheContext("has a nested context").Tags.Should_contain_tag("nested-tag");
+            TheContext("is the nested context").Tags.Should_contain_tag("nested-tag");
         }
 
         [Test]
         public void nested_examples_should_inherit_the_tag()
         {
-            TheContext("has a nested context").Tags.should_contain_tag("nested-tag");
-            TheExample("is the nested example").Tags.should_contain_tag("nested-tag");
+            TheContext("has a nested context").Tags.Should_contain_tag("nested-tag");
+            TheExample("is the nested example").Tags.Should_contain_tag("nested-tag");
         }
     }
 }

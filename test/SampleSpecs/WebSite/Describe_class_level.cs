@@ -1,12 +1,14 @@
 ﻿using NSpectator;
 
-public class describe_class_level : Spec
+public class Describe_class_level : Spec
 {
+    string sequence;
     //before, act, and it can also be declared at the class level like so
     void before_each()
     {
         sequence = "arrange, ";
     }
+
     void act_each()
     {
         sequence += "act";
@@ -18,11 +20,9 @@ public class describe_class_level : Spec
     {
         sequence.should_be("arrange, act");
     }
-
-    string sequence;
 }
 
-public static class describe_class_level_output
+public static class Describe_class_level_output
 {
     public static string Output = @"
 describe class level

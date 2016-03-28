@@ -7,10 +7,8 @@
 #endregion
 using System;
 using System.Linq;
-using NSpectator;
 using NSpectator.Domain;
 using NUnit.Framework;
-using NSpectator.Specs;
 using FluentAssertions;
 
 namespace NSpectator.Specs
@@ -127,13 +125,13 @@ namespace NSpectator.Specs
         [Test]
         public void the_root_context_should_be_the_parent()
         {
-            parentContext.Name.Should().Be(typeof(Parent_before).Name.Replace("_", " "));
+            parentContext.Name.Should().Be(typeof(Parent_before).Name.Replace("_", " "), StringComparison.InvariantCultureIgnoreCase);
         }
 
         [Test]
         public void it_should_have_the_child_as_a_context()
         {
-            parentContext.Contexts.First().Name.Should().Be(typeof(Child_before).Name.Replace("_", " "));
+            parentContext.Contexts.First().Name.Should().Be(typeof(Child_before).Name.Replace("_", " "), StringComparison.InvariantCultureIgnoreCase);
         }
 
         private ClassContext childContext;

@@ -1,10 +1,13 @@
 #region [R# naming]
+
 // ReSharper disable ArrangeTypeModifiers
 // ReSharper disable UnusedMember.Local
 // ReSharper disable FieldCanBeMadeReadOnly.Local
 // ReSharper disable ArrangeTypeMemberModifiers
 // ReSharper disable InconsistentNaming
+
 #endregion
+
 using System.Threading.Tasks;
 using NSpectator;
 using SampleSpecs.Model;
@@ -13,6 +16,8 @@ namespace SampleSpecs.WebSite
 {
     public class Describe_async_helpers : Spec
     {
+        Tea tea;
+
         void When_making_tea()
         {
             context["that is 210 degrees"] = () =>
@@ -32,8 +37,6 @@ namespace SampleSpecs.WebSite
         {
             tea = await Task.Run(() => new Tea(temperature));
         }
-
-        Tea tea;
     }
 
     public static class Describe_async_helpers_output

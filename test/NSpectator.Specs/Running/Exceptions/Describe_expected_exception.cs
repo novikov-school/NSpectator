@@ -1,10 +1,15 @@
-﻿using System;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
+
 using System.Linq;
-using NSpectator;
 using NSpectator.Domain;
 using NUnit.Framework;
 using System.Threading.Tasks;
-using NSpectator.Specs.Running;
 
 namespace NSpectator.Specs.Running.Exceptions
 {

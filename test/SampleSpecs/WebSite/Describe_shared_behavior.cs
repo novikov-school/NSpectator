@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using NSpectator;
 
-public abstract class describe_ICollection : Spec
+public abstract class Describe_ICollection : Spec
 {
     protected ICollection<string> collection;
 
@@ -16,8 +14,10 @@ public abstract class describe_ICollection : Spec
     }
 }
 
-public class describe_LinkedList : describe_ICollection
+public class Describe_LinkedList : Describe_ICollection
 {
+    LinkedList<string> linkedList;
+
     void before_each()
     {
         linkedList = new LinkedList<string>();
@@ -34,11 +34,12 @@ public class describe_LinkedList : describe_ICollection
             linkedList.First.Value.should_be("Item 2");
         };
     }
-    LinkedList<string> linkedList;
 }
 
-public class describe_List : describe_ICollection
+public class Describe_List : Describe_ICollection
 {
+    List<string> list;
+
     void before_each()
     {
         list = new List<string>();
@@ -52,10 +53,9 @@ public class describe_List : describe_ICollection
         it["an item can be referenced by index"] = () =>
             list[0].should_be("Item 1");
     }
-    List<string> list;
 }
 
-public static class describe_ICollection_output
+public static class Describe_ICollection_output
 {
     public static string Output = @"
 describe LinkedList

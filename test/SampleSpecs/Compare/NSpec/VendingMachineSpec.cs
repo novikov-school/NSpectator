@@ -7,11 +7,13 @@ namespace SampleSpecs.Compare.NSpec
 {
     class VendingMachineSpec : Spec
     {
+        private VendingMachine machine;
+
         void given_new_vending_machine()
         {
             before = () => machine = new VendingMachine();
 
-            specify = ()=> machine.Items().should_be_empty();
+            specify = () => machine.Items().should_be_empty();
 
             it["getting item A1 should throw ItemNotRegistered"] = expect<ItemNotRegisteredException>(() => machine.Item("A1"));
 
@@ -34,15 +36,14 @@ namespace SampleSpecs.Compare.NSpec
             };
             //got to force/refactor getting rid of the dictionary soon
         }
-        private VendingMachine machine;
     }
 
-    public class ItemNotRegisteredException : Exception
-    {
-    }
+    public class ItemNotRegisteredException : Exception {}
 
     internal class VendingMachine
     {
+        private List<Item> items;
+
         public VendingMachine()
         {
             items = new List<Item>();
@@ -55,7 +56,7 @@ namespace SampleSpecs.Compare.NSpec
 
         public void RegisterItem(string slot, string name, decimal price)
         {
-            items.Add(new Item{Name = name,Price = price,Slot = slot});
+            items.Add(new Item { Name = name, Price = price, Slot = slot });
         }
 
         public Item Item(string slot)
@@ -64,7 +65,6 @@ namespace SampleSpecs.Compare.NSpec
 
             return items.First();
         }
-        private List<Item> items;
     }
 
     internal class Item

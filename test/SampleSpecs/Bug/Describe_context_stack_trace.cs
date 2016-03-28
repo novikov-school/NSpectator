@@ -1,13 +1,16 @@
 ﻿#region [R# naming]
+
 // ReSharper disable ArrangeTypeModifiers
 // ReSharper disable UnusedMember.Local
 // ReSharper disable FieldCanBeMadeReadOnly.Local
 // ReSharper disable ArrangeTypeMemberModifiers
 // ReSharper disable InconsistentNaming
+
 #endregion
+
 using System;
-using NSpectator;
 using FluentAssertions;
+using NSpectator;
 
 namespace SampleSpecs.Bug
 {
@@ -42,7 +45,7 @@ describe context stack trace
 
 **** FAILURES ****
 
-nspec. describe context stack trace. exception thrown in act. is true.
+spec. describe context stack trace. exception thrown in act. is true.
 Context Failure: Exception in act., Example Failure: Expected: True, But was: False
 
 1 Examples, 1 Failed, 0 Pending

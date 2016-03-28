@@ -1,10 +1,13 @@
 ﻿#region [R# naming]
+
 // ReSharper disable ArrangeTypeModifiers
 // ReSharper disable UnusedMember.Local
 // ReSharper disable FieldCanBeMadeReadOnly.Local
 // ReSharper disable ArrangeTypeMemberModifiers
 // ReSharper disable InconsistentNaming
+
 #endregion
+
 using NSpectator;
 using SampleSpecs.Model;
 
@@ -36,10 +39,7 @@ namespace SampleSpecs.Demo
 
             specify = () => user.Admin.should_be_false();
 
-            it["should work"] = () =>
-            {
-
-            };
+            it["should work"] = () => { };
 
             //soon.user_should_not_have_default_password();
         }

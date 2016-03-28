@@ -1,13 +1,15 @@
 ﻿#region [R# naming]
+
 // ReSharper disable ArrangeTypeModifiers
 // ReSharper disable UnusedMember.Local
 // ReSharper disable FieldCanBeMadeReadOnly.Local
 // ReSharper disable ArrangeTypeMemberModifiers
 // ReSharper disable InconsistentNaming
+
 #endregion
 
-using NSpectator;
 using FluentAssertions;
+using NSpectator;
 
 namespace SampleSpecs.Demo
 {

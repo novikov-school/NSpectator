@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using NSpectator.Domain;
 using NUnit.Framework;
+using FluentAssertions;
 
 namespace NSpectator.Specs.Running
 {
@@ -55,9 +56,9 @@ namespace NSpectator.Specs.Running
         {
             var theContext = contextCollection
                 .SelectMany(rootContext => rootContext.AllContexts())
-                .SelectMany(contexts => contexts.AllContexts().Where(context => context.Name == name)).First();
+                .SelectMany(contexts => contexts.AllContexts().Where(context => context.Name.ToLower() == name.ToLower())).First();
 
-            theContext.Name.should_be(name);
+            theContext.Name.Should().Be(name, StringComparison.InvariantCultureIgnoreCase, "because we ignore case");
 
             return theContext;
         }
@@ -72,11 +73,11 @@ namespace NSpectator.Specs.Running
         {
             var theExample = contextCollection
                 .SelectMany(rootContext => rootContext.AllContexts())
-                .SelectMany(contexts => contexts.AllExamples().Where(example => example.Spec == name)).FirstOrDefault();
+                .SelectMany(contexts => contexts.AllExamples().Where(example => example.Spec.ToLower() == name.ToLower())).FirstOrDefault();
 
             if (theExample == null) Assert.Fail("Did not find example named: " + name);
 
-            theExample.Spec.should_be(name);
+            theExample.Spec.Should().Be(name, StringComparison.InvariantCultureIgnoreCase);
 
             return theExample;
         }

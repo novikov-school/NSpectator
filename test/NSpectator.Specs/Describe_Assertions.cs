@@ -64,8 +64,8 @@ namespace NSpectator.Specs
         [Test]
         public void given_floats_should_be_able_to_assert_on_is_close_to_with_default_tolerance()
         {
-            1e-9f.is_close_to(1e-8f);
-            1e-9f.Should().BeCloseTo(1e-8f);
+            1e-9f.is_close_to(1e-9f);
+            1e-9f.Should().BeCloseTo(1e-9f);
         }
 
         [Test]
@@ -78,8 +78,8 @@ namespace NSpectator.Specs
         [Test]
         public void given_doubles_should_be_able_to_assert_on_is_close_to_with_default_tolerance()
         {
-            1e-9.is_close_to(1e-8);
-            1e-9.Should().BeCloseTo(1e-8);
+            1e-9.is_close_to(1e-9);
+            1e-9.Should().BeCloseTo(1e-9);
         }
 
         [Test]
@@ -92,8 +92,8 @@ namespace NSpectator.Specs
 		[Test]
 		public void given_an_empty_string_it_should_be_empty()
 		{
-			"".should_be_empty();
-			((string)null).should_be_empty();
+			"".Should().BeEmpty();
+			((string)null).Should().BeNullOrEmpty();
 		}
 
 		[Test]

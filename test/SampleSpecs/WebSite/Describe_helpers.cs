@@ -1,8 +1,10 @@
 using NSpectator;
 using SampleSpecs.Model;
 
-public class describe_helpers : Spec
+public class Describe_helpers : Spec
 {
+    Tea tea;
+
     void when_making_tea()
     {
         context["that is 210 degrees"] = () =>
@@ -16,14 +18,15 @@ public class describe_helpers : Spec
             it["should be cold"] = () => tea.Taste().should_be("cold");
         };
     }
+
     //helper methods do not have underscores
     void MakeTea(int temperature)
     {
         tea = new Tea(temperature);
     }
-    Tea tea;
 }
-public static class describe_helpers_output
+
+public static class Describe_helpers_output
 {
     public static string Output = @"
 describe helpers

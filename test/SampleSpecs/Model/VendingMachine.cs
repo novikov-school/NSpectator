@@ -4,6 +4,7 @@ namespace SampleSpecs.Model
 {
     public class VendingMachine
     {
+        private double _cash;
         private Dictionary<string, int> _inventory;
         private Dictionary<string, double> _pricePoint;
 
@@ -11,6 +12,11 @@ namespace SampleSpecs.Model
         {
             _inventory = new Dictionary<string, int>();
             _pricePoint = new Dictionary<string, double>();
+        }
+
+        public double Cash
+        {
+            get { return _cash; }
         }
 
         public void AddInventory(string item)
@@ -29,15 +35,6 @@ namespace SampleSpecs.Model
         public int Inventory(string item)
         {
             return _inventory[item];
-        }
-
-        private double _cash;
-        public double Cash
-        {
-            get
-            {
-                return _cash;
-            }
         }
 
         public void PricePoint(string item, double amount)

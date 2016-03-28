@@ -1,12 +1,20 @@
-﻿using System.Linq;
-using NSpectator;
-using NSpectator.Specs.Running;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
+
+using System;
+using System.Linq;
 using NUnit.Framework;
+using FluentAssertions;
 
 namespace NSpectator.Specs.Running
 {
     [TestFixture]
-    public class describe_fail_fast : When_running_specs
+    public class Describe_fail_fast : When_running_specs
     {
         class SpecClass : Spec
         {
@@ -44,29 +52,29 @@ namespace NSpectator.Specs.Running
         [Test]
         public void should_skip()
         {
-            TheExample("is skipped").HasRun.should_be_false();
+            TheExample("is skipped").HasRun.Should().BeFalse();
         }
 
         [Test]
         public void only_two_examples_are_executed_one_will_be_a_failure()
         {
-            AllExamples().Where(s => s.HasRun).Count().should_be(2);
+            AllExamples().Count(s => s.HasRun).Should().Be(2);
 
-            TheExample("this one isn't a failure").HasRun.should_be_true();
+            TheExample("this one isn't a failure").HasRun.Should().BeTrue();
 
-            TheExample("this one is a failure").HasRun.should_be_true();
+            TheExample("this one is a failure").HasRun.Should().BeTrue();
         }
 
         [Test]
         public void only_executed_examples_are_printed()
         {
-            formatter.WrittenContexts.First().Name.should_be("SpecClass");
+            formatter.WrittenContexts.First().Name.Should().Be("SpecClass", StringComparison.InvariantCultureIgnoreCase);
 
-            formatter.WrittenExamples.Count.should_be(2);
+            formatter.WrittenExamples.Count.Should().Be(2);
 
-            formatter.WrittenExamples.First().FullName().should_contain("this one isn't a failure");
+            formatter.WrittenExamples.First().FullName().Should().Contain("this one isn't a failure");
 
-            formatter.WrittenExamples.Last().FullName().should_contain("this one is a failure");
+            formatter.WrittenExamples.Last().FullName().Should().Contain("this one is a failure");
         }
     }
 }

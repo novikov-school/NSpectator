@@ -1,17 +1,18 @@
 ﻿using System;
 using NSpectator;
 
-public class describe_exception : Spec
+public class Describe_exception : Spec
 {
+    string nullString = null;
+
     void given_a_null_string()
     {
         it["should throw null-ref"] =
             expect<NullReferenceException>(() => nullString.Trim());
     }
-    string nullString = null;
 }
 
-public static class describe_exception_output
+public static class Describe_exception_output
 {
     public static string Output = @"
 describe exception

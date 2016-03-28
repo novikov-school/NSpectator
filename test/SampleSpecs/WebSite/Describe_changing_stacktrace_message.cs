@@ -1,14 +1,14 @@
 ﻿#region [R# naming]
+
 // ReSharper disable ArrangeTypeModifiers
 // ReSharper disable UnusedMember.Local
 // ReSharper disable FieldCanBeMadeReadOnly.Local
 // ReSharper disable ArrangeTypeMemberModifiers
 // ReSharper disable InconsistentNaming
+
 #endregion
+
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using NSpectator;
 
 namespace SampleSpecs.WebSite
@@ -17,10 +17,7 @@ namespace SampleSpecs.WebSite
     {
         void given_a_context_that_throws_an_exception()
         {
-            it["the stack trace can be altered to provide more information"] = () =>
-            {
-                throw new InvalidOperationException("An exception was thrown");
-            };
+            it["the stack trace can be altered to provide more information"] = () => { throw new InvalidOperationException("An exception was thrown"); };
         }
 
         public override string StackTraceToPrint(string flattenedStackTrace)
@@ -38,7 +35,7 @@ describe changing stacktrace message
 
 **** FAILURES ****
 
-nspec. describe changing stacktrace message. given a context that throws an exception. the stack trace can be altered to provide more information.
+spec. describe changing stacktrace message. given a context that throws an exception. the stack trace can be altered to provide more information.
 An exception was thrown
 More Information to help diagnose issue
 

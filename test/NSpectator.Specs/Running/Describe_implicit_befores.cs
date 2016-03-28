@@ -1,6 +1,12 @@
-﻿using System.Collections.Generic;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
+using System.Collections.Generic;
 using System.Linq;
-using NSpectator;
 using NSpectator.Domain;
 using NUnit.Framework;
 
@@ -8,7 +14,7 @@ namespace NSpectator.Specs.Running
 {
     [TestFixture]
     [Category("RunningSpecs")]
-    public class describe_implicit_befores : When_running_specs
+    public class Describe_implicit_befores : When_running_specs
     {
         class SpecClass : Spec
         {
@@ -27,18 +33,15 @@ namespace NSpectator.Specs.Running
             }
         }
 
-        [Test, Ignore("It cannot be tested")]
-        public void should_give_each_specify_a_new_instance_of_spec()
-        {
-            Run(typeof(SpecClass));
-            Assert.Inconclusive("I dont think this is possible....");
-            TheMethodContextExamples().First().should_have_passed();
-            TheMethodContextExamples().Last().should_have_passed();
-        }
-
         private IEnumerable<ExampleBase> TheMethodContextExamples()
         {
             return classContext.Contexts.First().AllExamples();
+        }
+
+        [Test]
+        public void Should_not_be_possible_to_test()
+        {
+            
         }
     }
 }

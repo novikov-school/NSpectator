@@ -1,20 +1,29 @@
-﻿using System;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using NSpectator;
 
-public class describe_focus : Spec
+namespace SampleSpecsFocus
 {
-    [Tag("focus")]
-    void it_is_run() { }
+    public class Describe_focus : Spec
+    {
+        [Tag("focus")]
+        void it_is_run() { }
 
-    void it_is_not_run() { }
-}
+        void it_is_not_run() { }
+    }
 
-public static class describe_focus_output
-{
-    public static string Output = @"
+    public static class Describe_focus_output
+    {
+        public static string Output = @"
 describe focus
   it is run
 
@@ -22,4 +31,5 @@ describe focus
 
 NSpec found context/examples tagged with ""focus"" and only ran those.
 ";
+    }
 }

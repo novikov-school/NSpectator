@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace SampleSpecs.Model
 {
@@ -9,16 +8,19 @@ namespace SampleSpecs.Model
     {
         public TicTacToGame()
         {
-            Board = new string[3, 3] 
-            { 
-                { "", "", "" }, 
-                { "", "", "" }, 
-                { "", "", "" } 
-            };
+            Board = new string[3, 3]
+                {
+                { "", "", "" },
+                { "", "", "" },
+                { "", "", "" }
+                };
         }
 
         public bool Finished { get; private set; }
         public string[,] Board { get; set; }
+
+        public bool Draw { get; private set; }
+        public string Winner { get; private set; }
 
         public void Play(string xo, int row, int column)
         {
@@ -86,9 +88,9 @@ namespace SampleSpecs.Model
         private void CheckAllSquaresTaken()
         {
             var val = from string xo
-                      in Board
-                      where xo == string.Empty
-                      select xo;
+                in Board
+                where xo == string.Empty
+                select xo;
 
             if (val.Count() == 0)
             {
@@ -96,9 +98,6 @@ namespace SampleSpecs.Model
                 if (string.IsNullOrEmpty(Winner)) Draw = true;
             }
         }
-
-        public bool Draw { get; private set; }
-        public string Winner { get; private set; }
     }
 
     public static class extensions

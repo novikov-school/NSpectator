@@ -1,6 +1,6 @@
 ﻿using NSpectator;
 
-public class my_first_spec : Spec
+public class My_first_spec : Spec
 {
     void given_the_world_has_not_come_to_an_end()
     {
@@ -8,7 +8,7 @@ public class my_first_spec : Spec
     }
 }
 
-public static class my_first_spec_output
+public static class My_first_spec_output
 {
     public static string Output = @"
 my first spec

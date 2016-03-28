@@ -1,12 +1,13 @@
 ﻿using NSpectator;
 
 [Tag("describe_inheritance")]
-public class given_the_sequence_continues_with_2 : given_the_sequence_starts_with_1
+public class Given_the_sequence_continues_with_2 : Given_the_sequence_starts_with_1
 {
     void before_each()
     {
         sequence += "2";
     }
+
     void given_the_sequence_continues_with_3()
     {
         before = () => sequence += "3";
@@ -17,16 +18,17 @@ public class given_the_sequence_continues_with_2 : given_the_sequence_starts_wit
     }
 }
 
-public class given_the_sequence_starts_with_1 : Spec
+public class Given_the_sequence_starts_with_1 : Spec
 {
+    protected string sequence;
+
     void before_each()
     {
         sequence = "1";
     }
-    protected string sequence;
 }
 
-public static class given_the_sequence_continues_with_2_output
+public static class Given_the_sequence_continues_with_2_output
 {
     public static string Output = @"
 given the sequence starts with 1
