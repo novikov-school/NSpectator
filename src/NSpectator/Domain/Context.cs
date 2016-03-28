@@ -365,9 +365,9 @@ namespace NSpectator.Domain
 
         public override string ToString()
         {
-            string exceptionText = (Exception != null ? ", " + Exception.GetType().Name : String.Empty);
+            string exceptionText = (Exception != null ? ", " + Exception.GetType().Name : string.Empty);
 
-            return String.Format("{0}, L{1}, {2} exm, {3} ctx{4}", Name, Level, Examples.Count, Contexts.Count, exceptionText);
+            return $"{Name}, L{Level}, {Examples.Count} exm, {Contexts.Count} ctx{exceptionText}";
         }
 
         void RecurseAncestors(Action<Context> ancestorAction)
@@ -388,7 +388,15 @@ namespace NSpectator.Domain
 
         public Context(string name = "", string tags = null, bool isPending = false)
         {
-            Name = name.Replace("_", " ");
+            // Name = name.Replace("_", " ");
+            if (name.Length > 1)
+            {
+                Name = char.ToLower(name[0]) + name.Substring(1).Replace("_", " ");
+            }
+            else
+            {
+                Name = string.Empty;
+            }
             Examples = new List<ExampleBase>();
             Contexts = new ContextCollection();
             Tags = Domain.Tags.ParseTags(tags);

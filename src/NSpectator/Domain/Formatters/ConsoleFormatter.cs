@@ -53,7 +53,7 @@ namespace NSpectator.Domain.Formatters
 
         public string FailureSummary(ContextCollection contexts)
         {
-            if (contexts.Failures().Count() == 0) return "";
+            if (!contexts.Failures().Any()) return string.Empty;
 
             var summary = "\n" + "**** FAILURES ****" + "\n";
 
@@ -115,10 +115,10 @@ namespace NSpectator.Domain.Formatters
         string[] internalNameSpaces =
             new[]
                 {
-                    "NSpec.Domain",
-                    "NSpec.AssertionExtensions",
-                    "NUnit.Framework",
-                    "NSpec.Extensions"
+                    "NSpectator.Domain",
+                    "NSpectator.AssertionExtensions",
+                    "FluentAssertions",
+                    "NSpectator.Domain.Extensions"
                 };
     }
 }

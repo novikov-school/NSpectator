@@ -64,7 +64,7 @@ class Describe_prime_factors : Spec
 
 ## Contributing
 
-The NSpectator test suite is written in NUnit. The test project is NSpectatorDescriber. Not to be confused with SampleSpecs which hosts numerous tests written with Specs, some of which are intended to fail.
+The NSpectator test suite is written in NUnit. The test project is NSpectator.Specs. It describes the library itself. Not to be confused with SampleSpecs which hosts numerous tests written with Specs, some of which are intended to fail.
 
 If you have Resharper there is a team-shared settings file in the repository. Please use the settings to format any new code you write.
 

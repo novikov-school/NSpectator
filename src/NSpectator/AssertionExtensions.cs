@@ -6,6 +6,7 @@ using NSpectator.Domain;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using FluentAssertions.Numeric;
+using FluentAssertions.Primitives;
 
 namespace NSpectator
 {
@@ -190,6 +191,24 @@ namespace NSpectator
         {
             Math.Abs(actual - expected).Should().BeLessOrEqualTo(tolerance,
                 $"should be close to {tolerance} of {expected} but was {actual} ");
+        }
+
+        /// <summary>
+        /// Asserts that a string is exactly the same as another string, including the casing and any leading or trailing whitespace.
+        /// 
+        /// </summary>
+        /// <param name="assertions"></param>
+        /// <param name="expected">The expected string.</param>
+        /// <param name="stringComparison"></param>
+        /// <param name="because">A formatted phrase as is supported by <see cref="M:System.String.Format(System.String,System.Object[])"/> explaining why the assertion
+        ///             is needed. If the phrase does not start with the word <i>because</i>, it is prepended automatically.
+        ///             </param><param name="reasonArgs">Zero or more objects to format using the placeholders in <see cref="!:because"/>.
+        ///             </param>
+        public static AndConstraint<StringAssertions> Be(this StringAssertions assertions, string expected, StringComparison stringComparison, string because = "", params object[] reasonArgs)
+        {
+            Execute.Assertion.ForCondition(assertions.Subject.Equals(expected, stringComparison))
+                .BecauseOf(because, reasonArgs).FailWith("Expected: {0} {reason}, but found {1}.", (object)expected, (object)assertions.Subject);
+            return new AndConstraint<StringAssertions>(assertions);
         }
 
         /// <summary>
