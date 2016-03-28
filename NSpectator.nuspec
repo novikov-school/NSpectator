@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
     <metadata>
         <id>NSpectator</id>
-        <version>0.9.5</version>
+        <version>0.9.5.1</version>
         <title>NSpectator</title>
         <authors>Novikov Ivan,Matt Florence,Amir Rajan</authors>
         <owners>Novikov Ivan</owners>
