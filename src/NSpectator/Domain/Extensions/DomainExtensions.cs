@@ -13,7 +13,7 @@ namespace NSpectator.Domain.Extensions
             return type.GetConstructors()[0].Invoke(new object[0]) as T;
         }
 
-        public static IEnumerable<MethodInfo> Methods(this Type type)
+        public static IEnumerable<MethodInfo> AllMethods(this Type type)
         {
             var flags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.DeclaredOnly;
 

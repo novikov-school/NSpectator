@@ -1,3 +1,10 @@
+#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -5,8 +12,8 @@ using NSpectator;
 using NSpectator.Domain;
 using NUnit.Framework;
 
-using describe_OtherNameSpace;
-using describe_SomeNameSpace;
+using DescribeOtherNamespace;
+using DescribeSomeNamespace;
 using Moq;
 
 namespace NSpectator.Specs
@@ -14,6 +21,7 @@ namespace NSpectator.Specs
     public class SpecClass : Spec
     {
         public void public_method() { }
+
         private void private_method() { }
     }
 
@@ -38,22 +46,22 @@ namespace NSpectator.Specs
 
     [TestFixture]
     [Category("SpecFinder")]
-    public class without_filtering : when_finding_specs
+    public class Without_filtering : When_finding_specs
     {
         [SetUp]
-        public void setup()
+        public void Setup()
         {
             GivenDllContains();
         }
 
         [Test]
-        public void it_should_get_types_from_reflection()
+        public void Should_get_types_from_reflection()
         {
             reflectorMock.Verify(r => r.GetTypesFrom());
         }
 
         [Test]
-        public void it_should_include_classes_that_implement_nspec_and_have_paramterless_void_methods()
+        public void Should_include_classes_that_implement_nspec_and_have_paramterless_void_methods()
         {
             GivenDllContains(typeof(SpecClass));
 
@@ -61,7 +69,7 @@ namespace NSpectator.Specs
         }
 
         [Test]
-        public void it_should_exclude_classes_that_inherit_from_nspec_but_have_no_parameterless_methods()
+        public void Should_exclude_classes_that_inherit_from_nspec_but_have_no_parameterless_methods()
         {
             GivenDllContains(typeof(SpecClassWithNoParameterLessMethods));
 
@@ -69,7 +77,7 @@ namespace NSpectator.Specs
         }
 
         [Test]
-        public void it_should_exclude_classes_that_do_not_inherit_from_nspec()
+        public void Should_exclude_classes_that_do_not_inherit_from_nspec()
         {
             GivenDllContains(typeof(NonSpecClass));
 
@@ -77,7 +85,7 @@ namespace NSpectator.Specs
         }
 
         [Test]
-        public void it_should_exclude_classes_that_have_no_void_methods()
+        public void Should_exclude_classes_that_have_no_void_methods()
         {
             GivenDllContains(typeof(SpecClassWithNoVoidMethods));
 
@@ -87,10 +95,10 @@ namespace NSpectator.Specs
 
     [TestFixture]
     [Category("SpecFinder")]
-    public class When_filtering_specs : when_finding_specs
+    public class When_filtering_specs : When_finding_specs
     {
         [Test]
-        public void it_should_filter_in()
+        public void Should_filter_in()
         {
             GivenDllContains(typeof(AnotherSpecClass));
 
@@ -100,7 +108,7 @@ namespace NSpectator.Specs
         }
 
         [Test]
-        public void it_should_filter_out()
+        public void Should_filter_out()
         {
             GivenDllContains(typeof(SpecClass));
 
@@ -112,7 +120,7 @@ namespace NSpectator.Specs
 
     [TestFixture]
     [Category("SpecFinder")]
-    public class When_finding_specs_based_on_regex : when_finding_specs
+    public class When_finding_specs_based_on_regex : When_finding_specs
     {
         [SetUp]
         public void Setup()
@@ -124,7 +132,7 @@ namespace NSpectator.Specs
         }
 
         [Test]
-        public void it_should_find_all_specs_if_regex_is_not_specified()
+        public void Should_find_all_specs_if_regex_is_not_specified()
         {
             GivenFilter("");
 
@@ -135,7 +143,7 @@ namespace NSpectator.Specs
         }
 
         [Test]
-        public void it_should_find_specs_for_derived_class_and_include_base_class()
+        public void Should_find_specs_for_derived_class_and_include_base_class()
         {
             GivenFilter("DerivedClass$");
 
@@ -149,7 +157,7 @@ namespace NSpectator.Specs
         }
 
         [Test]
-        public void it_should_find_specs_that_contain_namespace()
+        public void Should_find_specs_that_contain_namespace()
         {
             GivenFilter("describe_SomeNameSpace");
 
@@ -160,7 +168,7 @@ namespace NSpectator.Specs
         }
 
         [Test]
-        public void it_should_find_distinct_specs()
+        public void Should_find_distinct_specs()
         {
             GivenFilter("Derived");
 
@@ -173,7 +181,7 @@ namespace NSpectator.Specs
         }
     }
 
-    public class when_finding_specs
+    public class When_finding_specs
     {
         protected void GivenDllContains(params Type[] types)
         {
@@ -202,7 +210,7 @@ namespace NSpectator.Specs
     }
 }
 
-namespace describe_SomeNameSpace
+namespace DescribeSomeNamespace
 {
     class SomeClass : Spec
     {
@@ -229,7 +237,7 @@ namespace describe_SomeNameSpace
     }
 }
 
-namespace describe_OtherNameSpace
+namespace DescribeOtherNamespace
 {
     class SomeClassInOtherNameSpace : Spec
     {

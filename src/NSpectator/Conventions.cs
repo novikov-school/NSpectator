@@ -173,7 +173,7 @@ namespace NSpectator.Domain
 
         static MethodInfo GetMethodMatchingRegex(Type type, Regex regex)
         {
-            return FindMatching(type.Methods(), type, regex);
+            return FindMatching(DomainExtensions.AllMethods(type), type, regex);
         }
 
         static MethodInfo GetAsyncMethodMatchingRegex(Type type, Regex regex)

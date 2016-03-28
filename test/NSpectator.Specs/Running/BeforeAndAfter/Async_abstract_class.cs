@@ -1,13 +1,18 @@
-using NSpectator;
+#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
 using NUnit.Framework;
 using System.Threading.Tasks;
-using NSpectator.Specs.Running;
 
 namespace NSpectator.Specs.Running.BeforeAndAfter
 {
     [TestFixture]
     [Category("Async")]
-    public class async_abstract_class : When_running_specs
+    public class Async_abstract_class : When_running_specs
     {
         abstract class Abstract : Sequence_spec
         {
@@ -49,7 +54,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         public void all_async_features_are_supported_from_abstract_classes_when_run_under_the_context_of_a_derived_concrete()
         {
             Run(typeof(Concrete));
-            Concrete.sequence.Is("ABCDEFGH");
+            Sequence_spec.sequence.Is("ABCDEFGH");
         }
     }
 }

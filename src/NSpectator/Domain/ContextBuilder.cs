@@ -45,8 +45,7 @@ namespace NSpectator.Domain
 
         public void BuildMethodContexts(Context classContext, Type specClass)
         {
-            specClass
-                .Methods()
+            DomainExtensions.AllMethods(specClass)
                 .Where(s => conventions.IsMethodLevelContext(s.Name))
                 .Do(contextMethod =>
                 {
@@ -64,8 +63,7 @@ namespace NSpectator.Domain
             Func<MethodInfo, MethodExampleBase> buildAsyncMethodLevel = method => 
                 new AsyncMethodExample(method, TagStringFor(method));
 
-            specClass
-                .Methods()
+            DomainExtensions.AllMethods(specClass)
                 .Union(specClass
                     .AsyncMethods())
                 .Where(method => conventions.IsMethodLevelExample(method.Name))

@@ -1,8 +1,13 @@
-using NSpectator;
+#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
 using NSpectator.Domain;
-using NSpectator.Specs;
 using NUnit.Framework;
-using System.Threading.Tasks;
+using FluentAssertions;
 
 namespace NSpectator.Specs
 {
@@ -11,9 +16,9 @@ namespace NSpectator.Specs
     public class when_parsing_expressions
     {
         [Test]
-        public void should_clear_quotes()
+        public void Should_clear_quotes()
         {
-            new Example(() => "hello".should_be("hello")).Spec.should_be("hello should be hello");
+            new Example(() => "hello".should_be("hello")).Spec.Should().Be("hello should be hello");
         }
 
         // no 'specify' available for AsyncExample, hence no way to test that on AsyncExample
@@ -21,10 +26,10 @@ namespace NSpectator.Specs
 
     [TestFixture]
     [Category("Example")]
-    public class describe_ExampleBase
+    public class Describe_ExampleBase
     {
         [Test]
-        public void should_concatenate_its_contexts_name_into_a_full_name()
+        public void Should_concatenate_its_contexts_name_into_a_full_name()
         {
             var context = new Context("context name");
 
@@ -32,11 +37,11 @@ namespace NSpectator.Specs
 
             context.AddExample(example);
 
-            example.FullName().should_be("context name. example name.");
+            example.FullName().Should().Be("context name. example name.");
         }
 
         [Test]
-        public void should_be_marked_as_pending_if_parent_context_is_pending()
+        public void Should_be_marked_as_pending_if_parent_context_is_pending()
         {
             var context = new Context("pending context", null, isPending: true);
 
@@ -44,11 +49,11 @@ namespace NSpectator.Specs
 
             context.AddExample(example);
 
-            example.Pending.should_be_true();
+            example.Pending.Should().BeTrue();
         }
 
         [Test]
-        public void should_be_marked_as_pending_if_any_parent_context_is_pending()
+        public void Should_be_marked_as_pending_if_any_parent_context_is_pending()
         {
             var parentContext = new Context("parent pending context", null, isPending: true);
             var context = new Context("not pending");
@@ -58,7 +63,7 @@ namespace NSpectator.Specs
 
             context.AddExample(example);
 
-            example.Pending.should_be_true();
+            example.Pending.Should().BeTrue();
         }
     }
 }
