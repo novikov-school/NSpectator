@@ -15,6 +15,7 @@ using NUnit.Framework;
 using DescribeOtherNamespace;
 using DescribeSomeNamespace;
 using Moq;
+using FluentAssertions;
 
 namespace NSpectator.Specs
 {
@@ -159,12 +160,12 @@ namespace NSpectator.Specs
         [Test]
         public void Should_find_specs_that_contain_namespace()
         {
-            GivenFilter("describe_SomeNameSpace");
+            GivenFilter("DescribeSomeNamespace");
 
             TheSpecClasses()
-                .should_contain(typeof(SomeClass))
-                .should_contain(typeof(SomeDerivedClass))
-                .should_not_contain(typeof(SomeClassInOtherNameSpace));
+                .Should().Contain(typeof(SomeClass)).And
+                .Contain(typeof(SomeDerivedClass)).And
+                .NotContain(typeof(SomeClassInOtherNameSpace));
         }
 
         [Test]
