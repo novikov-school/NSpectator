@@ -35,7 +35,7 @@ build:
 
 test:
   assemblies:
-  - NSpectatorDescriber.dll
+  - NSpectator.Specs.dll
 
 artifacts:
  - path: src\NSpectator\bin\Debug\NSpectator.dll

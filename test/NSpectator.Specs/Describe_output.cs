@@ -34,7 +34,7 @@ namespace NSpectator.Describer
          TestCase(typeof(describe_helpers_output),
                   new [] { typeof(describe_helpers) },
                   ""),
-         TestCase(typeof(describe_async_helpers_output),
+         TestCase(typeof(Describe_async_helpers_output),
                   new [] { typeof(Describe_async_helpers) },
                   ""),
          TestCase(typeof(describe_batman_sound_effects_as_text_output),

@@ -36,7 +36,7 @@ namespace SampleSpecs.WebSite
         Tea tea;
     }
 
-    public static class describe_async_helpers_output
+    public static class Describe_async_helpers_output
     {
         public static string Output = @"
 describe async helpers

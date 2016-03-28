@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSpectator", "src\NSpectato
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSpecRunner", "tools\NSpecRunner\NSpecRunner.csproj", "{24F513D3-3D65-42B9-893A-0D3196E45043}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSpectatorDescriber", "test\NSpectatorDescriber\NSpectatorDescriber.csproj", "{DC55CE3B-BB8C-42BB-A363-D3F1ED825A86}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSpectator.Specs", "test\NSpectator.Specs\NSpectator.Specs.csproj", "{DC55CE3B-BB8C-42BB-A363-D3F1ED825A86}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSpectator.GallioPlugin", "tools\NSpectator.GallioPlugin\NSpectator.GallioPlugin.csproj", "{25B0B581-D3DD-4FE8-B7E9-DA6F86622E17}"
 EndProject
