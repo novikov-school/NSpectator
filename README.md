@@ -2,6 +2,7 @@
 
 [![Join the chat at https://gitter.im/nspectator/NSpectator](https://badges.gitter.im/nspectator/NSpectator.svg)](https://gitter.im/nspectator/NSpectator?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://travis-ci.org/nspectator/NSpectator.svg?branch=master)](https://travis-ci.org/nspectator/NSpectator)
+[![Dependencies status](https://img.shields.io/badge/dependencies-up--to--date-brightgreen.svg)](#)
 [![Youtrack](https://img.shields.io/badge/issues-youtrack-orange.svg)](https://nspectator.myjetbrains.com)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/nspectator/NSpectator/master/license.txt)
 
