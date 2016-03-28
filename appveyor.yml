@@ -38,5 +38,4 @@ test:
   - NSpectatorDescriber.dll
 
 artifacts:
-  assemblies:
-  - NSpectator.dll
+ - path: src\NSpectator\bin\Debug\NSpectator.dll
