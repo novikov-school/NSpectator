@@ -11,7 +11,7 @@ using NSpectator.Specs.Running;
 
 namespace NSpectator.Specs.Running
 {
-    public abstract class when_describing_async_hooks : When_running_specs
+    public abstract class When_describing_async_hooks : When_running_specs
     {
         protected class BaseSpecClass : Spec
         {

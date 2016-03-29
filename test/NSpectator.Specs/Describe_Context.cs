@@ -17,7 +17,7 @@ namespace NSpectator.Specs
     public class Describe_Context
     {
         [Test]
-        public void it_should_make_a_sentence_from_underscored_context_names()
+        public void Should_make_a_sentence_from_underscored_context_names()
         {
             new Context("i_love_underscores").Name.Should().Be("i love underscores");
         }
@@ -27,7 +27,7 @@ namespace NSpectator.Specs
     public class When_counting_failures
     {
         [Test]
-        public void given_nested_contexts_and_the_child_has_a_failure()
+        public void Given_nested_contexts_and_the_child_has_a_failure()
         {
             var child = new Context("child");
 
@@ -62,7 +62,7 @@ namespace NSpectator.Specs
     public class When_creating_act_contexts_for_derived_class
     {
         [SetUp]
-        public void setup()
+        public void Setup()
         {
             parentContext = new ClassContext(typeof(Parent_act));
 
@@ -76,11 +76,11 @@ namespace NSpectator.Specs
         }
 
         [Test]
-        public void should_run_the_acts_in_the_right_order()
+        public void Should_run_the_acts_in_the_right_order()
         {
             childContext.RunActs(instance);
 
-            instance.actResult.should_be("parentchild");
+            instance.actResult.Should().Be("parentchild");
         }
 
         ClassContext childContext, parentContext;
@@ -123,13 +123,13 @@ namespace NSpectator.Specs
         }
 
         [Test]
-        public void the_root_context_should_be_the_parent()
+        public void the_root_context_Should_be_the_parent()
         {
             parentContext.Name.Should().BeEquals(typeof(Parent_before).Name.Replace("_", " "), StringComparison.InvariantCultureIgnoreCase);
         }
 
         [Test]
-        public void it_should_have_the_child_as_a_context()
+        public void it_Should_have_the_child_as_a_context()
         {
             parentContext.Contexts.First().Name.Should().BeEquals(typeof(Child_before).Name.Replace("_", " "), StringComparison.InvariantCultureIgnoreCase);
         }
@@ -159,11 +159,11 @@ namespace NSpectator.Specs
         }
 
         [Test]
-        public void should_run_the_befores_in_the_proper_order()
+        public void Should_run_the_befores_in_the_proper_order()
         {
             childContext.RunBefores(instance);
 
-            instance.beforeResult.should_be("parentchild");
+            instance.beforeResult.Should().Be("parentchild");
         }
 
         ClassContext childContext, parentContext;
@@ -214,7 +214,7 @@ namespace NSpectator.Specs
 
             rootContext.AddContext(contextWithExample);
 
-            rootContext.Contexts.Count().should_be(2);
+            rootContext.Contexts.Count().Should().Be(2);
 
             rootContext.TrimSkippedDescendants();
         }
@@ -222,13 +222,13 @@ namespace NSpectator.Specs
         [Test]
         public void it_contains_context_with_example()
         {
-            rootContext.AllContexts().should_contain(contextWithExample);
+            rootContext.AllContexts().Should().Contain(contextWithExample);
         }
 
         [Test]
         public void it_doesnt_contain_empty_context()
         {
-            rootContext.AllContexts().should_not_contain(contextWithoutExample);
+            rootContext.AllContexts().Should().NotContain(contextWithoutExample);
         }
     }
 
@@ -249,7 +249,7 @@ namespace NSpectator.Specs
 
             rootContext.AddContext(parentContext);
 
-            rootContext.AllContexts().should_contain(parentContext);
+            rootContext.AllContexts().Should().Contain(parentContext);
         }
 
         public void GivenContextWithAChildContextThatHasNoExample()
@@ -262,7 +262,7 @@ namespace NSpectator.Specs
 
             rootContext.AddContext(parentContext);
 
-            rootContext.AllContexts().should_contain(parentContext);
+            rootContext.AllContexts().Should().Contain(parentContext);
         }
 
         [Test]
@@ -272,9 +272,9 @@ namespace NSpectator.Specs
 
             rootContext.TrimSkippedDescendants();
 
-            rootContext.AllContexts().should_contain(parentContext);
+            rootContext.AllContexts().Should().Contain(parentContext);
 
-            rootContext.AllContexts().should_contain(childContext);
+            rootContext.AllContexts().Should().Contain(childContext);
         }
 
         [Test]
@@ -284,9 +284,9 @@ namespace NSpectator.Specs
 
             rootContext.TrimSkippedDescendants();
 
-            rootContext.AllContexts().should_not_contain(parentContext);
+            rootContext.AllContexts().Should().NotContain(parentContext);
 
-            rootContext.AllContexts().should_not_contain(childContext);
+            rootContext.AllContexts().Should().NotContain(childContext);
         }
     }
 }
