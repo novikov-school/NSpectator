@@ -106,3 +106,9 @@ git checkout archive/<your-branch-name>
 # (Re)Create branch
 git checkout -b <some-branch-name>
 ```
+
+### Thanks to
+
+Jetbrains Community support for providing great tools for NSpectator Development Team
+
+[![Jetbrains Resharper](http://nspectator.org/assets/icon_ReSharper.png)](https://www.jetbrains.com/resharper/)
