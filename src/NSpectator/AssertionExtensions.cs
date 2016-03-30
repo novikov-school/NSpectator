@@ -17,11 +17,6 @@ namespace NSpectator
             predicate.Compile()(o).Should().BeTrue(ExampleBase.Parse(predicate.Body));
         }
         
-        public static void should_not_be_default<T>(this T t)
-        {
-            t.Should().NotBe(default(T));
-        }
-
         public static void is_true(this bool actual) { actual.should_be_true(); }
 
         public static void should_be_true(this bool actual)
@@ -42,11 +37,6 @@ namespace NSpectator
         public static void Is(this object actual, object expected)
         {
             actual.Should().Be(expected);
-        }
-
-        public static void should_not_be(this object actual, object expected)
-        {
-            actual.Should().NotBe(expected);
         }
 
         public static void should_be(this string actual, string expected)

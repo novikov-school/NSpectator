@@ -28,7 +28,7 @@ namespace NSpectator.Specs
         protected List<Context> contexts;
 
         [SetUp]
-        public void setup_base()
+        public void SetupBase()
         {
             typesForFinder = new List<Type>();
 
@@ -69,7 +69,7 @@ namespace NSpectator.Specs
         public class Parent : Spec { }
 
         [SetUp]
-        public void setup()
+        public void Setup()
         {
             GivenTypes(typeof(Child), typeof(Sibling), typeof(Parent));
 
@@ -77,20 +77,20 @@ namespace NSpectator.Specs
         }
 
         [Test]
-        public void should_get_specs_from_specFinder()
+        public void Should_get_specs_from_specFinder()
         {
             finderMock.Verify(f => f.SpecClasses());
             // finderMock.AssertWasCalled(f => f.SpecClasses());
         }
 
         [Test]
-        public void the_primary_context_should_be_parent()
+        public void the_primary_context_Should_be_parent()
         {
             TheContexts().First().Name.Should().BeEquals(typeof(Parent).Name, StringComparison.InvariantCultureIgnoreCase);
         }
 
         [Test]
-        public void the_parent_should_have_the_child_context()
+        public void the_parent_Should_have_the_child_context()
         {
             TheContexts().First().Contexts.First().Name.Should().BeEquals(typeof(Child).Name, StringComparison.InvariantCultureIgnoreCase);
         }
@@ -135,43 +135,43 @@ namespace NSpectator.Specs
         }
 
         [Test]
-        public void should_find_method_level_example_if_the_method_name_starts_with_the_word_IT()
+        public void Should_find_method_level_example_if_the_method_name_starts_with_the_word_IT()
         {
             ShouldContainExample("it should be considered an example");
         }
 
         [Test]
-        public void should_find_async_method_level_example_if_the_method_name_starts_with_the_word_IT()
+        public void Should_find_async_method_level_example_if_the_method_name_starts_with_the_word_IT()
         {
             ShouldContainExample("it should be considered an example with async");
         }
 
         [Test]
-        public void should_find_async_method_level_example_if_the_method_name_starts_with_the_word_IT_and_it_returns_result()
+        public void Should_find_async_method_level_example_if_the_method_name_starts_with_the_word_IT_and_it_returns_result()
         {
             ShouldContainExample("it should be considered an example with async result");
         }
 
         [Test]
-        public void should_find_async_method_level_example_if_the_method_name_starts_with_the_word_IT_and_it_returns_void()
+        public void Should_find_async_method_level_example_if_the_method_name_starts_with_the_word_IT_and_it_returns_void()
         {
             ShouldContainExample("it should be considered an example with async void");
         }
 
         [Test]
-        public void should_find_method_level_example_if_the_method_starts_with_SPECIFY()
+        public void Should_find_method_level_example_if_the_method_starts_with_SPECIFY()
         {
             ShouldContainExample("specify should be considered as an example");
         }
 
         [Test]
-        public void should_find_async_method_level_example_if_the_method_starts_with_SPECIFY()
+        public void Should_find_async_method_level_example_if_the_method_starts_with_SPECIFY()
         {
             ShouldContainExample("specify should be considered as an example with async");
         }
 
         [Test]
-        public void should_exclude_methods_that_start_with_ITs_from_child_context()
+        public void Should_exclude_methods_that_start_with_ITs_from_child_context()
         {
             TheContexts().First().Contexts.Should().BeEmpty();
         }
@@ -183,7 +183,7 @@ namespace NSpectator.Specs
     }
 
     [TestFixture]
-    public class when_building_method_contexts
+    public class When_building_method_contexts
     {
         private Context classContext;
 
@@ -199,7 +199,7 @@ namespace NSpectator.Specs
         }
 
         [SetUp]
-        public void setup()
+        public void Setup()
         {
             var finderMock = new Mock<ISpecFinder>();
 
@@ -215,32 +215,32 @@ namespace NSpectator.Specs
         }
 
         [Test]
-        public void it_should_add_the_public_method_as_a_sub_context()
+        public void it_Should_add_the_public_method_as_a_sub_context()
         {
-            classContext.Contexts.should_contain(c => c.Name == "public method");
+            classContext.Contexts.Should().Contain(c => c.Name == "public method");
         }
 
         [Test]
         public void it_should_not_create_a_sub_context_for_the_private_method()
         {
-            classContext.Contexts.should_contain(c => c.Name == "private method");
+            classContext.Contexts.Should().Contain(c => c.Name == "private method");
         }
 
         [Test]
         public void it_should_disregard_method_called_before_each()
         {
-            classContext.Contexts.should_not_contain(c => c.Name == "before each");
+            classContext.Contexts.Should().NotContain(c => c.Name == "before each");
         }
 
         [Test]
         public void it_should_disregard_method_called_act_each()
         {
-            classContext.Contexts.should_not_contain(c => c.Name == "act each");
+            classContext.Contexts.Should().NotContain(c => c.Name == "act each");
         }
     }
 
     [TestFixture]
-    public class when_building_class_and_method_contexts_with_tag_attributes : Describe_ContextBuilder
+    public class When_building_class_and_method_contexts_with_tag_attributes : Describe_ContextBuilder
     {
         [Tag("@class-tag")]
         class SpecClass : Spec
@@ -290,19 +290,19 @@ namespace NSpectator.Specs
         }
 
         [Test]
-        public void the_root_context_should_be_base_spec()
+        public void the_root_context_Should_be_base_spec()
         {
             TheContexts().First().Name.ShouldBeConventionTo(typeof(Base_spec));
         }
 
         [Test]
-        public void the_next_context_should_be_derived_spec()
+        public void the_next_context_Should_be_derived_spec()
         {
             TheContexts().First().Contexts.First().Name.ShouldBeConventionTo(typeof(Child_spec));
         }
 
         [Test]
-        public void the_next_next_context_should_be_derived_spec()
+        public void the_next_next_context_Should_be_derived_spec()
         {
             TheContexts().First().Contexts.First().Contexts.First().Name.ShouldBeConventionTo(typeof(Grand_child_spec));
         }

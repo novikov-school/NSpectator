@@ -106,7 +106,7 @@ namespace NSpectator.Specs
     }
 
     [TestFixture]
-    public class when_creating_contexts_for_derived_classes
+    public class When_creating_contexts_for_derived_classes
     {
         [SetUp]
         public void setup()
@@ -142,10 +142,10 @@ namespace NSpectator.Specs
     }
 
     [TestFixture]
-    public class when_creating_before_contexts_for_derived_class
+    public class When_creating_before_contexts_for_derived_class
     {
         [SetUp]
-        public void setup()
+        public void Setup()
         {
             parentContext = new ClassContext(typeof(Parent_before));
 
@@ -197,7 +197,7 @@ namespace NSpectator.Specs
     }
 
     [TestFixture]
-    public class trimming_unexecuted_contexts_one_level_deep : trimming_contexts
+    public class Trimming_unexecuted_contexts_one_level_deep : trimming_contexts
     {
         Context contextWithExample;
 
@@ -233,7 +233,7 @@ namespace NSpectator.Specs
     }
 
     [TestFixture]
-    public class trimming_unexecuted_contexts_two_levels_deep : trimming_contexts
+    public class Trimming_unexecuted_contexts_two_levels_deep : trimming_contexts
     {
         Context childContext;
 

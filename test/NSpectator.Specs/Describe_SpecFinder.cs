@@ -74,7 +74,7 @@ namespace NSpectator.Specs
         {
             GivenDllContains(typeof(SpecClassWithNoParameterLessMethods));
 
-            finder.SpecClasses().should_be_empty();
+            finder.SpecClasses().Should().BeEmpty();
         }
 
         [Test]
@@ -82,7 +82,7 @@ namespace NSpectator.Specs
         {
             GivenDllContains(typeof(NonSpecClass));
 
-            finder.SpecClasses().should_be_empty();
+            finder.SpecClasses().Should().BeEmpty();
         }
 
         [Test]
@@ -90,7 +90,7 @@ namespace NSpectator.Specs
         {
             GivenDllContains(typeof(SpecClassWithNoVoidMethods));
 
-            finder.SpecClasses().should_be_empty();
+            finder.SpecClasses().Should().BeEmpty();
         }
     }
 
@@ -105,7 +105,7 @@ namespace NSpectator.Specs
 
             GivenFilter(typeof(AnotherSpecClass).Name);
 
-            finder.SpecClasses().should_contain(typeof(AnotherSpecClass));
+            finder.SpecClasses().Should().Contain(typeof(AnotherSpecClass));
         }
 
         [Test]

@@ -34,7 +34,7 @@ namespace NSpectator.Specs.Running
                 await Task.Run(() =>
                 {
                     last_async_example_executed = true;
-                    "hello".should_not_be("hello");
+                    "hello".Should().NotBe("hello");
                 });
             }
         }

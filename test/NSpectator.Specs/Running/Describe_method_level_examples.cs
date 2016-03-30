@@ -32,7 +32,7 @@ namespace NSpectator.Specs.Running
             void it_should_be_failing()
             {
                 last_example_executed = true;
-                "hello".should_not_be("hello");
+                "hello".Should().NotBe("hello");
             }
         }
 
