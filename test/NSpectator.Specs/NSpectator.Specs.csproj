@@ -65,7 +65,7 @@
     <Compile Include="DebuggerShim.cs" />
     <Compile Include="Describe_Assertions.cs" />
     <Compile Include="Describe_Conventions.cs" />
-    <Compile Include="Describe_Output.cs" />
+    <Compile Include="DescribeOutput.cs" />
     <Compile Include="Running\Describe_async_after_all.cs" />
     <Compile Include="Running\Describe_async_after.cs" />
     <Compile Include="Running\Describe_async_act.cs" />
@@ -138,7 +138,7 @@
     <Compile Include="ExampleBaseWrap.cs" />
     <Compile Include="SpecExtensions.cs" />
     <Compile Include="Running\Exceptions\When_method_level_before_contains_exception.cs" />
-    <Compile Include="Describe_Tags.cs" />
+    <Compile Include="DescribeTags.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Running\Exceptions\When_act_contains_exception.cs" />
     <Compile Include="Running\Exceptions\When_after_contains_exception.cs" />

@@ -17,7 +17,7 @@ using SampleSpecsFocus;
 namespace NSpectator.Specs
 {
     [TestFixture]
-    public class Describe_Output
+    public class DescribeOutput
     {
         [Test,
          TestCase(typeof(My_first_spec_output),
