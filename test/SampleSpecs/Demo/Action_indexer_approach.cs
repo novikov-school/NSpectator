@@ -7,9 +7,9 @@
 // ReSharper disable InconsistentNaming
 
 #endregion
-
 using NSpectator;
 using SampleSpecs.Model;
+using FluentAssertions;
 
 namespace SampleSpecs.Demo
 {
@@ -21,7 +21,7 @@ namespace SampleSpecs.Demo
         {
             before = () => user = new User();
 
-            specify = () => user.Id.should_not_be_default();
+            specify = () => user.Id.Should().NotBeDefault("because it is initialized");
 
             context["user is admin"] = () =>
             {

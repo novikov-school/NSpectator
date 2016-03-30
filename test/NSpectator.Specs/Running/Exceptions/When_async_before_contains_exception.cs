@@ -4,13 +4,14 @@ using NSpectator.Domain;
 using NUnit.Framework;
 using System.Threading.Tasks;
 using NSpectator.Specs.Running;
+using FluentAssertions;
 
 namespace NSpectator.Specs.Running.Exceptions
 {
     [TestFixture]
     [Category("RunningSpecs")]
     [Category("Async")]
-    public class when_async_before_contains_exception : When_running_specs
+    public class When_async_before_contains_exception : When_running_specs
     {
         class SpecClass : Spec
         {
@@ -22,9 +23,9 @@ namespace NSpectator.Specs.Running.Exceptions
                     throw new BeforeException(); 
                 };
 
-                it["should fail this example because of beforeAsync"] = () => "1".should_be("1");
+                it["should fail this example because of beforeAsync"] = () => "1".Should().Be("1");
 
-                it["should also fail this example because of beforeAsync"] = () => "1".should_be("1");
+                it["should also fail this example because of beforeAsync"] = () => "1".Should().Be("1");
 
                 it["overrides exception from same level it"] = () => { throw new ItException(); };
 
@@ -32,14 +33,14 @@ namespace NSpectator.Specs.Running.Exceptions
                 {
                     before = () => { throw new BeforeException(); };
 
-                    it["overrides exception from nested before"] = () => "1".should_be("1");
+                    it["overrides exception from nested before"] = () => "1".Should().Be("1");
                 };
 
                 context["exception thrown by both beforeAsync and nested act"] = () =>
                 {
                     act = () => { throw new ActException(); };
 
-                    it["overrides exception from nested act"] = () => "1".should_be("1");
+                    it["overrides exception from nested act"] = () => "1".Should().Be("1");
                 };
 
                 context["exception thrown by both beforeAsync and nested it"] = () =>
@@ -49,7 +50,7 @@ namespace NSpectator.Specs.Running.Exceptions
 
                 context["exception thrown by both beforeAsync and nested after"] = () =>
                 {
-                    it["overrides exception from nested after"] = () => "1".should_be("1");
+                    it["overrides exception from nested after"] = () => "1".Should().Be("1");
 
                     after = () => { throw new AfterException(); };
                 };

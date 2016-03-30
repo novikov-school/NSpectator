@@ -5,23 +5,20 @@
 // ReSharper disable ArrangeTypeMemberModifiers
 // ReSharper disable InconsistentNaming
 #endregion
-using System.Diagnostics;
-using System.IO;
-using System.Reflection;
+
 using System.Linq;
 using NUnit.Framework;
 using System;
-using NSpectator;
 using NSpectator.Domain;
 using NSpectator.Domain.Formatters;
-using SampleSpecs.Bug;
 using SampleSpecs.WebSite;
 using SampleSpecsFocus;
+using FluentAssertions;
 
 namespace NSpectator.Specs
 {
     [TestFixture]
-    public class Describe_output
+    public class DescribeOutput
     {
         [Test,
          TestCase(typeof(My_first_spec_output),
@@ -97,7 +94,7 @@ namespace NSpectator.Specs
 
             var expectedString = ScrubStackTrace(ScrubNewLines(output.GetField("Output").GetValue(null) as string));
             var actualString = ScrubStackTrace(string.Join("\n", actual)).Trim();
-            actualString.should_be(expectedString);
+            actualString.Should().Be(expectedString);
 
             var guid = Guid.NewGuid();
         }

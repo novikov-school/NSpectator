@@ -1,16 +1,21 @@
-﻿using System;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
 using System.Linq;
-using NSpectator;
 using NSpectator.Domain;
 using NUnit.Framework;
 using System.Threading.Tasks;
-using NSpectator.Specs.Running;
+using FluentAssertions;
 
 namespace NSpectator.Specs.Running.Exceptions
 {
     [TestFixture]
     [Category("RunningSpecs")]
-    public class describe_expected_exception_in_act : when_expecting_exception_in_act
+    public class Describe_expected_exception_in_act : When_expecting_exception_in_act
     {
         private class SpecClass : Spec
         {
@@ -34,7 +39,7 @@ namespace NSpectator.Specs.Running.Exceptions
         }
 
         [SetUp]
-        public void setup()
+        public void Setup()
         {
             Run(typeof(SpecClass));
         }
@@ -43,7 +48,7 @@ namespace NSpectator.Specs.Running.Exceptions
     [TestFixture]
     [Category("RunningSpecs")]
     [Category("Async")]
-    public class describe_expected_exception_in_async_act_before_awaiting_a_task : when_expecting_exception_in_act
+    public class Describe_expected_exception_in_async_act_before_awaiting_a_task : When_expecting_exception_in_act
     {
         private class SpecClass : Spec
         {
@@ -76,7 +81,7 @@ namespace NSpectator.Specs.Running.Exceptions
     [TestFixture]
     [Category("RunningSpecs")]
     [Category("Async")]
-    public class describe_expected_exception_in_async_act_after_awaiting_a_task : when_expecting_exception_in_act
+    public class Describe_expected_exception_in_async_act_after_awaiting_a_task : When_expecting_exception_in_act
     {
         private class SpecClass : Spec
         {
@@ -114,7 +119,7 @@ namespace NSpectator.Specs.Running.Exceptions
     [TestFixture]
     [Category("RunningSpecs")]
     [Category("Async")]
-    public class describe_expected_exception_in_async_act_within_list_of_tasks : when_expecting_exception_in_act
+    public class describe_expected_exception_in_async_act_within_list_of_tasks : When_expecting_exception_in_act
     {
         private class SpecClass : Spec
         {
@@ -156,7 +161,7 @@ namespace NSpectator.Specs.Running.Exceptions
         }
     }
 
-    public abstract class when_expecting_exception_in_act : When_running_specs
+    public abstract class When_expecting_exception_in_act : When_running_specs
     {
         [Test]
         public void should_be_three_failures()
@@ -167,19 +172,19 @@ namespace NSpectator.Specs.Running.Exceptions
         [Test]
         public void threw_expected_exception_in_act()
         {
-            TheExample("threw the expected exception in act").should_have_passed();
+            TheExample("threw the expected exception in act").Should_have_passed();
         }
 
         [Test]
         public void threw_the_exception_in_act_with_the_proper_error_message()
         {
-            TheExample("threw the exception in act with expected error message").should_have_passed();
+            TheExample("threw the exception in act with expected error message").Should_have_passed();
         }
 
         [Test]
         public void fails_if_no_exception_thrown()
         {
-            TheExample("fails if no exception thrown").Exception.GetType().should_be(typeof(ExceptionNotThrown));
+            TheExample("fails if no exception thrown").Exception.Should().BeOfType<ExceptionNotThrown>();
         }
 
         [Test]
@@ -187,8 +192,8 @@ namespace NSpectator.Specs.Running.Exceptions
         {
             var exception = TheExample("fails if wrong exception thrown").Exception;
 
-            exception.GetType().should_be(typeof(ExceptionNotThrown));
-            exception.Message.should_be("Exception of type SomeOtherException was not thrown.");
+            exception.Should().BeOfType<ExceptionNotThrown>();
+            exception.Message.Should().Be("Exception of type SomeOtherException was not thrown.");
         }
 
         [Test]
@@ -196,8 +201,8 @@ namespace NSpectator.Specs.Running.Exceptions
         {
             var exception = TheExample("fails if wrong error message is returned").Exception;
 
-            exception.GetType().should_be(typeof(ExceptionNotThrown));
-            exception.Message.should_be("Expected message: \"Blah\" But was: \"Testing\"");
+            exception.Should().BeOfType<ExceptionNotThrown>();
+            exception.Message.Should().Be("Expected message: \"Blah\" But was: \"Testing\"");
         }
     }
 }

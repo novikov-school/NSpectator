@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
-using NSpectator;
-using NSpectator.Specs.Running;
 using NUnit.Framework;
+using FluentAssertions;
 
 namespace NSpectator.Specs.Running
 {
     [TestFixture]
-    class describe_examples_for_abstract_class : When_running_specs
+    class Describe_examples_for_abstract_class : When_running_specs
     {
         class Base : Spec
         {
@@ -21,7 +20,7 @@ namespace NSpectator.Specs.Running
 
             void list_manipulations()
             {
-                it["should be 1"] = () => ints.should_be(1);
+                it["should be 1"] = () => ints.Should().Equal(1);
             }
         }
 
@@ -36,7 +35,7 @@ namespace NSpectator.Specs.Running
             {
                 //since abstract classes can only run in derived concrete context classes
                 //the context isn't quite what you might expect.
-                it["should be 1, 2, 3"] = () => ints.should_be(1, 2, 3);
+                it["should be 1, 2, 3"] = () => ints.Should().Equal(1, 2, 3);
             }
         }
 
@@ -49,7 +48,7 @@ namespace NSpectator.Specs.Running
 
             void list_manipulations()
             {
-                it["should be 1, 2, 3 too"] = () => ints.should_be(1, 2, 3);
+                it["should be 1, 2, 3 too"] = () => ints.Should().Equal(1, 2, 3);
             }
         }
 
@@ -62,15 +61,15 @@ namespace NSpectator.Specs.Running
         [Test]
         public void should_run_example_within_a_sub_context_in_a_derived_class()
         {
-            TheExample("should be 1").should_have_passed();
+            TheExample("should be 1").Should_have_passed();
         }
 
         [Test]
         public void it_runs_examples_from_abstract_class_as_if_they_belonged_to_concrete_class()
         {
-            TheExample("should be 1, 2, 3").should_have_passed();
+            TheExample("should be 1, 2, 3").Should_have_passed();
 
-            TheExample("should be 1, 2, 3 too").should_have_passed();
+            TheExample("should be 1, 2, 3 too").Should_have_passed();
         }
     }
 }

@@ -13,7 +13,7 @@ namespace NSpectator.Specs.Running
     [TestFixture]
     [Category("RunningSpecs")]
     [Category("Async")]
-    public class describe_async_before : when_describing_async_hooks
+    public class describe_async_before : When_describing_async_hooks
     {
         class SpecClass : BaseSpecClass
         {

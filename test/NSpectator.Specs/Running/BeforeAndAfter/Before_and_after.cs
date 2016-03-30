@@ -5,8 +5,6 @@
 // ReSharper disable ArrangeTypeMemberModifiers
 // ReSharper disable InconsistentNaming
 #endregion
-using NSpectator;
-using NSpectator.Specs.Running;
 using NUnit.Framework;
 
 namespace NSpectator.Specs.Running.BeforeAndAfter

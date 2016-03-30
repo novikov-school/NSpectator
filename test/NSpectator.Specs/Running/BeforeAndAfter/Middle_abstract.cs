@@ -1,12 +1,18 @@
-﻿using NSpectator;
-using NSpectator.Specs.Running;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
 using NUnit.Framework;
+using FluentAssertions;
 
 namespace NSpectator.Specs.Running.BeforeAndAfter
 {
     [TestFixture]
     [Category("RunningSpecs")]
-    public class middle_abstract : When_running_specs
+    public class Middle_abstract : When_running_specs
     {
         class Base : Sequence_spec
         {
@@ -49,9 +55,9 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         }
 
         [SetUp]
-        public void setup()
+        public void Setup()
         {
-            Concrete.sequence = "";
+            Sequence_spec.sequence = "";
         }
 
         [Test]
@@ -59,7 +65,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         {
             Run(typeof(Concrete));
 
-            Concrete.sequence.should_start_with("ABC");
+            Sequence_spec.sequence.should_start_with("ABC");
         }
 
         [Test]
@@ -67,7 +73,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         {
             Run(typeof(Concrete));
 
-            Concrete.sequence.should_end_with("DEF");
+            Sequence_spec.sequence.Should().EndWith("DEF");
         }
     }
 }

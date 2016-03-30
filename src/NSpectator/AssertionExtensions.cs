@@ -16,37 +16,13 @@ namespace NSpectator
         {
             predicate.Compile()(o).Should().BeTrue(ExampleBase.Parse(predicate.Body));
         }
-
-        public static T should_be_null<T>(this T target) where T : class
-        {
-            target.Should().BeNull();
-            return target;
-        }
-
-        public static T? should_be_null<T>(this T? target) where T : struct
-        {
-            target.HasValue.Should().BeFalse();
-            return target;
-        }
-
-        public static void should_not_be_default<T>(this T t)
-        {
-            t.Should().NotBe(default(T));
-        }
-
-        public static void is_not_null_or_empty(this string source)
-        {
-            source.Should().NotBeNullOrEmpty();
-        }
-
+        
         public static void is_true(this bool actual) { actual.should_be_true(); }
 
         public static void should_be_true(this bool actual)
         {
             actual.Should().BeTrue();
         }
-
-        public static void is_false(this bool actual) { actual.should_be_false(); }
 
         public static void should_be_false(this bool actual)
         {
@@ -63,29 +39,14 @@ namespace NSpectator
             actual.Should().Be(expected);
         }
 
-        public static void should_not_be(this object actual, object expected)
-        {
-            actual.Should().NotBe(expected);
-        }
-
         public static void should_be(this string actual, string expected)
         {
             actual.Should().Be(expected);
         }
 
-        public static void should_end_with(this string actual, string end)
-        {
-            actual.Should().EndWith(end);
-        }
-
         public static void should_start_with(this string actual, string start)
         {
             actual.Should().StartWith(start);
-        }
-
-        public static void should_contain(this string actual, string expected)
-        {
-            actual.Should().Contain(expected);
         }
 
         public static IEnumerable<T> should_not_contain<T>(this IEnumerable<T> collection, Func<T, bool> predicate)
@@ -105,92 +66,31 @@ namespace NSpectator
             collection.Should().Contain(t);
             return collection;
         }
-
-        public static IEnumerable<T> should_not_contain<T>(this IEnumerable<T> collection, T t)
-        {
-            collection.Should().NotContain(t);
-            return collection;
-        }
-
-        public static IEnumerable<T> should_not_be_empty<T>(this IEnumerable<T> collection)
-        {
-            collection.Should().NotBeEmpty();
-            return collection;
-        }
-
-        public static string should_not_be_empty(this string target)
-        {
-            target.Should().NotBeEmpty();
-            return target;
-        }
-
-        public static string should_be_empty(this string target)
-        {
-            target.Should().BeEmpty();
-            return target;
-        }
+        
 
         public static IEnumerable<T> should_be_empty<T>(this IEnumerable<T> collection)
         {
             collection.Should().BeEmpty();
             return collection;
         }
-
-        public static IEnumerable<T> should_be<T>(this IEnumerable<T> actual, params T[] expected)
-        {
-            actual.Should().Equal(expected);
-            return actual;
-        }
-
-        public static IEnumerable<T> should_be<T>(this IEnumerable<T> actual, IEnumerable<T> expected)
-        {
-            actual.Should().Equal(expected);
-            return actual;
-        }
-
+        
         public static T ShouldCastTo<T>(this object value)
         {
             value.Should().BeOfType<T>();
             return (T)value;
         }
 
-        public static void should_not_match(this string value, string pattern)
+        /// <summary>
+        /// Asserts that the integral number value is not default value.
+        /// 
+        /// </summary>
+        /// <param name="assertions"></param>
+        /// <param name="because"></param>
+        /// <param name="reasonArgs"></param>
+        public static AndConstraint<NumericAssertions<T>> NotBeDefault<T>(this NumericAssertions<T> assertions, string because = "", params object[] reasonArgs) where T : struct 
         {
-            value.Should().NotMatch(pattern);
-        }
-
-        public static void is_greater_than<T>(this IComparable<T> arg1, T arg2)
-        {
-            arg1.Should().BeGreaterThan(arg2);
-        }
-
-        public static void should_be_greater_than<T>(this IComparable<T> arg1, T arg2) where T : struct
-        {
-            arg1.Should().BeGreaterThan(arg2);
-        }
-
-        public static void is_greater_or_equal_to<T>(this IComparable<T> arg1, T arg2) { arg1.Should().BeGreaterOrEqualTo(arg2);}
-        public static void should_be_greater_or_equal_to<T>(this IComparable<T> arg1, T arg2)
-        {
-            arg1.Should().BeGreaterOrEqualTo(arg2);
-        }
-
-        public static void is_less_than<T>(this IComparable<T> arg1, T arg2){ arg1.Should().BeLessThan(arg2);}
-
-        public static void is_less_or_equal_to<T>(this IComparable<T> arg1, T arg2) { arg1.Should().BeLessOrEqualTo(arg2); }
-        
-        public static void is_close_to(this float actual, float expected){ actual.ShouldBeCloseTo(expected);}
-        public static void ShouldBeCloseTo(this float actual, float expected)
-        {
-            actual.ShouldBeCloseTo(expected, 0.0000001f);
-        }
-
-       
-        public static void is_close_to(this float actual, float expected, float tolerance){ actual.ShouldBeCloseTo(expected, tolerance);}
-        public static void ShouldBeCloseTo(this float actual, float expected, float tolerance)
-        {
-            Math.Abs(actual - expected).Should().BeLessOrEqualTo(tolerance,
-                $"should be close to {tolerance} of {expected} but was {actual} ");
+            Execute.Assertion.ForCondition(!assertions.Subject.Equals(default(T))).BecauseOf(because, reasonArgs).FailWith("Did not expect default value {0}{reason}.", (object)default(T));
+            return new AndConstraint<NumericAssertions<T>>(assertions);
         }
 
         /// <summary>
@@ -247,27 +147,17 @@ namespace NSpectator
             return BeCloseTo(assertion, expected, double.Epsilon, because, reasonArgs);
         }
 
-        public static void is_close_to(this double actual, double expected, double tolerance) { actual.ShouldBeCloseTo(expected, tolerance); }
         public static void ShouldBeCloseTo(this double actual, double expected, double tolerance)
         {
             Math.Abs(actual - expected).Should().BeLessOrEqualTo(tolerance,
                 $"should be close to {tolerance} of {expected} but was {actual} ");
         }
 
-        public static void is_close_to(this double actual, double expected){ actual.ShouldBeCloseTo(expected);}
-        public static void ShouldBeCloseTo(this double actual, double expected)
-        {
-            actual.ShouldBeCloseTo(expected, 0.0000001f);
-        }
-
-        public static void is_close_to(this TimeSpan actual, TimeSpan expected, TimeSpan tolerance){ actual.ShouldBeCloseTo(expected, tolerance);}
         public static void ShouldBeCloseTo(this TimeSpan actual, TimeSpan expected, TimeSpan tolerance)
         {
             Math.Abs((actual - expected).Ticks).Should().BeLessOrEqualTo(tolerance.Ticks,
                 $"should be close to {tolerance} of {expected} but was {actual} ");
         }
-
-        public static void is_close_to(this DateTime actual, DateTime expected, DateTime tolerance) { actual.ShouldBeCloseTo(expected, tolerance);}
 
         public static void ShouldBeCloseTo(this DateTime actual, DateTime expected, DateTime tolerance)
         {

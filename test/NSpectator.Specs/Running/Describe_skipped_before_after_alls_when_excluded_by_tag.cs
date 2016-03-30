@@ -5,10 +5,8 @@
 // ReSharper disable ArrangeTypeMemberModifiers
 // ReSharper disable InconsistentNaming
 #endregion
-using System.Linq;
-using NSpectator;
-using NSpectator.Specs.Running;
 using NUnit.Framework;
+using FluentAssertions;
 
 namespace NSpectator.Specs.Running
 {
@@ -26,7 +24,7 @@ namespace NSpectator.Specs.Running
 
             void context_bystander()
             {
-                it["should not run because of tags"] = () => "not tagged".should_be("not tagged");
+                it["should not run because of tags"] = () => "not tagged".Should().Be("not tagged");
             }
         }
 
@@ -61,7 +59,7 @@ namespace NSpectator.Specs.Running
 
             void context_bystander()
             {
-                it["should not run because of tags"] = () => "not tagged".should_be("not tagged");
+                it["should not run because of tags"] = () => "not tagged".Should().Be("not tagged");
             }
 
             void after_all()

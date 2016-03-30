@@ -1,15 +1,21 @@
-﻿using System;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
+using System;
 using System.Linq;
-using NSpectator;
 using NSpectator.Domain;
-using NSpectator.Specs.Running;
 using NUnit.Framework;
+using FluentAssertions;
 
 namespace NSpectator.Specs.Running.Exceptions
 {
     [TestFixture]
     [Category("RunningSpecs")]
-    public class when_method_level_after_contains_exception : When_running_specs
+    public class When_method_level_after_contains_exception : When_running_specs
     {
         class SpecClass : Spec
         {
@@ -20,7 +26,7 @@ namespace NSpectator.Specs.Running.Exceptions
 
             void should_fail_this_example()
             {
-                it["should fail"] = () => "hello".should_be("hello");
+                it["should fail"] = () => "hello".Should().Be("hello");
             }
         }
 

@@ -1,9 +1,11 @@
-﻿using NSpectator;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using FluentAssertions;
 
@@ -12,7 +14,7 @@ namespace NSpectator.Specs.Running
     [TestFixture]
     [Category("RunningSpecs")]
     [Category("Async")]
-    public class describe_async_method_level_examples : describe_method_level_examples_common_cases
+    public class Describe_async_method_level_examples : Describe_method_level_examples_common_cases
     {
         class AsyncSpecClass : Spec
         {
@@ -23,7 +25,7 @@ namespace NSpectator.Specs.Running
                 await Task.Run(() =>
                 {
                     first_async_example_executed = true;
-                    "hello".should_be("hello");
+                    "hello".Should().Be("hello");
                 });
             }
 
@@ -32,7 +34,7 @@ namespace NSpectator.Specs.Running
                 await Task.Run(() =>
                 {
                     last_async_example_executed = true;
-                    "hello".should_not_be("hello");
+                    "hello".Should().NotBe("hello");
                 });
             }
         }
@@ -57,14 +59,14 @@ namespace NSpectator.Specs.Running
         {
             async Task<long> it_should_be_failing_with_task_result()
             {
-                await Task.Run(() => "hello".should_be("hello"));
+                await Task.Run(() => "hello".Should().Be("hello"));
 
                 return -1L;
             }
 
             async void it_should_throw_with_async_void()
             {
-                await Task.Run(() => "hello".should_be("hello"));
+                await Task.Run(() => "hello".Should().Be("hello"));
             }
         }
 

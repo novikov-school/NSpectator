@@ -12,7 +12,7 @@ using NUnit.Framework;
 namespace NSpectator.Specs
 {
     [TestFixture]
-    public class Describe_parsing_tags
+    public class DescribeTags
     {
         [Test]
         public void Should_parses_single_tag()

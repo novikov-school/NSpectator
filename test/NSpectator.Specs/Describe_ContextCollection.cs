@@ -1,8 +1,15 @@
+#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
 using System;
 using System.Linq;
-using NSpectator;
 using NSpectator.Domain;
 using NUnit.Framework;
+using FluentAssertions;
 
 namespace NSpectator.Specs
 {
@@ -13,7 +20,7 @@ namespace NSpectator.Specs
         private ContextCollection contexts;
 
         [SetUp]
-        public void setup()
+        public void Setup()
         {
             contexts = new ContextCollection();
 
@@ -31,38 +38,38 @@ namespace NSpectator.Specs
         }
 
         [Test]
-        public void should_aggregate_examples()
+        public void Should_aggregate_examples()
         {
-            contexts.Examples().Count().should_be(3);
+            contexts.Examples().Count().Should().Be(3);
         }
 
         [Test]
-        public void is_marked_with_focus()
+        public void Should_be_marked_with_focus()
         {
-            contexts.AnyTaggedWithFocus().should_be_true();
+            contexts.AnyTaggedWithFocus().Should().BeTrue();
         }
 
         [Test]
-        public void should_aggregate_failures()
+        public void Should_aggregate_failures()
         {
-            contexts.Failures().Count().should_be(1);
+            contexts.Failures().Count().Should().Be(1);
         }
 
         [Test]
-        public void should_aggregate_pendings()
+        public void Should_aggregate_pendings()
         {
-            contexts.Pendings().Count().should_be(1);
+            contexts.Pendings().Count().Should().Be(1);
         }
 
         [Test]
-        public void should_trim_skipped_contexts()
+        public void Should_trim_skipped_contexts()
         {
             contexts.Add(new Context());
             contexts[0].AddExample(new ExampleBaseWrap());
             contexts[0].Examples[0].HasRun = true;
-            contexts.Count().should_be(2);
+            contexts.Count().Should().Be(2);
             contexts.TrimSkippedContexts();
-            contexts.Count().should_be(1);
+            contexts.Count().Should().Be(1);
         }
     }
 }

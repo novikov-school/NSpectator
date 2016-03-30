@@ -78,9 +78,9 @@ namespace NSpectator.Specs.Running
         {
             TheContext("ConcreteClass").Examples.Count().should_be(3);
 
-            TheExample("specify an example in abstract class").should_have_passed();
+            TheExample("specify an example in abstract class").Should_have_passed();
 
-            TheExample("specify an example in another abstract class").should_have_passed();
+            TheExample("specify an example in another abstract class").Should_have_passed();
         }
 
         [Test]

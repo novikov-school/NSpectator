@@ -1,12 +1,17 @@
-﻿using NSpectator;
-using NSpectator.Specs.Running;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
 using NUnit.Framework;
 
 namespace NSpectator.Specs.Running.BeforeAndAfter
 {
     [TestFixture]
     [Category("RunningSpecs")]
-    public class class_levels : When_running_specs
+    public class Class_levels : When_running_specs
     {
         class SpecClass : Sequence_spec
         {
@@ -46,7 +51,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         {
             Run(typeof(SpecClass));
 
-            SpecClass.sequence.Is("AB1CB2CD");
+            Sequence_spec.sequence.Is("AB1CB2CD");
         }
     }
 }

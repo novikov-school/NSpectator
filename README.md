@@ -7,7 +7,7 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/nspectator/NSpectator/master/license.txt)
 
 
-NSpectator is ready-to-use solution for development using .NET with Context/Specification flavor. It can be used in different approaches, including TDD, ATDD, BDD. Toolset is intended to be used to drive development through specifying behavior and interaction at the unit level. 
+NSpectator is ready-to-use solution for development using .NET with Context/Specification flavor. It can be used in different approaches where Specification-By-Example is applicable, including TDD, ATDD, BDD or another agile technics. Toolset is intended to be used to drive development through specifying behavior and interaction at the unit level. 
 NSpectator has only one dependency on popular flexible [FluentAssertions](https://github.com/dennisdoomen/fluentassertions) library. It`s important not to depend on specific unit test framework.
 
 Development was started by [Jonny Novikov](http://jonnynovikov.com) inspired by [RSpec](http://rspec.info/) and based upon hereditary framework [NSpec](https://github.com/mattflo/NSpec) written by [Matt Florence](http://twitter.com/mattflo) and [Amir Rajan] (http://twitter.com/amirrajan). We shaped and benefited by hard work from our [contributors](https://github.com/nspectator/NSpectator/contributors)
@@ -64,50 +64,15 @@ class Describe_prime_factors : Spec
 
 ## Contributing
 
-The NSpectator test suite is written in NUnit. The test project is NSpectator.Specs. It describes the library itself. Not to be confused with SampleSpecs which hosts numerous tests written with Specs, some of which are intended to fail.
+Check out [this wiki page](https://github.com/nspectator/NSpectator/wiki/Contributing) for complete guide.
 
-If you have Resharper there is a team-shared settings file in the repository. Please use the settings to format any new code you write.
+### Issues
 
-Fork the project, make your changes, and then send a Pull Request.
+Feature requests, bugs & issues are handled on [InCloud NSpectator Youtrack](https://nspectator.myjetbrains.com)
 
-### Branch housekeeping
+Use github authorization (gray bottom button) for signup or login.
 
-If you are a direct contributor to the project, please keep an eye on your past development or features branches and think about archiving them once they're no longer needed. 
-No worries, their commits will still be available under named tags, it's just that they will not pollute the branch list.
-
-If you're running on a Windows OS, there's a batch script available at `scripts\archive-branch.bat`. Otherwise, the command sequence to run in a *nix shell is the following:
-
-```bash
-# Get local branch from remote, if needed
-git checkout <your-branch-name>
-
-# Go back to master
-git checkout master
-
-# Create local tag
-git tag archive/<your-branch-name> <your-branch-name>
-
-# Create remote tag
-git push origin archive/<your-branch-name>
-
-# Delete local branch
-git branch -d <your-branch-name>
-
-# Delete remote branch
-git push origin --delete <your-branch-name>
-```
-
-If you need to later retrieve an archived branch, just run the following commands:
-
-```bash
-# Checkout archive tag
-git checkout archive/<your-branch-name>
-
-# (Re)Create branch
-git checkout -b <some-branch-name>
-```
-
-### Thanks to
+## Thanks to
 
 Jetbrains Community support for providing great tools for NSpectator Development Team
 

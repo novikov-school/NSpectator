@@ -1,21 +1,26 @@
-using NSpectator;
+#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
 using NUnit.Framework;
 using System.Threading.Tasks;
-using NSpectator.Specs.Running;
 
 namespace NSpectator.Specs.Running.BeforeAndAfter
 {
     [TestFixture]
     [Category("Async")]
-    public class async_when_there_are_no_specs : When_running_specs
+    public class Async_when_there_are_no_specs : When_running_specs
     {
         [SetUp]
-        public void setup()
+        public void Setup()
         {
             Sequence_spec.sequence = "";
         }
 
-        class async_before_all_example_spec : Sequence_spec
+        class Async_before_all_example_spec : Sequence_spec
         {
             async Task before_all()
             {
@@ -24,14 +29,14 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         }
 
         [Test]
-        public void async_before_all_is_not_executed()
+        public void Async_before_all_is_not_executed()
         {
-            Run(typeof(async_before_all_example_spec));
+            Run(typeof(Async_before_all_example_spec));
 
             Sequence_spec.sequence.Is("");
         }
 
-        class async_before_each_example_spec : Sequence_spec
+        class Async_before_each_example_spec : Sequence_spec
         {
             async Task before_each()
             {
@@ -42,12 +47,12 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         [Test]
         public void async_before_each_is_not_executed()
         {
-            Run(typeof(async_before_each_example_spec));
+            Run(typeof(Async_before_each_example_spec));
 
             Sequence_spec.sequence.Is("");
         }
 
-        class after_each_example_spec : Sequence_spec
+        class After_each_example_spec : Sequence_spec
         {
             async Task after_each()
             {
@@ -58,12 +63,12 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         [Test]
         public void after_each_is_not_executed()
         {
-            Run(typeof (after_each_example_spec));
+            Run(typeof (After_each_example_spec));
 
             Sequence_spec.sequence.Is("");
         }
 
-        class after_all_example_spec : Sequence_spec
+        class After_all_example_spec : Sequence_spec
         {
             async Task after_all()
             {
@@ -74,7 +79,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         [Test]
         public void after_all_is_not_executed()
         {
-            Run(typeof (after_all_example_spec));
+            Run(typeof (After_all_example_spec));
 
             Sequence_spec.sequence.Is("");
         }

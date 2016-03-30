@@ -1,7 +1,15 @@
+#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using NSpectator;
+using FluentAssertions;
 
 namespace SampleSpecs.Compare.NSpec
 {
@@ -61,7 +69,7 @@ namespace SampleSpecs.Compare.NSpec
 
         public Item Item(string slot)
         {
-            if (!items.Any(i => i.Slot == slot)) throw new ItemNotRegisteredException();
+            if (items.All(i => i.Slot != slot)) throw new ItemNotRegisteredException();
 
             return items.First();
         }
