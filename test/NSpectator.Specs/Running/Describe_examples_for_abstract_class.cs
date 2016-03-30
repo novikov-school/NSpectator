@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
-using NSpectator;
-using NSpectator.Specs.Running;
 using NUnit.Framework;
+using FluentAssertions;
 
 namespace NSpectator.Specs.Running
 {
     [TestFixture]
-    class describe_examples_for_abstract_class : When_running_specs
+    class Describe_examples_for_abstract_class : When_running_specs
     {
         class Base : Spec
         {
@@ -21,7 +20,7 @@ namespace NSpectator.Specs.Running
 
             void list_manipulations()
             {
-                it["should be 1"] = () => ints.should_be(1);
+                it["should be 1"] = () => ints.Should().Equal(1);
             }
         }
 
@@ -36,7 +35,7 @@ namespace NSpectator.Specs.Running
             {
                 //since abstract classes can only run in derived concrete context classes
                 //the context isn't quite what you might expect.
-                it["should be 1, 2, 3"] = () => ints.should_be(1, 2, 3);
+                it["should be 1, 2, 3"] = () => ints.Should().Equal(1, 2, 3);
             }
         }
 
@@ -49,7 +48,7 @@ namespace NSpectator.Specs.Running
 
             void list_manipulations()
             {
-                it["should be 1, 2, 3 too"] = () => ints.should_be(1, 2, 3);
+                it["should be 1, 2, 3 too"] = () => ints.Should().Equal(1, 2, 3);
             }
         }
 

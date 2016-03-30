@@ -1,17 +1,23 @@
-﻿using System.Linq;
-using NSpectator;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
+using System.Linq;
 using NSpectator.Domain;
 using NSpectator.Domain.Formatters;
 using NUnit.Framework;
-using System.Threading.Tasks;
 using System;
 using Moq;
+using FluentAssertions;
 
 namespace NSpectator.Specs.Running
 {
     [TestFixture]
     [Category("RunningSpecs")]
-    public class describe_method_level_examples : describe_method_level_examples_common_cases
+    public class Describe_method_level_examples : Describe_method_level_examples_common_cases
     {
         class SpecClass : Spec
         {
@@ -20,7 +26,7 @@ namespace NSpectator.Specs.Running
             void it_should_be_an_example()
             {
                 first_example_executed = true;
-                "hello".should_be("hello");
+                "hello".Should().Be("hello");
             }
 
             void it_should_be_failing()
@@ -31,16 +37,17 @@ namespace NSpectator.Specs.Running
         }
 
         [SetUp]
-        public void setup()
+        public void Setup()
         {
             RunWithReflector(typeof(SpecClass));
         }
 
-        protected override bool FirstExampleExecuted { get { return SpecClass.first_example_executed; } }
-        protected override bool LastExampleExecuted { get { return SpecClass.last_example_executed; } }
+        protected override bool FirstExampleExecuted => SpecClass.first_example_executed;
+
+        protected override bool LastExampleExecuted => SpecClass.last_example_executed;
     }
 
-    public abstract class describe_method_level_examples_common_cases : When_running_method_level_examples
+    public abstract class Describe_method_level_examples_common_cases : When_running_method_level_examples
     {
         protected abstract bool FirstExampleExecuted { get; }
         protected abstract bool LastExampleExecuted { get; }
@@ -48,13 +55,13 @@ namespace NSpectator.Specs.Running
         [Test]
         public void the_class_context_should_contain_a_class_level_example()
         {
-            classContext.Examples.Count.should_be(2);
+            classContext.Examples.Should().HaveCount(2);
         }
 
         [Test]
         public void there_should_be_only_one_failure()
         {
-            classContext.Failures().Count().should_be(1);
+            classContext.Failures().Should().HaveCount(1);
         }
 
         [Test]
@@ -78,7 +85,7 @@ namespace NSpectator.Specs.Running
         [Test]
         public void the_stack_trace_for_last_example_should_be_the_the_original_stack_trace()
         {
-            classContext.Examples.Last().Exception.StackTrace.should_not_match("^.*at NSpec.Domain.Example");
+            classContext.Examples.Last().Exception.StackTrace.Should().NotMatch("^.*at NSpec.Domain.Example");
         }
     }
 

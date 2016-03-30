@@ -5,6 +5,7 @@
 // ReSharper disable ArrangeTypeMemberModifiers
 // ReSharper disable InconsistentNaming
 #endregion
+using FluentAssertions;
 
 namespace NSpectator.Specs.ClassContextBug
 {
@@ -24,7 +25,7 @@ namespace NSpectator.Specs.ClassContextBug
 
         void Grand_Parent_Context()
         {
-            it["TestValue should be \"Grand Parent!!!\""] = () => TestValue.should_be("Grand Parent!!!");
+            it["TestValue should be \"Grand Parent!!!\""] = () => TestValue.Should().Be("Grand Parent!!!");
         }
     }
 
@@ -42,7 +43,7 @@ namespace NSpectator.Specs.ClassContextBug
 
         void Parent_Context()
         {
-            it["TestValue should be \"Grand Parent.Parent!!!@@@\""] = () => TestValue.should_be("Grand Parent.Parent!!!@@@");
+            it["TestValue should be \"Grand Parent.Parent!!!@@@\""] = () => TestValue.Should().Be("Grand Parent.Parent!!!@@@");
         }
     }
 
@@ -60,7 +61,7 @@ namespace NSpectator.Specs.ClassContextBug
 
         void Child_Context()
         {
-            it["TestValue should be \"Grand Parent.Parent.Child!!!@@@###\""] = () => TestValue.should_be("Grand Parent.Parent.Child!!!@@@###");
+            it["TestValue should be \"Grand Parent.Parent.Child!!!@@@###\""] = () => TestValue.Should().Be("Grand Parent.Parent.Child!!!@@@###");
         }
     }
 }

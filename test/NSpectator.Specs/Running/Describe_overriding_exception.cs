@@ -1,16 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using NSpectator;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
+using System;
 using NUnit.Framework;
 using System.Threading.Tasks;
-using NSpectator.Specs.Running;
+using FluentAssertions;
 
 namespace NSpectator.Specs.Running
 {
     [TestFixture]
-    public class describe_overriding_exception : When_running_specs
+    public class Describe_overriding_exception : When_running_specs
     {
         class SpecClass : Spec
         {
@@ -21,14 +24,14 @@ namespace NSpectator.Specs.Running
 
             void specify_method_level_failure()
             {
-                "1".should_be("1");
+                "1".Should().Be("1");
             }
 
             async Task specify_async_method_level_failure()
             {
                 await Task.Delay(0);
 
-                "1".should_be("1");
+                "1".Should().Be("1");
             }
 
             public override Exception ExceptionToReturn(Exception originalException)

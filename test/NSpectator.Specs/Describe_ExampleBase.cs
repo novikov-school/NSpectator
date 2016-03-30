@@ -13,12 +13,12 @@ namespace NSpectator.Specs
 {
     [TestFixture]
     [Category("Example")]
-    public class when_parsing_expressions
+    public class When_parsing_expressions
     {
         [Test]
         public void Should_clear_quotes()
         {
-            new Example(() => "hello".should_be("hello")).Spec.Should().Be("hello should be hello");
+            new Example(() => "hello".Is("hello")).Spec.Should().Be("hello Is hello");
         }
 
         // no 'specify' available for AsyncExample, hence no way to test that on AsyncExample

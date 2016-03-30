@@ -13,6 +13,7 @@ using NSpectator.Domain;
 using NSpectator.Domain.Formatters;
 using SampleSpecs.WebSite;
 using SampleSpecsFocus;
+using FluentAssertions;
 
 namespace NSpectator.Specs
 {
@@ -93,7 +94,7 @@ namespace NSpectator.Specs
 
             var expectedString = ScrubStackTrace(ScrubNewLines(output.GetField("Output").GetValue(null) as string));
             var actualString = ScrubStackTrace(string.Join("\n", actual)).Trim();
-            actualString.should_be(expectedString);
+            actualString.Should().Be(expectedString);
 
             var guid = Guid.NewGuid();
         }

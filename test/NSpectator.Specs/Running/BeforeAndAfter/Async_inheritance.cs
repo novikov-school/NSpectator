@@ -7,6 +7,7 @@
 #endregion
 using NUnit.Framework;
 using System.Threading.Tasks;
+using FluentAssertions;
 
 namespace NSpectator.Specs.Running.BeforeAndAfter
 {
@@ -66,7 +67,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         [Test]
         public void after_alls_at_every_level_run_after_after_eaches_from_the_inside_out()
         {
-            Sequence_spec.sequence.should_end_with("EFGH");
+            Sequence_spec.sequence.Should().EndWith("EFGH");
         }
     }
 }

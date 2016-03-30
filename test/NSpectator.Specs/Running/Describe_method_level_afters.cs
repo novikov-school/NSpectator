@@ -1,6 +1,12 @@
-﻿using System;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
+using System;
 using System.Linq;
-using NSpectator;
 using NUnit.Framework;
 using System.Threading.Tasks;
 using FluentAssertions;
@@ -61,26 +67,26 @@ namespace NSpectator.Specs.Running
         [Category("Async")]
         public void it_should_not_set_async_method_level_after()
         {
-            classContext.AfterInstanceAsync.should_be_null();
+            classContext.AfterInstanceAsync.Should().BeNull();
         }
 
         [Test]
         public void it_should_set_after_on_method_level_context()
         {
-            methodContext.After.should_be(SpecClass.ContextLevelAfter);
+            methodContext.After.Should().Be(SpecClass.ContextLevelAfter);
         }
 
         [Test]
         public void it_should_set_after_on_sub_context()
         {
-            methodContext.Contexts.First().After.should_be(SpecClass.SubContextAfter);
+            methodContext.Contexts.First().After.Should().Be(SpecClass.SubContextAfter);
         }
 
         [Test]
         [Category("Async")]
         public void it_should_set_async_after_on_sub_context()
         {
-            methodContext.Contexts.Last().AfterAsync.should_be(SpecClass.AsyncSubContextAfter);
+            methodContext.Contexts.Last().AfterAsync.Should().Be(SpecClass.AsyncSubContextAfter);
         }
     }
 }

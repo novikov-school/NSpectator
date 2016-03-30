@@ -115,7 +115,7 @@ namespace NSpectator.Specs
 
             GivenFilter(typeof(AnotherSpecClass).Name);
 
-            finder.SpecClasses().should_be_empty();
+            finder.SpecClasses().Should().BeEmpty();
         }
     }
 
@@ -149,12 +149,12 @@ namespace NSpectator.Specs
             GivenFilter("DerivedClass$");
 
             TheSpecClasses()
-                .should_contain(typeof(SomeClass))
-                .should_contain(typeof(SomeDerivedClass))
-                .should_contain(typeof(SomeDerivedDerivedClass))
-                .should_not_contain(typeof(SomeClassInOtherNameSpace));
+                .Should().Contain(typeof(SomeClass)).And
+                .Contain(typeof(SomeDerivedClass)).And
+                .Contain(typeof(SomeDerivedDerivedClass)).And
+                .NotContain(typeof(SomeClassInOtherNameSpace));
 
-            TheSpecClasses().Count().should_be(3);
+            TheSpecClasses().Should().HaveCount(3);
         }
 
         [Test]
@@ -174,11 +174,11 @@ namespace NSpectator.Specs
             GivenFilter("Derived");
 
             TheSpecClasses()
-                .should_contain(typeof(SomeClass))
-                .should_contain(typeof(SomeDerivedClass))
-                .should_contain(typeof(SomeDerivedDerivedClass));
+                .Should().Contain(typeof(SomeClass)).And
+                .Contain(typeof(SomeDerivedClass)).And
+                .Contain(typeof(SomeDerivedDerivedClass));
 
-            TheSpecClasses().Count().should_be(3);
+            TheSpecClasses().Should().HaveCount(3);
         }
     }
 

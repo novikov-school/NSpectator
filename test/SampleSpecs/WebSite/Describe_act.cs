@@ -9,6 +9,7 @@
 #endregion
 
 using NSpectator;
+using FluentAssertions;
 
 namespace SampleSpecs.WebSite
 {
@@ -26,13 +27,13 @@ namespace SampleSpecs.WebSite
             {
                 before = () => sound = "bam";
                 it["should be BAM!!!"] =
-                    () => sound.should_be("BAM!!!");
+                    () => sound.Should().Be("BAM!!!");
             };
             context["given whack"] = () =>
             {
                 before = () => sound = "whack";
                 it["should be WHACK!!!"] =
-                    () => sound.should_be("WHACK!!!");
+                    () => sound.Should().Be("WHACK!!!");
             };
         }
     }

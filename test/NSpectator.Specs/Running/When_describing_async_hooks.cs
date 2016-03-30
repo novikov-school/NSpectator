@@ -47,12 +47,12 @@ namespace NSpectator.Specs.Running
 
             protected void ShouldHaveInitialState()
             {
-                state.should_be(0);
+                state.Should().Be(0);
             }
 
             protected void ShouldHaveFinalState()
             {
-                state.should_be(1);
+                state.Should().Be(1);
             }
 
             protected void PassAlways()
@@ -67,9 +67,9 @@ namespace NSpectator.Specs.Running
 
             example.HasRun.should_be_true();
 
-            example.Exception.should_be_null();
+            example.Exception.Should().BeNull();
 
-            BaseSpecClass.state.should_be(BaseSpecClass.expected);
+            BaseSpecClass.state.Should().Be(BaseSpecClass.expected);
         }
 
         protected void ExampleRunsWithException(string name)

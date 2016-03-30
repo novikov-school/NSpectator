@@ -7,6 +7,7 @@
 #endregion
 using NSpectator.Domain;
 using NUnit.Framework;
+using FluentAssertions;
 
 namespace NSpectator.Specs.Running.Exceptions
 {
@@ -20,9 +21,9 @@ namespace NSpectator.Specs.Running.Exceptions
             {
                 after = () => { throw new AfterException(); };
 
-                it["should fail this example because of after"] = () => "1".should_be("1");
+                it["should fail this example because of after"] = () => "1".Should().Be("1");
 
-                it["should also fail this example because of after"] = () => "1".should_be("1");
+                it["should also fail this example because of after"] = () => "1".Should().Be("1");
 
                 it["overrides exception from same level it"] = () => { throw new ItException(); };
 
@@ -30,14 +31,14 @@ namespace NSpectator.Specs.Running.Exceptions
                 {
                     before = () => { throw new BeforeException(); };
 
-                    it["preserves exception from nested before"] = () => "1".should_be("1");
+                    it["preserves exception from nested before"] = () => "1".Should().Be("1");
                 };
 
                 context["exception thrown by both after and nested act"] = () =>
                 {
                     act = () => { throw new ActException(); };
 
-                    it["preserves exception from nested act"] = () => "1".should_be("1");
+                    it["preserves exception from nested act"] = () => "1".Should().Be("1");
                 };
 
                 context["exception thrown by both after and nested it"] = () =>
@@ -47,7 +48,7 @@ namespace NSpectator.Specs.Running.Exceptions
 
                 context["exception thrown by both after and nested after"] = () =>
                 {
-                    it["preserves exception from nested after"] = () => "1".should_be("1");
+                    it["preserves exception from nested after"] = () => "1".Should().Be("1");
 
                     after = () => { throw new NestedAfterException(); };
                 };

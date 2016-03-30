@@ -1,12 +1,18 @@
+#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
 using System;
-using NSpectator;
-using NSpectator.Specs.Running;
 using NUnit.Framework;
+using FluentAssertions;
 
 namespace NSpectator.Specs.Running
 {
     [TestFixture]
-    public class describe_abstract_class_execution_order : When_running_specs
+    public class Describe_abstract_class_execution_order : When_running_specs
     {
         abstract class Class1 : Spec
         {
@@ -161,7 +167,7 @@ namespace NSpectator.Specs.Running
 
             var specInstance = classContext.GetInstance() as Class1;
 
-            specInstance.beforeExecutionOrder.should_be(beforeExecutionLog);
+            specInstance.beforeExecutionOrder.Should().Be(beforeExecutionLog);
         }
 
         [Test(Description = "act_each() in concrete classes affects base abstracts"),
@@ -177,7 +183,7 @@ namespace NSpectator.Specs.Running
 
             var specInstance = classContext.GetInstance() as Class1;
 
-            specInstance.actExecutionOrder.should_be(actExecutionLog);
+            specInstance.actExecutionOrder.Should().Be(actExecutionLog);
         }
 
         [Test(Description = "after_each() in concrete classes affects base abstracts"),
@@ -193,7 +199,7 @@ namespace NSpectator.Specs.Running
 
             var specInstance = classContext.GetInstance() as Class1;
 
-            specInstance.afterExecutionOrder.should_be(afterExecutionLog);
+            specInstance.afterExecutionOrder.Should().Be(afterExecutionLog);
         }
 
         [Test,
@@ -209,7 +215,7 @@ namespace NSpectator.Specs.Running
 
             var specInstance = classContext.GetInstance() as Class1;
 
-            specInstance.allExecutions.should_be(fullExecutionLog);
+            specInstance.allExecutions.Should().Be(fullExecutionLog);
         }
     }
 }

@@ -1,6 +1,12 @@
-﻿using System;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
+using System;
 using System.Linq;
-using NSpectator;
 using NUnit.Framework;
 using System.Threading.Tasks;
 using FluentAssertions;
@@ -9,7 +15,7 @@ namespace NSpectator.Specs.Running
 {
     [TestFixture]
     [Category("RunningSpecs")]
-    public class describe_method_level_befores : When_running_specs
+    public class Describe_method_level_befores : When_running_specs
     {
         class SpecClass : Spec
         {
@@ -43,7 +49,7 @@ namespace NSpectator.Specs.Running
         }
 
         [SetUp]
-        public void setup()
+        public void Setup()
         {
             Run(typeof(SpecClass));
         }
@@ -61,26 +67,26 @@ namespace NSpectator.Specs.Running
         [Category("Async")]
         public void it_should_not_set_async_method_level_before()
         {
-            classContext.BeforeInstanceAsync.should_be_null();
+            classContext.BeforeInstanceAsync.Should().BeNull();
         }
 
         [Test]
         public void it_should_set_before_on_method_level_context()
         {
-            methodContext.Before.should_be(SpecClass.ContextLevelBefore);
+            methodContext.Before.Should().Be(SpecClass.ContextLevelBefore);
         }
 
         [Test]
         public void it_should_set_before_on_sub_context()
         {
-            methodContext.Contexts.First().Before.should_be(SpecClass.SubContextBefore);
+            methodContext.Contexts.First().Before.Should().Be(SpecClass.SubContextBefore);
         }
 
         [Test]
         [Category("Async")]
         public void it_should_set_async_before_on_sub_context()
         {
-            methodContext.Contexts.Last().BeforeAsync.should_be(SpecClass.AsyncSubContextBefore);
+            methodContext.Contexts.Last().BeforeAsync.Should().Be(SpecClass.AsyncSubContextBefore);
         }
     }
 }

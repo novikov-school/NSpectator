@@ -1,7 +1,14 @@
-﻿using System;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
+using System;
 using System.Linq;
-using NSpectator;
 using NUnit.Framework;
+using FluentAssertions;
 
 namespace NSpectator.Specs.Running
 {
@@ -16,7 +23,7 @@ namespace NSpectator.Specs.Running
                 xcontext["sub context"] = () =>
                 {
                     it["needs an example or it gets filtered"] =
-                        () => "Hello World".should_be("Hello World");
+                        () => "Hello World".Should().Be("Hello World");
                 };
             }
         }
@@ -53,7 +60,7 @@ namespace NSpectator.Specs.Running
                     before = SubContextBefore;
 
                     it["needs an example or it gets filtered"] =
-                        () => "Hello World".should_be("Hello World");
+                        () => "Hello World".Should().Be("Hello World");
                 };
             }
         }

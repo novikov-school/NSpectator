@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using NSpectator.Domain;
 using NUnit.Framework;
+using FluentAssertions;
 
 namespace NSpectator.Specs.Running
 {
@@ -26,10 +27,10 @@ namespace NSpectator.Specs.Running
                 it["should have two entries"] = () =>
                 {
                     ints.Add(16);
-                    ints.Count.should_be(1);
+                    ints.Should().HaveCount(1);
                 };
 
-                specify = () => ints.Count.should_be(1);
+                specify = () => ints.Should().HaveCount(1, "because nothing more added");
             }
         }
 

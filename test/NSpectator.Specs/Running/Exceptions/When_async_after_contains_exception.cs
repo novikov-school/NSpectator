@@ -1,16 +1,21 @@
-﻿using System;
-using NSpectator;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
 using NSpectator.Domain;
 using NUnit.Framework;
 using System.Threading.Tasks;
-using NSpectator.Specs.Running;
+using FluentAssertions;
 
 namespace NSpectator.Specs.Running.Exceptions
 {
     [TestFixture]
     [Category("RunningSpecs")]
     [Category("Async")]
-    public class when_async_after_contains_exception : When_running_specs
+    public class When_async_after_contains_exception : When_running_specs
     {
         class SpecClass : Spec
         {
@@ -22,9 +27,9 @@ namespace NSpectator.Specs.Running.Exceptions
                     throw new AfterException();
                 };
 
-                it["should fail this example because of afterAsync"] = () => "1".should_be("1");
+                it["should fail this example because of afterAsync"] = () => "1".Should().Be("1");
 
-                it["should also fail this example because of afterAsync"] = () => "1".should_be("1");
+                it["should also fail this example because of afterAsync"] = () => "1".Should().Be("1");
 
                 it["overrides exception from same level it"] = () => { throw new ItException(); };
 
@@ -32,14 +37,14 @@ namespace NSpectator.Specs.Running.Exceptions
                 {
                     before = () => { throw new BeforeException(); };
 
-                    it["preserves exception from nested before"] = () => "1".should_be("1");
+                    it["preserves exception from nested before"] = () => "1".Should().Be("1");
                 };
 
                 context["exception thrown by both afterAsync and nested act"] = () =>
                 {
                     act = () => { throw new ActException(); };
 
-                    it["preserves exception from nested act"] = () => "1".should_be("1");
+                    it["preserves exception from nested act"] = () => "1".Should().Be("1");
                 };
 
                 context["exception thrown by both afterAsync and nested it"] = () =>
@@ -49,7 +54,7 @@ namespace NSpectator.Specs.Running.Exceptions
 
                 context["exception thrown by both afterAsync and nested after"] = () =>
                 {
-                    it["preserves exception from nested after"] = () => "1".should_be("1");
+                    it["preserves exception from nested after"] = () => "1".Should().Be("1");
 
                     after = () => { throw new AfterException(); };
                 };

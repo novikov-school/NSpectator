@@ -98,7 +98,7 @@ namespace NSpectator.Specs
         [Test]
         public void it_should_only_have_the_parent_once()
         {
-            TheContexts().Count().should_be(1);
+            TheContexts().Count().Should().Be(1);
         }
 
         [Test]
@@ -173,12 +173,12 @@ namespace NSpectator.Specs
         [Test]
         public void should_exclude_methods_that_start_with_ITs_from_child_context()
         {
-            TheContexts().First().Contexts.Count.should_be(0);
+            TheContexts().First().Contexts.Should().BeEmpty();
         }
 
         private void ShouldContainExample(string exampleName)
         {
-            TheContexts().First().Examples.Any(s => s.Spec == exampleName);
+            TheContexts().First().Examples.Any(s => s.Spec == exampleName).Should().BeTrue();
         }
     }
 
@@ -292,25 +292,25 @@ namespace NSpectator.Specs
         [Test]
         public void the_root_context_should_be_base_spec()
         {
-            TheContexts().First().Name.should_be(typeof(Base_spec));
+            TheContexts().First().Name.ShouldBeConventionTo(typeof(Base_spec));
         }
 
         [Test]
         public void the_next_context_should_be_derived_spec()
         {
-            TheContexts().First().Contexts.First().Name.should_be(typeof(Child_spec));
+            TheContexts().First().Contexts.First().Name.ShouldBeConventionTo(typeof(Child_spec));
         }
 
         [Test]
         public void the_next_next_context_should_be_derived_spec()
         {
-            TheContexts().First().Contexts.First().Contexts.First().Name.should_be(typeof(Grand_child_spec));
+            TheContexts().First().Contexts.First().Contexts.First().Name.ShouldBeConventionTo(typeof(Grand_child_spec));
         }
     }
 
     public static class InheritanceExtentions
     {
-        public static void should_be(this string actualName, Type expectedType)
+        public static void ShouldBeConventionTo(this string actualName, Type expectedType)
         {
             expectedType.Name.Replace("_", " ").Should().BeEquals(actualName, StringComparison.InvariantCultureIgnoreCase);
         }

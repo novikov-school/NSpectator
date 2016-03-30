@@ -6,6 +6,7 @@
 // ReSharper disable InconsistentNaming
 #endregion
 using NUnit.Framework;
+using FluentAssertions;
 
 namespace NSpectator.Specs.Running.BeforeAndAfter
 {
@@ -72,7 +73,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         {
             Run(typeof(Concrete));
 
-            Sequence_spec.sequence.should_end_with("DEF");
+            Sequence_spec.sequence.Should().EndWith("DEF");
         }
     }
 }

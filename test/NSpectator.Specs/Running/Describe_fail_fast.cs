@@ -20,17 +20,17 @@ namespace NSpectator.Specs.Running
         {
             void given_a_spec_with_multiple_failures()
             {
-                it["this one isn't a failure"] = () => "not failure".should_be("not failure");
+                it["this one isn't a failure"] = () => "not failure".Should().Be("not failure");
 
-                it["this one is a failure"] = () => "hi".should_be("hello");
+                it["this one is a failure"] = () => "hi".Should().Be("hello");
 
-                it["this one also fails"] = () => "another".should_be("failure");
+                it["this one also fails"] = () => "another".Should().Be("failure");
 
                 context["nested examples"] = () =>
                 {
-                    it["is skipped"] = () => "skipped".should_be("skipped");
+                    it["is skipped"] = () => "skipped".Should().Be("skipped");
 
-                    it["is also skipped"] = () => "skipped".should_be("skipped");
+                    it["is also skipped"] = () => "skipped".Should().Be("skipped");
                 };
             }
 
