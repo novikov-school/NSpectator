@@ -10,7 +10,7 @@ namespace NSpectator.Specs.Running.Exceptions
     [TestFixture]
     [Category("RunningSpecs")]
     [Category("Async")]
-    public class when_async_act_contains_exception : When_running_specs
+    public class When_async_act_contains_exception : When_running_specs
     {
         private class SpecClass : Spec
         {
@@ -53,7 +53,7 @@ namespace NSpectator.Specs.Running.Exceptions
         }
 
         [SetUp]
-        public void setup()
+        public void Setup()
         {
             Run(typeof(SpecClass));
         }

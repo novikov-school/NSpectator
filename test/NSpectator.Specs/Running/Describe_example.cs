@@ -41,7 +41,7 @@ namespace NSpectator.Specs.Running
         {
             Run(typeof(SpecClass));
 
-            TheExample("it passes").should_have_passed();
+            TheExample("it passes").Should_have_passed();
         }
 
         [Test]
@@ -49,7 +49,7 @@ namespace NSpectator.Specs.Running
         {
             Run(typeof(SpecClass));
 
-            TheExample("it fails").should_have_failed();
+            TheExample("it fails").Should_have_failed();
         }
 
         class SpecClassWithAnonymouseLambdas : Spec

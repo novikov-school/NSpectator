@@ -65,7 +65,7 @@
     <Compile Include="DebuggerShim.cs" />
     <Compile Include="Describe_Assertions.cs" />
     <Compile Include="Describe_Conventions.cs" />
-    <Compile Include="Describe_output.cs" />
+    <Compile Include="Describe_Output.cs" />
     <Compile Include="Running\Describe_async_after_all.cs" />
     <Compile Include="Running\Describe_async_after.cs" />
     <Compile Include="Running\Describe_async_act.cs" />

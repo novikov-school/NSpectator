@@ -46,8 +46,6 @@ namespace NSpectator
             actual.Should().BeTrue();
         }
 
-        public static void is_false(this bool actual) { actual.should_be_false(); }
-
         public static void should_be_false(this bool actual)
         {
             actual.Should().BeFalse();

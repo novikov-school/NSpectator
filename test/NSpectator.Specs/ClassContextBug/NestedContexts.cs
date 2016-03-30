@@ -6,7 +6,6 @@
 // ReSharper disable InconsistentNaming
 #endregion
 
-
 namespace NSpectator.Specs.ClassContextBug
 {
     class Grand_Parent : Spec

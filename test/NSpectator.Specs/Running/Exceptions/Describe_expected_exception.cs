@@ -5,17 +5,17 @@
 // ReSharper disable ArrangeTypeMemberModifiers
 // ReSharper disable InconsistentNaming
 #endregion
-
 using System.Linq;
 using NSpectator.Domain;
 using NUnit.Framework;
 using System.Threading.Tasks;
+using FluentAssertions;
 
 namespace NSpectator.Specs.Running.Exceptions
 {
     [TestFixture]
     [Category("RunningSpecs")]
-    public class Describe_expected_exception : when_expecting_exception
+    public class Describe_expected_exception : When_expecting_exception
     {
         private class SpecClass : Spec
         {
@@ -36,7 +36,7 @@ namespace NSpectator.Specs.Running.Exceptions
         }
 
         [SetUp]
-        public void setup()
+        public void Setup()
         {
             Run(typeof(SpecClass));
         }
@@ -45,7 +45,7 @@ namespace NSpectator.Specs.Running.Exceptions
     [TestFixture]
     [Category("RunningSpecs")]
     [Category("Async")]
-    public class Describe_async_expected_exception_before_awaiting_a_task : when_expecting_exception
+    public class Describe_async_expected_exception_before_awaiting_a_task : When_expecting_exception
     {
         private class SpecClass : Spec
         {
@@ -74,7 +74,7 @@ namespace NSpectator.Specs.Running.Exceptions
         }
 
         [SetUp]
-        public void setup()
+        public void Setup()
         {
             Run(typeof(SpecClass));
         }
@@ -83,7 +83,7 @@ namespace NSpectator.Specs.Running.Exceptions
     [TestFixture]
     [Category("RunningSpecs")]
     [Category("Async")]
-    public class Describe_async_expected_exception_after_awaiting_a_task : when_expecting_exception
+    public class Describe_async_expected_exception_after_awaiting_a_task : When_expecting_exception
     {
         private class SpecClass : Spec
         {
@@ -125,36 +125,36 @@ namespace NSpectator.Specs.Running.Exceptions
         }
 
         [SetUp]
-        public void setup()
+        public void Setup()
         {
             Run(typeof(SpecClass));
         }
     }
 
-    public abstract class when_expecting_exception : When_running_specs
+    public abstract class When_expecting_exception : When_running_specs
     {
         [Test]
-        public void should_be_three_failures()
+        public void Should_be_three_failures()
         {
-            classContext.Failures().Count().should_be(3);
+            classContext.Failures().Count().Should().Be(3);
         }
 
         [Test]
         public void throws_expected_exception()
         {
-            TheExample("throws expected exception").should_have_passed();
+            TheExample("throws expected exception").Should_have_passed();
         }
 
         [Test]
         public void throws_expected_exception_with_error_message_Testing()
         {
-            TheExample("throws expected exception with expected error message").should_have_passed();
+            TheExample("throws expected exception with expected error message").Should_have_passed();
         }
 
         [Test]
         public void fails_if_expected_exception_not_thrown()
         {
-            TheExample("fails if expected exception does not throw").Exception.GetType().should_be(typeof(ExceptionNotThrown));
+            TheExample("fails if expected exception does not throw").Exception.Should().BeOfType<ExceptionNotThrown>();
         }
 
         [Test]
@@ -162,8 +162,8 @@ namespace NSpectator.Specs.Running.Exceptions
         {
             var exception = TheExample("fails if wrong exception thrown").Exception;
 
-            exception.GetType().should_be(typeof(ExceptionNotThrown));
-            exception.Message.should_be("Exception of type KnownException was not thrown.");
+            exception.Should().BeOfType<ExceptionNotThrown>();
+            exception.Message.Should().Be("Exception of type KnownException was not thrown.");
         }
 
         [Test]
@@ -171,8 +171,8 @@ namespace NSpectator.Specs.Running.Exceptions
         {
             var exception = TheExample("fails if wrong error message is returned").Exception;
 
-            exception.GetType().should_be(typeof(ExceptionNotThrown));
-            exception.Message.should_be("Expected message: \"Testing\" But was: \"Blah\"");
+            exception.Should().BeOfType<ExceptionNotThrown>();
+            exception.Message.Should().Be("Expected message: \"Testing\" But was: \"Blah\"");
         }
     }
 }

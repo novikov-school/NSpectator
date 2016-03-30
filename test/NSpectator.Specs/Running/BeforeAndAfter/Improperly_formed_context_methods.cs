@@ -1,14 +1,19 @@
-﻿using System.Collections.Generic;
-using NSpectator;
-using NSpectator.Specs.Running;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
+using System.Collections.Generic;
 using NUnit.Framework;
 
 namespace NSpectator.Specs.Running.BeforeAndAfter
 {
     [TestFixture]
-    public class improperly_formed_context_methods : When_running_specs
+    public class Improperly_formed_context_methods : When_running_specs
     {
-        class before_all_sampleSpec : Spec
+        class Before_all_sample_spec : Spec
         {
             public static List<string> sequence = new List<string>();
 
@@ -33,8 +38,8 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
 
             void another_messed_up_context()
             {
-                //this context method should also have everything wrapped in lambdas
-                //notice, it would sort alphabetically before the before_all method
+                // this context method should also have everything wrapped in lambdas
+                // notice, it would sort alphabetically before the before_all method
                 sequence.Add("another_messed_up_context");
             }
         }
@@ -42,18 +47,18 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         [Test]
         public void it_runs_things_in_a_strange_order()
         {
-            before_all_sampleSpec.sequence = new List<string>();
+            Before_all_sample_spec.sequence = new List<string>();
 
-            Run(typeof (before_all_sampleSpec));
+            Run(typeof (Before_all_sample_spec));
 
-            //the two improperly crafted context methods are executed first in the order they were declared
-            //while nspec is building up its model of contexts and examples
-            //then the class level before and properly crafted spec (wrapped in lambda) is executed.
+            // the two improperly crafted context methods are executed first in the order they were declared
+            // while nspec is building up its model of contexts and examples
+            // then the class level before and properly crafted spec (wrapped in lambda) is executed.
 
-            //The moral of the story is context methods that don't have their behavior wrapped 
-            //in lambdas (incorrectly so), run in the order that they are declared (disregarding alphabetical ordering).
-            //FYI, alphabetical ordering can easily be implemented in the 'Methods' extension method.
-            CollectionAssert.AreEqual(new[] { "messed_up_context", "another_messed_up_context", "before_all", "a_regular_context_method" }, before_all_sampleSpec.sequence);
+            // The moral of the story is context methods that don't have their behavior wrapped 
+            // in lambdas (incorrectly so), run in the order that they are declared (disregarding alphabetical ordering).
+            // FYI, alphabetical ordering can easily be implemented in the 'Methods' extension method.
+            CollectionAssert.AreEqual(new[] { "messed_up_context", "another_messed_up_context", "before_all", "a_regular_context_method" }, Before_all_sample_spec.sequence);
         }
 
     }

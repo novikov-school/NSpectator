@@ -62,15 +62,15 @@ namespace NSpectator.Specs.Running
         [Test]
         public void should_run_example_within_a_sub_context_in_a_derived_class()
         {
-            TheExample("should be 1").should_have_passed();
+            TheExample("should be 1").Should_have_passed();
         }
 
         [Test]
         public void it_runs_examples_from_abstract_class_as_if_they_belonged_to_concrete_class()
         {
-            TheExample("should be 1, 2, 3").should_have_passed();
+            TheExample("should be 1, 2, 3").Should_have_passed();
 
-            TheExample("should be 1, 2, 3 too").should_have_passed();
+            TheExample("should be 1, 2, 3 too").Should_have_passed();
         }
     }
 }

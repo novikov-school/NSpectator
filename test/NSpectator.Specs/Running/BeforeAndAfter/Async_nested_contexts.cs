@@ -1,13 +1,18 @@
-﻿using NSpectator;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
 using NUnit.Framework;
 using System.Threading.Tasks;
-using NSpectator.Specs.Running;
 
 namespace NSpectator.Specs.Running.BeforeAndAfter
 {
     [TestFixture]
     [Category("Async")]
-    public class async_nested_contexts : When_running_specs
+    public class Async_nested_contexts : When_running_specs
     {
         class SpecClass : Sequence_spec
         {
@@ -41,13 +46,13 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         [Test]
         public void before_alls_at_every_level_run_before_before_eaches_from_the_outside_in()
         {
-            SpecClass.sequence.should_start_with("ABCD");
+            Sequence_spec.sequence.should_start_with("ABCD");
         }
 
         [Test]
         public void after_alls_at_every_level_run_after_after_eaches_from_the_inside_out()
         {
-            SpecClass.sequence.should_end_with("EFGH");
+            Sequence_spec.sequence.should_end_with("EFGH");
         }
     }
 }

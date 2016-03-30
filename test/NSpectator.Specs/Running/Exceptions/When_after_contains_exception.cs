@@ -1,14 +1,18 @@
-﻿using System;
-using NSpectator;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
 using NSpectator.Domain;
-using NSpectator.Specs.Running;
 using NUnit.Framework;
 
 namespace NSpectator.Specs.Running.Exceptions
 {
     [TestFixture]
     [Category("RunningSpecs")]
-    public class when_after_contains_exception : When_running_specs
+    public class When_after_contains_exception : When_running_specs
     {
         class SpecClass : Spec
         {
@@ -51,7 +55,7 @@ namespace NSpectator.Specs.Running.Exceptions
         }
 
         [SetUp]
-        public void setup()
+        public void Setup()
         {
             Run(typeof(SpecClass));
         }
