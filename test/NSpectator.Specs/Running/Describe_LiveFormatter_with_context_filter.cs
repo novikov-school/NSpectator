@@ -22,7 +22,7 @@ namespace NSpectator.Specs.Running
             {
                 context["a context with an example"] = () =>
                 {
-                    it["1 is 1"] = () => 1.Is(1);
+                    it["1 is 1"] = () => 1.Expected().ToBe(1);
                 };
             }
 

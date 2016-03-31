@@ -37,7 +37,7 @@ namespace SampleSpecs.Demo
                 };
             };
 
-            specify = () => user.Admin.should_be_false();
+            specify = () => user.Admin.Expected().True();
 
             it["should work"] = () => { };
 

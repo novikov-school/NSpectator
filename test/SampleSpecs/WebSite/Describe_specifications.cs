@@ -17,7 +17,7 @@ namespace SampleSpecs.WebSite
         void when_creating_specifications()
         {
             // some of these specifications are meant to fail so you can see what the output looks like
-            it["true should be false"] = () => true.should_be_false();
+            it["true should be false"] = () => true.Should().BeFalse();
             it["enumerable should be empty"] = () => new int[] { }.Should().BeEmpty();
             it["enumerable should contain 1"] = () => new[] { 1 }.Should().Contain(1);
             it["enumerable should not contain 1"] = () => new[] { 1 }.Should().NotContain(1);

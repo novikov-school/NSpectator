@@ -1,7 +1,7 @@
 ﻿using System;
 using NSpectator.Domain;
 
-namespace NSpecRunner
+namespace SpecRunner
 {
     public class Wrapper : MarshalByRefObject
     {

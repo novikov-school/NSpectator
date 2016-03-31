@@ -4,15 +4,15 @@ using System.Linq;
 using System.Reflection;
 using NSpectator.Domain;
 
-namespace NSpecRunner
+namespace SpecRunner
 {
     [Serializable]
-    public class NSpecDomain
+    public class SpecDomain
     {
-        //largely inspired from:
-        //http://thevalerios.net/matt/2008/06/run-anonymous-methods-in-another-appdomain/
+        // largely inspired from:
+        // http://thevalerios.net/matt/2008/06/run-anonymous-methods-in-another-appdomain/
 
-        public NSpecDomain(string config)
+        public SpecDomain(string config)
         {
             this.config = config;
         }

@@ -25,7 +25,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
                     beforeAll = () => sequence += "B";
                     before = () => sequence += "D";
 
-                    specify = () => 1.Is(1);
+                    specify = () => 1.Expected().ToBe(1);
 
                     after = () => sequence += "E";
                     afterAll = () => sequence += "G";
@@ -45,7 +45,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         [Test]
         public void before_alls_at_every_level_run_before_before_eaches_from_the_outside_in()
         {
-            Sequence_spec.sequence.should_start_with("ABCD");
+            Sequence_spec.sequence.Should().StartWith("ABCD");
         }
 
         [Test]

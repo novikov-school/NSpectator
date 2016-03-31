@@ -33,7 +33,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         {
             Run(typeof(Async_before_all_example_spec));
 
-            Sequence_spec.sequence.Is("");
+            Sequence_spec.sequence.Expected().ToBeEmpty();
         }
 
         class Async_before_each_example_spec : Sequence_spec
@@ -49,7 +49,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         {
             Run(typeof(Async_before_each_example_spec));
 
-            Sequence_spec.sequence.Is("");
+            Sequence_spec.sequence.Expected().ToBeEmpty();
         }
 
         class After_each_example_spec : Sequence_spec
@@ -65,7 +65,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         {
             Run(typeof (After_each_example_spec));
 
-            Sequence_spec.sequence.Is("");
+            Sequence_spec.sequence.Expected().ToBeEmpty();
         }
 
         class After_all_example_spec : Sequence_spec
@@ -81,7 +81,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         {
             Run(typeof (After_all_example_spec));
 
-            Sequence_spec.sequence.Is("");
+            Sequence_spec.sequence.Expected().ToBeEmpty();
         }
     }
 }

@@ -15,7 +15,7 @@ namespace NSpectator.Specs.Running
     {
         class InnocentBystander : Spec
         {
-            public static string sequence = "";
+            public static string sequence = string.Empty;
 
             void before_all()
             {
@@ -32,7 +32,7 @@ namespace NSpectator.Specs.Running
         {
             void it_specifies_something()
             {
-                specify = () => true.is_true();
+                specify = () => true.Expected().True();
             }
         }
 
@@ -46,7 +46,7 @@ namespace NSpectator.Specs.Running
         [Test]
         public void should_skip_innocent_bystander_before_all()
         {
-            InnocentBystander.sequence.Is("");
+            InnocentBystander.sequence.Should().BeEmpty();
         }
     }
 
@@ -55,7 +55,7 @@ namespace NSpectator.Specs.Running
     {
         class InnocentBystander : Spec
         {
-            public static string sequence = "";
+            public static string sequence = string.Empty;
 
             void context_bystander()
             {
@@ -72,7 +72,7 @@ namespace NSpectator.Specs.Running
         {
             void it_specifies_something()
             {
-                specify = () => true.is_true();
+                specify = () => true.Expected().True();
             }
         }
 
@@ -86,7 +86,7 @@ namespace NSpectator.Specs.Running
         [Test]
         public void should_skip_innocent_bystander_after_all()
         {
-            InnocentBystander.sequence.Is("");
+            InnocentBystander.sequence.Expected().ToBeEmpty();
         }
     }
 }

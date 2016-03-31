@@ -166,7 +166,7 @@ namespace NSpectator.Specs.Running.Exceptions
         [Test]
         public void should_be_three_failures()
         {
-            classContext.Failures().Count().should_be(3);
+            classContext.Failures().Count().Expected().ToBe(3);
         }
 
         [Test]

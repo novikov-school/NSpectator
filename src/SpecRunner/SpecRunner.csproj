@@ -6,8 +6,8 @@
     <ProjectGuid>{24F513D3-3D65-42B9-893A-0D3196E45043}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NSpecRunner</RootNamespace>
-    <AssemblyName>NSpecRunner</AssemblyName>
+    <RootNamespace>SpecRunner</RootNamespace>
+    <AssemblyName>SpecRunner</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -51,7 +51,7 @@
     <Compile Include="$(SolutionDir)SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="NSpecDomain.cs" />
+    <Compile Include="SpecDomain.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Wrapper.cs" />

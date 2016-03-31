@@ -5,7 +5,7 @@ using NSpectator;
 using NSpectator.Domain;
 using NSpectator.Domain.Formatters;
 
-namespace NSpecRunner
+namespace SpecRunner
 {
     class Program
     {
@@ -44,7 +44,7 @@ namespace NSpecRunner
 
                 var invocation = new RunnerInvocation(specDLL, argsTags, formatter, failFast);
 
-                var domain = new NSpecDomain(specDLL + ".config");
+                var domain = new SpecDomain(specDLL + ".config");
 
                 var failures = domain.Run(invocation, i => i.Run().Failures().Count(), specDLL);
 
@@ -60,7 +60,7 @@ namespace NSpecRunner
 
         public static string[] RemoveOptionsAndSwitches(string[] args)
         {
-            return args.Where(s => !s.StartsWith("--") || s == "--tag" ).ToArray();
+            return args.Where(s => !s.StartsWith("--") || s == "--tag").ToArray();
         }
 
         public static bool IsFailFast(string[] args)
@@ -70,7 +70,7 @@ namespace NSpecRunner
 
         public static string GetFormatterClassName(string[] args)
         {
-            string formatter = args.FirstOrDefault(s => s.StartsWith("--formatter=") );
+            string formatter = args.FirstOrDefault(s => s.StartsWith("--formatter="));
             if (formatter != null)
             {
                 return formatter.Substring("--formatter=".Length).ToLowerInvariant();
@@ -99,7 +99,7 @@ namespace NSpecRunner
             // Look for a class that implements IFormatter with the provided name
             var formatterType = nspecAssembly.GetTypes().FirstOrDefault(type =>
                 (type.Name.ToLowerInvariant() == formatterClassName)
-                && typeof(IFormatter).IsAssignableFrom(type) );
+                && typeof(IFormatter).IsAssignableFrom(type));
 
             if (formatterType != null)
             {

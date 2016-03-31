@@ -17,24 +17,12 @@ namespace NSpectator
             predicate.Compile()(o).Should().BeTrue(ExampleBase.Parse(predicate.Body));
         }
         
-        public static void is_true(this bool actual) { actual.should_be_true(); }
-
         public static void should_be_true(this bool actual)
         {
             actual.Should().BeTrue();
         }
 
-        public static void should_be_false(this bool actual)
-        {
-            actual.Should().BeFalse();
-        }
-
         public static void should_be(this object actual, object expected)
-        {
-            actual.Is(expected);
-        }
-
-        public static void Is(this object actual, object expected)
         {
             actual.Should().Be(expected);
         }
@@ -43,12 +31,7 @@ namespace NSpectator
         {
             actual.Should().Be(expected);
         }
-
-        public static void should_start_with(this string actual, string start)
-        {
-            actual.Should().StartWith(start);
-        }
-
+        
         public static IEnumerable<T> should_not_contain<T>(this IEnumerable<T> collection, Func<T, bool> predicate)
         {
             collection.Should().NotContain(predicate);

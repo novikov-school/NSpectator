@@ -45,7 +45,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
                 beforeAllAsync = async () => await Task.Run(() => sequence += "B");
 
                 beforeAsync = async () => await Task.Run(() => sequence += "D");
-                specify = () => 1.Is(1);
+                specify = () => 1.Expected().ToBe(1);
                 afterAsync = async () => await Task.Run(() => sequence += "E");
 
                 afterAllAsync = async () => await Task.Run(() => sequence += "G");
@@ -61,7 +61,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         [Test]
         public void before_alls_at_every_level_run_before_before_eaches_from_the_outside_in()
         {
-            Sequence_spec.sequence.should_start_with("ABCD");
+            Sequence_spec.sequence.Should().StartWith("ABCD");
         }
 
         [Test]
