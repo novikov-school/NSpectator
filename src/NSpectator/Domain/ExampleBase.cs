@@ -10,9 +10,13 @@ namespace NSpectator.Domain
         {
             var body = expressionBody.ToString();
 
-            var cut = body.IndexOf(").");
+            //var cut = body.IndexOf(").");
+            //var sentence = body.Substring(cut + 1, body.Length - cut - 1);
 
-            var sentence = body.Substring(cut + 1, body.Length - cut - 1).Replace(")", " ").Replace(".", " ").Replace("(", " ").Replace("  ", " ").Trim().Replace("_", " ").Replace("\"", " ");
+            var sentence = body.Replace(".Expected(", ".expected(").Replace(".ToBe(", ".to_be(");
+            sentence = sentence.Replace(")", " ");
+            sentence = sentence.Replace(".", " ");
+            sentence = sentence.Replace("(", " ").Replace("  ", " ").Trim().Replace("_", " ").Replace("\"", " ");
 
             while (sentence.Contains("  ")) sentence = sentence.Replace("  ", " ");
 

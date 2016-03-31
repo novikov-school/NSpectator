@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using FluentAssertions;
 using FluentAssertions.Primitives;
 
@@ -29,6 +30,16 @@ namespace NSpectator
         public static BooleanExpectations Expected(this bool actualValue)
         {
             return new BooleanExpectations(actualValue);
+        }
+
+        /// <summary>
+        /// Returns an <see cref="T:FluentAssertions.Collections.GenericCollectionAssertions`1"/> object that can be used to assert the
+        ///             current <see cref="T:System.Collections.Generic.IEnumerable`1"/>.
+        /// 
+        /// </summary>
+        public static GenericCollectionExpectations<T> Expected<T>(this IEnumerable<T> actualValue)
+        {
+            return new GenericCollectionExpectations<T>(actualValue);
         }
     }
 }

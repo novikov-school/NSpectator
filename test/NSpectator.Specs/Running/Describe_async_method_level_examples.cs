@@ -79,7 +79,7 @@ namespace NSpectator.Specs.Running
         [Test]
         public void async_example_with_result_should_execute()
         {
-            classContext.Examples[0].HasRun.should_be_true();
+            classContext.Examples[0].HasRun.Should().BeTrue();
         }
 
         [Test]
@@ -91,7 +91,7 @@ namespace NSpectator.Specs.Running
         [Test]
         public void async_example_with_void_should_execute()
         {
-            classContext.Examples[1].HasRun.should_be_true();
+            classContext.Examples[1].HasRun.Should().BeTrue();
         }
 
         [Test]

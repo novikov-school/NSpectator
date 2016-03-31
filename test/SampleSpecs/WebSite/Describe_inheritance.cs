@@ -1,36 +1,39 @@
-﻿using NSpectator;
+﻿using FluentAssertions;
+using NSpectator;
 
-[Tag("describe_inheritance")]
-public class Given_the_sequence_continues_with_2 : Given_the_sequence_starts_with_1
+namespace SampleSpecs.WebSite
 {
-    void before_each()
+    [Tag("describe_inheritance")]
+    public class Given_the_sequence_continues_with_2 : Given_the_sequence_starts_with_1
     {
-        sequence += "2";
+        void before_each()
+        {
+            sequence += "2";
+        }
+
+        void given_the_sequence_continues_with_3()
+        {
+            before = () => sequence += "3";
+
+            //the befores run in the order you would expect
+            it["sequence should be \"123\""] =
+                () => sequence.Should().Be("123");
+        }
     }
 
-    void given_the_sequence_continues_with_3()
+    public class Given_the_sequence_starts_with_1 : Spec
     {
-        before = () => sequence += "3";
+        protected string sequence;
 
-        //the befores run in the order you would expect
-        it["sequence should be \"123\""] =
-            () => sequence.should_be("123");
+        void before_each()
+        {
+            sequence = "1";
+        }
     }
-}
 
-public class Given_the_sequence_starts_with_1 : Spec
-{
-    protected string sequence;
-
-    void before_each()
+    public static class Given_the_sequence_continues_with_2_output
     {
-        sequence = "1";
-    }
-}
-
-public static class Given_the_sequence_continues_with_2_output
-{
-    public static string Output = @"
+        public static string Output = @"
 given the sequence starts with 1
   given the sequence continues with 2
     given the sequence continues with 3
@@ -38,5 +41,6 @@ given the sequence starts with 1
 
 1 Examples, 0 Failed, 0 Pending
 ";
-    public static int ExitCode = 0;
+        public static int ExitCode = 0;
+    }
 }

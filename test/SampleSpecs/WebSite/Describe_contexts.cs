@@ -18,7 +18,7 @@ namespace SampleSpecs.WebSite
                 context["account is in credit"] = () =>
                 {
                     before = () => account.Balance = 500;
-                    it["the Account dispenses cash"] = () => account.CanWithdraw(60).should_be_true();
+                    it["the Account dispenses cash"] = () => account.CanWithdraw(60).Should().BeTrue();
                 };
                 context["account is overdrawn"] = () =>
                 {

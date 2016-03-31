@@ -1,4 +1,5 @@
 using NSpectator;
+using FluentAssertions;
 
 public class Describe_pending : Spec
 {
@@ -6,7 +7,7 @@ public class Describe_pending : Spec
     {
         it["pending spec"] = todo;
         //or just add an 'x' at the beginning of a specification that isn't quite ready
-        xit["\"\" should be \"something else\""] = () => "".should_be("something else");
+        xit["\"\" should be \"something else\""] = () => "".Should().Be("something else");
     }
 }
 

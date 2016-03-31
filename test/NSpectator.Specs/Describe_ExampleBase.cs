@@ -18,7 +18,7 @@ namespace NSpectator.Specs
         [Test]
         public void Should_clear_quotes()
         {
-            new Example(() => "hello".Expected().ToBe("hello")).Spec.Should().Be("hello Is hello");
+            new Example(() => "hello".Expected().ToBe("hello")).Spec.Should().Be("hello expected to be hello");
         }
 
         // no 'specify' available for AsyncExample, hence no way to test that on AsyncExample

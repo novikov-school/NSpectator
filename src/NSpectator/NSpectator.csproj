@@ -85,6 +85,7 @@
     <Compile Include="Domain\ActionRegister.cs" />
     <Compile Include="Expectations.cs" />
     <Compile Include="Expectations\BooleanExpectations.cs" />
+    <Compile Include="Expectations\GenericCollectionExpectations.cs" />
     <Compile Include="Expectations\ObjectExpectations.cs" />
     <Compile Include="Expectations\ReferenceTypeExpectation.cs" />
     <Compile Include="Expectations\StringExpectations.cs" />

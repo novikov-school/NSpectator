@@ -12,55 +12,18 @@ namespace NSpectator
 {
     public static class AssertionExtensions
     {
-        public static void Should<T>(this T o, Expression<Predicate<T>> predicate)
+        public static AndConstraint<BooleanAssertions> Should<T>(this T o, Expression<Predicate<T>> predicate)
         {
-            predicate.Compile()(o).Should().BeTrue(ExampleBase.Parse(predicate.Body));
+            return predicate.Compile()(o).Should().BeTrue(ExampleBase.Parse(predicate.Body));
         }
         
-        public static void should_be_true(this bool actual)
+        /// <summary>
+        /// Asserts that the object is assignable to a variable of type <typeparamref name="T"/>.
+        /// 
+        /// </summary>
+        public static T CastTo<T>(this ObjectAssertions assertions)
         {
-            actual.Should().BeTrue();
-        }
-
-        public static void should_be(this object actual, object expected)
-        {
-            actual.Should().Be(expected);
-        }
-
-        public static void should_be(this string actual, string expected)
-        {
-            actual.Should().Be(expected);
-        }
-        
-        public static IEnumerable<T> should_not_contain<T>(this IEnumerable<T> collection, Func<T, bool> predicate)
-        {
-            collection.Should().NotContain(predicate);
-            return collection;
-        }
-
-        public static IEnumerable<T> should_contain<T>(this IEnumerable<T> collection, Expression<Func<T, bool>> predicate)
-        {
-            collection.Should().Contain(predicate);
-            return collection;
-        }
-
-        public static IEnumerable<T> should_contain<T>(this IEnumerable<T> collection, T t)
-        {
-            collection.Should().Contain(t);
-            return collection;
-        }
-        
-
-        public static IEnumerable<T> should_be_empty<T>(this IEnumerable<T> collection)
-        {
-            collection.Should().BeEmpty();
-            return collection;
-        }
-        
-        public static T ShouldCastTo<T>(this object value)
-        {
-            value.Should().BeOfType<T>();
-            return (T)value;
+            return assertions.BeAssignableTo<T>().Subject;
         }
 
         /// <summary>

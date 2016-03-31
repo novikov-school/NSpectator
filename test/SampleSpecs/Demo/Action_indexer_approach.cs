@@ -27,13 +27,13 @@ namespace SampleSpecs.Demo
             {
                 before = () => user.Admin = true;
 
-                specify = () => user.Admin.should_be_true();
+                specify = () => user.Admin.Expected().True();
 
                 context["user is terminated"] = () =>
                 {
                     before = () => user.Terminated = true;
 
-                    specify = () => user.Terminated.should_be_true();
+                    specify = () => user.Terminated.Expected().True();
                 };
             };
 

@@ -1,63 +1,73 @@
-﻿using System.Collections.Generic;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
+using System.Collections.Generic;
+using FluentAssertions;
 using NSpectator;
 
-public abstract class Describe_ICollection : Spec
+namespace SampleSpecs.WebSite
 {
-    protected ICollection<string> collection;
-
-    void adding_to_collection()
+    public abstract class Describe_ICollection : Spec
     {
-        before = () => collection.Add("Item 1");
+        protected ICollection<string> collection;
 
-        it["contains the entry"] = () =>
-            collection.Contains("Item 1").should_be(true);
-    }
-}
-
-public class Describe_LinkedList : Describe_ICollection
-{
-    LinkedList<string> linkedList;
-
-    void before_each()
-    {
-        linkedList = new LinkedList<string>();
-        collection = linkedList;
-    }
-
-    void specific_actions()
-    {
-        before = () => collection.Add("Item 1");
-
-        it["can add an item at the begining with ease"] = () =>
+        void adding_to_collection()
         {
-            linkedList.AddFirst("Item 2");
-            linkedList.First.Value.should_be("Item 2");
-        };
+            before = () => collection.Add("Item 1");
+
+            it["contains the entry"] = () =>
+                collection.Contains("Item 1").Should().Be(true);
+        }
     }
-}
 
-public class Describe_List : Describe_ICollection
-{
-    List<string> list;
-
-    void before_each()
+    public class Describe_LinkedList : Describe_ICollection
     {
-        list = new List<string>();
-        collection = list;
+        LinkedList<string> linkedList;
+
+        void before_each()
+        {
+            linkedList = new LinkedList<string>();
+            collection = linkedList;
+        }
+
+        void specific_actions()
+        {
+            before = () => collection.Add("Item 1");
+
+            it["can add an item at the begining with ease"] = () =>
+            {
+                linkedList.AddFirst("Item 2");
+                linkedList.First.Value.Should().Be("Item 2");
+            };
+        }
     }
 
-    void specific_actions()
+    public class Describe_List : Describe_ICollection
     {
-        before = () => collection.Add("Item 1");
+        List<string> list;
 
-        it["an item can be referenced by index"] = () =>
-            list[0].should_be("Item 1");
+        void before_each()
+        {
+            list = new List<string>();
+            collection = list;
+        }
+
+        void specific_actions()
+        {
+            before = () => collection.Add("Item 1");
+
+            it["an item can be referenced by index"] = () =>
+                list[0].Should().Be("Item 1");
+        }
     }
-}
 
-public static class Describe_ICollection_output
-{
-    public static string Output = @"
+    public static class Describe_ICollection_output
+    {
+        public static string Output = @"
 describe LinkedList
   adding to collection
     contains the entry
@@ -72,5 +82,6 @@ describe List
 
 4 Examples, 0 Failed, 0 Pending
 ";
-    public static int ExitCode = 0;
+        public static int ExitCode = 0;
+    }
 }

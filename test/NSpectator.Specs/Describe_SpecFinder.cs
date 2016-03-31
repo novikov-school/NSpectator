@@ -66,7 +66,7 @@ namespace NSpectator.Specs
         {
             GivenDllContains(typeof(SpecClass));
 
-            finder.SpecClasses().should_contain(typeof(SpecClass));
+            finder.SpecClasses().Should().Contain(typeof(SpecClass));
         }
 
         [Test]
@@ -138,9 +138,9 @@ namespace NSpectator.Specs
             GivenFilter("");
 
             TheSpecClasses()
-                .should_contain(typeof(SomeClass))
-                .should_contain(typeof(SomeDerivedClass))
-                .should_contain(typeof(SomeClassInOtherNameSpace));
+                .Should().Contain(typeof(SomeClass)).And
+                .Contain(typeof(SomeDerivedClass)).And
+                .Contain(typeof(SomeClassInOtherNameSpace));
         }
 
         [Test]

@@ -10,6 +10,7 @@
 
 using NSpectator;
 using SampleSpecs.Model;
+using FluentAssertions;
 
 namespace SampleSpecs.Demo
 {
@@ -26,13 +27,13 @@ namespace SampleSpecs.Demo
         {
             act = () => vendingMachine.AddInventory("chips");
 
-            it["should contain chips with count of 1"] = () => vendingMachine.Inventory("chips").should_be(1);
+            it["should contain chips with count of 1"] = () => vendingMachine.Inventory("chips").Should().Be(1);
 
             context["multiple chips added"] = () =>
             {
                 act = () => vendingMachine.AddInventory("chips");
 
-                it["should increment chip inventory with count of 2"] = () => vendingMachine.Inventory("chips").should_be(2);
+                it["should increment chip inventory with count of 2"] = () => vendingMachine.Inventory("chips").Should().Be(2);
             };
         }
 
@@ -48,9 +49,9 @@ namespace SampleSpecs.Demo
 
                 act = () => vendingMachine.Buy("chips");
 
-                it["should decrement inventory"] = () => vendingMachine.Inventory("chips").should_be(0);
+                it["should decrement inventory"] = () => vendingMachine.Inventory("chips").Should().Be(0);
 
-                it["should increment cash in machine"] = () => vendingMachine.Cash.should_be(.5);
+                it["should increment cash in machine"] = () => vendingMachine.Cash.Should().Be(.5);
             };
         }
     }

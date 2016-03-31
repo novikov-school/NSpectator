@@ -8,6 +8,7 @@
 using System.Collections.Generic;
 using NSpectator.Domain;
 using NUnit.Framework;
+using FluentAssertions;
 
 namespace NSpectator.Specs
 {
@@ -27,7 +28,7 @@ namespace NSpectator.Specs
             var tags = Tags.ParseTags("myTag1,myTag2");
             tags.Should_contain_tag("myTag1");
             tags.Should_contain_tag("myTag2");
-            tags.Count.should_be(2);
+            tags.Should().HaveCount(2);
         }
 
         [Test]
@@ -58,8 +59,8 @@ namespace NSpectator.Specs
             tags.Should_tag_as_included("myInclude2");
             tags.Should_tag_as_excluded("myExclude2");
 
-            tags.IncludeTags.Count.should_be(2);
-            tags.ExcludeTags.Count.should_be(2);
+            tags.IncludeTags.Count.Should().Be(2);
+            tags.ExcludeTags.Count.Should().Be(2);
         }
     }
 
