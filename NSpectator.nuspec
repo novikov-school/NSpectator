@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
     <metadata>
         <id>NSpectator</id>
-        <version>0.9.5.1</version>
+        <version>0.9.6</version>
         <title>NSpectator</title>
         <authors>Novikov Ivan,Matt Florence,Amir Rajan</authors>
         <owners>Novikov Ivan</owners>
@@ -10,9 +10,9 @@
         <projectUrl>http://www.nspectator.org</projectUrl>
         <iconUrl>http://nspectator.org/assets/logo.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>NSpectator is a BDD (Behavior Driven Development) framework for .NET of the xSpec (context/specification) flavor. NSpectator is intended to be used to drive development through specifying behavior at the unit level. NSpectator are heavily inspired by RSpec but more flexible than NSpec because it uses more flexible FluentAssertions library.</description>
-        <summary>NSpectator is a BDD framework for .NET of the xSpec (context/specification) flavor.</summary>
-        <releaseNotes>Main class is now called Spec</releaseNotes>
+        <description>NSpectator is is ready-to-use solution for development using .NET with Context/Specification flavor. Toolset is intended to be used to drive development through specifying behavior and interaction at the unit level. NSpectator has only one dependency on popular flexible FluentAssertions library.</description>
+        <summary>NSpectator is a toolset for .NET agile development with the xSpec (context/specification) flavor.</summary>
+        <releaseNotes>Temporaly removed Runners under tools folder of the package</releaseNotes>
         <copyright>Copyright (c) NSpectator Development Team</copyright>
         <language>en-US</language>
         <tags>testing bdd tdd</tags>
@@ -23,21 +23,8 @@
         </dependencies>
     </metadata>
     <files>
-        <file src="content\DebuggerShim.cs" target="content\DebuggerShim.cs" />
-        <file src="lib\NSpectator.dll" target="lib\NSpectator.dll" />
-        <file src="tools\FluentAssertions.Core.dll" target="tools\FluentAssertions.Core.dll" />
-        <file src="tools\FluentAssertions.Core.pdb" target="tools\FluentAssertions.Core.pdb" />
-        <file src="tools\FluentAssertions.Core.xml" target="tools\FluentAssertions.Core.xml" />
-        <file src="tools\FluentAssertions.dll" target="tools\FluentAssertions.dll" />
-        <file src="tools\FluentAssertions.pdb" target="tools\FluentAssertions.pdb" />
-        <file src="tools\FluentAssertions.xml" target="tools\FluentAssertions.xml" />
-        <file src="tools\NSpecRunner.exe" target="tools\NSpecRunner.exe" />
-        <file src="tools\NSpecRunner.exe.config" target="tools\NSpecRunner.exe.config" />
-        <file src="tools\NSpecRunner.pdb" target="tools\NSpecRunner.pdb" />
-        <file src="tools\NSpecRunner.vshost.exe" target="tools\NSpecRunner.vshost.exe" />
-        <file src="tools\NSpecRunner.vshost.exe.config" target="tools\NSpecRunner.vshost.exe.config" />
-        <file src="tools\NSpecRunner.vshost.exe.manifest" target="tools\NSpecRunner.vshost.exe.manifest" />
-        <file src="tools\NSpectator.dll" target="tools\NSpectator.dll" />
-        <file src="tools\NSpectator.pdb" target="tools\NSpectator.pdb" />
+        <file src="test\NSpectator.Specs\DebuggerShim.cs" target="content\DebuggerShim.cs" />
+        <file src="src\NSpectator\bin\Debug\NSpectator.dll" target="lib\NSpectator.dll" />
+        <file src="src\NSpectator\bin\Debug\NSpectator.pdb" target="lib\NSpectator.pdb" />
     </files>
 </package>
