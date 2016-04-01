@@ -69,7 +69,7 @@ Check out [this wiki page](https://github.com/nspectator/NSpectator/wiki/Contrib
 
 ### Issues
 
-Feature requests, bugs & issues are handled on [InCloud NSpectator Youtrack](https://nspectator.myjetbrains.com)
+Feature requests, bugs & issues are handled on [NSpectator Youtrack InCloud](https://nspectator.myjetbrains.com)
 
 Use github authorization (gray bottom button) for signup or login.
 
