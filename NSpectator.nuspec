@@ -4,8 +4,8 @@
         <id>NSpectator</id>
         <version>0.9.6</version>
         <title>NSpectator</title>
-        <authors>Novikov Ivan,Matt Florence,Amir Rajan</authors>
-        <owners>Novikov Ivan</owners>
+        <authors>Jonny Novikov,Matt Florence,Amir Rajan</authors>
+        <owners>Jonny Novikov</owners>
         <licenseUrl>https://github.com/nspectator/NSpectator/blob/master/license.txt</licenseUrl>
         <projectUrl>http://www.nspectator.org</projectUrl>
         <iconUrl>http://nspectator.org/assets/logo.png</iconUrl>
