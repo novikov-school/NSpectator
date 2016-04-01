@@ -28,17 +28,17 @@ namespace SampleSpecs.Demo
             {
                 before = () => ints.Add(99);
 
-                it["should have 1 item in list"] = () => ints.Count.should_be(1);
+                it["should have 1 item in list"] = () => ints.Should().HaveCount(1);
 
-                it["should contain the number 99"] = () => ints.should_contain(99);
+                it["should contain the number 99"] = () => ints.Should().Contain(99);
 
                 context["another item in list"] = () =>
                 {
                     before = () => ints.Add(26);
 
-                    it["should have 2 items in list"] = () => ints.Count.should_be(2);
+                    it["should have 2 items in list"] = () => ints.Should().HaveCount(2);
 
-                    it["should contain the number 26"] = () => ints.should_contain(26);
+                    it["should contain the number 26"] = () => ints.Should().Contain(26);
                 };
             };
         }

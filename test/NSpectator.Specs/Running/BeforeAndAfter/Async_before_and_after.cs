@@ -33,7 +33,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         {
             Run(typeof(SpecClass));
 
-            Sequence_spec.sequence.Is("AB1CB2CD");
+            Sequence_spec.sequence.Expected().ToBe("AB1CB2CD");
         }
     }
 
@@ -60,7 +60,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         {
             Run(typeof(SpecClass));
 
-            SpecClass.sequence.Is("AB1CB2CD");
+            Sequence_spec.sequence.Expected().ToBe("AB1CB2CD");
         }
     }
 }

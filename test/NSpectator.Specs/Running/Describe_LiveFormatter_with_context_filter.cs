@@ -1,17 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Reflection;
-using NSpectator;
 using NSpectator.Domain;
 using NSpectator.Domain.Formatters;
-using NSpectator.Specs.Running;
 using NUnit.Framework;
+using FluentAssertions;
 
 namespace NSpectator.Specs.Running
 {
     [TestFixture]
-    public class describe_LiveFormatter_with_context_filter : When_running_specs
+    public class Describe_LiveFormatter_with_context_filter : When_running_specs
     {
-        class liveconsole_sample_spec : Spec
+        class Liveconsole_sample_spec : Spec
         {
             void a_context_with_a_pending_example()
             {
@@ -22,7 +21,7 @@ namespace NSpectator.Specs.Running
             {
                 context["a context with an example"] = () =>
                 {
-                    it["1 is 1"] = () => 1.Is(1);
+                    it["1 is 1"] = () => 1.Expected().ToBe(1);
                 };
             }
 
@@ -34,7 +33,7 @@ namespace NSpectator.Specs.Running
         {
             formatter = new FormatterStub();
 
-            var invocation = new RunnerInvocation(Assembly.GetExecutingAssembly().Location, typeof(liveconsole_sample_spec).Name, formatter, false);
+            var invocation = new RunnerInvocation(Assembly.GetExecutingAssembly().Location, typeof(Liveconsole_sample_spec).Name, formatter, false);
 
             contexts = invocation.Run();
         }
@@ -42,43 +41,43 @@ namespace NSpectator.Specs.Running
         [Test]
         public void it_writes_the_example()
         {
-            formatter.WrittenExamples.should_contain(contexts.FindExample("1 is 1"));
+            formatter.WrittenExamples.Should().Contain(contexts.FindExample("1 is 1"));
         }
 
         [Test]
         public void it_writes_contexts_with_examples()
         {
-            formatter.WrittenContexts.should_contain(contexts.Find("a context with an example"));
+            formatter.WrittenContexts.Should().Contain(contexts.Find("a context with an example"));
         }
 
         [Test]
         public void it_writes_context_with_grandchild_examples()
         {
-            formatter.WrittenContexts.should_contain(contexts.Find("a context with a grandchild example"));
+            formatter.WrittenContexts.Should().Contain(contexts.Find("a context with a grandchild example"));
         }
 
         [Test]
         public void it_skips_contexts_without_examples()
         {
-            formatter.WrittenContexts.should_not_contain(c => c.Name == "a context without an example");
+            formatter.WrittenContexts.Should().NotContain(c => c.Name == "a context without an example");
         }
 
         [Test]
         public void it_skips_contexts_that_were_not_included()
         {
-            formatter.WrittenContexts.should_not_contain(c => c.Name == "SampleSpec");
+            formatter.WrittenContexts.Should().NotContain(c => c.Name == "SampleSpec");
         }
 
         [Test]
         public void it_skips_examples_whose_contexts_were_not_included()
         {
-            formatter.WrittenExamples.should_not_contain(e => e.Spec == "an excluded example by ancestry");
+            formatter.WrittenExamples.Should().NotContain(e => e.Spec == "an excluded example by ancestry");
         }
 
         [Test]
         public void it_writes_the_pending_example()
         {
-            formatter.WrittenExamples.should_contain(contexts.FindExample("pending example"));
+            formatter.WrittenExamples.Should().Contain(contexts.FindExample("pending example"));
         }
     }
 

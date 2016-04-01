@@ -31,7 +31,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
                 beforeAllAsync = async () => await Task.Run(() => sequence += "B");
 
                 beforeAsync = async () => await Task.Run(() => sequence += "D");
-                specify = () => 1.Is(1);
+                specify = () => 1.Expected().ToBe(1);
                 afterAsync = async () => await Task.Run(() => sequence += "E");
 
                 afterAllAsync = async () => await Task.Run(() => sequence += "G");
@@ -54,7 +54,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         public void all_async_features_are_supported_from_abstract_classes_when_run_under_the_context_of_a_derived_concrete()
         {
             Run(typeof(Concrete));
-            Sequence_spec.sequence.Is("ABCDEFGH");
+            Sequence_spec.sequence.Expected().ToBe("ABCDEFGH");
         }
     }
 }

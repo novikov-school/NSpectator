@@ -67,19 +67,19 @@ namespace NSpectator.Specs.Running
         [Test]
         public void should_execute_first_example()
         {
-            FirstExampleExecuted.should_be_true();
+            FirstExampleExecuted.Should().BeTrue();
         }
 
         [Test]
         public void should_execute_last_example()
         {
-            LastExampleExecuted.should_be_true();
+            LastExampleExecuted.Should().BeTrue();
         }
 
         [Test]
         public void the_last_example_should_be_failing()
         {
-            classContext.Examples.Last().Exception.ShouldCastTo<AssertionException>();
+            classContext.Examples.Last().Exception.Should().CastTo<AssertionException>();
         }
 
         [Test]

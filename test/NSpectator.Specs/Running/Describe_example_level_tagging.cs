@@ -6,6 +6,7 @@
 // ReSharper disable InconsistentNaming
 #endregion
 using NUnit.Framework;
+using FluentAssertions;
 
 namespace NSpectator.Specs.Running
 {
@@ -17,11 +18,11 @@ namespace NSpectator.Specs.Running
         {
             void has_tags_in_examples()
             {
-                it["is tagged with 'mytag'", "mytag"] = () => { 1.should_be(1); };
+                it["is tagged with 'mytag'", "mytag"] = () => { 1.Should().Be(1); };
 
-                it["has three tags", "mytag, expect-to-failure, foobar"] = () => { 1.should_be(1); };
+                it["has three tags", "mytag, expect-to-failure, foobar"] = () => { 1.Should().Be(1); };
 
-                it["does not have a tag"] = () => { true.should_be_true(); };
+                it["does not have a tag"] = () => { true.Should().BeTrue(); };
             }
         }
 
@@ -34,13 +35,13 @@ namespace NSpectator.Specs.Running
         [Test]
         public void it_only_has_the_default_class_tag()
         {
-            TheExample("does not have a tag").Tags.should_contain("SpecClass");
+            TheExample("does not have a tag").Tags.Should().Contain("SpecClass");
         }
 
         [Test]
         public void is_tagged_with_at_mytag()
         {
-            TheExample("is tagged with 'mytag'").Tags.Should_contain_tag("mytag");
+            TheExample("is tagged with 'mytag'").Tags.Should().Contain("mytag");
         }
 
         [Test]
@@ -50,7 +51,7 @@ namespace NSpectator.Specs.Running
             TheExample("has three tags").Tags.Should_contain_tag("mytag");
             TheExample("has three tags").Tags.Should_contain_tag("expect-to-failure");
             TheExample("has three tags").Tags.Should_contain_tag("foobar");
-            TheExample("has three tags").Tags.Count.should_be(4);
+            TheExample("has three tags").Tags.Count.Should().Be(4);
         }
     }
 }

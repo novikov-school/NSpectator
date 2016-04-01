@@ -1,5 +1,6 @@
 using NSpectator;
 using SampleSpecs.Model;
+using FluentAssertions;
 
 public class Describe_helpers : Spec
 {
@@ -10,12 +11,12 @@ public class Describe_helpers : Spec
         context["that is 210 degrees"] = () =>
         {
             before = () => MakeTea(210);
-            it["should be hot"] = () => tea.Taste().should_be("hot");
+            it["should be hot"] = () => tea.Taste().Should().Be("hot");
         };
         context["that is 90 degrees"] = () =>
         {
             before = () => MakeTea(90);
-            it["should be cold"] = () => tea.Taste().should_be("cold");
+            it["should be cold"] = () => tea.Taste().Should().Be("cold");
         };
     }
 

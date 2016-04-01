@@ -45,7 +45,7 @@ namespace NSpectator.Specs.Running.Exceptions
             classContext.AllExamples()
                         .First()
                         .Exception
-                        .ShouldCastTo<ExampleFailureException>();
+                        .Should().CastTo<ExampleFailureException>();
         }
     }
 }

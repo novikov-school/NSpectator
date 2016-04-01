@@ -54,7 +54,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
             {
                 await Task.Delay(0);
 
-                1.Is(1);
+                1.Expected().ToBe(1);
             }
         }
 
@@ -69,7 +69,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         {
             Run(typeof(Concrete));
 
-            Sequence_spec.sequence.should_start_with("ABC");
+            Sequence_spec.sequence.Should().StartWith("ABC");
         }
 
         [Test]

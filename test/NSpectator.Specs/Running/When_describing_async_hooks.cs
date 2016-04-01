@@ -57,7 +57,7 @@ namespace NSpectator.Specs.Running
 
             protected void PassAlways()
             {
-                true.should_be_true();
+                true.Should().BeTrue();
             }
         }
 
@@ -65,7 +65,7 @@ namespace NSpectator.Specs.Running
         {
             ExampleBase example = TheExample(name);
 
-            example.HasRun.should_be_true();
+            example.HasRun.Should().BeTrue();
 
             example.Exception.Should().BeNull();
 
@@ -76,7 +76,7 @@ namespace NSpectator.Specs.Running
         {
             ExampleBase example = TheExample(name);
 
-            example.HasRun.should_be_true();
+            example.HasRun.Should().BeTrue();
 
             example.Exception.Should().NotBeNull();
         }

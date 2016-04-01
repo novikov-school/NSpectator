@@ -37,7 +37,7 @@ namespace NSpectator.Specs.Running
         [Test]
         public void the_example_should_be_pending()
         {
-            methodContext.Contexts.First().Examples.First().Pending.should_be(true);
+            methodContext.Contexts.First().Examples.First().Pending.Should().Be(true);
         }
     }
 
@@ -74,7 +74,7 @@ namespace NSpectator.Specs.Running
         [Test]
         public void it_should_not_run_befores_on_pending_context()
         {
-            methodContext.AllExamples().First().Exception.should_be(null);
+            methodContext.AllExamples().First().Exception.Should().Be(null);
         }
     }
 }

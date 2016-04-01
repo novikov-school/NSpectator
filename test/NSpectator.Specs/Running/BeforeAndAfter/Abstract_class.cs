@@ -5,8 +5,6 @@
 // ReSharper disable ArrangeTypeMemberModifiers
 // ReSharper disable InconsistentNaming
 #endregion
-using NSpectator;
-using NSpectator.Specs.Running;
 using NUnit.Framework;
 
 namespace NSpectator.Specs.Running.BeforeAndAfter
@@ -31,7 +29,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
                 beforeAll = () => sequence += "B";
 
                 before = () => sequence += "D";
-                specify = () => 1.Is(1);
+                specify = () => 1.Expected().ToBe(1);
                 after = () => sequence += "E";
 
                 afterAll = () => sequence += "G";
@@ -54,7 +52,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         public void all_features_are_supported_from_abstract_classes_when_run_under_the_context_of_a_derived_concrete()
         {
             Run(typeof(Concrete));
-            Sequence_spec.sequence.Is("ABCDEFGH");
+            Sequence_spec.sequence.Expected().ToBe("ABCDEFGH");
         }
     }
 }

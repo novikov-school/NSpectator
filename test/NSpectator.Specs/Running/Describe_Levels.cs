@@ -4,17 +4,17 @@ using NUnit.Framework;
 
 namespace NSpectator.Specs.Running
 {
-    public class describe_Levels : When_running_specs
+    public class Describe_Levels : When_running_specs
     {
-        class describe_numbers : Spec
+        class Describe_numbers : Spec
         {
             void method_level_context()
             {
-                it["1 is 1"] = () => 1.Is(1);
+                it["1 is 1"] = () => 1.Expected().ToBe(1);
 
                 context["except in crazy world"] = () =>
                 {
-                    it["1 is 2"] = () => 1.Is(2);
+                    it["1 is 2"] = () => 1.Expected().ToBe(2);
                 };
             }
         }
@@ -22,25 +22,25 @@ namespace NSpectator.Specs.Running
         [SetUp]
         public void Setup()
         {
-            Run(typeof(describe_numbers));
+            Run(typeof(Describe_numbers));
         }
 
         [Test]
         public void classes_that_directly_inherit_nspec_have_level_1()
         {
-            TheContext("describe numbers").Level.Is(1);
+            TheContext("describe numbers").Level.Expected().ToBe(1);
         }
 
         [Test]
         public void method_level_contexts_have_one_level_deeper()
         {
-            TheContext("method level context").Level.Is(2);
+            TheContext("method level context").Level.Expected().ToBe(2);
         }
 
         [Test]
         public void and_nested_contexts_one_more_deep()
         {
-            TheContext("except in crazy world").Level.Is(3);
+            TheContext("except in crazy world").Level.Expected().ToBe(3);
         }
     }
 }

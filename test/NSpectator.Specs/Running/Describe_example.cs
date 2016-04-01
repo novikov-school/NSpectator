@@ -1,6 +1,7 @@
 ﻿using System;
 using NSpectator;
 using NUnit.Framework;
+using FluentAssertions;
 
 namespace NSpectator.Specs.Running
 {
@@ -33,7 +34,7 @@ namespace NSpectator.Specs.Running
 
             //ex.HasRun.should_be_false(); //broken after making init and run happen all at once
 
-            ex.HasRun.should_be_true();
+            ex.HasRun.Should().BeTrue();
         }
 
         [Test]
@@ -70,7 +71,7 @@ namespace NSpectator.Specs.Running
         {
             Run(typeof(SpecClass));
 
-            TheExampleCount().should_be(3);
+            TheExampleCount().Should().Be(3);
         }
 
         [Test]
@@ -78,7 +79,7 @@ namespace NSpectator.Specs.Running
         {
             Run(typeof(SpecClassWithAnonymouseLambdas));
 
-            TheExampleCount().should_be(1);
+            TheExampleCount().Should().Be(1);
         }
     }
 }

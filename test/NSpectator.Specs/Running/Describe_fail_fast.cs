@@ -36,9 +36,9 @@ namespace NSpectator.Specs.Running
 
             void another_context()
             {
-                it["does not run because of failure on line 20"] = () => true.should_be_true();
+                it["does not run because of failure on line 20"] = () => true.Should().BeTrue();
 
-                it["also does not run because of failure on line 20"] = () => true.should_be_true();
+                it["also does not run because of failure on line 20"] = () => true.Should().BeTrue();
             }
         }
 

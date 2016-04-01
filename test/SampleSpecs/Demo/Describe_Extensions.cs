@@ -22,7 +22,7 @@ namespace SampleSpecs.Demo
 
         void Describe_Flatten()
         {
-            it["[\"fifty\",\"two\"] should be fiftytwo"] = () => new[] { "fifty", "two" }.Flatten(",").should_be("fifty,two");
+            it["[\"fifty\",\"two\"] should be fiftytwo"] = () => new[] { "fifty", "two" }.Flatten(",").Should().Be("fifty,two");
         }
     }
 }

@@ -1,9 +1,16 @@
-﻿using System;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
+using System;
 using System.Linq;
-using NSpectator;
 using NSpectator.Domain;
 using NUnit.Framework;
 using System.Threading.Tasks;
+using FluentAssertions;
 
 namespace NSpectator.Specs.Running
 {
@@ -22,7 +29,7 @@ namespace NSpectator.Specs.Running
         [Test]
         public void example_should_be_pending()
         {
-            ExampleFrom(typeof(XitClass)).Pending.should_be_true();
+            ExampleFrom(typeof(XitClass)).Pending.Should().BeTrue();
         }
     }
 
@@ -42,7 +49,7 @@ namespace NSpectator.Specs.Running
         [Test]
         public void example_should_be_pending()
         {
-            ExampleFrom(typeof(AsyncXitClass)).Pending.should_be_true();
+            ExampleFrom(typeof(AsyncXitClass)).Pending.Should().BeTrue();
         }
     }
 
@@ -61,7 +68,7 @@ namespace NSpectator.Specs.Running
         [Test]
         public void example_should_be_pending()
         {
-            ExampleFrom(typeof(TodoClass)).Pending.should_be_true();
+            ExampleFrom(typeof(TodoClass)).Pending.Should().BeTrue();
         }
     }
 
@@ -81,7 +88,7 @@ namespace NSpectator.Specs.Running
         [Test]
         public void example_should_be_pending()
         {
-            ExampleFrom(typeof(AsyncTodoClass)).Pending.should_be_true();
+            ExampleFrom(typeof(AsyncTodoClass)).Pending.Should().BeTrue();
         }
     }
 
@@ -101,7 +108,7 @@ namespace NSpectator.Specs.Running
         [Test]
         public void example_should_not_fail_but_be_pending()
         {
-            ExampleFrom(typeof(TodoClass)).Pending.should_be_true();
+            ExampleFrom(typeof(TodoClass)).Pending.Should().BeTrue();
         }
     }
 

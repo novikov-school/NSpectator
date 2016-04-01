@@ -62,11 +62,11 @@ namespace NSpectator.Specs.Running
             var allClassContexts =
                 contextCollection[0].AllContexts().Where(c => c is ClassContext).ToList();
 
-            allClassContexts.should_contain(c => c.Name.Equals("ConcreteClass", StringComparison.InvariantCultureIgnoreCase));
+            allClassContexts.Should().Contain(c => c.Name.Equals("ConcreteClass", StringComparison.InvariantCultureIgnoreCase));
 
-            allClassContexts.should_not_contain(c => c.Name.Equals("AbstractClass", StringComparison.InvariantCultureIgnoreCase));
+            allClassContexts.Should().NotContain(c => c.Name.Equals("AbstractClass", StringComparison.InvariantCultureIgnoreCase));
 
-            allClassContexts.should_not_contain(c => c.Name.Equals("AnotherAbstractClassInChain", StringComparison.InvariantCultureIgnoreCase));
+            allClassContexts.Should().NotContain(c => c.Name.Equals("AnotherAbstractClassInChain", StringComparison.InvariantCultureIgnoreCase));
         }
 
         //TODO: specify that concrete classes must have an example of their own or they won't host 
@@ -76,7 +76,7 @@ namespace NSpectator.Specs.Running
         [Test]
         public void Examples_of_abtract_classes_are_included_in_the_first_derived_concrete_class()
         {
-            TheContext("ConcreteClass").Examples.Count().should_be(3);
+            TheContext("ConcreteClass").Examples.Count().Should().Be(3);
 
             TheExample("specify an example in abstract class").Should_have_passed();
 
