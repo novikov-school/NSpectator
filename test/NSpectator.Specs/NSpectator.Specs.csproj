@@ -66,6 +66,7 @@
     <Compile Include="Describe_Assertions.cs" />
     <Compile Include="Describe_Conventions.cs" />
     <Compile Include="DescribeOutput.cs" />
+    <Compile Include="Running\Describe_actors.cs" />
     <Compile Include="Running\Describe_async_after_all.cs" />
     <Compile Include="Running\Describe_async_after.cs" />
     <Compile Include="Running\Describe_async_act.cs" />
