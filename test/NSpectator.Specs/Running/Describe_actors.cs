@@ -12,8 +12,8 @@ using FluentAssertions;
 
 namespace NSpectator.Specs.Running
 {
-    [TestFixture]
-    [Category("RunningSpecs")]
+    //[TestFixture]
+    //[Category("RunningSpecs")]
     public class Describe_actors : Describe_todo
     {
         public class ActorRegister
@@ -76,12 +76,6 @@ namespace NSpectator.Specs.Running
                     
                 };
             }
-        }
-
-        [Test]
-        public void example_should_be_pending()
-        {
-            ExampleFrom(typeof(ActsSpec)).Pending.Should().BeTrue();
         }
     }
 }
