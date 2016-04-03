@@ -214,7 +214,7 @@ namespace NSpectator.Specs
 
             rootContext.AddContext(contextWithExample);
 
-            rootContext.Contexts.Count().Should().Be(2);
+            rootContext.Contexts.Should().HaveCount(2);
 
             rootContext.TrimSkippedDescendants();
         }

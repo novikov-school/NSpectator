@@ -2,11 +2,13 @@ using System;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using NSpectator.Domain;
+// ReSharper disable InconsistentNaming
 
 namespace NSpectator
 {
     /// <summary>
-    /// Inherit from this class to create your own specifications.  NSpecRunner will look through your project for
+    /// Inherit from this class to create your own specifications.  
+    /// SpecRunner will look through your project for
     /// classes that derive from this class (inheritance chain is taken into consideration).
     /// </summary>
     public class Spec
@@ -26,7 +28,7 @@ namespace NSpectator
         }
 
         /// <summary>
-        /// Create a specification/example using a single line lambda with an assertion(should).
+        /// Create a specification/example using a single line lambda with an assertion/expectation
         /// The name of the specification will be parsed from the Expression
         /// <para>For Example:</para>
         /// <para>specify = () => _controller.should_be(false);</para>
@@ -39,12 +41,13 @@ namespace NSpectator
         /* No need for the following, as async lambda expressions cannot be converted to expression trees:
 
         public virtual Expression<Func<Task>> specifyAsync { ... }
+
          */
 
         /// <summary>
         /// Mark a spec as pending
         /// <para>For Example:</para>
-        /// <para>xspecify = () => _controller.should_be(false);</para>
+        /// <para>xspecify = () => _controller.Expected().False();</para>
         /// <para>(the example will be marked as pending any lambda provided will not be executed)</para>
         /// </summary>
         public virtual Expression<Action> xspecify
@@ -56,7 +59,8 @@ namespace NSpectator
         /// This Action gets executed before each example is run.
         /// <para>For Example:</para>
         /// <para>before = () => someList = new List&lt;int&gt;();</para>
-        /// <para>The before can be a multi-line lambda.  Setting the member multiple times through out sub-contexts will not override the action, but instead will append to your setup (this is a good thing).  For more information visit http://www.nspec.org</para>
+        /// <para>The before can be a multi-line lambda.  Setting the member multiple times through out sub-contexts will not override the action, but instead will append to your setup (this is a good thing).  
+        /// For more information visit https://github.com/nspectator/NSpectator/wiki</para>
         /// </summary>
         public virtual Action before
         {
@@ -68,7 +72,8 @@ namespace NSpectator
         /// This Function gets executed asynchronously before each example is run.
         /// <para>For Example:</para>
         /// <para>beforeAsync = async () => someList = await GetListAsync();</para>
-        /// <para>The beforeAsync can be a multi-line lambda.  Setting the member multiple times through out sub-contexts will not override the action, but instead will append to your setup (this is a good thing).  For more information visit http://www.nspec.org</para>
+        /// <para>The beforeAsync can be a multi-line lambda.  Setting the member multiple times through out sub-contexts will not override the action, but instead will append to your setup (this is a good thing).</para>
+        /// <para>For more information visit https://github.com/nspectator/NSpectator/wiki </para>
         /// </summary>
         public virtual Func<Task> beforeAsync
         {
@@ -80,7 +85,8 @@ namespace NSpectator
         /// This Action is an alias of before. This Action gets executed before each example is run.
         /// <para>For Example:</para>
         /// <para>beforeEach = () => someList = new List&lt;int&gt;();</para>
-        /// <para>The beforeEach can be a multi-line lambda.  Setting the member multiple times through out sub-contexts will not override the action, but instead will append to your setup (this is a good thing).  For more information visit http://www.nspec.org</para>
+        /// <para>The beforeEach can be a multi-line lambda.  Setting the member multiple times through out sub-contexts will not override the action, but instead will append to your setup (this is a good thing).</para>  
+        /// <para>For more information visit https://github.com/nspectator/NSpectator/wiki </para>
         /// </summary>
         public virtual Action beforeEach
         {
@@ -92,7 +98,8 @@ namespace NSpectator
         /// This Function is an alias of beforeAsync. It gets executed asynchronously before each example is run.
         /// <para>For Example:</para>
         /// <para>beforeEachAsync = async () => someList = await GetListAsync();</para>
-        /// <para>The beforeEachAsync can be a multi-line lambda.  Setting the member multiple times through out sub-contexts will not override the action, but instead will append to your setup (this is a good thing).  For more information visit http://www.nspec.org</para>
+        /// <para>The beforeEachAsync can be a multi-line lambda.  Setting the member multiple times through out sub-contexts will not override the action, but instead will append to your setup (this is a good thing). </para>
+        /// <para> For more information visit https://github.com/nspectator/NSpectator/wiki </para>
         /// </summary>
         public virtual Func<Task> beforeEachAsync
         {
@@ -104,7 +111,8 @@ namespace NSpectator
         /// This Action gets executed before all examples in a context.
         /// <para>For Example:</para>
         /// <para>beforeAll = () => someList = new List&lt;int&gt;();</para>
-        /// <para>The beforeAll can be a multi-line lambda.  Setting the member multiple times through out sub-contexts will not override the action, but instead will append to your setup (this is a good thing).  For more information visit http://www.nspec.org</para>
+        /// <para>The beforeAll can be a multi-line lambda.  Setting the member multiple times through out sub-contexts will not override the action, but instead will append to your setup (this is a good thing). </para>
+        /// <para>For more information visit https://github.com/nspectator/NSpectator/wiki </para>
         /// </summary>
         public virtual Action beforeAll
         {
@@ -116,7 +124,8 @@ namespace NSpectator
         /// This Function gets executed asynchronously before all examples in a context.
         /// <para>For Example:</para>
         /// <para>beforeAllAsync = async () => someList = await GetListAsync();</para>
-        /// <para>The beforeAllAsync can be a multi-line lambda.  Setting the member multiple times through out sub-contexts will not override the action, but instead will append to your setup (this is a good thing).  For more information visit http://www.nspec.org</para>
+        /// <para>The beforeAllAsync can be a multi-line lambda.  Setting the member multiple times through out sub-contexts will not override the action, but instead will append to your setup (this is a good thing).</para>
+        /// <para>For more information visit https://github.com/nspectator/NSpectator/wiki </para>
         /// </summary>
         public virtual Func<Task> beforeAllAsync
         {
@@ -128,7 +137,8 @@ namespace NSpectator
         /// This Action gets executed after each example is run.
         /// <para>For Example:</para>
         /// <para>after = () => someList = new List&lt;int&gt;();</para>
-        /// <para>The after can be a multi-line lambda.  Setting the member multiple times through out sub-contexts will not override the action, but instead will append to your setup (this is a good thing).  For more information visit http://www.nspec.org</para>
+        /// <para>The after can be a multi-line lambda.  Setting the member multiple times through out sub-contexts will not override the action, but instead will append to your setup (this is a good thing). </para>
+        /// <para>For more information visit https://github.com/nspectator/NSpectator/wiki </para>
         /// </summary>
         public virtual Action after
         {
@@ -140,7 +150,8 @@ namespace NSpectator
         /// This Function gets executed asynchronously after each example is run.
         /// <para>For Example:</para>
         /// <para>afterAsync = async () => someList = await GetListAsync();</para>
-        /// <para>The after can be a multi-line lambda.  Setting the member multiple times through out sub-contexts will not override the action, but instead will append to your setup (this is a good thing).  For more information visit http://www.nspec.org</para>
+        /// <para>The after can be a multi-line lambda.  Setting the member multiple times through out sub-contexts will not override the action, but instead will append to your setup (this is a good thing). </para>
+        /// <para>For more information visit https://github.com/nspectator/NSpectator/wiki </para>
         /// </summary>
         public virtual Func<Task> afterAsync
         {
@@ -152,7 +163,8 @@ namespace NSpectator
         /// This Action is an alias of after. This Action gets executed after each example is run.
         /// <para>For Example:</para>
         /// <para>afterEach = () => someList = new List&lt;int&gt;();</para>
-        /// <para>The afterEach can be a multi-line lambda.  Setting the member multiple times through out sub-contexts will not override the action, but instead will append to your setup (this is a good thing).  For more information visit http://www.nspec.org</para>
+        /// <para>The afterEach can be a multi-line lambda.  Setting the member multiple times through out sub-contexts will not override the action, but instead will append to your setup (this is a good thing). </para>
+        /// <para>For more information visit https://github.com/nspectator/NSpectator/wiki </para>
         /// </summary>
         public virtual Action afterEach
         {
@@ -164,7 +176,8 @@ namespace NSpectator
         /// This Action is an alias of afterAsync. This Function gets executed asynchronously after each example is run.
         /// <para>For Example:</para>
         /// <para>afterEachAsync = async () => someList = await GetListAsync();</para>
-        /// <para>The after can be a multi-line lambda.  Setting the member multiple times through out sub-contexts will not override the action, but instead will append to your setup (this is a good thing).  For more information visit http://www.nspec.org</para>
+        /// <para>The after can be a multi-line lambda.  Setting the member multiple times through out sub-contexts will not override the action, but instead will append to your setup (this is a good thing). </para>
+        /// <para>For more information visit https://github.com/nspectator/NSpectator/wiki </para>
         /// </summary>
         public virtual Func<Task> afterEachAsync
         {
@@ -176,7 +189,8 @@ namespace NSpectator
         /// This Action gets executed after all examples in a context.
         /// <para>For Example:</para>
         /// <para>afterAll = () => someList = new List&lt;int&gt;();</para>
-        /// <para>The afterAll can be a multi-line lambda.  Setting the member multiple times through out sub-contexts will not override the action, but instead will append to your setup (this is a good thing).  For more information visit http://www.nspec.org</para>
+        /// <para>The afterAll can be a multi-line lambda.  Setting the member multiple times through out sub-contexts will not override the action, but instead will append to your setup (this is a good thing). </para>
+        /// <para>For more information visit https://github.com/nspectator/NSpectator/wiki </para>
         /// </summary>
         public virtual Action afterAll
         {
@@ -188,7 +202,8 @@ namespace NSpectator
         /// This Function gets executed asynchronously after all examples in a context.
         /// <para>For Example:</para>
         /// <para>afterAllAsync = async () => someList = await GetListAsync();</para>
-        /// <para>The afterAllAsync can be a multi-line lambda.  Setting the member multiple times through out sub-contexts will not override the action, but instead will append to your setup (this is a good thing).  For more information visit http://www.nspec.org</para>
+        /// <para>The afterAllAsync can be a multi-line lambda.  Setting the member multiple times through out sub-contexts will not override the action, but instead will append to your setup (this is a good thing).</para>
+        /// <para>For more information visit https://github.com/nspectator/NSpectator/wiki </para>
         /// </summary>
         public virtual Func<Task> afterAllAsync
         {
@@ -198,7 +213,9 @@ namespace NSpectator
 
         /// <summary>
         /// Assign this member within your context.  The Action assigned will gets executed
-        /// with every example in scope.  Befores will run first, then acts, then your examples.  It's a way for you to define once a common Act in Arrange-Act-Assert for all subcontexts.  For more information visit http://www.nspec.org
+        /// with every example in scope.  Befores will run first, then acts, then your examples.  
+        /// <para>It's a way for you to define once a common Act in Arrange-Act-Assert for all subcontexts. </para>
+        /// <para>For more information visit https://github.com/nspectator/NSpectator/wiki </para>
         /// </summary>
         public virtual Action act
         {
@@ -208,7 +225,9 @@ namespace NSpectator
 
         /// <summary>
         /// Assign this member within your context.  The Function assigned will gets executed asynchronously
-        /// with every example in scope.  Befores will run first, then acts, then your examples.  It's a way for you to define once a common Act in Arrange-Act-Assert for all subcontexts.  For more information visit http://www.nspec.org
+        /// with every example in scope.  Befores will run first, then acts, then your examples.  
+        /// It's a way for you to define once a common Act in Arrange-Act-Assert for all subcontexts.  
+        /// For more information visit https://github.com/nspectator/NSpectator/wiki
         /// </summary>
         public virtual Func<Task> actAsync
         {
@@ -218,7 +237,7 @@ namespace NSpectator
 
         /// <summary>
         /// Create a subcontext.
-        /// <para>For Examples see http://www.nspec.org</para>
+        /// <para>For Examples see https://github.com/nspectator/NSpectator/wiki </para>
         /// </summary>
         public ActionRegister context;
 
@@ -229,27 +248,27 @@ namespace NSpectator
 
         /// <summary>
         /// This is an alias for creating a subcontext.  Use this to create sub contexts within your methods.
-        /// <para>For Examples see http://www.nspec.org</para>
+        /// <para>For Examples see https://github.com/nspectator/NSpectator/wiki </para>
         /// </summary>
         public ActionRegister describe;
 
         /// <summary>
         /// This is an alias for creating a xcontext.
-        /// <para>For Examples see http://www.nspec.org</para>
+        /// <para>For Examples see https://github.com/nspectator/NSpectator/wiki </para>
         /// </summary>
         public ActionRegister xdescribe;
 
         /// <summary>
         /// Create a specification/example using a name and a lambda with an assertion(should).
         /// <para>For Example:</para>
-        /// <para>it["should return false"] = () => _controller.should_be(false);</para>
+        /// <para>it["should return false"] = () => _controller.Should().BeFalse();</para>
         /// </summary>
         public ActionRegister it;
 
         /// <summary>
         /// Create an asynchronous specification/example using a name and an async lambda with an assertion(should).
         /// <para>For Example:</para>
-        /// <para>itAsync["should return false"] = async () => (await GetResultAsync()).should_be(false);</para>
+        /// <para>itAsync["should return false"] = async () => (await GetResultAsync()).Should().BeFalse();</para>
         /// </summary>
         public AsyncActionRegister itAsync;
 

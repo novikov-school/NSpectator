@@ -99,7 +99,7 @@ namespace NSpectator.Domain.Formatters
 
             if (contexts.AnyTaggedWithFocus())
             {
-                summary += "\n" + "\n" + @"NSpec found context/examples tagged with ""focus"" and only ran those.";
+                summary += "\n" + "\n" + @"NSpectator found context/examples tagged with ""focus"" and only ran those.";
             }
 
             return summary;
