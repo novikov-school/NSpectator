@@ -4,6 +4,7 @@ using FluentAssertions;
 using FluentAssertions.Common;
 using FluentAssertions.Execution;
 using FluentAssertions.Primitives;
+// ReSharper disable CheckNamespace
 
 namespace NSpectator
 {

@@ -1,9 +1,12 @@
-﻿using FluentAssertions;
+﻿using System.Diagnostics;
+using FluentAssertions;
 using FluentAssertions.Execution;
 using FluentAssertions.Primitives;
+// ReSharper disable CheckNamespace
 
 namespace NSpectator
 {
+    [DebuggerNonUserCode]
     public class BooleanExpectations
     {
         public BooleanAssertions To { get; }
