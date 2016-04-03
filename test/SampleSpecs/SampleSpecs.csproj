@@ -74,6 +74,9 @@
     <Compile Include="Model\TicTacToeGame.cs" />
     <Compile Include="Model\VendingMachine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="$(SolutionDir)SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\Account.cs" />
     <Compile Include="WebSite\Describe_act.cs" />
