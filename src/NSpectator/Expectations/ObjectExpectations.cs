@@ -28,6 +28,12 @@ namespace NSpectator
 
         public ObjectAssertions To => new ObjectAssertions(this.Subject);
 
+
+        public AndConstraint<ObjectAssertions> Any()
+        {
+            return new AndConstraint<ObjectAssertions>(To);
+        } 
+
         /// <summary>
         /// Asserts that the current object has not been initialized yet.
         /// 

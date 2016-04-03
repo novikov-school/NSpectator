@@ -11,6 +11,7 @@ using System.Linq;
 using NSpectator.Domain;
 using NUnit.Framework;
 using FluentAssertions;
+using NSpectator.Domain.Formatters;
 
 namespace NSpectator.Specs.Running
 {
