@@ -16,7 +16,7 @@ namespace NSpectator.Specs.Running
 {
     [TestFixture]
     [Category("RunningSpecs")]
-    public class using_xit : describe_todo
+    public class using_xit : Describe_todo
     {
         class XitClass : Spec
         {
@@ -36,7 +36,7 @@ namespace NSpectator.Specs.Running
     [TestFixture]
     [Category("RunningSpecs")]
     [Category("Async")]
-    public class using_async_xit : describe_todo
+    public class using_async_xit : Describe_todo
     {
         class AsyncXitClass : Spec
         {
@@ -55,7 +55,7 @@ namespace NSpectator.Specs.Running
 
     [TestFixture]
     [Category("RunningSpecs")]
-    public class using_todo : describe_todo
+    public class using_todo : Describe_todo
     {
         class TodoClass : Spec
         {
@@ -75,7 +75,7 @@ namespace NSpectator.Specs.Running
     [TestFixture]
     [Category("RunningSpecs")]
     [Category("Async")]
-    public class using_async_todo : describe_todo
+    public class using_async_todo : Describe_todo
     {
         class AsyncTodoClass : Spec
         {
@@ -94,7 +94,7 @@ namespace NSpectator.Specs.Running
 
     [TestFixture]
     [Category("RunningSpecs")]
-    public class using_todo_with_throwing_before : describe_todo
+    public class using_todo_with_throwing_before : Describe_todo
     {
         class TodoClass : Spec
         {
@@ -112,7 +112,7 @@ namespace NSpectator.Specs.Running
         }
     }
 
-    public class describe_todo : When_running_specs
+    public class Describe_todo : When_running_specs
     {
         protected ExampleBase ExampleFrom(Type type)
         {

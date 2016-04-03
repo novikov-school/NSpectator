@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using FluentAssertions.Primitives;
+// ReSharper disable CheckNamespace
 
 namespace NSpectator
 {
@@ -34,7 +35,9 @@ namespace NSpectator
         /// Asserts that a string is exactly the same as another string, including the casing and any leading or trailing whitespace.
         /// 
         /// </summary>
-        /// <param name="expected">The expected string.</param>
+        /// <param name="expected">
+        /// The expected string.
+        /// </param>
         public AndConstraint<StringAssertions> ToBe(string expected)
         {
             return To.Be(expected);
@@ -45,8 +48,9 @@ namespace NSpectator
         ///             including any leading or trailing whitespace, with the exception of the casing.
         /// 
         /// </summary>
-        /// <param name="unexpected">The string that the subject is not expected to be equivalent to.</param><param name="because">A formatted phrase as is supported by <see cref="M:System.String.Format(System.String,System.Object[])"/> explaining why the assertion
-        ///             is needed. If the phrase does not start with the word <i>because</i>, it is prepended automatically.
+        /// <param name="unexpected">
+        /// The string that the subject is not expected to be equivalent to.</param><param name="because">A formatted phrase as is supported by <see cref="M:System.String.Format(System.String,System.Object[])"/> explaining why the assertion
+        /// is needed. If the phrase does not start with the word <i>because</i>, it is prepended automatically.
         /// </param>
         public AndConstraint<StringAssertions> NotToBe(string unexpected)
         {
@@ -57,8 +61,9 @@ namespace NSpectator
         /// Asserts that a string is <see cref="F:System.String.Empty"/>.
         /// 
         /// </summary>
-        /// <param name="because">A formatted phrase as is supported by <see cref="M:System.String.Format(System.String,System.Object[])"/> explaining why the assertion
-        ///             is needed. If the phrase does not start with the word <i>because</i>, it is prepended automatically.
+        /// <param name="because">
+        /// A formatted phrase as is supported by <see cref="M:System.String.Format(System.String,System.Object[])"/> explaining why the assertion
+        /// is needed. If the phrase does not start with the word <i>because</i>, it is prepended automatically.
         /// </param>
         public AndConstraint<StringAssertions> ToBeEmpty(string because)
         {
@@ -74,8 +79,9 @@ namespace NSpectator
         /// Asserts that a string is not <see cref="F:System.String.Empty"/>.
         /// 
         /// </summary>
-        /// <param name="because">A formatted phrase as is supported by <see cref="M:System.String.Format(System.String,System.Object[])"/> explaining why the assertion
-        ///             is needed. If the phrase does not start with the word <i>because</i>, it is prepended automatically.
+        /// <param name="because">
+        /// A formatted phrase as is supported by <see cref="M:System.String.Format(System.String,System.Object[])"/> explaining why the assertion
+        /// is needed. If the phrase does not start with the word <i>because</i>, it is prepended automatically.
         /// </param>
         public AndConstraint<StringAssertions> NotToBeEmpty(string because)
         {
@@ -91,8 +97,9 @@ namespace NSpectator
         /// Asserts that a string is neither <c>null</c> nor <see cref="F:System.String.Empty"/>.
         /// 
         /// </summary>
-        /// <param name="because">A formatted phrase explaining why the assertion should be satisfied. If the phrase does not
-        ///             start with the word <i>because</i>, it is prepended to the message.
+        /// <param name="because">
+        /// A formatted phrase explaining why the assertion should be satisfied. If the phrase does not
+        /// start with the word <i>because</i>, it is prepended to the message.
         /// </param>
         public AndConstraint<StringAssertions> NotBeNullOrEmpty(string because)
         {

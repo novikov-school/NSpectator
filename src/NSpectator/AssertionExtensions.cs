@@ -81,34 +81,16 @@ namespace NSpectator
         /// <param name="assertion"></param>
         /// <param name="expected"></param>
         /// <param name="tolerance"></param>
-        public static AndConstraint<NumericAssertions<double>> BeCloseTo(this NumericAssertions<double> assertion, double expected, double tolerance, string because = "", params object[] reasonArgs)
+        public static AndConstraint<NumericAssertions<double>> BeCloseTo(this NumericAssertions<double> assertion, double expected, double tolerance, string because = "")
         {
             Execute.Assertion.ForCondition(Math.Abs((double)assertion.Subject - expected) <= tolerance)
-                             .BecauseOf(because, reasonArgs).FailWith("Expected a value which is close to {0} with tolerance {1}{reason}, but found {2}.", (object)expected, (object)tolerance, (object)assertion.Subject);
+                             .BecauseOf(because).FailWith("Expected a value which is close to {0} with tolerance {1}{reason}, but found {2}.", (object)expected, (object)tolerance, (object)assertion.Subject);
             return new AndConstraint<NumericAssertions<double>>(assertion);
         }
 
-        public static AndConstraint<NumericAssertions<double>> BeCloseTo(this NumericAssertions<double> assertion, double expected, string because = "", params object[] reasonArgs)
+        public static AndConstraint<NumericAssertions<double>> BeCloseTo(this NumericAssertions<double> assertion, double expected, string because = "")
         {
-            return BeCloseTo(assertion, expected, double.Epsilon, because, reasonArgs);
-        }
-
-        public static void ShouldBeCloseTo(this double actual, double expected, double tolerance)
-        {
-            Math.Abs(actual - expected).Should().BeLessOrEqualTo(tolerance,
-                $"should be close to {tolerance} of {expected} but was {actual} ");
-        }
-
-        public static void ShouldBeCloseTo(this TimeSpan actual, TimeSpan expected, TimeSpan tolerance)
-        {
-            Math.Abs((actual - expected).Ticks).Should().BeLessOrEqualTo(tolerance.Ticks,
-                $"should be close to {tolerance} of {expected} but was {actual} ");
-        }
-
-        public static void ShouldBeCloseTo(this DateTime actual, DateTime expected, DateTime tolerance)
-        {
-            Math.Abs((actual - expected).Ticks).Should().BeLessOrEqualTo(tolerance.Ticks,
-                $"should be close to {tolerance} of {expected} but was {actual} ");
+            return BeCloseTo(assertion, expected, double.Epsilon, because);
         }
     }
 }
