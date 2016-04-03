@@ -1,19 +1,18 @@
-﻿using NSpectator;
-using NSpectator.Domain;
-using NSpectator.Specs.Running;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NSpectator.Specs.Running
 {
     [TestFixture]
     [Category("RunningSpecs")]
     [Category("Async")]
-    public class describe_async_before_all : When_describing_async_hooks
+    public class Describe_async_before_all : When_describing_async_hooks
     {
         class SpecClass : BaseSpecClass
         {

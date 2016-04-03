@@ -71,14 +71,7 @@ namespace SpecRunner
         public static string GetFormatterClassName(string[] args)
         {
             string formatter = args.FirstOrDefault(s => s.StartsWith("--formatter="));
-            if (formatter != null)
-            {
-                return formatter.Substring("--formatter=".Length).ToLowerInvariant();
-            }
-            else
-            {
-                return null;
-            }
+            return formatter?.Substring("--formatter=".Length).ToLowerInvariant();
         }
 
         /// <summary>
@@ -105,11 +98,7 @@ namespace SpecRunner
             {
                 return (IFormatter)Activator.CreateInstance(formatterType);
             }
-            else
-            {
-                throw new TypeLoadException("Could not find formatter type " + formatterClassName);
-
-            }
+            throw new TypeLoadException("Could not find formatter type " + formatterClassName);
         }
 
         private static void ShowUsage()
@@ -118,17 +107,19 @@ namespace SpecRunner
             Console.WriteLine();
             Console.WriteLine("Example usage:");
             Console.WriteLine();
-            Console.WriteLine("nspecrunner path_to_spec_dll [classname]");
+            Console.WriteLine("SpecRunner path_to_spec_dll [classname]");
             Console.WriteLine();
-            Console.WriteLine("The second parameter is optional. If supplied, only that specific test class will run.  Otherwise all spec classes in the dll will be run.");
+            Console.WriteLine("The second parameter is optional. If supplied, only that specific test class will run.");
+            Console.WriteLine("Otherwise all spec classes in the dll will be run.");
             Console.WriteLine();
-            Console.WriteLine("nspecrunner path_to_spec_dll --tag classname");
+            Console.WriteLine("SpecRunner path_to_spec_dll --tag classname");
             Console.WriteLine();
-            Console.WriteLine("The command above is equivalent to specifing the second parameter in: nspecrunner path_to_spec_dll [classname]");
+            Console.WriteLine("The command above is equivalent to specifing the second parameter in: ");
+            Console.WriteLine("Specrunner path_to_spec_dll [classname]");
             Console.WriteLine();
             Console.WriteLine("Example usage (tagging):");
             Console.WriteLine();
-            Console.WriteLine("nspecrunner path_to_spec_dll --tag tag1,tag2,tag3");
+            Console.WriteLine("SpecRunner path_to_spec_dll --tag tag1,tag2,tag3");
             Console.WriteLine();
             Console.WriteLine("This will run all tests under tags specified.  A test class's name is automatically considered in tagging.");
             Console.WriteLine();
@@ -138,10 +129,9 @@ namespace SpecRunner
             Console.WriteLine();
             Console.WriteLine("Adding --failfast to any of the commands above will stop execution immediately when a failure is encountered.");
             Console.WriteLine();
-            Console.WriteLine("nspecrunner path_to_spec_dll [classname] --formatter=formatterClass");
+            Console.WriteLine("SpecRunner path_to_spec_dll [classname] --formatter=formatterClass");
             Console.WriteLine();
             Console.WriteLine("You can optionally specify a formatter for the output by providing the class name of the desired formatter.");
-
         }
     }
 }

@@ -14,7 +14,7 @@ namespace NSpectator.Specs.Running
 {
     [TestFixture]
     [Category("RunningSpecs")]
-    public class describe_it_behaviour_in_xcontext : When_running_specs
+    public class Describe_it_behaviour_in_xcontext : When_running_specs
     {
         class SpecClass : Spec
         {
@@ -43,7 +43,7 @@ namespace NSpectator.Specs.Running
 
     [TestFixture]
     [Category("RunningSpecs")]
-    public class describe_xcontext : When_running_specs
+    public class Describe_xcontext : When_running_specs
     {
         class SpecClass : Spec
         {
@@ -66,7 +66,7 @@ namespace NSpectator.Specs.Running
         }
 
         [SetUp]
-        public void setup()
+        public void Setup()
         {
             Run(typeof(SpecClass));
         }

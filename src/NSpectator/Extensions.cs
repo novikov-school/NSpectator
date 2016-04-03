@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Runtime.ExceptionServices;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace NSpectator
@@ -15,9 +16,9 @@ namespace NSpectator
         [DebuggerNonUserCode]
         public static string Times(this string source, int times)
         {
-            if (times == 0) return "";
+            if (times == 0) return string.Empty;
 
-            var s = "";
+            var s = string.Empty;
 
             for (int i = 0; i < times; i++)
                 s += source;
@@ -32,8 +33,9 @@ namespace NSpectator
         public static IEnumerable<T> Do<T>(this IEnumerable<T> source, Action<T> action)
         {
             foreach (var t in source)
+            {
                 action(t);
-
+            }
             return source;
         }
 
@@ -49,8 +51,7 @@ namespace NSpectator
             {
                 action(array[i], array[i + 1]);
             }
-
-            return source;
+            return array;
         }
 
         /// <summary>
@@ -111,9 +112,16 @@ namespace NSpectator
         [DebuggerNonUserCode]
         public static string Flatten(this IEnumerable<string> source, string separator = "")
         {
-            if (!source.Any()) return "";
+            return string.Join(separator, source);
+        }
 
-            return source.Aggregate((acc, s) => acc = acc + separator + s);
+        /// <summary>
+        /// Flattens an Enumerable&lt;T&gt; into one string with optional separator
+        /// </summary>
+        [DebuggerNonUserCode]
+        public static string Flatten<T>(this IEnumerable<T> source, string separator = "")
+        {
+            return string.Join(separator, source.Select(o => o.ToString()));
         }
 
         /// <summary>
@@ -160,12 +168,12 @@ namespace NSpectator
 
         public static void SafeInvoke<T>(this Action<T> action, T t)
         {
-            if (action != null) action(t);
+            action?.Invoke(t);
         }
 
         public static void SafeInvoke(this Action action)
         {
-            if (action != null) action();
+            action?.Invoke();
         }
 
         public static void SafeInvoke<T>(this Func<T, Task> asyncAction, T t)
@@ -180,10 +188,7 @@ namespace NSpectator
 
         public static void SafeInvoke(this Func<Task> asyncAction)
         {
-            if (asyncAction != null)
-            {
-                asyncAction.Offload();
-            }
+            asyncAction?.Offload();
         }
 
         public static void Offload(this Func<Task> asyncWork)
@@ -204,7 +209,7 @@ namespace NSpectator
         {
             return source.ToList().Select(o =>
             {
-                if (o.GetType().Equals(typeof(int[])))
+                if (o.GetType() == typeof(int[]))
                 {
                     var s = "";
 

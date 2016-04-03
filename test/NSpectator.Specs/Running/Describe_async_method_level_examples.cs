@@ -53,7 +53,7 @@ namespace NSpectator.Specs.Running
     [TestFixture]
     [Category("RunningSpecs")]
     [Category("Async")]
-    public class describe_async_wrong_method_level_examples : When_running_method_level_examples
+    public class Describe_async_wrong_method_level_examples : When_running_method_level_examples
     {
         class WrongAsyncSpecClass : Spec
         {

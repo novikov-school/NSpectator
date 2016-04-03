@@ -1,5 +1,11 @@
-﻿using System;
-using NSpectator;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
+using System;
 using NUnit.Framework;
 using FluentAssertions;
 
@@ -7,7 +13,7 @@ namespace NSpectator.Specs.Running
 {
     [TestFixture]
     [Category("RunningSpecs")]
-    public class describe_example : When_running_specs
+    public class Describe_example : When_running_specs
     {
         class SpecClass : Spec
         {

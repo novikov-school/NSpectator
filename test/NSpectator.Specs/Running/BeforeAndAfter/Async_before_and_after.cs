@@ -40,7 +40,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
     [TestFixture]
     [Category("RunningSpecs")]
     [Category("Async")]
-    public class async_before_and_after_aliases : When_running_specs
+    public class Async_before_and_after_aliases : When_running_specs
     {
         class SpecClass : Sequence_spec
         {

@@ -29,7 +29,7 @@ describe focus
 
 1 Examples, 0 Failed, 0 Pending
 
-NSpec found context/examples tagged with ""focus"" and only ran those.
+NSpectator found context/examples tagged with ""focus"" and only ran those.
 ";
     }
 }

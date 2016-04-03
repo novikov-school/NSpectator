@@ -1,10 +1,15 @@
-﻿using NSpectator;
-using NSpectator.Specs.Running;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
 using NUnit.Framework;
 
 namespace NSpectator.Specs.Running
 {
-    public class describe_Levels_Inheritance : When_running_specs
+    public class Describe_Levels_Inheritance : When_running_specs
     {
         class parent_context : Spec { }
 

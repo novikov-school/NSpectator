@@ -15,7 +15,7 @@ namespace NSpectator.Specs.Running
 {
     [TestFixture]
     [Category("RunningSpecs")]
-    public class describe_method_level_afters : When_running_specs
+    public class Describe_method_level_afters : When_running_specs
     {
         class SpecClass : Spec
         {
