@@ -25,7 +25,7 @@ namespace NSpectator.Specs
             var twentyMinutes = new TimeSpan(0, 20, 0);
             var tenMinuteTolerance = new TimeSpan(0, 10, 0);
 
-            thirtyMinutes.ShouldBeCloseTo(twentyMinutes, tenMinuteTolerance);
+            thirtyMinutes.Expected().ToBeCloseTo(twentyMinutes, tenMinuteTolerance);
         }
 
         [Test]
@@ -35,7 +35,7 @@ namespace NSpectator.Specs
             var arg2 = new DateTime(2012, 2, 2); // {2/2/2012}
             var oneDayTolerance = new DateTime(TimeSpan.TicksPerDay);
 
-            arg1.ShouldBeCloseTo(arg2, oneDayTolerance);
+            arg1.Expected().ToBeCloseTo(arg2, oneDayTolerance);
         }
 
         [Test]

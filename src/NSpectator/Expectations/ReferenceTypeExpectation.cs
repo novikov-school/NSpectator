@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+// ReSharper disable CheckNamespace
 
 namespace NSpectator
 {
