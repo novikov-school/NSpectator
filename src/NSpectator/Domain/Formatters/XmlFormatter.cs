@@ -21,7 +21,7 @@ namespace NSpectator.Domain.Formatters
             xml.WriteAttributeString("TotalPending", contexts.Pendings().Count().ToString());
 
             xml.WriteAttributeString("RunDate", DateTime.Now.ToString());
-            contexts.Do(c => this.BuildContext(xml, c));
+            contexts.DoIsolate(c => this.BuildContext(xml, c));
             xml.WriteEndElement();
 
             Console.WriteLine(sb.ToString());
@@ -36,13 +36,13 @@ namespace NSpectator.Domain.Formatters
             {
                 xml.WriteStartElement("Specs");
             }
-            context.Examples.Do(e => this.BuildSpec(xml, e));
+            context.Examples.DoIsolate(e => this.BuildSpec(xml, e));
             if (context.Examples.Count > 0)
             {
                 xml.WriteEndElement();
             }
 
-            context.Contexts.Do(c => this.BuildContext(xml, c));
+            context.Contexts.DoIsolate(c => this.BuildContext(xml, c));
 
             xml.WriteEndElement();
         }

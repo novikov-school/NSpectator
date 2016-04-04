@@ -23,7 +23,7 @@ namespace NSpectator.Domain
 
         public ContextCollection Build()
         {
-            this.Do(c => c.Build());
+            this.DoIsolate(c => c.Build());
 
             return this;
         }
@@ -35,14 +35,14 @@ namespace NSpectator.Domain
 
         public void Run(ILiveFormatter formatter, bool failFast)
         {
-            this.Do(c => c.Run(formatter, failFast: failFast));
+            this.DoIsolate(c => c.Run(formatter, failFast: failFast));
 
-            this.Do(c => c.AssignExceptions());
+            this.DoIsolate(c => c.AssignExceptions());
         }
 
         public void TrimSkippedContexts()
         {
-            this.Do(c => c.TrimSkippedDescendants());
+            this.DoIsolate(c => c.TrimSkippedDescendants());
 
             this.RemoveAll(c => !c.HasAnyExecutedExample());
         }

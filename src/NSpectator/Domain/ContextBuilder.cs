@@ -47,7 +47,7 @@ namespace NSpectator.Domain
         {
             DomainExtensions.AllMethods(specClass)
                 .Where(s => conventions.IsMethodLevelContext(s.Name))
-                .Do(contextMethod =>
+                .DoIsolate(contextMethod =>
                 {
                     var methodContext = new MethodContext(contextMethod, TagStringFor(contextMethod));
 
@@ -73,7 +73,7 @@ namespace NSpectator.Domain
                         ? buildAsyncMethodLevel(method)
                         : buildMethodLevel(method);
                 })
-                .Do(methodExample =>
+                .DoIsolate(methodExample =>
                 {
                     classContext.AddExample(methodExample);
                 });

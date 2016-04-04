@@ -23,6 +23,11 @@ public partial class DebuggerShim
         Debug(new SpecFinder(types, ""));
     }
 
+    public static void Debug(System.Reflection.Assembly assembly)
+    {
+        Debug(assembly.GetTypes().Where(t => typeof(Spec).IsAssignableFrom(t)));
+    }
+
     public static void Debug(System.Type t)
     {
         Debug(new SpecFinder(new[] { t }, ""));
