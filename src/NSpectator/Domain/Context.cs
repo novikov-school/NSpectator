@@ -218,7 +218,7 @@ namespace NSpectator.Domain
                 if (example.HasRun) formatter.Write(example, Level);
             }
 
-            Contexts.ForEach(c => c.Run(formatter, failFast, spec));
+            Contexts.Do(c => c.Run(formatter, failFast, spec));
 
             if (runBeforeAfterAll) RunAndHandleException(RunAfterAll, spec, ref ExceptionAfterAll);
         }
@@ -256,7 +256,7 @@ namespace NSpectator.Domain
                 }
             }
 
-            Contexts.ForEach(c => c.AssignExceptions(inheritedBeforeAllException, inheritedAfterAllException));
+            Contexts.Do(c => c.AssignExceptions(inheritedBeforeAllException, inheritedAfterAllException));
         }
 
         public virtual void Build(Spec instance = null)
@@ -265,7 +265,7 @@ namespace NSpectator.Domain
 
             savedInstance = instance;
 
-            Contexts.ForEach(c => c.Build(instance));
+            Contexts.Do(c => c.Build(instance));
         }
 
         public string FullContext()
@@ -351,7 +351,7 @@ namespace NSpectator.Domain
 
             Examples.RemoveAll(e => !e.HasRun);
 
-            Contexts.ForEach(c => c.TrimSkippedDescendants());
+            Contexts.Do(c => c.TrimSkippedDescendants());
         }
 
         bool AnyUnfilteredExampleInSubTree(Spec spec)
