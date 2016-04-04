@@ -194,11 +194,11 @@ namespace NSpectator.Domain
         {
             if (failFast && Parent.HasAnyFailures()) return;
 
-            var nspec = savedInstance ?? instance;
+            var spec = savedInstance ?? instance;
 
-            bool runBeforeAfterAll = AnyUnfilteredExampleInSubTree(nspec);
+            bool runBeforeAfterAll = AnyUnfilteredExampleInSubTree(spec);
 
-            if (runBeforeAfterAll) RunAndHandleException(RunBeforeAll, nspec, ref ExceptionBeforeAll);
+            if (runBeforeAfterAll) RunAndHandleException(RunBeforeAll, spec, ref ExceptionBeforeAll);
 
             // intentionally using for loop to prevent collection was modified error in sample specs
             for (int i = 0; i < Examples.Count; i++)
@@ -207,7 +207,7 @@ namespace NSpectator.Domain
 
                 if (failFast && example.Context.HasAnyFailures()) return;
 
-                Exercise(example, nspec);
+                Exercise(example, spec);
 
                 if (example.HasRun && !alreadyWritten)
                 {
@@ -218,9 +218,9 @@ namespace NSpectator.Domain
                 if (example.HasRun) formatter.Write(example, Level);
             }
 
-            Contexts.ForEach(c => c.Run(formatter, failFast, nspec));
+            Contexts.ForEach(c => c.Run(formatter, failFast, spec));
 
-            if (runBeforeAfterAll) RunAndHandleException(RunAfterAll, nspec, ref ExceptionAfterAll);
+            if (runBeforeAfterAll) RunAndHandleException(RunAfterAll, spec, ref ExceptionAfterAll);
         }
 
         /// <summary>

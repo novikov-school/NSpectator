@@ -71,10 +71,10 @@ namespace NSpectator.Domain
 
             string exceptionText = (Exception != null ? ", " + Exception.GetType().Name : String.Empty);
 
-            return String.Format("{0}{1}{2}", pendingPrefix, Spec, exceptionText);
+            return $"{pendingPrefix}{Spec}{exceptionText}";
         }
 
-        public ExampleBase(string name = "", string tags = "", bool pending = false)
+        protected ExampleBase(string name = "", string tags = "", bool pending = false)
         {
             Spec = name;
 

@@ -8,6 +8,7 @@ namespace NSpectator.Domain.Formatters
     public interface ILiveFormatter
     {
         void Write(Context context);
+
         void Write(ExampleBase example, int level);
     }
 }

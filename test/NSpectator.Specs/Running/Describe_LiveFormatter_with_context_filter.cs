@@ -1,4 +1,11 @@
-﻿using System.Collections.Generic;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
+using System.Collections.Generic;
 using System.Reflection;
 using NSpectator.Domain;
 using NSpectator.Domain.Formatters;
@@ -81,7 +88,7 @@ namespace NSpectator.Specs.Running
         }
     }
 
-    public class FormatterStub : IFormatter, ILiveFormatter
+    public class FormatterStub : ConsoleFormatter, IFormatter, ILiveFormatter
     {
         public List<Context> WrittenContexts;
         public List<ExampleBase> WrittenExamples;
@@ -98,11 +105,13 @@ namespace NSpectator.Specs.Running
 
         public void Write(Context context)
         {
+            base.Write(context);
             WrittenContexts.Add(context);
         }
 
         public void Write(ExampleBase example, int level)
         {
+            base.Write(example, level);
             WrittenExamples.Add(example);
         }
     }
