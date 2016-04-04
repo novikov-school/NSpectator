@@ -2,9 +2,9 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
     <metadata>
         <id>NSpectator</id>
-        <version>0.9.7</version>
+        <version>0.9.8</version>
         <title>NSpectator</title>
-        <authors>Jonny Novikov,Matt Florence,Amir Rajan</authors>
+        <authors>NSpectator Team</authors>
         <owners>Jonny Novikov</owners>
         <licenseUrl>https://github.com/nspectator/NSpectator/blob/master/license.txt</licenseUrl>
         <projectUrl>http://www.nspectator.org</projectUrl>
@@ -18,7 +18,7 @@
         <tags>agile testing bdd tdd spec fluent</tags>
         <dependencies>
             <group targetFramework=".NETFramework4.5">
-                <dependency id="FluentAssertions" version="4.2.2" />
+                <dependency id="FluentAssertions" version="4.3.2" />
             </group>
         </dependencies>
     </metadata>

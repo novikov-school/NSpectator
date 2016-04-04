@@ -48,14 +48,14 @@ namespace NSpectator.Domain
 
             if (befores.Count > 0)
             {
-                BeforeInstance = instance => befores.ForEach(b => b.Invoke(instance, null));
+                BeforeInstance = instance => befores.Do(b => b.Invoke(instance, null));
             }
 
             var asyncBefores = GetMethodsFromHierarchy(conventions.GetAsyncMethodLevelBefore).ToList();
 
             if (asyncBefores.Count > 0)
             {
-                BeforeInstanceAsync = instance => asyncBefores.ForEach(b => new AsyncMethodLevelBefore(b).Run(instance));
+                BeforeInstanceAsync = instance => asyncBefores.Do(b => new AsyncMethodLevelBefore(b).Run(instance));
             }
         }
 
@@ -65,14 +65,14 @@ namespace NSpectator.Domain
 
             if (beforeAlls.Count > 0)
             {
-                BeforeAllInstance = instance => beforeAlls.ForEach(a => a.Invoke(instance, null));
+                BeforeAllInstance = instance => beforeAlls.Do(a => a.Invoke(instance, null));
             }
 
             var asyncBeforeAlls = GetMethodsFromHierarchy(conventions.GetAsyncMethodLevelBeforeAll).ToList();
 
             if (asyncBeforeAlls.Count > 0)
             {
-                BeforeAllInstanceAsync = instance => asyncBeforeAlls.ForEach(b => new AsyncMethodLevelBeforeAll(b).Run(instance));
+                BeforeAllInstanceAsync = instance => asyncBeforeAlls.Do(b => new AsyncMethodLevelBeforeAll(b).Run(instance));
             }
         }
 
@@ -82,14 +82,14 @@ namespace NSpectator.Domain
 
             if (acts.Count > 0)
             {
-                ActInstance = instance => acts.ForEach(a => a.Invoke(instance, null));
+                ActInstance = instance => acts.Do(a => a.Invoke(instance, null));
             }
 
             var asyncActs = GetMethodsFromHierarchy(conventions.GetAsyncMethodLevelAct).ToList();
 
             if (asyncActs.Count > 0)
             {
-                ActInstanceAsync = instance => asyncActs.ForEach(a => new AsyncMethodLevelAct(a).Run(instance));
+                ActInstanceAsync = instance => asyncActs.Do(a => new AsyncMethodLevelAct(a).Run(instance));
             }
         }
 
@@ -99,14 +99,14 @@ namespace NSpectator.Domain
 
             if (afters.Count > 0)
             {
-                AfterInstance = instance => afters.ForEach(a => a.Invoke(instance, null));
+                AfterInstance = instance => afters.Do(a => a.Invoke(instance, null));
             }
 
             var asyncAfters = GetMethodsFromHierarchy(conventions.GetAsyncMethodLevelAfter).Reverse().ToList();
 
             if (asyncAfters.Count > 0)
             {
-                AfterInstanceAsync = instance => asyncAfters.ForEach(a => new AsyncMethodLevelAfter(a).Run(instance));
+                AfterInstanceAsync = instance => asyncAfters.Do(a => new AsyncMethodLevelAfter(a).Run(instance));
             }
         }
 
@@ -116,14 +116,14 @@ namespace NSpectator.Domain
 
             if (afterAlls.Count > 0)
             {
-                AfterAllInstance = instance => afterAlls.ForEach(a => a.Invoke(instance, null));
+                AfterAllInstance = instance => afterAlls.Do(a => a.Invoke(instance, null));
             }
 
             var asyncAfterAlls = GetMethodsFromHierarchy(conventions.GetAsyncMethodLevelAfterAll).Reverse().ToList();
 
             if (asyncAfterAlls.Count > 0)
             {
-                AfterAllInstanceAsync = instance => asyncAfterAlls.ForEach(a => new AsyncMethodLevelAfterAll(a).Run(instance));
+                AfterAllInstanceAsync = instance => asyncAfterAlls.Do(a => new AsyncMethodLevelAfterAll(a).Run(instance));
             }
         }
 

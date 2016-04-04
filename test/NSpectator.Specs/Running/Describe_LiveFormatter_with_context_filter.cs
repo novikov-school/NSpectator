@@ -99,17 +99,17 @@ namespace NSpectator.Specs.Running
             WrittenExamples = new List<ExampleBase>();
         }
 
-        public void Write(ContextCollection contexts)
+        public new void Write(ContextCollection contexts)
         {
         }
 
-        public void Write(Context context)
+        public new void Write(Context context)
         {
             base.Write(context);
             WrittenContexts.Add(context);
         }
 
-        public void Write(ExampleBase example, int level)
+        public new void Write(ExampleBase example, int level)
         {
             base.Write(example, level);
             WrittenExamples.Add(example);
