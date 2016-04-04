@@ -38,14 +38,14 @@ public partial class DebuggerShim
         Debug(new SpecFinder(types.ToArray(), ""));
     }
 
-    private static void Debug(SpecFinder finder)
+    private static void Debug(ISpecFinder finder)
     {
         var builder = new ContextBuilder(finder, new DefaultConventions());
         var runner = new ContextRunner(new Tags(), new ConsoleFormatter(), false);
         var results = runner.Run(builder.Contexts().Build());
 
         // assert that there aren't any failures
-        results.Failures().Count().Should().Be(0, "all examples passed");
+        results.Failures().Should().HaveCount(0, "all examples passed");
     }
 }
 

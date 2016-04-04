@@ -37,9 +37,6 @@ namespace NSpectator.Specs.Running
             Run(typeof(SpecClass));
                 
             var ex = TheExample("it changes status after run");
-
-            //ex.HasRun.should_be_false(); //broken after making init and run happen all at once
-
             ex.HasRun.Should().BeTrue();
         }
 
@@ -48,7 +45,7 @@ namespace NSpectator.Specs.Running
         {
             Run(typeof(SpecClass));
 
-            TheExample("it passes").Should_have_passed();
+            TheExample("it passes").Should().HavePassed();
         }
 
         [Test]
@@ -56,7 +53,7 @@ namespace NSpectator.Specs.Running
         {
             Run(typeof(SpecClass));
 
-            TheExample("it fails").Should_have_failed();
+            TheExample("it fails").Should().HaveFailed();
         }
 
         class SpecClassWithAnonymouseLambdas : Spec

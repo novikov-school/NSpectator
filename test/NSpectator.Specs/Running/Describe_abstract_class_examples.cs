@@ -78,15 +78,15 @@ namespace NSpectator.Specs.Running
         {
             TheContext("ConcreteClass").Examples.Count().Should().Be(3);
 
-            TheExample("specify an example in abstract class").Should_have_passed();
+            TheExample("specify an example in abstract class").Should().HavePassed();
 
-            TheExample("specify an example in another abstract class").Should_have_passed();
+            TheExample("specify an example in another abstract class").Should().HavePassed();
         }
 
         [Test]
         public void Subsequent_derived_concrete_class_do_not_contain_the_examples_from_the_abtract_class()
         {
-            TheContext("DerivedConcreteClass").Examples.Count().Should().Be(1);
+            TheContext("DerivedConcreteClass").Examples.Should().HaveCount(1);
         }
     }
 }

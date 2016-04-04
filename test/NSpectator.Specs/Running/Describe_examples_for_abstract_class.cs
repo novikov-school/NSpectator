@@ -1,4 +1,11 @@
-﻿using System.Collections.Generic;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
+using System.Collections.Generic;
 using NUnit.Framework;
 using FluentAssertions;
 
@@ -13,9 +20,7 @@ namespace NSpectator.Specs.Running
             
             void before_each()
             {
-                ints = new List<int>();
-
-                ints.Add(1);
+                ints = new List<int> { 1 };
             }
 
             void list_manipulations()
@@ -61,15 +66,15 @@ namespace NSpectator.Specs.Running
         [Test]
         public void should_run_example_within_a_sub_context_in_a_derived_class()
         {
-            TheExample("should be 1").Should_have_passed();
+            TheExample("should be 1").Should().HavePassed();
         }
 
         [Test]
         public void it_runs_examples_from_abstract_class_as_if_they_belonged_to_concrete_class()
         {
-            TheExample("should be 1, 2, 3").Should_have_passed();
+            TheExample("should be 1, 2, 3").Should().HavePassed();
 
-            TheExample("should be 1, 2, 3 too").Should_have_passed();
+            TheExample("should be 1, 2, 3 too").Should().HavePassed();
         }
     }
 }
