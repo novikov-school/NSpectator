@@ -41,7 +41,7 @@ namespace NSpectator.Domain.Formatters
             sb.AppendLine();
             sb.AppendLine("<br />");
 
-            contexts.Do(c => this.BuildParentContext(sb, c));
+            contexts.DoIsolate(c => this.BuildParentContext(sb, c));
 
             sb.AppendLine("</html>");
             sb.AppendLine("</body>");
@@ -56,7 +56,7 @@ namespace NSpectator.Domain.Formatters
             sb.AppendLine();
             sb.AppendFormat("    <div class=\"context-parent-body\">");
             sb.AppendLine();
-            context.Contexts.Do(c => this.BuildChildContext(sb, c));
+            context.Contexts.DoIsolate(c => this.BuildChildContext(sb, c));
             sb.AppendLine("  </div>");
             sb.AppendLine("</div>");
         }
@@ -69,10 +69,10 @@ namespace NSpectator.Domain.Formatters
             if (context.Examples.Count > 0)
             {
                 sb.AppendLine("<ul>");
-                context.Examples.Do(e => this.BuildSpec(sb, e));
+                context.Examples.DoIsolate(e => this.BuildSpec(sb, e));
                 sb.AppendLine("</ul>");
             }
-            context.Contexts.Do(c => this.BuildChildContext(sb, c));
+            context.Contexts.DoIsolate(c => this.BuildChildContext(sb, c));
             sb.AppendLine();
             sb.AppendLine("</li>");
             sb.AppendLine("</ul>");

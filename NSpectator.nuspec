@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
     <metadata>
         <id>NSpectator</id>
-        <version>0.9.8</version>
+        <version>0.9.9</version>
         <title>NSpectator</title>
         <authors>NSpectator Team</authors>
         <owners>Jonny Novikov</owners>
@@ -23,6 +23,7 @@
         </dependencies>
     </metadata>
     <files>
+        <file src="license.txt" />
         <file src="test\NSpectator.Specs\DebuggerShim.cs" target="content\DebuggerShim.cs" />
         <file src="src\NSpectator\bin\Debug\NSpectator.dll" target="lib\NSpectator.dll" />
         <file src="src\NSpectator\bin\Debug\NSpectator.pdb" target="lib\NSpectator.pdb" />

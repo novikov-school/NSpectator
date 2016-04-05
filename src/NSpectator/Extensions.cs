@@ -27,7 +27,8 @@ namespace NSpectator
         }
 
         /// <summary>
-        /// Action(T) will get executed for each item in the list.  You can use this to specify a suite of data that needs to be executed across a common set of examples.
+        /// Action(T) will get executed for each item in the list.  
+        /// You can use this to specify a suite of data that needs to be executed across a common set of examples.
         /// </summary>
         [DebuggerNonUserCode]
         public static IEnumerable<T> Do<T>(this IEnumerable<T> source, Action<T> action)
@@ -35,8 +36,23 @@ namespace NSpectator
             foreach (var t in source)
             {
                 action(t);
+                yield return t;
             }
-            return source;
+        }
+
+        /// <summary>
+        /// Action(T) will get executed for each item in the list.  
+        /// You can use this to specify a suite of data that needs to be executed across a common set of examples.
+        /// </summary>
+        [DebuggerNonUserCode]
+        internal static List<T> DoIsolate<T>(this IEnumerable<T> source, Action<T> action)
+        {
+            var copy = new List<T>(source);
+            foreach (var t in copy)
+            {
+                action(t);
+            }
+            return copy;
         }
 
         /// <summary>

@@ -53,11 +53,13 @@ namespace NSpectator.Domain.Formatters
 
         public string FailureSummary(ContextCollection contexts)
         {
-            if (!contexts.Failures().Any()) return string.Empty;
+            var failures = new List<ExampleBase>(contexts.Failures());
+
+            if (failures.Count == 0) return string.Empty;
 
             var summary = "\n" + "**** FAILURES ****" + "\n";
 
-            contexts.Failures().Do(f => summary += WriteFailure(f));
+            failures.ForEach(f => summary += WriteFailure(f));
 
             return summary;
         }

@@ -21,7 +21,7 @@ namespace NSpectator.Domain.Formatters
             xml.WriteAttributeString("failures", contexts.Failures().Count().ToString());
             xml.WriteAttributeString("skip", contexts.Pendings().Count().ToString());
 
-            contexts.Do(c => this.BuildContext(xml, c));
+            contexts.DoIsolate(c => this.BuildContext(xml, c));
             xml.WriteEndElement();
 
             Console.WriteLine(sb.ToString());
@@ -38,8 +38,8 @@ namespace NSpectator.Domain.Formatters
                 xml.WriteAttributeString("failures", context.Failures().Count().ToString());
             }
 
-            context.Examples.Do(e => this.BuildSpec(xml, e));
-            context.Contexts.Do(c => this.BuildContext(xml, c));
+            context.Examples.DoIsolate(e => this.BuildSpec(xml, e));
+            context.Contexts.DoIsolate(c => this.BuildContext(xml, c));
             
             if (context.Level == 1)
             {

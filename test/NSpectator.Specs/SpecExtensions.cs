@@ -8,19 +8,38 @@
 using System.Text.RegularExpressions;
 using NSpectator.Domain;
 using FluentAssertions;
+using FluentAssertions.Execution;
+using FluentAssertions.Primitives;
 
 namespace NSpectator.Specs
 {
-    public static class SpecExtensions
+    public class ExampleBaseAssertions : ReferenceTypeAssertions<ExampleBase, ExampleBaseAssertions>
     {
-        public static void Should_have_passed(this ExampleBase example)
+        protected override string Context => "ExampleBase";
+
+        public ExampleBaseAssertions(ExampleBase example)
         {
-            (example.HasRun && example.Exception == null).Should().BeTrue();
+            Subject = example;
         }
 
-        public static void Should_have_failed(this ExampleBase example)
+        public AndConstraint<ExampleBaseAssertions> HavePassed(string because = "")
         {
-            (example.HasRun && example.Exception == null).Should().BeFalse();
+            Execute.Assertion.ForCondition(this.Subject.HasRun && this.Subject.Exception == null).BecauseOf(because).FailWith("Expected example to have passed {reason}");
+            return new AndConstraint<ExampleBaseAssertions>(this);
+        }
+
+        public AndConstraint<ExampleBaseAssertions> HaveFailed(string because = "")
+        {
+            Execute.Assertion.ForCondition(!this.Subject.HasRun || this.Subject.Exception != null).BecauseOf(because).FailWith("Expected example to have failed {reason}");
+            return new AndConstraint<ExampleBaseAssertions>(this);
+        }
+    }
+
+    public static class SpecExtensions
+    {
+        public static ExampleBaseAssertions Should(this ExampleBase example)
+        {
+            return new ExampleBaseAssertions(example);
         }
 
         public static string RegexReplace(this string input, string pattern, string replace)

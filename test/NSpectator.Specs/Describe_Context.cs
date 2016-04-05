@@ -37,7 +37,7 @@ namespace NSpectator.Specs
 
             parent.AddContext(child);
 
-            parent.Failures().Count().Should().Be(1);
+            parent.Failures().Should().HaveCount(1);
         }
     }
 

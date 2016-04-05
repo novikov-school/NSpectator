@@ -80,7 +80,6 @@ namespace NSpectator.Specs
         public void Should_get_specs_from_specFinder()
         {
             finderMock.Verify(f => f.SpecClasses());
-            // finderMock.AssertWasCalled(f => f.SpecClasses());
         }
 
         [Test]

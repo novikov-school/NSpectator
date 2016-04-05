@@ -136,19 +136,19 @@ namespace NSpectator.Specs.Running.Exceptions
         [Test]
         public void Should_be_three_failures()
         {
-            classContext.Failures().Count().Should().Be(3);
+            classContext.Failures().Should().HaveCount(3);
         }
 
         [Test]
         public void throws_expected_exception()
         {
-            TheExample("throws expected exception").Should_have_passed();
+            TheExample("throws expected exception").Should().HavePassed();
         }
 
         [Test]
         public void throws_expected_exception_with_error_message_Testing()
         {
-            TheExample("throws expected exception with expected error message").Should_have_passed();
+            TheExample("throws expected exception with expected error message").Should().HavePassed();
         }
 
         [Test]
