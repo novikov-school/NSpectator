@@ -63,6 +63,10 @@ class Describe_prime_factors : Spec
 }
 ```
 
+### Samples
+
+Basic usage you can see in the [samples folder of the repository](https://github.com/nspectator/NSpectator/tree/master/samples)
+
 ## Contributing
 
 Check out [this wiki page](https://github.com/nspectator/NSpectator/wiki/Contributing) for complete guide.
@@ -75,6 +79,6 @@ Use github authorization (gray bottom button) for signup or login.
 
 ## Thanks to
 
-Jetbrains Community support for providing great tools for NSpectator Development Team
+Jetbrains Community Support for providing great tools for NSpectator Development Team
 
 [![Jetbrains Resharper](http://nspectator.org/assets/icon_ReSharper.png)](https://www.jetbrains.com/resharper/)
