@@ -57,7 +57,7 @@ class Describe_prime_factors : Spec
           { 9, new[] { 3, 3 } },
 
       }.Do((given, expected) =>
-          it["{0} should be {1}".With(given, expected)] = () => given.Primes().Should().Be(expected)
+          it[$"{given} should be {expected}"] = () => given.Primes().Should().Be(expected)
       );
   }
 }
@@ -69,7 +69,7 @@ Check out [this wiki page](https://github.com/nspectator/NSpectator/wiki/Contrib
 
 ### Issues
 
-Feature requests, bugs & issues are handled on [NSpectator Youtrack InCloud](https://nspectator.myjetbrains.com)
+Feature requests, bugs & issues are handled on [NSpectator Youtrack InCloud](https://nspectator.myjetbrains.com/youtrack/issues/NS?q=%23Unresolved)
 
 Use github authorization (gray bottom button) for signup or login.
 

@@ -1,5 +1,13 @@
-﻿using System.Collections.Generic;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
+using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using NSpectator.Domain;
 using NSpectator.Domain.Formatters;
 using FluentAssertions;
@@ -15,17 +23,14 @@ using NSpectator;
 /// </summary>
 public partial class DebuggerShim
 {
-    public void Debug(string tagOrClassName)
+    public void Debug()
     {
-        var types = GetType().Assembly.GetTypes();
-        // OR
-        // var types = new Type[]{typeof(Some_Type_Containg_some_Specs)};
-        Debug(new SpecFinder(types, ""));
+        Debug(GetType().Assembly);
     }
 
     public static void Debug(System.Reflection.Assembly assembly)
     {
-        Debug(assembly.GetTypes().Where(t => typeof(Spec).IsAssignableFrom(t)));
+        Debug(assembly.GetTypes());
     }
 
     public static void Debug(System.Type t)
@@ -46,6 +51,11 @@ public partial class DebuggerShim
 
         // assert that there aren't any failures
         results.Failures().Should().HaveCount(0, "all examples passed");
+    }
+
+    protected void DebugNestedTypes()
+    {
+        Debug(GetType().GetNestedTypes(BindingFlags.NonPublic | BindingFlags.Public));
     }
 }
 
