@@ -57,11 +57,15 @@ class Describe_prime_factors : Spec
           { 9, new[] { 3, 3 } },
 
       }.Do((given, expected) =>
-          it["{0} should be {1}".With(given, expected)] = () => given.Primes().Should().Be(expected)
+          it[$"{given} should be {expected}"] = () => given.Primes().Should().Be(expected)
       );
   }
 }
 ```
+
+### Samples
+
+Basic usage you can see in the [samples folder of the repository](https://github.com/nspectator/NSpectator/tree/master/samples)
 
 ## Contributing
 
@@ -69,12 +73,12 @@ Check out [this wiki page](https://github.com/nspectator/NSpectator/wiki/Contrib
 
 ### Issues
 
-Feature requests, bugs & issues are handled on [NSpectator Youtrack InCloud](https://nspectator.myjetbrains.com)
+Feature requests, bugs & issues are handled on [NSpectator Youtrack InCloud](https://nspectator.myjetbrains.com/youtrack/issues/NS?q=%23Unresolved)
 
 Use github authorization (gray bottom button) for signup or login.
 
 ## Thanks to
 
-Jetbrains Community support for providing great tools for NSpectator Development Team
+Jetbrains Community Support for providing great tools for NSpectator Development Team
 
 [![Jetbrains Resharper](http://nspectator.org/assets/icon_ReSharper.png)](https://www.jetbrains.com/resharper/)

@@ -1,17 +1,11 @@
-﻿#region [R# naming]
-// ReSharper disable ArrangeTypeModifiers
-// ReSharper disable UnusedMember.Local
-// ReSharper disable FieldCanBeMadeReadOnly.Local
-// ReSharper disable ArrangeTypeMemberModifiers
-// ReSharper disable InconsistentNaming
-#endregion
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using NSpectator.Domain;
 using NSpectator.Domain.Formatters;
 using FluentAssertions;
 using NSpectator;
+using System.Reflection;
 // ReSharper disable once CheckNamespace
 
 /// <summary>
@@ -23,14 +17,12 @@ using NSpectator;
 /// </summary>
 public partial class DebuggerShim
 {
-    public void Debug()
+    public void Debug(string tagOrClassName)
     {
-        Debug(GetType().Assembly);
-    }
-
-    public static void Debug(System.Reflection.Assembly assembly)
-    {
-        Debug(assembly.GetTypes());
+        var types = GetType().Assembly.GetTypes();
+        // OR
+        // var types = new Type[]{typeof(Some_Type_Containg_some_Specs)};
+        Debug(new SpecFinder(types, ""));
     }
 
     public static void Debug(System.Type t)
@@ -43,14 +35,14 @@ public partial class DebuggerShim
         Debug(new SpecFinder(types.ToArray(), ""));
     }
 
-    private static void Debug(ISpecFinder finder)
+    private static void Debug(SpecFinder finder)
     {
         var builder = new ContextBuilder(finder, new DefaultConventions());
         var runner = new ContextRunner(new Tags(), new ConsoleFormatter(), false);
         var results = runner.Run(builder.Contexts().Build());
 
         // assert that there aren't any failures
-        results.Failures().Should().HaveCount(0, "all examples passed");
+        results.Failures().Count().Should().Be(0, "all examples passed");
     }
 
     protected void DebugNestedTypes()
