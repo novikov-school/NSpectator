@@ -438,7 +438,7 @@ namespace NSpectator
 
         static string IncorrectMessage(string expected, string actual)
         {
-            return String.Format("Expected message: \"{0}\" But was: \"{1}\"", expected, actual);
+            return $"Expected message: \"{expected}\" But was: \"{actual}\"";
         }
 
         void AddExample(ExampleBase example)
@@ -460,13 +460,13 @@ namespace NSpectator
             RunContext(ignored, action);
         }
 
-        void RunContext(Context context, Action action)
+        void RunContext(Context ctx, Action action)
         {
-            Context.AddContext(context);
+            Context.AddContext(ctx);
 
             var beforeContext = Context;
 
-            Context = context;
+            Context = ctx;
 
             action();
 
