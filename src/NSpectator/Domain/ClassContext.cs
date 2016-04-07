@@ -20,11 +20,11 @@ namespace NSpectator.Domain
 
             BuildMethodLevelAfterAll();
 
-            var nspec = type.Instance<Spec>();
+            var spec = type.Instance<Spec>();
 
-            nspec.tagsFilter = tagsFilter ?? new Tags();
+            spec.tagsFilter = tagsFilter ?? new Tags();
 
-            base.Build(nspec);
+            base.Build(spec);
         }
 
         public override bool IsSub(Type baseType)
