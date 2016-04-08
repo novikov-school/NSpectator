@@ -13,7 +13,7 @@ using NSpectator;
 
 namespace SampleSpecs.Demo
 {
-    class describe_shoulds : Spec
+    class Describe_shoulds : Spec
     {
         void given_a_non_empty_list()
         {

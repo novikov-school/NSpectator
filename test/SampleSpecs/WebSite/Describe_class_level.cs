@@ -1,4 +1,11 @@
-﻿using FluentAssertions;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
+using FluentAssertions;
 using NSpectator;
 
 namespace SampleSpecs.WebSite
@@ -6,7 +13,7 @@ namespace SampleSpecs.WebSite
     public class Describe_class_level : Spec
     {
         string sequence;
-        //before, act, and it can also be declared at the class level like so
+        // before, act, and it can also be declared at the class level like so
         void before_each()
         {
             sequence = "arrange, ";
@@ -17,8 +24,8 @@ namespace SampleSpecs.WebSite
             sequence += "act";
         }
 
-        //prefixing a method with "it_" or "specify_"
-        //will tell nspec to treat the method as an example
+        // prefixing a method with "it_" or "specify_"
+        // will tell nspec to treat the method as an example
         void specify_given_befores_and_acts_run_in_the_correct_sequence()
         {
             sequence.Should().Be("arrange, act");
