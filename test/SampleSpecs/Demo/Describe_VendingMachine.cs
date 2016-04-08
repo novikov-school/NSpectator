@@ -14,7 +14,7 @@ using FluentAssertions;
 
 namespace SampleSpecs.Demo
 {
-    class describe_VendingMachine : Spec
+    class Describe_VendingMachine : Spec
     {
         VendingMachine vendingMachine = null;
 

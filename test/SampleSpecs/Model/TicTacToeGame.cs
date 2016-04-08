@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using NSpectator;
 
 namespace SampleSpecs.Model
 {
@@ -17,9 +18,11 @@ namespace SampleSpecs.Model
         }
 
         public bool Finished { get; private set; }
+
         public string[,] Board { get; set; }
 
         public bool Draw { get; private set; }
+
         public string Winner { get; private set; }
 
         public void Play(string xo, int row, int column)
@@ -34,7 +37,7 @@ namespace SampleSpecs.Model
         {
             3.Times(i =>
             {
-                new[] { "x", "o" }.Each(player =>
+                new[] { "x", "o" }.Do(player =>
                 {
                     CheckStraightColumn(i, player);
                     CheckStraightRow(i, player);
@@ -92,7 +95,7 @@ namespace SampleSpecs.Model
                 where xo == string.Empty
                 select xo;
 
-            if (val.Count() == 0)
+            if (!val.Any())
             {
                 Finished = true;
                 if (string.IsNullOrEmpty(Winner)) Draw = true;
@@ -100,7 +103,7 @@ namespace SampleSpecs.Model
         }
     }
 
-    public static class extensions
+    public static class Extensions
     {
         public static void Times(this int number, Action<int> action)
         {

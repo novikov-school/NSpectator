@@ -1,19 +1,29 @@
-using NSpectator;
+#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
+
 using FluentAssertions;
+using NSpectator;
 
-public class Describe_pending : Spec
+namespace SampleSpecs.WebSite
 {
-    void when_creating_pending_specifications()
+    public class Describe_pending : Spec
     {
-        it["pending spec"] = todo;
-        //or just add an 'x' at the beginning of a specification that isn't quite ready
-        xit["\"\" should be \"something else\""] = () => "".Should().Be("something else");
+        void when_creating_pending_specifications()
+        {
+            it["pending spec"] = todo;
+            //or just add an 'x' at the beginning of a specification that isn't quite ready
+            xit["\"\" should be \"something else\""] = () => "".Should().Be("something else");
+        }
     }
-}
 
-public static class Describe_pending_output
-{
-    public static string Output = @"
+    public static class Describe_pending_output
+    {
+        public static string Output = @"
 describe pending
   when creating pending specifications
     pending spec - PENDING
@@ -21,5 +31,6 @@ describe pending
 
 2 Examples, 0 Failed, 2 Pending
 ";
-    public static int ExitCode = 0;
+        public static int ExitCode = 0;
+    }
 }

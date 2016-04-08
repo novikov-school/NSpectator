@@ -1,35 +1,44 @@
+#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
+using FluentAssertions;
 using NSpectator;
 using SampleSpecs.Model;
-using FluentAssertions;
 
-public class Describe_helpers : Spec
+namespace SampleSpecs.WebSite
 {
-    Tea tea;
-
-    void when_making_tea()
+    public class Describe_helpers : Spec
     {
-        context["that is 210 degrees"] = () =>
+        Tea tea;
+
+        void when_making_tea()
         {
-            before = () => MakeTea(210);
-            it["should be hot"] = () => tea.Taste().Should().Be("hot");
-        };
-        context["that is 90 degrees"] = () =>
+            context["that is 210 degrees"] = () =>
+            {
+                before = () => MakeTea(210);
+                it["should be hot"] = () => tea.Taste().Should().Be("hot");
+            };
+            context["that is 90 degrees"] = () =>
+            {
+                before = () => MakeTea(90);
+                it["should be cold"] = () => tea.Taste().Should().Be("cold");
+            };
+        }
+
+        //helper methods do not have underscores
+        void MakeTea(int temperature)
         {
-            before = () => MakeTea(90);
-            it["should be cold"] = () => tea.Taste().Should().Be("cold");
-        };
+            tea = new Tea(temperature);
+        }
     }
 
-    //helper methods do not have underscores
-    void MakeTea(int temperature)
+    public static class Describe_helpers_output
     {
-        tea = new Tea(temperature);
-    }
-}
-
-public static class Describe_helpers_output
-{
-    public static string Output = @"
+        public static string Output = @"
 describe helpers
   when making tea
     that is 210 degrees
@@ -39,5 +48,6 @@ describe helpers
 
 2 Examples, 0 Failed, 0 Pending
 ";
-    public static int ExitCode = 0;
+        public static int ExitCode = 0;
+    }
 }
