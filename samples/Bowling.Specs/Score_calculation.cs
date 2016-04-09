@@ -49,11 +49,7 @@ namespace Bowling.Specs
             void Roll(string series, int times = 1)
             {
                 int[] pins = series.Trim().Split(',').Select(int.Parse).ToArray();
-
-                for (int i = 0; i < times; i++)
-                {
-                    Roll(pins);
-                }
+                times.Times(() => Roll(pins));
             }
 
             void Roll(params int[] pins)
@@ -123,7 +119,7 @@ namespace Bowling.Specs
                 ExpectedScore(300);
             }
 
-            void Scrnario_one_single_spare()
+            void Scenario_one_single_spare()
             {
                 beforeAll = StartGame;
 

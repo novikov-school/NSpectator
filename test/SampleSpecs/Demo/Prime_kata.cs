@@ -19,8 +19,8 @@ namespace SampleSpecs.Demo
     {
         void prime_factors()
         {
-            //throwing an unhandled exception should now not cause the runner to crash
-            //var dict = new Dictionary<int, string> { { 1, "1" }, { 1, "sdfg" } };
+            // throwing an unhandled exception should now not cause the runner to crash
+            // var dict = new Dictionary<int, string> { { 1, "1" }, { 1, "sdfg" } };
 
             new Dictionary<int, int[]>
                 {

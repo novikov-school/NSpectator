@@ -41,16 +41,16 @@ namespace SampleSpecs.Demo
 
             it["should work"] = () => { };
 
-            //soon.user_should_not_have_default_password();
+            // soon.user_should_not_have_default_password();
         }
     }
 
-    //output from above
-    //given a_user
-    //    user Id should_not_be_default
-    //    user Admin should_be_false
-    //    when user is admin
-    //        user Admin should_be_true
-    //        when user is terminated
-    //            user Terminated should_be_true
+    // output from above
+    // given a_user
+    //     user Id should_not_be_default
+    //     user Admin should_be_false
+    //     when user is admin
+    //         user Admin should_be_true
+    //         when user is terminated
+    //             user Terminated should_be_true
 }

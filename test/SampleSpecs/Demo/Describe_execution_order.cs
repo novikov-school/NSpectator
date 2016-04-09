@@ -41,6 +41,11 @@ namespace SampleSpecs.Demo
             order += s.PadLeft(s.Length + indent);
         }
 
+        protected void WriteLine(string s)
+        {
+            Write(s + "\n");
+        }
+
         void before_all()
         {
             Increase("parent: before all\n");
@@ -48,22 +53,22 @@ namespace SampleSpecs.Demo
 
         void before_each()
         {
-            Write("parent: before each\n");
+            WriteLine("parent: before each");
         }
 
         void it_works_parent_1()
         {
-            Write("parent: it works 1\n");
+            WriteLine("parent: it works 1");
         }
 
         void it_works_parent_2()
         {
-            Write("parent: it works 2\n");
+            WriteLine("parent: it works 2");
         }
 
         void after_each()
         {
-            Write("parent: after each\n\n");
+            WriteLine("parent: after each\n");
         }
 
         void after_all()
@@ -109,13 +114,13 @@ namespace SampleSpecs.Demo
         {
             beforeAll = () => Increase("method: before all\n");
 
-            before = () => Write("method: before each\n");
+            before = () => WriteLine("method: before each");
 
-            it["it works method 5"] = () => Write("method: it works 5\n");
+            it["it works method 5"] = () => WriteLine("method: it works 5");
 
-            it["it works method 6"] = () => Write("method: it works 6\n");
+            it["it works method 6"] = () => WriteLine("method: it works 6");
 
-            after = () => Write("method: after each\n");
+            after = () => WriteLine("method: after each");
 
             afterAll = () => Decrease("method: after all\n");
 
@@ -123,13 +128,13 @@ namespace SampleSpecs.Demo
             {
                 beforeAll = () => Increase("sub: before all\n");
 
-                before = () => Write("sub: before each\n");
+                before = () => WriteLine("sub: before each");
 
-                it["it works sub 7"] = () => Write("sub: it works 7 \n");
+                it["it works sub 7"] = () => WriteLine("sub: it works 7 ");
 
-                it["it works sub 8"] = () => Write("sub: it works 8 \n");
+                it["it works sub 8"] = () => WriteLine("sub: it works 8 ");
 
-                after = () => Write("sub: after each\n");
+                after = () => WriteLine("sub: after each");
 
                 afterAll = () => Decrease("sub: after all\n");
             };

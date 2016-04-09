@@ -16,9 +16,9 @@ namespace SampleSpecs.Demo
     {
         public void tags_at_context_level()
         {
-            // NOTE: you have to run the nspec runner with a tag filter to see how
+            // NOTE: you have to run the spec runner with a tag filter to see how
             // tags can be used to filter which contexts and examples are executed:
-            //     nspecrunner <path-to-specs-dll> --tag mytag-one,~mytag-two
+            //     SpecRunner <path-to-specs-dll> --tag mytag-one,~mytag-two
 
             context["when tags are specified at the context level", "mytag-one"] = () =>
             {

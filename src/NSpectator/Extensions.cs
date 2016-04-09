@@ -122,6 +122,27 @@ namespace NSpectator
             }
         }
 
+        [DebuggerNonUserCode]
+        public static void Each<T>(this IEnumerable<T> list, Action<T> action)
+        {
+            foreach (T t in list)
+            {
+                action(t);
+            }
+        }
+
+        /// <summary>
+        /// Action will be executed n number of times.
+        /// </summary>
+        [DebuggerNonUserCode]
+        public static void Times(this int number, Action<int> action)
+        {
+            for (int i = 1; i <= number; i++)
+            {
+                action(i);
+            }
+        }
+
         /// <summary>
         /// Flattens an Enumerable&lt;string&gt; into one string with optional separator
         /// </summary>
@@ -169,6 +190,11 @@ namespace NSpectator
         {
             for (int i = start; i <= end; i++)
                 yield return i;
+        }
+
+        public static IEnumerable<int> To(this int start, int end, Action<int> action)
+        {
+            return To(start, end).Do(action);
         }
 
         /// <summary>

@@ -52,6 +52,7 @@ namespace NSpectator.Specs
     public class Parent_act : Spec
     {
         public string actResult;
+
         void act_each()
         {
             actResult = "parent";
@@ -99,6 +100,7 @@ namespace NSpectator.Specs
     public class Parent_before : Spec
     {
         public string beforeResult;
+
         void before_each()
         {
             beforeResult = "parent";
@@ -109,7 +111,7 @@ namespace NSpectator.Specs
     public class When_creating_contexts_for_derived_classes
     {
         [SetUp]
-        public void setup()
+        public void Setup()
         {
             conventions = new DefaultConventions();
 

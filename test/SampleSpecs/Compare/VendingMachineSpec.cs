@@ -5,13 +5,13 @@
 // ReSharper disable ArrangeTypeMemberModifiers
 // ReSharper disable InconsistentNaming
 #endregion
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using NSpectator;
-using FluentAssertions;
 
-namespace SampleSpecs.Compare.NSpec
+namespace SampleSpecs.Compare
 {
     class VendingMachineSpec : Spec
     {
@@ -42,7 +42,7 @@ namespace SampleSpecs.Compare.NSpec
                     specify = () => machine.Items().Count().Expected().ToBe(2);
                 };
             };
-            //got to force/refactor getting rid of the dictionary soon
+            // got to force/refactor getting rid of the dictionary soon
         }
     }
 

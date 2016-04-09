@@ -59,7 +59,7 @@
     <Compile Include="Bug\Describe_context_stack_trace.cs" />
     <Compile Include="Bug\Describe_failing_deserialization.cs" />
     <Compile Include="Bug\Given_a_subcontext_that_fails.cs" />
-    <Compile Include="Compare\NSpec\VendingMachineSpec.cs" />
+    <Compile Include="Compare\VendingMachineSpec.cs" />
     <Compile Include="Demo\Action_indexer_approach.cs" />
     <Compile Include="Bug\Grandparents_run_first.cs" />
     <Compile Include="Demo\Before_each_on_the_class_level.cs" />
@@ -114,6 +114,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

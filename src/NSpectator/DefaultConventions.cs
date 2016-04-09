@@ -20,7 +20,8 @@ namespace NSpectator
             specification.SetExample(RegexInsensitive("(^it_)|(^specify_)"));
 
             specification.SetContext(RegexInsensitive("_"));
-            //anything that doesn't match is considered a helper method and is never directly invoked
+
+            // anything that doesn't match is considered a helper method and is never directly invoked
         }
 
         Regex RegexInsensitive(string pattern)

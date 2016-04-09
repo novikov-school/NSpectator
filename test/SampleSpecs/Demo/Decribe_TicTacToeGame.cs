@@ -17,19 +17,20 @@ namespace SampleSpecs.Demo
     class Describe_TicTacToeGame : Spec
     {
         protected TicTacToGame game;
+
         protected string[] players;
 
         void before_each()
         {
             game = new TicTacToGame();
 
-            players = new[] { "x", "o" };
+            players = game.Players;
         }
 
         void When_players_try_to_take_the_same_square()
         {
             it["should throw exception"] = expect<InvalidOperationException>(() =>
-                players.Do(player => game.Play(player, 0, 0))
+                players.Each(player => game.Play(player, 0, 0))
                 );
         }
     }

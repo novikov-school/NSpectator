@@ -62,7 +62,7 @@ namespace NSpectator.Domain.Extensions
         {
             if (!type.IsGenericType) return type.Name;
 
-            return string.Format("{0}<{1}>", type.Name.Remove(type.Name.IndexOf('`')), string.Join(", ", type.GetGenericArguments().Select(CleanName).ToArray()));
+            return $"{type.Name.Remove(type.Name.IndexOf('`'))}<{string.Join(", ", type.GetGenericArguments().Select(CleanName).ToArray())}>";
         }
 
         public static string CleanMessage(this Exception exception)

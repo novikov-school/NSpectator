@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using NSpectator;
+// ReSharper disable ArrangeTypeMemberModifiers
 
 namespace SampleSpecs.Model
 {
@@ -10,14 +11,16 @@ namespace SampleSpecs.Model
         public TicTacToGame()
         {
             Board = new string[3, 3]
-                {
+            {
                 { "", "", "" },
                 { "", "", "" },
                 { "", "", "" }
-                };
+            };
         }
 
-        public bool Finished { get; private set; }
+        public string[] Players => new [] { "x", "o" };
+
+        public bool Finished => !string.IsNullOrEmpty(Winner) && !Draw;
 
         public string[,] Board { get; set; }
 
@@ -27,7 +30,8 @@ namespace SampleSpecs.Model
 
         public void Play(string xo, int row, int column)
         {
-            if (string.IsNullOrEmpty(Board[row, column]) == false) throw new InvalidOperationException();
+            if (string.IsNullOrEmpty(Board[row, column]) == false)
+                throw new InvalidOperationException();
 
             Board[row, column] = xo;
             TestDone();
@@ -35,90 +39,37 @@ namespace SampleSpecs.Model
 
         private void TestDone()
         {
-            3.Times(i =>
+            1.To(3, i => Winner = Winner ?? Players.FirstOrDefault(player => CheckStraightColumn(i, player) || CheckStraightRow(i, player)));
+            
+            Players.Each(player => 
             {
-                new[] { "x", "o" }.Do(player =>
-                {
-                    CheckStraightColumn(i, player);
-                    CheckStraightRow(i, player);
-                });
+                if (CheckDiagonalLeft(player) || CheckDiagonalRight(player))
+                    Winner = player;
             });
-
-            CheckDiagonalLeft("x");
-            CheckDiagonalLeft("o");
-            CheckDiagonalRight("x");
-            CheckDiagonalRight("o");
-
+            
             CheckAllSquaresTaken();
         }
 
-        private void CheckStraightColumn(int column, string xo)
-        {
-            if (Board[column, 0] == xo && Board[column, 1] == xo && Board[column, 2] == xo)
-            {
-                Finished = true;
-                Winner = xo;
-            }
-        }
+        bool CheckStraightColumn(int column, string xo) => Board[column, 0] == xo && Board[column, 1] == xo && Board[column, 2] == xo;
 
-        private void CheckStraightRow(int row, string xo)
-        {
-            if (Board[0, row] == xo && Board[1, row] == xo && Board[2, row] == xo)
-            {
-                Finished = true;
-                Winner = xo;
-            }
-        }
+        bool CheckStraightRow(int row, string xo) => Board[0, row] == xo && Board[1, row] == xo && Board[2, row] == xo;
+        
+        bool CheckDiagonalLeft(string xo) => Board[0, 0] == xo && Board[1, 1] == xo && Board[2, 2] == xo;
+        
+        bool CheckDiagonalRight(string xo) => Board[2, 0] == xo && Board[1, 1] == xo && Board[0, 2] == xo;
 
-        private void CheckDiagonalLeft(string xo)
+        bool CheckAllSquaresTaken()
         {
-            if (Board[0, 0] == xo && Board[1, 1] == xo && Board[2, 2] == xo)
-            {
-                Finished = true;
-                Winner = xo;
-            }
-        }
-
-        private void CheckDiagonalRight(string xo)
-        {
-            if (Board[2, 0] == xo && Board[1, 1] == xo && Board[0, 2] == xo)
-            {
-                Finished = true;
-                Winner = xo;
-            }
-        }
-
-        private void CheckAllSquaresTaken()
-        {
-            var val = from string xo
+            var val = 
+                from string xo
                 in Board
                 where xo == string.Empty
                 select xo;
 
-            if (!val.Any())
-            {
-                Finished = true;
-                if (string.IsNullOrEmpty(Winner)) Draw = true;
-            }
-        }
-    }
-
-    public static class Extensions
-    {
-        public static void Times(this int number, Action<int> action)
-        {
-            for (int i = 0; i < number; i++)
-            {
-                action(i);
-            }
-        }
-
-        public static void Each<T>(this IEnumerable<T> list, Action<T> action)
-        {
-            foreach (T t in list)
-            {
-                action(t);
-            }
+            if (val.Any()) return false;
+            
+            if (string.IsNullOrEmpty(Winner)) Draw = true;
+            return true;
         }
     }
 }

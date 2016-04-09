@@ -22,8 +22,8 @@ namespace SampleSpecs.Demo
             context["all squares taken with no 3 in a row"] = () =>
             {
                 before = () =>
-                    0.To(2).Do(row =>
-                        0.To(2).Do(column =>
+                    0.To(2, row =>
+                        0.To(2, column =>
                             game.Play(AlternateUser(), row, column)
                             )
                         );
@@ -35,41 +35,41 @@ namespace SampleSpecs.Demo
 
         void Describe_a_winning_game()
         {
-            players = new[] { "x", "o" };
+            players = game.Players;
 
-            0.To(2).Do(index => players.Do(player =>
+            0.To(2, index => players.Each(player =>
             {
-                context["3 {0}'s in column {1}".With(player, index)] = () =>
+                context[$"3 {player}'s in column {index}"] = () =>
                 {
-                    before = () => 0.To(2).Do(column => game.Play(player, index, column));
+                    before = () => 0.To(2, column => game.Play(player, index, column));
 
                     specify = () => game.Finished.Expected().True();
 
-                    it["winner should be {0}".With(player)] = () => game.Winner.Should().Be(player);
+                    it[$"winner should be {player}"] = () => game.Winner.Should().Be(player);
                 };
 
-                context["3 {0}'s in row {1}".With(player, index)] = () =>
+                context[$"3 {player}'s in row {index}"] = () =>
                 {
-                    before = () => 0.To(2).Do(row => game.Play(player, row, index));
+                    before = () => 0.To(2, row => game.Play(player, row, index));
 
                     specify = () => game.Finished.Expected().True();
 
-                    it["winner should be {0}".With(player)] = () => game.Winner.Should().Be(player);
+                    it[$"winner should be {player}"] = () => game.Winner.Should().Be(player);
                 };
             }));
 
-            players.Do(player =>
+            players.Each(player =>
             {
-                context["3 {0}'s left to right".With(player)] = () =>
+                context[$"3 {player}'s left to right"] = () =>
                 {
-                    before = () => 0.To(2).Do(index => game.Play(player, index, index));
+                    before = () => 0.To(2).Each(index => game.Play(player, index, index));
 
                     specify = () => game.Finished.Expected().True();
 
                     it["winner should be {0}".With(player)] = () => game.Winner.Should().Be(player);
                 };
 
-                context["3 {0}'s right to left".With(player)] = () =>
+                context[$"3 {player}'s right to left"] = () =>
                 {
                     before = () =>
                     {
@@ -80,7 +80,7 @@ namespace SampleSpecs.Demo
 
                     specify = () => game.Finished.Expected().True();
 
-                    it["winner should be {0}".With(player)] = () => game.Winner.Should().Be(player);
+                    it[$"winner should be {player}"] = () => game.Winner.Should().Be(player);
                 };
             });
         }

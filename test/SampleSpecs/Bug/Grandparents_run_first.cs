@@ -1,13 +1,21 @@
-﻿using System.Collections.Generic;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
+using System.Collections.Generic;
 using NSpectator;
 using FluentAssertions;
+
 namespace SampleSpecs.Bug
 {
-    public class grandparents_run_first : Spec
+    public class Grandparents_run_first : Spec
     {
         List<int> ints = null;
 
-        void describe_NSpec() //describe RSpec do
+        void describe_as_rspec() // describe RSpec do
         {
             before = () => ints = new List<int>(); //  before(:each) { @array = Array.new }
 
