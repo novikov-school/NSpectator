@@ -1,11 +1,17 @@
-﻿using System;
+﻿#region [R# naming]
+// ReSharper disable ArrangeTypeModifiers
+// ReSharper disable UnusedMember.Local
+// ReSharper disable FieldCanBeMadeReadOnly.Local
+// ReSharper disable ArrangeTypeMemberModifiers
+// ReSharper disable InconsistentNaming
+#endregion
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using NSpectator.Domain;
 using NSpectator.Domain.Formatters;
 using FluentAssertions;
 using NSpectator;
-using System.Reflection;
 // ReSharper disable once CheckNamespace
 
 /// <summary>
@@ -17,34 +23,58 @@ using System.Reflection;
 /// </summary>
 public partial class DebuggerShim
 {
-    public void Debug(string tagOrClassName)
+    /// <summary>
+    /// Run all specs in a current assembly
+    /// </summary>
+    public void Debug()
     {
-        var types = GetType().Assembly.GetTypes();
-        // OR
-        // var types = new Type[]{typeof(Some_Type_Containg_some_Specs)};
-        Debug(new SpecFinder(types, ""));
+        Debug(GetType().Assembly);
     }
 
+    /// <summary>
+    /// Run all specs in a specified assembly
+    /// </summary>
+    /// <param name="assembly"></param>
+    public static void Debug(System.Reflection.Assembly assembly)
+    {
+        Debug(assembly.GetTypes());
+    }
+
+    /// <summary>
+    /// Run a single spec identified by Type
+    /// </summary>
+    /// <param name="t"></param>
     public static void Debug(System.Type t)
     {
         Debug(new SpecFinder(new[] { t }, ""));
     }
 
+    /// <summary>
+    /// Run a set of specs
+    /// </summary>
+    /// <param name="types"></param>
     public static void Debug(IEnumerable<System.Type> types)
     {
         Debug(new SpecFinder(types.ToArray(), ""));
     }
 
-    private static void Debug(SpecFinder finder)
+    /// <summary>
+    /// Run specs using specified SpecFinder
+    /// </summary>
+    /// <param name="finder"></param>
+    private static void Debug(ISpecFinder finder)
     {
         var builder = new ContextBuilder(finder, new DefaultConventions());
         var runner = new ContextRunner(new Tags(), new ConsoleFormatter(), false);
         var results = runner.Run(builder.Contexts().Build());
 
         // assert that there aren't any failures
-        results.Failures().Count().Should().Be(0, "all examples passed");
+        results.Failures().Should().HaveCount(0, "all examples passed");
     }
 
+    /// <summary>
+    /// Run all specs declared as nested classes
+    /// </summary>
     protected void DebugNestedTypes()
     {
         Debug(GetType().GetNestedTypes(BindingFlags.NonPublic | BindingFlags.Public));

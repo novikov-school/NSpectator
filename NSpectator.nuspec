@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
     <metadata>
         <id>NSpectator</id>
-        <version>0.9.9</version>
+        <version>1.0.0</version>
         <title>NSpectator</title>
         <authors>NSpectator Team</authors>
         <owners>Jonny Novikov</owners>
@@ -25,8 +25,9 @@
     <files>
         <file src="license.txt" />
         <file src="test\NSpectator.Specs\DebuggerShim.cs" target="content\DebuggerShim.cs" />
-        <file src="src\NSpectator\bin\Debug\NSpectator.dll" target="lib\NSpectator.dll" />
-        <file src="src\NSpectator\bin\Debug\NSpectator.pdb" target="lib\NSpectator.pdb" />
+        <file src="src\NSpectator\bin\Release\NSpectator.dll" target="lib\NSpectator.dll" />
+        <file src="src\NSpectator\bin\Release\NSpectator.pdb" target="lib\NSpectator.pdb" />
+		<file src="src\NSpectator\bin\Release\NSpectator.XML" target="lib\NSpectator.XML" />
         <file src="src\SpecRunner\bin\Debug\FluentAssertions.Core.dll" target="tools\FluentAssertions.Core.dll" />
         <file src="src\SpecRunner\bin\Debug\FluentAssertions.Core.pdb" target="tools\FluentAssertions.Core.pdb" />
         <file src="src\SpecRunner\bin\Debug\FluentAssertions.dll" target="tools\FluentAssertions.dll" />

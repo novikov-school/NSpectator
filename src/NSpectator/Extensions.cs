@@ -31,12 +31,11 @@ namespace NSpectator
         /// You can use this to specify a suite of data that needs to be executed across a common set of examples.
         /// </summary>
         [DebuggerNonUserCode]
-        public static IEnumerable<T> Do<T>(this IEnumerable<T> source, Action<T> action)
+        public static void Do<T>(this IEnumerable<T> source, Action<T> action)
         {
             foreach (var t in source)
             {
                 action(t);
-                yield return t;
             }
         }
 
@@ -192,9 +191,9 @@ namespace NSpectator
                 yield return i;
         }
 
-        public static IEnumerable<int> To(this int start, int end, Action<int> action)
+        public static void To(this int start, int end, Action<int> action)
         {
-            return To(start, end).Do(action);
+            To(start, end).Do(action);
         }
 
         /// <summary>

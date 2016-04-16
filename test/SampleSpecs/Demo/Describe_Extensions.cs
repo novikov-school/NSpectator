@@ -13,7 +13,7 @@ using NSpectator;
 
 namespace SampleSpecs.Demo
 {
-    class Describe_Extensions : Spec
+    public class Describe_Extensions : Spec
     {
         void When_creating_ranges()
         {
@@ -23,6 +23,29 @@ namespace SampleSpecs.Demo
         void Describe_Flatten()
         {
             it["[\"fifty\",\"two\"] should be fiftytwo"] = () => new[] { "fifty", "two" }.Flatten(",").Should().Be("fifty,two");
+        }
+
+        void Describe_Repeat()
+        {
+            const int n = 12;
+
+            it[$"should execute {n} times"] = () =>
+            {
+                int x = 0;
+                1.To(n).Do(_ => x++);
+
+                x.Should().Be(n);
+            };
+
+            it[$"should execute {n} times with single call"] = () =>
+            {
+                int x = 0;
+                1.To(n, _ => x++);
+
+                x.Should().Be(n);
+            };
+
+            
         }
     }
 }

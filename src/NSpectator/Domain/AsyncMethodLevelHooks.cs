@@ -7,13 +7,25 @@ using System.Threading.Tasks;
 
 namespace NSpectator.Domain
 {
+    /// <summary>
+    /// AsyncMethodLevelHook
+    /// </summary>
     public abstract class AsyncMethodLevelHook
     {
-        public AsyncMethodLevelHook(MethodInfo method, string hookName)
+        /// <summary>
+        /// Initiailize new AsyncMethodLevelHook
+        /// </summary>
+        /// <param name="method"></param>
+        /// <param name="hookName"></param>
+        protected AsyncMethodLevelHook(MethodInfo method, string hookName)
         {
             runner = new AsyncMethodRunner(method, hookName);
         }
 
+        /// <summary>
+        /// Run 
+        /// </summary>
+        /// <param name="spec"></param>
         public virtual void Run(Spec spec)
         {
             runner.Run(spec);

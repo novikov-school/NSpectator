@@ -49,12 +49,35 @@ namespace NSpectator.Specs
 
             void NoUnderscores() { }
 
-            public async Task public_async_child_method() { await Task.Delay(0); }
-            public async Task<long> async_method_with_result() { await Task.Delay(0); return 0L; }
-            public async void async_void_method() { await Task.Delay(0); }
-            async Task private_async_child_method() { await Task.Delay(0); }
-            async Task async_helper_method_with_paramter(int i) { await Task.Delay(0); }
-            async Task NoUnderscoresAsync() { await Task.Delay(0); }
+            public async Task public_async_child_method()
+            {
+                await Task.Delay(0);
+            }
+
+            public async Task<long> async_method_with_result()
+            {
+                await Task.Delay(0); return 0L;
+            }
+
+            public async void async_void_method()
+            {
+                await Task.Delay(0);
+            }
+
+            async Task private_async_child_method()
+            {
+                await Task.Delay(0);
+            }
+
+            async Task async_helper_method_with_paramter(int i)
+            {
+                await Task.Delay(0);
+            }
+
+            async Task NoUnderscoresAsync()
+            {
+                await Task.Delay(0);
+            }
         }
 
         class grandChild : child

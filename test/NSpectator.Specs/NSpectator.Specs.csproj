@@ -64,6 +64,7 @@
     <Compile Include="ClassContextBug\NestContextsTests.cs" />
     <Compile Include="ClassContextBug\NestedContexts.cs" />
     <Compile Include="DebuggerShim.cs" />
+    <Compile Include="DescribeSample.cs" />
     <Compile Include="Describe_Assertions.cs" />
     <Compile Include="Describe_Conventions.cs" />
     <Compile Include="DescribeOutput.cs" />

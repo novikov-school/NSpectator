@@ -113,7 +113,7 @@ namespace Bowling.Specs
 
                 When["all of my rolls are strikes"] = () =>
                 {
-                    1.To(12).Do(_ => _game.Roll(10));
+                    12.Times(() => _game.Roll(10));
                 };
 
                 ExpectedScore(300);
