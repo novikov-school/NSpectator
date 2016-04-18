@@ -5,6 +5,10 @@
 *.ndproj
 NDependOut/
 
+# NCrunch ignore
+*.ncrunchsolution
+*.ncrunchproject
+
 # User-specific files
 *.suo
 *.user
