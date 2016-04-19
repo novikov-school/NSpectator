@@ -62,7 +62,7 @@ namespace NSpectator.Specs.Running.Exceptions
         }
 
         [SetUp]
-        public void setup()
+        public void Setup()
         {
             Run(typeof(SpecClass));
         }

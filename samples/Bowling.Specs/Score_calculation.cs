@@ -18,12 +18,8 @@ using NSpectator.Domain;
 
 namespace Bowling.Specs
 {
-    [TestFixture]
-    public class Score_calculation : DebuggerShim
+    public class Score_calculation
     {
-        [Test]
-        public void Spectate() => DebugNestedTypes();
-
         class Describe_steps : Spec
         {
             Game _game;

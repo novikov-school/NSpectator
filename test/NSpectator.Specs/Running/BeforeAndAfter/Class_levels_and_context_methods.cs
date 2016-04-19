@@ -65,5 +65,5 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         {
             Sequence_spec.sequence.Should().EndWith("EFGH");
         }
-    }
+        }
 }
