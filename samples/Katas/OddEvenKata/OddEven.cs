@@ -10,6 +10,7 @@ namespace Katas.OddEvenKata
         {
             return GetOddEvenWithinRange(startNumber, lastNumber);
         }
+
         public static string PrintSingleOddEven(int number)
         {
             return CheckSingleNumberOddEvenPrimeResult(number);
@@ -17,7 +18,8 @@ namespace Katas.OddEvenKata
         
         #endregion
 
-        #region MyRePrivate Methods
+        #region [ RePrivate Methods ]
+
         private static string CheckSingleNumberOddEvenPrimeResult(int number)
         {
             var result = string.Empty;
