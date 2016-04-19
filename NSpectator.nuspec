@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
     <metadata>
         <id>NSpectator</id>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
         <title>NSpectator</title>
         <authors>NSpectator Team</authors>
         <owners>Jonny Novikov</owners>
@@ -18,7 +18,7 @@
         <tags>agile testing bdd tdd spec fluent nunit mstest unit-testing</tags>
         <dependencies>
             <group targetFramework=".NETFramework4.5">
-                <dependency id="FluentAssertions" version="4.3.2" />
+                <dependency id="FluentAssertions" version="4.4.0" />
             </group>
         </dependencies>
     </metadata>
@@ -28,13 +28,13 @@
         <file src="src\NSpectator\bin\Release\NSpectator.dll" target="lib\NSpectator.dll" />
         <file src="src\NSpectator\bin\Release\NSpectator.pdb" target="lib\NSpectator.pdb" />
 		<file src="src\NSpectator\bin\Release\NSpectator.XML" target="lib\NSpectator.XML" />
-        <file src="src\SpecRunner\bin\Debug\FluentAssertions.Core.dll" target="tools\FluentAssertions.Core.dll" />
-        <file src="src\SpecRunner\bin\Debug\FluentAssertions.Core.pdb" target="tools\FluentAssertions.Core.pdb" />
-        <file src="src\SpecRunner\bin\Debug\FluentAssertions.dll" target="tools\FluentAssertions.dll" />
-        <file src="src\SpecRunner\bin\Debug\FluentAssertions.pdb" target="tools\FluentAssertions.pdb" />
-        <file src="src\SpecRunner\bin\Debug\NSpectator.dll" target="tools\NSpectator.dll" />
-        <file src="src\SpecRunner\bin\Debug\NSpectator.pdb" target="tools\NSpectator.pdb" />
-        <file src="src\SpecRunner\bin\Debug\SpecRunner.exe" target="tools\SpecRunner.exe" />
-        <file src="src\SpecRunner\bin\Debug\SpecRunner.pdb" target="tools\SpecRunner.pdb" />
+        <file src="src\SpecRunner\bin\Release\FluentAssertions.Core.dll" target="tools\FluentAssertions.Core.dll" />
+        <file src="src\SpecRunner\bin\Release\FluentAssertions.Core.pdb" target="tools\FluentAssertions.Core.pdb" />
+        <file src="src\SpecRunner\bin\Release\FluentAssertions.dll" target="tools\FluentAssertions.dll" />
+        <file src="src\SpecRunner\bin\Release\FluentAssertions.pdb" target="tools\FluentAssertions.pdb" />
+        <file src="src\SpecRunner\bin\Release\NSpectator.dll" target="tools\NSpectator.dll" />
+        <file src="src\SpecRunner\bin\Release\NSpectator.pdb" target="tools\NSpectator.pdb" />
+        <file src="src\SpecRunner\bin\Release\SpecRunner.exe" target="tools\SpecRunner.exe" />
+        <file src="src\SpecRunner\bin\Release\SpecRunner.pdb" target="tools\SpecRunner.pdb" />
     </files>
 </package>
