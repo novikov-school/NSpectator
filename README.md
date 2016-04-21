@@ -67,6 +67,8 @@ class Describe_prime_factors : Spec
 
 Basic usage you can see in the [samples folder of the repository](https://github.com/nspectator/NSpectator/tree/master/samples)
 
+Also take a look at separate [Katas repository](https://github.com/nspectator/katas)
+
 ## Contributing
 
 Check out [this wiki page](https://github.com/nspectator/NSpectator/wiki/Contributing) for complete guide.
@@ -80,8 +82,9 @@ Use github authorization (gray bottom button) for signup or login.
 ## Thanks to
 
 [Jetbrains](https://www.jetbrains.com/) Community Support for providing great tools for NSpectator Development Team
+
 [NDepend](http://www.ndepend.com/) for providing our team ultimate tool for deep code analysis
 
-[![NDepend](http://nspectator.org/assets/PoweredByNDepend.png)](http://www.ndepend.com/)
-[![Jetbrains Resharper](http://nspectator.org/assets/icon_ReSharper.png)](https://www.jetbrains.com/resharper/)
+[![NDepend](https://github.com/nspectator/nspectator/raw/master/tools/PoweredByNDepend.png)](http://www.ndepend.com/)
+[![Jetbrains Resharper](https://github.com/nspectator/nspectator/raw/master/tools/icon_ReSharper.png)](https://www.jetbrains.com/resharper/)
 
