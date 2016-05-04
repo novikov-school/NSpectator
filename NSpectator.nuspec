@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
     <metadata>
         <id>NSpectator</id>
-        <version>1.0.1</version>
+        <version>1.0.2</version>
         <title>NSpectator</title>
         <authors>NSpectator Team</authors>
         <owners>Jonny Novikov</owners>
@@ -10,15 +10,15 @@
         <projectUrl>http://www.nspectator.org</projectUrl>
         <iconUrl>http://nspectator.org/assets/logo.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>NSpectator is a ready-to-use solution for development using .NET with Context/Specification flavor. Toolset is intended to be used to drive development through specifying behavior and interaction at the unit level. NSpectator has only one dependency on popular flexible FluentAssertions library.</description>
+        <description>NSpectator is a ready-to-use solution for development using .NET with Context/Specification flavor. Toolset is intended to be used to drive development through specifying behavior and interaction at the unit level. NSpectator has only one dependency on popular flexible FluentAssertions library for implementing expectations.</description>
         <summary>NSpectator is a toolset for .NET agile development with the xSpec (context/specification) flavor.</summary>
-        <releaseNotes>Now you can use SpecRunner command in the Package Manager Console to run specs in your assemblies</releaseNotes>
+        <releaseNotes>See github page for details</releaseNotes>
         <copyright>Copyright (c) NSpectator Development Team</copyright>
         <language>en-US</language>
         <tags>agile testing bdd tdd spec fluent nunit mstest unit-testing</tags>
         <dependencies>
             <group targetFramework=".NETFramework4.5">
-                <dependency id="FluentAssertions" version="4.4.0" />
+                <dependency id="FluentAssertions" version="4.5.0" />
             </group>
         </dependencies>
     </metadata>
