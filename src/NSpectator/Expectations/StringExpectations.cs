@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using FluentAssertions.Primitives;
+
 // ReSharper disable CheckNamespace
 
 namespace NSpectator
@@ -30,7 +31,7 @@ namespace NSpectator
             this.Subject = value;
             To = new StringAssertions(this.Subject);
         }
-        
+
         /// <summary>
         /// Asserts that a string is exactly the same as another string, including the casing and any leading or trailing whitespace.
         /// 
@@ -56,7 +57,7 @@ namespace NSpectator
         {
             return To.NotBe(unexpected);
         }
-        
+
         /// <summary>
         /// Asserts that a string is <see cref="F:System.String.Empty"/>.
         /// 
@@ -111,5 +112,4 @@ namespace NSpectator
             return To.NotBeNullOrEmpty();
         }
     }
-    
 }

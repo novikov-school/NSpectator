@@ -47,8 +47,8 @@ namespace NSpectator.Domain.Extensions
             var baseClasses = new Stack<Type>();
 
             for (Type baseClass = type.BaseType;
-                 baseClass != null && baseClass.IsAbstract;
-                 baseClass = baseClass.BaseType)
+                baseClass != null && baseClass.IsAbstract;
+                baseClass = baseClass.BaseType)
             {
                 baseClasses.Push(baseClass);
             }

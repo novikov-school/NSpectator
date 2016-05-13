@@ -36,26 +36,26 @@ namespace NSpectator.Domain
 
     public class AsyncMethodLevelBefore : AsyncMethodLevelHook
     {
-        public AsyncMethodLevelBefore(MethodInfo method) : base(method, "before_each") { }
+        public AsyncMethodLevelBefore(MethodInfo method) : base(method, "before_each") {}
     }
 
     public class AsyncMethodLevelAct : AsyncMethodLevelHook
     {
-        public AsyncMethodLevelAct(MethodInfo method) : base(method, "act_each") { }
+        public AsyncMethodLevelAct(MethodInfo method) : base(method, "act_each") {}
     }
 
     public class AsyncMethodLevelAfter : AsyncMethodLevelHook
     {
-        public AsyncMethodLevelAfter(MethodInfo method) : base(method, "after_each") { }
+        public AsyncMethodLevelAfter(MethodInfo method) : base(method, "after_each") {}
     }
 
     public class AsyncMethodLevelBeforeAll : AsyncMethodLevelHook
     {
-        public AsyncMethodLevelBeforeAll(MethodInfo method) : base(method, "before_all") { }
+        public AsyncMethodLevelBeforeAll(MethodInfo method) : base(method, "before_all") {}
     }
 
     public class AsyncMethodLevelAfterAll : AsyncMethodLevelHook
     {
-        public AsyncMethodLevelAfterAll(MethodInfo method) : base(method, "after_all") { }
+        public AsyncMethodLevelAfterAll(MethodInfo method) : base(method, "after_all") {}
     }
 }

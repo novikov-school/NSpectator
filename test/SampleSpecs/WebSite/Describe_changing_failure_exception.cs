@@ -18,8 +18,7 @@ namespace SampleSpecs.WebSite
     {
         void given_a_context_that_throws_an_exception()
         {
-            it["the exception can be changed to provide out of proc information"] = () =>
-                "1".Should().Be("2");
+            it["the exception can be changed to provide out of proc information"] = () => "1".Should().Be("2");
         }
 
         public override Exception ExceptionToReturn(Exception originalException)

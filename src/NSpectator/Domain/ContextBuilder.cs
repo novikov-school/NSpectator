@@ -57,26 +57,23 @@ namespace NSpectator.Domain
 
         public void BuildMethodLevelExamples(Context classContext, Type specClass)
         {
-            Func<MethodInfo, MethodExampleBase> buildMethodLevel = method => 
+            Func<MethodInfo, MethodExampleBase> buildMethodLevel = method =>
                 new MethodExample(method, TagStringFor(method));
 
-            Func<MethodInfo, MethodExampleBase> buildAsyncMethodLevel = method => 
+            Func<MethodInfo, MethodExampleBase> buildAsyncMethodLevel = method =>
                 new AsyncMethodExample(method, TagStringFor(method));
 
             DomainExtensions.AllMethods(specClass)
                 .Union(specClass
                     .AsyncMethods())
                 .Where(method => conventions.IsMethodLevelExample(method.Name))
-                .Select(method => 
+                .Select(method =>
                 {
                     return method.IsAsync()
                         ? buildAsyncMethodLevel(method)
                         : buildMethodLevel(method);
                 })
-                .DoIsolate(methodExample =>
-                {
-                    classContext.AddExample(methodExample);
-                });
+                .DoIsolate(methodExample => { classContext.AddExample(methodExample); });
         }
 
         void Build(Context parent, IEnumerable<Type> allSpecClasses)
@@ -113,10 +110,10 @@ namespace NSpectator.Domain
         }
 
         public ContextBuilder(ISpecFinder finder, Tags tagsFilter)
-            : this(finder, tagsFilter, new DefaultConventions()) { }
+            : this(finder, tagsFilter, new DefaultConventions()) {}
 
         public ContextBuilder(ISpecFinder finder, Conventions conventions)
-            : this(finder, new Tags(), conventions) { }
+            : this(finder, new Tags(), conventions) {}
 
         public ContextBuilder(ISpecFinder finder, Tags tagsFilter, Conventions conventions)
         {

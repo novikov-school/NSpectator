@@ -3,6 +3,7 @@ using System.Diagnostics;
 using FluentAssertions;
 using FluentAssertions.Execution;
 using FluentAssertions.Primitives;
+
 // ReSharper disable CheckNamespace
 
 namespace NSpectator

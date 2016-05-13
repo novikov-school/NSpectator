@@ -4,6 +4,7 @@ using FluentAssertions;
 using FluentAssertions.Common;
 using FluentAssertions.Execution;
 using FluentAssertions.Primitives;
+
 // ReSharper disable CheckNamespace
 
 namespace NSpectator
@@ -32,7 +33,7 @@ namespace NSpectator
         public AndConstraint<ObjectAssertions> Any()
         {
             return new AndConstraint<ObjectAssertions>(To);
-        } 
+        }
 
         /// <summary>
         /// Asserts that the current object has not been initialized yet.
@@ -111,9 +112,9 @@ namespace NSpectator
         public AndConstraint<ObjectExpectations> NotToHaveFlag(Enum unexpectedFlag, string because)
         {
             Execute.Assertion.BecauseOf(because).ForCondition(this.Subject != null).FailWith("Expected type to be {0}{reason}, but found <null>.", (object)unexpectedFlag.GetType()).Then.ForCondition(this.Subject.GetType() == unexpectedFlag.GetType()).FailWith("Expected the enum to be of type {0} type but found {1}{reason}.", (object)unexpectedFlag.GetType(), (object)this.Subject.GetType()).Then.Given<Enum>((Func<Enum>)(() => this.Subject as Enum)).ForCondition((Func<Enum, bool>)(@enum => !@enum.HasFlag(unexpectedFlag))).FailWith("Did not expect the enum to have flag {0}{reason}.", new object[1]
-            {
-                (object) unexpectedFlag
-            });
+                {
+                (object)unexpectedFlag
+                });
             return new AndConstraint<ObjectExpectations>(this);
         }
     }

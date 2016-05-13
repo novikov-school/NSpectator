@@ -8,10 +8,7 @@ namespace NSpectator
     /// powerful ways to execute examples across the collection.  
     /// <para>For more information visit https://github.com/nspectator/NSpectator/wiki </para>
     /// </summary>
-    public class Each<T> : List<T>
-    {
-        
-    }
+    public class Each<T> : List<T> {}
 
     /// <summary>
     /// This is a way for you to specify a collection of test data that needs to be asserted over a common set of examples.  New one of these up inline and tack on the .Do extension method for some
