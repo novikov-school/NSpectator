@@ -6,6 +6,7 @@ using System.Linq;
 using FluentAssertions;
 using FluentAssertions.Collections;
 using FluentAssertions.Execution;
+
 // ReSharper disable CheckNamespace
 
 namespace NSpectator
@@ -15,7 +16,7 @@ namespace NSpectator
     {
         public GenericCollectionAssertions<T> To { get; }
 
-        public IEnumerable<T> Subject => To.Subject; 
+        public IEnumerable<T> Subject => To.Subject;
 
         public GenericCollectionExpectations(IEnumerable<T> actualValue)
         {

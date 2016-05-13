@@ -5,7 +5,6 @@
 // ReSharper disable ArrangeTypeMemberModifiers
 // ReSharper disable InconsistentNaming
 #endregion
-
 using System.Linq;
 using NUnit.Framework;
 using System;
@@ -22,47 +21,47 @@ namespace NSpectator.Specs
     {
         [Test,
          TestCase(typeof(My_first_spec_output),
-                  new [] { typeof(My_first_spec) },
+                  new[] { typeof(My_first_spec) },
                   ""),
          //TestCase(typeof(Describe_specifications_output),
          //         new [] { typeof(Describe_specifications) },
          //         ""),
          TestCase(typeof(Describe_before_output),
-                  new [] { typeof(Describe_before) },
+                  new[] { typeof(Describe_before) },
                   ""),
          TestCase(typeof(Describe_contexts_output),
-                  new [] { typeof(Describe_contexts) },
+                  new[] { typeof(Describe_contexts) },
                   ""),
          TestCase(typeof(Describe_pending_output),
-                  new [] { typeof(Describe_pending) },
+                  new[] { typeof(Describe_pending) },
                   ""),
          TestCase(typeof(Describe_helpers_output),
-                  new [] { typeof(Describe_helpers) },
+                  new[] { typeof(Describe_helpers) },
                   ""),
          TestCase(typeof(Describe_async_helpers_output),
-                  new [] { typeof(Describe_async_helpers) },
+                  new[] { typeof(Describe_async_helpers) },
                   ""),
          TestCase(typeof(Describe_batman_sound_effects_as_text_output),
-                  new [] { typeof(Describe_batman_sound_effects_as_text) },
+                  new[] { typeof(Describe_batman_sound_effects_as_text) },
                   ""),
          TestCase(typeof(Describe_class_level_output),
-                  new [] { typeof(Describe_class_level) },
+                  new[] { typeof(Describe_class_level) },
                   ""),
          TestCase(typeof(Given_the_sequence_continues_with_2_output),
-                  new []
+                  new[]
                   {
                       typeof(Given_the_sequence_continues_with_2),
                       typeof(Given_the_sequence_starts_with_1)
                   },
                   ""),
          TestCase(typeof(Describe_exception_output),
-                  new [] { typeof(Describe_exception) },
+                  new[] { typeof(Describe_exception) },
                   ""),
          //TestCase(typeof(Describe_context_stack_trace_output),
          //         new [] { typeof(Describe_context_stack_trace) },
          //         ""),
          TestCase(typeof(Describe_ICollection_output),
-                  new []
+                  new[]
                   {
                       typeof(Describe_ICollection),
                       typeof(Describe_LinkedList),
@@ -70,16 +69,15 @@ namespace NSpectator.Specs
                   },
                   ""),
          TestCase(typeof(Describe_changing_stacktrace_message_output),
-                  new [] { typeof(Describe_changing_stacktrace_message) },
+                  new[] { typeof(Describe_changing_stacktrace_message) },
                   ""),
-         TestCase(typeof(Describe_changing_failure_exception_output),
-                  new [] { typeof(Describe_changing_failure_exception) },
-                  ""),
+         //TestCase(typeof(Describe_changing_failure_exception_output),
+         //         new [] { typeof(Describe_changing_failure_exception) },
+         //         ""),
          TestCase(typeof(Describe_focus_output),
-                  new [] { typeof(Describe_focus) },
+                  new[] { typeof(Describe_focus) },
                   "focus")]
-        
-        public void Output_verification(Type output, Type []testClasses, string tags)
+        public void Output_verification(Type output, Type[] testClasses, string tags)
         {
             var finder = new SpecFinder(testClasses, "");
             var tagsFilter = new Tags().Parse(tags);

@@ -16,7 +16,7 @@ namespace NSpectator
         {
             return predicate.Compile()(o).Should().BeTrue(ExampleBase.Parse(predicate.Body));
         }
-        
+
         /// <summary>
         /// Asserts that the object is assignable to a variable of type <typeparamref name="T"/>.
         /// 
@@ -33,7 +33,7 @@ namespace NSpectator
         /// <param name="assertions"></param>
         /// <param name="because"></param>
         /// <param name="reasonArgs"></param>
-        public static AndConstraint<NumericAssertions<T>> NotBeDefault<T>(this NumericAssertions<T> assertions, string because = "", params object[] reasonArgs) where T : struct 
+        public static AndConstraint<NumericAssertions<T>> NotBeDefault<T>(this NumericAssertions<T> assertions, string because = "", params object[] reasonArgs) where T : struct
         {
             Execute.Assertion.ForCondition(!assertions.Subject.Equals(default(T))).BecauseOf(because, reasonArgs).FailWith("Did not expect default value {0}{reason}.", (object)default(T));
             return new AndConstraint<NumericAssertions<T>>(assertions);
@@ -66,7 +66,7 @@ namespace NSpectator
         public static AndConstraint<NumericAssertions<float>> BeCloseTo(this NumericAssertions<float> assertion, float expected, float tolerance, string because = "", params object[] reasonArgs)
         {
             Execute.Assertion.ForCondition(Math.Abs((float)assertion.Subject - expected) <= tolerance)
-                             .BecauseOf(because, reasonArgs).FailWith("Expected a value which is close to {0} with tolerance {1}{reason}, but found {2}.", (object)expected, (object)tolerance, (object)assertion.Subject);
+                .BecauseOf(because, reasonArgs).FailWith("Expected a value which is close to {0} with tolerance {1}{reason}, but found {2}.", (object)expected, (object)tolerance, (object)assertion.Subject);
             return new AndConstraint<NumericAssertions<float>>(assertion);
         }
 
@@ -84,7 +84,7 @@ namespace NSpectator
         public static AndConstraint<NumericAssertions<double>> BeCloseTo(this NumericAssertions<double> assertion, double expected, double tolerance, string because = "")
         {
             Execute.Assertion.ForCondition(Math.Abs((double)assertion.Subject - expected) <= tolerance)
-                             .BecauseOf(because).FailWith("Expected a value which is close to {0} with tolerance {1}{reason}, but found {2}.", (object)expected, (object)tolerance, (object)assertion.Subject);
+                .BecauseOf(because).FailWith("Expected a value which is close to {0} with tolerance {1}{reason}, but found {2}.", (object)expected, (object)tolerance, (object)assertion.Subject);
             return new AndConstraint<NumericAssertions<double>>(assertion);
         }
 

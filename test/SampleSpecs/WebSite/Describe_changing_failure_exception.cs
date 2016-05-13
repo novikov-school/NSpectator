@@ -18,8 +18,7 @@ namespace SampleSpecs.WebSite
     {
         void given_a_context_that_throws_an_exception()
         {
-            it["the exception can be changed to provide out of proc information"] = () =>
-                "1".Should().Be("2");
+            it["the exception can be changed to provide out of proc information"] = () => "1".Should().Be("2");
         }
 
         public override Exception ExceptionToReturn(Exception originalException)
@@ -39,7 +38,6 @@ describe changing failure exception
 
 spec. describe changing failure exception. given a context that throws an exception. the exception can be changed to provide out of proc information.
 A more detailed exception message.
-
 
 1 Examples, 1 Failed, 0 Pending
 ";

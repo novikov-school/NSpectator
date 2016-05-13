@@ -10,7 +10,8 @@ namespace NSpectator.Domain.Formatters
     {
         public Action<string> WriteLineDelegate { get; set; }
 
-        public ConsoleFormatter() {
+        public ConsoleFormatter()
+        {
             WriteLineDelegate = Console.WriteLine;
         }
 
@@ -117,10 +118,10 @@ namespace NSpectator.Domain.Formatters
         string[] internalNameSpaces =
             new[]
                 {
-                    "NSpectator.Domain",
-                    "NSpectator.AssertionExtensions",
-                    "FluentAssertions",
-                    "NSpectator.Domain.Extensions"
+                "NSpectator.Domain",
+                "NSpectator.AssertionExtensions",
+                "FluentAssertions",
+                "NSpectator.Domain.Extensions"
                 };
     }
 }

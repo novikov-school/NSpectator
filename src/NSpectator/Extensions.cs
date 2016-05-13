@@ -219,7 +219,7 @@ namespace NSpectator
 
         public static void SafeInvoke<T>(this Func<T, Task> asyncAction, T t)
         {
-            if (asyncAction != null) 
+            if (asyncAction != null)
             {
                 Func<Task> asyncWork = () => asyncAction(t);
 

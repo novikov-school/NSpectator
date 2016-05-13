@@ -9,7 +9,7 @@ namespace NSpectator.Domain
 {
     public abstract class MethodExampleBase : ExampleBase
     {
-        public MethodExampleBase(MethodInfo method, string tags) 
+        public MethodExampleBase(MethodInfo method, string tags)
             : base(method.Name.Replace("_", " "), tags)
         {
             this.method = method;

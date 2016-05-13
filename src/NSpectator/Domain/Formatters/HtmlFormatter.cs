@@ -7,7 +7,7 @@ namespace NSpectator.Domain.Formatters
 {
     [Serializable]
     public class HtmlFormatter : IFormatter
-    {   
+    {
         public void Write(ContextCollection contexts)
         {
             StringBuilder sb = new StringBuilder();

@@ -2,6 +2,7 @@ using System;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using NSpectator.Domain;
+
 // ReSharper disable InconsistentNaming
 
 namespace NSpectator

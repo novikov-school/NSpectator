@@ -11,7 +11,7 @@ namespace NSpectator.Domain
             action();
         }
 
-        public Example(Expression<Action> expr, bool pending = false) 
+        public Example(Expression<Action> expr, bool pending = false)
             : this(Parse(expr), null, expr.Compile(), pending) {}
 
         public Example(string name = "", string tags = "", Action action = null, bool pending = false)

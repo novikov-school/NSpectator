@@ -20,7 +20,7 @@ namespace NSpectator.Domain
 
             var contexts = builder.Contexts().Build();
 
-            if(contexts.AnyTaggedWithFocus())
+            if (contexts.AnyTaggedWithFocus())
             {
                 tagsFilter = new Tags().Parse(Domain.Tags.Focus);
 
