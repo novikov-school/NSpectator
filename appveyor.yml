@@ -3,10 +3,11 @@ version: build{build}
 branches:
   only:
   - master
+  - dev
 
 environment:
-  NSpectatorVersion: 0.9.5
-  NSpectatorPackageVersion: "0.9.5-ci$(APPVEYOR_BUILD_NUMBER)"
+  NSpectatorVersion: 1.0.3
+  NSpectatorPackageVersion: "1.0.3-ci$(APPVEYOR_BUILD_NUMBER)"
   
 cache:
   - packages -> **\packages.config

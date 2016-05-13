@@ -40,6 +40,7 @@ describe changing failure exception
 spec. describe changing failure exception. given a context that throws an exception. the exception can be changed to provide out of proc information.
 A more detailed exception message.
 
+
 1 Examples, 1 Failed, 0 Pending
 ";
         public static int ExitCode = 1;
