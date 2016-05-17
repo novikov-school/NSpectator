@@ -26,6 +26,7 @@ namespace NSpectator.Domain
     public interface IReflector
     {
         Type[] GetTypesFrom();
+
         Type[] GetTypesFrom(Assembly assembly);
     }
 }

@@ -7,7 +7,9 @@ namespace NSpectator.Domain
     {
         public static string Focus = "focus";
 
-        /// <summary>Parses a string containing tags into a collection of normalized tags</summary>
+        /// <summary>
+        /// Parses a string containing tags into a collection of normalized tags
+        /// </summary>
         public static List<string> ParseTags(string tags)
         {
             var tagsCollection = new List<string>();
@@ -23,7 +25,9 @@ namespace NSpectator.Domain
             return tagsCollection;
         }
 
-        /// <summary>Parses a string containing tag filters into tag filter collections</summary>
+        /// <summary>
+        /// Parses a string containing tag filters into tag filter collections
+        /// </summary>
         public static void ParseTagFilters(string tags, ref List<string> includeTags, ref List<string> excludeTags)
         {
             // store one or more tags delimited by either commas or spaces
@@ -41,7 +45,9 @@ namespace NSpectator.Domain
             }
         }
 
-        /// <summary>Parses a string containing tag filters into the internal tag filter collections</summary>
+        /// <summary>
+        /// Parses a string containing tag filters into the internal tag filter collections
+        /// </summary>
         public Tags Parse(string tags)
         {
             ParseTagFilters(tags, ref IncludeTags, ref ExcludeTags);
@@ -84,6 +90,7 @@ namespace NSpectator.Domain
         }
 
         public List<string> IncludeTags = new List<string>();
+
         public List<string> ExcludeTags = new List<string>();
     }
 }

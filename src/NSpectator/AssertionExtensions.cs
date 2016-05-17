@@ -10,8 +10,18 @@ using FluentAssertions.Primitives;
 
 namespace NSpectator
 {
+    /// <summary>
+    /// FluentAssertions extensions
+    /// </summary>
     public static class AssertionExtensions
     {
+        /// <summary>
+        /// Asserts that the predicate in expression is true
+        /// </summary>
+        /// <param name="o"></param>
+        /// <param name="predicate"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
         public static AndConstraint<BooleanAssertions> Should<T>(this T o, Expression<Predicate<T>> predicate)
         {
             return predicate.Compile()(o).Should().BeTrue(ExampleBase.Parse(predicate.Body));
@@ -19,7 +29,6 @@ namespace NSpectator
 
         /// <summary>
         /// Asserts that the object is assignable to a variable of type <typeparamref name="T"/>.
-        /// 
         /// </summary>
         public static T CastTo<T>(this ObjectAssertions assertions)
         {
@@ -63,6 +72,8 @@ namespace NSpectator
         /// <param name="assertion"></param>
         /// <param name="expected"></param>
         /// <param name="tolerance"></param>
+        /// <param name="because"></param>
+        /// <param name="reasonArgs"></param>
         public static AndConstraint<NumericAssertions<float>> BeCloseTo(this NumericAssertions<float> assertion, float expected, float tolerance, string because = "", params object[] reasonArgs)
         {
             Execute.Assertion.ForCondition(Math.Abs((float)assertion.Subject - expected) <= tolerance)
@@ -70,6 +81,14 @@ namespace NSpectator
             return new AndConstraint<NumericAssertions<float>>(assertion);
         }
 
+        /// <summary>
+        /// Asserts that a float value is close to expected with tolerance
+        /// </summary>
+        /// <param name="assertion"></param>
+        /// <param name="expected"></param>
+        /// <param name="because"></param>
+        /// <param name="reasonArgs"></param>
+        /// <returns></returns>
         public static AndConstraint<NumericAssertions<float>> BeCloseTo(this NumericAssertions<float> assertion, float expected, string because = "", params object[] reasonArgs)
         {
             return BeCloseTo(assertion, expected, float.Epsilon, because, reasonArgs);
@@ -88,6 +107,13 @@ namespace NSpectator
             return new AndConstraint<NumericAssertions<double>>(assertion);
         }
 
+        /// <summary>
+        /// Asserts that a double value is close to expected with tolerance
+        /// </summary>
+        /// <param name="assertion"></param>
+        /// <param name="expected"></param>
+        /// <param name="because"></param>
+        /// <returns></returns>
         public static AndConstraint<NumericAssertions<double>> BeCloseTo(this NumericAssertions<double> assertion, double expected, string because = "")
         {
             return BeCloseTo(assertion, expected, double.Epsilon, because);

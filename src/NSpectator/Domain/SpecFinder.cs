@@ -18,8 +18,8 @@ namespace NSpectator.Domain
                 Types.Where(t => t.IsClass
                                  && !t.IsAbstract
                                  && BaseTypes(t).Any(s => s == typeof(Spec))
-                                 && (DomainExtensions.AllMethods(t).Count() > 0 || t.AsyncMethods().Count() > 0)
-                                 && (string.IsNullOrEmpty(filter) || regex.IsMatch(t.FullName)));
+                                 && (DomainExtensions.AllMethods(t).Any() || t.AsyncMethods().Any())
+                                 && (string.IsNullOrEmpty(filter) || regex.IsMatch(t.FullName))).ToList();
 
             var finalList = new List<Type>();
             finalList.AddRange(leafTypes);

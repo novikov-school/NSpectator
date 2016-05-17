@@ -6,6 +6,9 @@ using FluentAssertions.Primitives;
 
 namespace NSpectator
 {
+    /// <summary>
+    /// More powerful expectations basic extension methods
+    /// </summary>
     [DebuggerNonUserCode]
     public static class Expectations
     {

@@ -35,7 +35,10 @@ namespace NSpectator.Specs
 
     public class SpecClassWithNoVoidMethods : Spec
     {
-        string parameter_less_method() { return ""; }
+        string parameter_less_method()
+        {
+            return string.Empty;
+        }
     }
 
     public class SpecClassWithNoParameterLessMethods : Spec

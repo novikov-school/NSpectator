@@ -9,10 +9,7 @@ namespace NSpectator.Domain
         public static string Parse(Expression expressionBody)
         {
             var body = expressionBody.ToString();
-
-            //var cut = body.IndexOf(").");
-            //var sentence = body.Substring(cut + 1, body.Length - cut - 1);
-
+            
             var sentence = body.Replace(".Expected(", ".expected(").Replace(".ToBe(", ".to_be(");
             sentence = sentence.Replace(")", " ");
             sentence = sentence.Replace(".", " ");
@@ -58,18 +55,17 @@ namespace NSpectator.Domain
 
         public bool ShouldNotSkip(Tags tagsFilter)
         {
-            //really should be the opposite of ShouldSkip.
-            //but unfortunately calling ShouldSkip has side effects
-            //see the HasRun assignment. calling ShouldSkip here thus
-            //has side effects that fail some tests.
+            // really should be the opposite of ShouldSkip.
+            // but unfortunately calling ShouldSkip has side effects
+            // see the HasRun assignment. calling ShouldSkip here thus
+            // has side effects that fail some tests.
             return false == tagsFilter.ShouldSkip(Tags);
         }
 
         public override string ToString()
         {
-            string pendingPrefix = (Pending ? "(x)" : String.Empty);
-
-            string exceptionText = (Exception != null ? ", " + Exception.GetType().Name : String.Empty);
+            string pendingPrefix = (Pending ? "(x)" : string.Empty);
+            string exceptionText = (Exception != null ? ", " + Exception.GetType().Name : string.Empty);
 
             return $"{pendingPrefix}{Spec}{exceptionText}";
         }

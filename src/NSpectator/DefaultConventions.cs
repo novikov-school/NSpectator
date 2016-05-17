@@ -3,6 +3,9 @@ using NSpectator.Domain;
 
 namespace NSpectator
 {
+    /// <summary>
+    /// Default conventions is rspec-style: lowercase with underscores
+    /// </summary>
     public class DefaultConventions : Conventions
     {
         public override void SpecifyConventions(ConventionSpecification specification)

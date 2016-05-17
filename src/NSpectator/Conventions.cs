@@ -166,9 +166,7 @@ namespace NSpectator.Domain
 
             if (IsMethodLevelExample(name)) return false;
 
-            if (IsMethodLevelAfter(name)) return false;
-
-            return specification.Context.IsMatch(name);
+            return !IsMethodLevelAfter(name) && specification.Context.IsMatch(name);
         }
 
         static MethodInfo GetMethodMatchingRegex(Type type, Regex regex)
@@ -183,9 +181,7 @@ namespace NSpectator.Domain
 
         static MethodInfo FindMatching(IEnumerable<MethodInfo> methods, Type type, Regex regex)
         {
-            return methods
-                .Where(mi => mi.DeclaringType == type)
-                .FirstOrDefault(mi => regex.IsMatch(mi.Name));
+            return methods.FirstOrDefault(mi => mi.DeclaringType == type && regex.IsMatch(mi.Name));
         }
 
         ConventionSpecification specification;
