@@ -17,19 +17,19 @@ namespace SampleSpecs.Demo
     {
         void When_creating_ranges()
         {
-            it["1.To(2) should be [1,2]"] = () => 1.To(2).Should().Equal(1, 2);
+            It["1.To(2) should be [1,2]"] = () => 1.To(2).Should().Equal(1, 2);
         }
 
         void Describe_Flatten()
         {
-            it["[\"fifty\",\"two\"] should be fiftytwo"] = () => new[] { "fifty", "two" }.Flatten(",").Should().Be("fifty,two");
+            It["[\"fifty\",\"two\"] should be fiftytwo"] = () => new[] { "fifty", "two" }.Flatten(",").Should().Be("fifty,two");
         }
 
         void Describe_Repeat()
         {
             const int n = 12;
 
-            it[$"should execute {n} times"] = () =>
+            It[$"should execute {n} times"] = () =>
             {
                 int x = 0;
                 1.To(n).Do(_ => x++);
@@ -37,7 +37,7 @@ namespace SampleSpecs.Demo
                 x.Should().Be(n);
             };
 
-            it[$"should execute {n} times with single call"] = () =>
+            It[$"should execute {n} times with single call"] = () =>
             {
                 int x = 0;
                 1.To(n, _ => x++);

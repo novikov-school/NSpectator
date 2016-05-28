@@ -20,9 +20,9 @@ namespace NSpectator.Domain
 
             BuildMethodLevelAfterAll();
 
-            var spec = type.Instance<Spec>();
+            var spec = SpecType.Instance<Spec>();
 
-            spec.tagsFilter = tagsFilter ?? new Tags();
+            spec.TagsFilter = tagsFilter ?? new Tags();
 
             base.Build(spec);
         }
@@ -34,7 +34,7 @@ namespace NSpectator.Domain
                 baseType = baseType.BaseType;
             }
 
-            return baseType == type;
+            return baseType == SpecType;
         }
 
         IEnumerable<MethodInfo> GetMethodsFromHierarchy(Func<Type, MethodInfo> methodAccessor)
@@ -130,7 +130,7 @@ namespace NSpectator.Domain
         public ClassContext(Type type, Conventions conventions = null, Tags tagsFilter = null, string tags = null)
             : base(type.CleanName(), tags)
         {
-            this.type = type;
+            this.SpecType = type;
 
             this.conventions = conventions ?? new DefaultConventions().Initialize();
 
@@ -142,10 +142,12 @@ namespace NSpectator.Domain
             }
         }
 
-        public Type type;
+        public Type SpecType { get; }
 
         public Tags tagsFilter;
+
         List<Type> classHierarchyToClass = new List<Type>();
+
         Conventions conventions;
     }
 }

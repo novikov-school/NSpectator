@@ -16,16 +16,16 @@ namespace SampleSpecsFocus
     public class Describe_focus : Spec
     {
         [Tag("focus")]
-        void it_is_run() { }
+        void It_is_run() { }
 
-        void it_is_not_run() { }
+        void It_is_not_run() { }
     }
 
     public static class Describe_focus_output
     {
         public static string Output = @"
 describe focus
-  it is run
+  It is run
 
 1 Examples, 0 Failed, 0 Pending
 

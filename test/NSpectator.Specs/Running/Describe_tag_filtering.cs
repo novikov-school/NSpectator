@@ -46,32 +46,32 @@ namespace NSpectator.Specs.Running
             [Tag("method-tag-one")]
             void has_tag_at_method_level_context()
             {
-                it["tests nothing"] = () => 1.Expected().ToBe(1);
+                It["tests nothing"] = () => 1.Expected().ToBe(1);
             }
 
             [Tag("method-tag-two")]
             void has_tags_in_context_or_example_level()
             {
-                context["is tagged with 'mytag'", "mytag"] = () =>
+                Context["is tagged with 'mytag'", "mytag"] = () =>
                 {
-                    it["is tagged with 'mytag'"] = () => 1.Expected().ToBe(1);
+                    It["is tagged with 'mytag'"] = () => 1.Expected().ToBe(1);
                 };
 
-                context["has three tags", "mytag,expect-to-failure,foobar"] = () =>
+                Context["has three tags", "mytag,expect-to-failure,foobar"] = () =>
                 {
-                    it["has three tags"] = () => { 1.Expected().ToBe(1); };
+                    It["has three tags"] = () => { 1.Expected().ToBe(1); };
                 };
 
-                context["does not have a tag"] = () =>
+                Context["does not have a tag"] = () =>
                 {
-                    it["does not have a tag"] = () => { true.Should().BeTrue(); };
+                    It["does not have a tag"] = () => { true.Should().BeTrue(); };
                 };
 
-                context["has a nested context"] = () =>
+                Context["has a nested context"] = () =>
                 {
-                    context["is the nested context", "foobar"] = () =>
+                    Context["is the nested context", "foobar"] = () =>
                     {
-                        it["is the nested example", "nested-tag"] = () => { true.Should().BeTrue(); };
+                        It["is the nested example", "nested-tag"] = () => { true.Should().BeTrue(); };
                     };
                 };
             }
@@ -81,20 +81,20 @@ namespace NSpectator.Specs.Running
         {
             void filters_out_not_run_examples()
             {
-                context["has only example level tags"] = () =>
+                Context["has only example level tags"] = () =>
                 {
-                    it["should run and be in output", "shouldbeinoutput"] = () => true.Should().BeTrue();
-                    it["should not run and not be in output", "barbaz"] = () => true.Should().BeTrue();
-                    it["should also not run too not be in output"] = () => true.Should().BeTrue();
+                    It["should run and be in output", "shouldbeinoutput"] = () => true.Should().BeTrue();
+                    It["should not run and not be in output", "barbaz"] = () => true.Should().BeTrue();
+                    It["should also not run too not be in output"] = () => true.Should().BeTrue();
 
-                    xit["pending but should be in output", "shouldbeinoutput"] = () => true.Should().BeTrue();
-                    it["also pending but should be in output", "shouldbeinoutput"] = todo;
+                    xIt["pending but should be in output", "shouldbeinoutput"] = () => true.Should().BeTrue();
+                    It["also pending but should be in output", "shouldbeinoutput"] = Todo;
                 };
 
-                context["has context level tags", "shouldbeinoutput"] = () =>
+                Context["has context level tags", "shouldbeinoutput"] = () =>
                 {
-                    it["should also run and be in output", "barbaz"] = () => true.Should().BeTrue();
-                    it["should yet also run and be in output"] = () => true.Should().BeTrue();
+                    It["should also run and be in output", "barbaz"] = () => true.Should().BeTrue();
+                    It["should yet also run and be in output"] = () => true.Should().BeTrue();
                 };
             }
         }

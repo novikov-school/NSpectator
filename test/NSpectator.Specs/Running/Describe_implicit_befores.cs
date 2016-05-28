@@ -24,7 +24,7 @@ namespace NSpectator.Specs.Running
                 List<int> ints = new List<int>();
                 ints.Add(5);
 
-                it["should have two entries"] = () =>
+                It["should have two entries"] = () =>
                 {
                     ints.Add(16);
                     ints.Should().HaveCount(1);

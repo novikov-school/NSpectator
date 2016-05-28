@@ -22,7 +22,7 @@ namespace NSpectator.Specs.Running
         {
             void method_level_context()
             {
-                xit["should be pending"] = () => { };
+                xIt["should be pending"] = () => { };
             }
         }
 
@@ -36,13 +36,49 @@ namespace NSpectator.Specs.Running
     [TestFixture]
     [Category("RunningSpecs")]
     [Category("Async")]
+    public class Using_async_lambda_with_xit : Describe_todo
+    {
+        class AsyncLambdaClass : Spec
+        {
+            void method_level_context()
+            {
+                xIt["should fail because xit is set to async lambda"] = async () => await Task.Run(() => { });
+
+                // No chance of error when (async) return value is explicitly typed. The following do not even compile:
+                /*
+                Func<Task> asyncTaggedDelegate = async () => await Task.Run(() => { });
+                Func<Task> asyncUntaggedDelegate = () => { return Task.Run(() => { }); };
+
+                it["Should fail because xit is set to async tagged delegate"] = asyncTaggedDelegate;
+
+                it["Should fail because xit is set to async untagged delegate"] = asyncUntaggedDelegate;
+                */
+            }
+        }
+
+        [Test]
+        public void Sync_pending_example_set_to_async_lambda_fails()
+        {
+            var example = ExampleFrom(typeof(AsyncLambdaClass));
+
+            example.HasRun.Should().BeTrue();
+
+            example.Exception.Should().NotBeNull();
+
+            example.Pending.Should().BeTrue();
+        }
+    }
+
+    [TestFixture]
+    [Category("RunningSpecs")]
+    [Category("Async")]
     public class When_using_async_xit : Describe_todo
     {
         class AsyncXitClass : Spec
         {
             void method_level_context()
             {
-                xitAsync["should be pending"] = async () => await Task.Run(() => { });
+                xItAsync["should be pending"] = async () => await Task.Run(() => { });
             }
         }
 
@@ -61,7 +97,7 @@ namespace NSpectator.Specs.Running
         {
             void method_level_context()
             {
-                it["should be pending"] = todo;
+                It["should be pending"] = Todo;
             }
         }
 
@@ -81,7 +117,7 @@ namespace NSpectator.Specs.Running
         {
             void method_level_context()
             {
-                itAsync["should be pending"] = todoAsync;
+                ItAsync["should be pending"] = TodoAsync;
             }
         }
 
@@ -100,8 +136,8 @@ namespace NSpectator.Specs.Running
         {
             void method_level_context()
             {
-                before = () => { throw new Exception(); };
-                it["should be pending"] = todo;
+                Before = () => { throw new Exception(); };
+                It["should be pending"] = Todo;
             }
         }
 

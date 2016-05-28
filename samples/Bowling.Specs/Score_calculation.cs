@@ -33,7 +33,7 @@ namespace Bowling.Specs
 
             void ExpectedScore(int expected)
             {
-                it[$"my total score should be {expected}"] = () => TotalScoreShouldBe(expected);
+                It[$"my total score should be {expected}"] = () => TotalScoreShouldBe(expected);
             }
 
             string FormatTimes(int times)
@@ -58,7 +58,7 @@ namespace Bowling.Specs
 
             void Scenario_gutter_game()
             {
-                beforeAll = StartGame;
+                BeforeAll = StartGame;
 
                 When["all of my balls are landing in the gutter"] = () =>
                 {
@@ -75,7 +75,7 @@ namespace Bowling.Specs
 
             void Scenario_beginners_game()
             {
-                beforeAll = StartGame;
+                BeforeAll = StartGame;
 
                 new Each<string, int>()
                 {   
@@ -89,7 +89,7 @@ namespace Bowling.Specs
 
             void Scenario_another_beginners_game()
             {
-                beforeAll = StartGame;
+                BeforeAll = StartGame;
 
                 // Given
                 new Each<string, int>()
@@ -105,7 +105,7 @@ namespace Bowling.Specs
 
             void Scenario_all_strikes()
             {
-                beforeAll = StartGame;
+                BeforeAll = StartGame;
 
                 When["all of my rolls are strikes"] = () =>
                 {
@@ -117,7 +117,7 @@ namespace Bowling.Specs
 
             void Scenario_one_single_spare()
             {
-                beforeAll = StartGame;
+                BeforeAll = StartGame;
 
                 new Each<string, int>()
                 {
@@ -131,7 +131,7 @@ namespace Bowling.Specs
 
             void Scenario_all_spares()
             {
-                beforeAll = StartGame;
+                BeforeAll = StartGame;
 
                 new Each<string, int>()
                 {
@@ -144,7 +144,7 @@ namespace Bowling.Specs
             }
 
             // helper dialect property
-            ActionRegister When => new ActionRegister((name, tags, action) => it[$"when {name}"] = action);
+            ActionRegister When => new ActionRegister((name, tags, action) => It[$"when {name}"] = action);
         }
     }
 }

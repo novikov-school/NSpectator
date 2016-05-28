@@ -60,9 +60,9 @@ namespace NSpectator.Specs.Running
         {
             void describe_specs_with_anonymous_lambdas()
             {
-                context["Some context with anonymous lambdas"] = () =>
+                Context["Some context with anonymous lambdas"] = () =>
                 {
-                    it["has an anonymous lambda"] = () =>
+                    It["has an anonymous lambda"] = () =>
                     {
                     };
                 };

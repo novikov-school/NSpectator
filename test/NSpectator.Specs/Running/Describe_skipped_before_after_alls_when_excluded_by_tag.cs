@@ -24,7 +24,7 @@ namespace NSpectator.Specs.Running
 
             void context_bystander()
             {
-                it["should not run because of tags"] = () => "not tagged".Should().Be("not tagged");
+                It["should not run because of tags"] = () => "not tagged".Should().Be("not tagged");
             }
         }
 
@@ -59,7 +59,7 @@ namespace NSpectator.Specs.Running
 
             void context_bystander()
             {
-                it["should not run because of tags"] = () => "not tagged".Should().Be("not tagged");
+                It["should not run because of tags"] = () => "not tagged".Should().Be("not tagged");
             }
 
             void after_all()

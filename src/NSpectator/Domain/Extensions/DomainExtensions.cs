@@ -13,6 +13,11 @@ namespace NSpectator.Domain.Extensions
             return type.GetConstructors()[0].Invoke(new object[0]) as T;
         }
 
+        /// <summary>
+        /// Get all non-async methods of the type with specific build-in filter
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         public static IEnumerable<MethodInfo> AllMethods(this Type type)
         {
             var flags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.DeclaredOnly;
@@ -28,6 +33,11 @@ namespace NSpectator.Domain.Extensions
                 .Where(m => m.ReturnType == typeof(void)).ToList();
         }
 
+        /// <summary>
+        /// Get all async methods of the type with specific build-in filter
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         public static IEnumerable<MethodInfo> AsyncMethods(this Type type)
         {
             var flags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.DeclaredOnly;
@@ -67,7 +77,7 @@ namespace NSpectator.Domain.Extensions
 
         public static string CleanMessage(this Exception exception)
         {
-            var exc = exception.Message.Trim().Replace("\n", ", ").Trim();
+            var exc = exception.Message.Trim().Replace("\r\n", ", ").Replace("\n", ", ").Trim();
 
             while (exc.Contains("  ")) exc = exc.Replace("  ", " ");
 
@@ -82,6 +92,11 @@ namespace NSpectator.Domain.Extensions
             }
         }
 
+        /// <summary>
+        /// Check if method of the type is async
+        /// </summary>
+        /// <param name="method"></param>
+        /// <returns></returns>
         public static bool IsAsync(this MethodInfo method)
         {
             // Taken from: https://github.com/nunit/nunit/blob/master/src/NUnitFramework/framework/Internal/AsyncInvocationRegion.cs
@@ -90,6 +105,16 @@ namespace NSpectator.Domain.Extensions
                    method.GetCustomAttributes(false).Any(attr => AsyncAttributeTypeName == attr.GetType().FullName);
         }
 
+        /// <summary>
+        /// Check if action is async
+        /// </summary>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        public static bool IsAsync(this Action action)
+        {
+            return IsAsync(action.Method);
+        }
+        
         const string TaskTypeName = "System.Threading.Tasks.Task";
         const string AsyncAttributeTypeName = "System.Runtime.CompilerServices.AsyncStateMachineAttribute";
     }

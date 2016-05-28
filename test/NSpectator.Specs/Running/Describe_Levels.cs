@@ -15,11 +15,11 @@ namespace NSpectator.Specs.Running
         {
             void method_level_context()
             {
-                it["1 is 1"] = () => 1.Expected().ToBe(1);
+                It["1 is 1"] = () => 1.Expected().ToBe(1);
 
-                context["except in crazy world"] = () =>
+                Context["except in crazy world"] = () =>
                 {
-                    it["1 is 2"] = () => 1.Expected().ToBe(2);
+                    It["1 is 2"] = () => 1.Expected().ToBe(2);
                 };
             }
         }

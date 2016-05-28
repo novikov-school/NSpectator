@@ -22,17 +22,17 @@ namespace SampleSpecs.WebSite
         {
             //act runs after all the befores, and before each spec
             //declares a common act (arrange, act, assert) for all subcontexts
-            act = () => sound = sound.ToUpper() + "!!!";
-            context["given bam"] = () =>
+            Act = () => sound = sound.ToUpper() + "!!!";
+            Context["given bam"] = () =>
             {
-                before = () => sound = "bam";
-                it["should be BAM!!!"] =
+                Before = () => sound = "bam";
+                It["should be BAM!!!"] =
                     () => sound.Should().Be("BAM!!!");
             };
-            context["given whack"] = () =>
+            Context["given whack"] = () =>
             {
-                before = () => sound = "whack";
-                it["should be WHACK!!!"] =
+                Before = () => sound = "whack";
+                It["should be WHACK!!!"] =
                     () => sound.Should().Be("WHACK!!!");
             };
         }

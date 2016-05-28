@@ -19,12 +19,12 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         {
             void as_long_as_the_async_world_has_not_come_to_an_end()
             {
-                beforeAllAsync = async () => await Task.Run(() => sequence = "A");
-                beforeAsync = async () => await Task.Run(() => sequence += "B");
-                itAsync["spec 1"] = async () => await Task.Run(() => sequence += "1");
-                itAsync["spec 2"] = async () => await Task.Run(() => sequence += "2"); //two specs cause before_each and after_each to run twice
-                afterAsync = async () => await Task.Run(() => sequence += "C");
-                afterAllAsync = async () => await Task.Run(() => sequence += "D");
+                BeforeAllAsync = async () => await Task.Run(() => sequence = "A");
+                BeforeAsync = async () => await Task.Run(() => sequence += "B");
+                ItAsync["spec 1"] = async () => await Task.Run(() => sequence += "1");
+                ItAsync["spec 2"] = async () => await Task.Run(() => sequence += "2"); //two specs cause before_each and after_each to run twice
+                AfterAsync = async () => await Task.Run(() => sequence += "C");
+                AfterAllAsync = async () => await Task.Run(() => sequence += "D");
             }
         }
 
@@ -46,12 +46,12 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         {
             void as_long_as_the_async_world_has_not_come_to_an_end()
             {
-                beforeAllAsync = async () => await Task.Run(() => sequence = "A");
-                beforeEachAsync = async () => await Task.Run(() => sequence += "B");
-                itAsync["spec 1"] = async () => await Task.Run(() => sequence += "1");
-                itAsync["spec 2"] = async () => await Task.Run(() => sequence += "2"); //two specs cause before_each and after_each to run twice
-                afterEachAsync = async () => await Task.Run(() => sequence += "C");
-                afterAllAsync = async () => await Task.Run(() => sequence += "D");
+                BeforeAllAsync = async () => await Task.Run(() => sequence = "A");
+                BeforeEachAsync = async () => await Task.Run(() => sequence += "B");
+                ItAsync["spec 1"] = async () => await Task.Run(() => sequence += "1");
+                ItAsync["spec 2"] = async () => await Task.Run(() => sequence += "2"); //two specs cause before_each and after_each to run twice
+                AfterEachAsync = async () => await Task.Run(() => sequence += "C");
+                AfterAllAsync = async () => await Task.Run(() => sequence += "D");
             }
         }
 

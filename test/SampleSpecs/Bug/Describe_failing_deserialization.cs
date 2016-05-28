@@ -24,30 +24,30 @@ namespace SampleSpecs.Bug
 
         void When_serializing_objects()
         {
-            before = () =>
+            Before = () =>
             {
                 stream = new MemoryStream();
                 formatter = new BinaryFormatter();
             };
 
-            act = () => formatter.Serialize(stream, _object);
+            Act = () => formatter.Serialize(stream, _object);
 
-            context["that are not in the search path"] = () =>
+            Context["that are not in the search path"] = () =>
             {
-                before = () => _object = new Action(() => { }).Method;
+                Before = () => _object = new Action(() => { }).Method;
 
-                it["should deserialize them again"] = () => // fails
+                It["should deserialize them again"] = () => // fails
                 {
                     stream.Position = 0;
                     formatter.Deserialize(stream).Should().NotBeNull();
                 };
             };
 
-            context["that are in the search path"] = () =>
+            Context["that are in the search path"] = () =>
             {
-                before = () => _object = new object();
+                Before = () => _object = new object();
 
-                it["should deserialize them again"] = () =>
+                It["should deserialize them again"] = () =>
                 {
                     stream.Position = 0;
                     formatter.Deserialize(stream).Should().NotBeNull();

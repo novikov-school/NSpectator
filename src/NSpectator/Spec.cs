@@ -16,16 +16,16 @@ namespace NSpectator
     {
         public Spec()
         {
-            context = new ActionRegister(AddContext);
-            xcontext = new ActionRegister(AddIgnoredContext);
-            describe = new ActionRegister(AddContext);
-            xdescribe = new ActionRegister(AddIgnoredContext);
+            Context = new ActionRegister(AddContext);
+            xContext = new ActionRegister(AddIgnoredContext);
+            Describe = new ActionRegister(AddContext);
+            xDescribe = new ActionRegister(AddIgnoredContext);
 
-            it = new ActionRegister((name, tags, action) => AddExample(new Example(name, tags, action, pending: action == todo)));
-            xit = new ActionRegister((name, tags, action) => AddExample(new Example(name, tags, action, pending: true)));
+            It = new ActionRegister((name, tags, action) => AddExample(new Example(name, tags, action, pending: action == Todo)));
+            xIt = new ActionRegister((name, tags, action) => AddExample(new Example(name, tags, action, pending: true)));
 
-            itAsync = new AsyncActionRegister((name, tags, asyncAction) => AddExample(new AsyncExample(name, tags, asyncAction, pending: asyncAction == todoAsync)));
-            xitAsync = new AsyncActionRegister((name, tags, asyncAction) => AddExample(new AsyncExample(name, tags, asyncAction, pending: true)));
+            ItAsync = new AsyncActionRegister((name, tags, asyncAction) => AddExample(new AsyncExample(name, tags, asyncAction, pending: asyncAction == TodoAsync)));
+            xItAsync = new AsyncActionRegister((name, tags, asyncAction) => AddExample(new AsyncExample(name, tags, asyncAction, pending: true)));
         }
 
         /// <summary>
@@ -56,6 +56,12 @@ namespace NSpectator
             set { AddExample(new Example(value, pending: true)); }
         }
 
+        /* No need for the following, as async lambda expressions cannot be converted to expression trees:
+
+        public virtual Expression<Func<Task>> xspecifyAsync { ... }
+
+        */
+
         /// <summary>
         /// This Action gets executed before each example is run.
         /// <para>For Example:</para>
@@ -63,10 +69,10 @@ namespace NSpectator
         /// <para>The before can be a multi-line lambda.  Setting the member multiple times through out sub-contexts will not override the action, but instead will append to your setup (this is a good thing).  
         /// For more information visit https://github.com/nspectator/NSpectator/wiki</para>
         /// </summary>
-        public virtual Action before
+        public virtual Action Before
         {
-            get { return Context.Before; }
-            set { Context.Before = value; }
+            get { return InnerContext.Before; }
+            set { InnerContext.Before = value; }
         }
 
         /// <summary>
@@ -76,10 +82,10 @@ namespace NSpectator
         /// <para>The beforeAsync can be a multi-line lambda.  Setting the member multiple times through out sub-contexts will not override the action, but instead will append to your setup (this is a good thing).</para>
         /// <para>For more information visit https://github.com/nspectator/NSpectator/wiki </para>
         /// </summary>
-        public virtual Func<Task> beforeAsync
+        public virtual Func<Task> BeforeAsync
         {
-            get { return Context.BeforeAsync; }
-            set { Context.BeforeAsync = value; }
+            get { return InnerContext.BeforeAsync; }
+            set { InnerContext.BeforeAsync = value; }
         }
 
         /// <summary>
@@ -89,10 +95,10 @@ namespace NSpectator
         /// <para>The beforeEach can be a multi-line lambda.  Setting the member multiple times through out sub-contexts will not override the action, but instead will append to your setup (this is a good thing).</para>  
         /// <para>For more information visit https://github.com/nspectator/NSpectator/wiki </para>
         /// </summary>
-        public virtual Action beforeEach
+        public virtual Action BeforeEach
         {
-            get { return Context.Before; }
-            set { Context.Before = value; }
+            get { return InnerContext.Before; }
+            set { InnerContext.Before = value; }
         }
 
         /// <summary>
@@ -102,10 +108,10 @@ namespace NSpectator
         /// <para>The beforeEachAsync can be a multi-line lambda.  Setting the member multiple times through out sub-contexts will not override the action, but instead will append to your setup (this is a good thing). </para>
         /// <para> For more information visit https://github.com/nspectator/NSpectator/wiki </para>
         /// </summary>
-        public virtual Func<Task> beforeEachAsync
+        public virtual Func<Task> BeforeEachAsync
         {
-            get { return Context.BeforeAsync; }
-            set { Context.BeforeAsync = value; }
+            get { return InnerContext.BeforeAsync; }
+            set { InnerContext.BeforeAsync = value; }
         }
 
         /// <summary>
@@ -115,10 +121,10 @@ namespace NSpectator
         /// <para>The beforeAll can be a multi-line lambda.  Setting the member multiple times through out sub-contexts will not override the action, but instead will append to your setup (this is a good thing). </para>
         /// <para>For more information visit https://github.com/nspectator/NSpectator/wiki </para>
         /// </summary>
-        public virtual Action beforeAll
+        public virtual Action BeforeAll
         {
-            get { return Context.BeforeAll; }
-            set { Context.BeforeAll = value; }
+            get { return InnerContext.BeforeAll; }
+            set { InnerContext.BeforeAll = value; }
         }
 
         /// <summary>
@@ -128,10 +134,10 @@ namespace NSpectator
         /// <para>The beforeAllAsync can be a multi-line lambda.  Setting the member multiple times through out sub-contexts will not override the action, but instead will append to your setup (this is a good thing).</para>
         /// <para>For more information visit https://github.com/nspectator/NSpectator/wiki </para>
         /// </summary>
-        public virtual Func<Task> beforeAllAsync
+        public virtual Func<Task> BeforeAllAsync
         {
-            get { return Context.BeforeAllAsync; }
-            set { Context.BeforeAllAsync = value; }
+            get { return InnerContext.BeforeAllAsync; }
+            set { InnerContext.BeforeAllAsync = value; }
         }
 
         /// <summary>
@@ -141,10 +147,10 @@ namespace NSpectator
         /// <para>The after can be a multi-line lambda.  Setting the member multiple times through out sub-contexts will not override the action, but instead will append to your setup (this is a good thing). </para>
         /// <para>For more information visit https://github.com/nspectator/NSpectator/wiki </para>
         /// </summary>
-        public virtual Action after
+        public virtual Action After
         {
-            get { return Context.After; }
-            set { Context.After = value; }
+            get { return InnerContext.After; }
+            set { InnerContext.After = value; }
         }
 
         /// <summary>
@@ -154,10 +160,10 @@ namespace NSpectator
         /// <para>The after can be a multi-line lambda.  Setting the member multiple times through out sub-contexts will not override the action, but instead will append to your setup (this is a good thing). </para>
         /// <para>For more information visit https://github.com/nspectator/NSpectator/wiki </para>
         /// </summary>
-        public virtual Func<Task> afterAsync
+        public virtual Func<Task> AfterAsync
         {
-            get { return Context.AfterAsync; }
-            set { Context.AfterAsync = value; }
+            get { return InnerContext.AfterAsync; }
+            set { InnerContext.AfterAsync = value; }
         }
 
         /// <summary>
@@ -167,10 +173,10 @@ namespace NSpectator
         /// <para>The afterEach can be a multi-line lambda.  Setting the member multiple times through out sub-contexts will not override the action, but instead will append to your setup (this is a good thing). </para>
         /// <para>For more information visit https://github.com/nspectator/NSpectator/wiki </para>
         /// </summary>
-        public virtual Action afterEach
+        public virtual Action AfterEach
         {
-            get { return Context.After; }
-            set { Context.After = value; }
+            get { return InnerContext.After; }
+            set { InnerContext.After = value; }
         }
 
         /// <summary>
@@ -180,10 +186,10 @@ namespace NSpectator
         /// <para>The after can be a multi-line lambda.  Setting the member multiple times through out sub-contexts will not override the action, but instead will append to your setup (this is a good thing). </para>
         /// <para>For more information visit https://github.com/nspectator/NSpectator/wiki </para>
         /// </summary>
-        public virtual Func<Task> afterEachAsync
+        public virtual Func<Task> AfterEachAsync
         {
-            get { return Context.AfterAsync; }
-            set { Context.AfterAsync = value; }
+            get { return InnerContext.AfterAsync; }
+            set { InnerContext.AfterAsync = value; }
         }
 
         /// <summary>
@@ -193,10 +199,10 @@ namespace NSpectator
         /// <para>The afterAll can be a multi-line lambda.  Setting the member multiple times through out sub-contexts will not override the action, but instead will append to your setup (this is a good thing). </para>
         /// <para>For more information visit https://github.com/nspectator/NSpectator/wiki </para>
         /// </summary>
-        public virtual Action afterAll
+        public virtual Action AfterAll
         {
-            get { return Context.AfterAll; }
-            set { Context.AfterAll = value; }
+            get { return InnerContext.AfterAll; }
+            set { InnerContext.AfterAll = value; }
         }
 
         /// <summary>
@@ -206,10 +212,10 @@ namespace NSpectator
         /// <para>The afterAllAsync can be a multi-line lambda.  Setting the member multiple times through out sub-contexts will not override the action, but instead will append to your setup (this is a good thing).</para>
         /// <para>For more information visit https://github.com/nspectator/NSpectator/wiki </para>
         /// </summary>
-        public virtual Func<Task> afterAllAsync
+        public virtual Func<Task> AfterAllAsync
         {
-            get { return Context.AfterAllAsync; }
-            set { Context.AfterAllAsync = value; }
+            get { return InnerContext.AfterAllAsync; }
+            set { InnerContext.AfterAllAsync = value; }
         }
 
         /// <summary>
@@ -218,10 +224,10 @@ namespace NSpectator
         /// <para>It's a way for you to define once a common Act in Arrange-Act-Assert for all subcontexts. </para>
         /// <para>For more information visit https://github.com/nspectator/NSpectator/wiki </para>
         /// </summary>
-        public virtual Action act
+        public virtual Action Act
         {
-            get { return Context.Act; }
-            set { Context.Act = value; }
+            get { return InnerContext.Act; }
+            set { InnerContext.Act = value; }
         }
 
         /// <summary>
@@ -230,48 +236,48 @@ namespace NSpectator
         /// It's a way for you to define once a common Act in Arrange-Act-Assert for all subcontexts.  
         /// For more information visit https://github.com/nspectator/NSpectator/wiki
         /// </summary>
-        public virtual Func<Task> actAsync
+        public virtual Func<Task> ActAsync
         {
-            get { return Context.ActAsync; }
-            set { Context.ActAsync = value; }
+            get { return InnerContext.ActAsync; }
+            set { InnerContext.ActAsync = value; }
         }
 
         /// <summary>
         /// Create a subcontext.
         /// <para>For Examples see https://github.com/nspectator/NSpectator/wiki </para>
         /// </summary>
-        public ActionRegister context;
+        public ActionRegister Context { get; }
 
         /// <summary>
         /// Mark a subcontext as pending (add all child contexts as pending)
         /// </summary>
-        public ActionRegister xcontext;
+        public ActionRegister xContext { get; }
 
         /// <summary>
         /// This is an alias for creating a subcontext.  Use this to create sub contexts within your methods.
         /// <para>For Examples see https://github.com/nspectator/NSpectator/wiki </para>
         /// </summary>
-        public ActionRegister describe;
+        public ActionRegister Describe { get; }
 
         /// <summary>
         /// This is an alias for creating a xcontext.
         /// <para>For Examples see https://github.com/nspectator/NSpectator/wiki </para>
         /// </summary>
-        public ActionRegister xdescribe;
+        public ActionRegister xDescribe { get; }
 
         /// <summary>
         /// Create a specification/example using a name and a lambda with an assertion(should).
         /// <para>For Example:</para>
         /// <para>it["should return false"] = () => _controller.Should().BeFalse();</para>
         /// </summary>
-        public ActionRegister it;
+        public ActionRegister It { get; }
 
         /// <summary>
         /// Create an asynchronous specification/example using a name and an async lambda with an assertion(should).
         /// <para>For Example:</para>
         /// <para>itAsync["should return false"] = async () => (await GetResultAsync()).Should().BeFalse();</para>
         /// </summary>
-        public AsyncActionRegister itAsync;
+        public AsyncActionRegister ItAsync { get; }
 
         /// <summary>
         /// Mark a spec as pending
@@ -279,7 +285,7 @@ namespace NSpectator
         /// <para>xit["should return false"] = () => _controller.should_be(false);</para>
         /// <para>(the example will be marked as pending, any lambda provided will not be executed)</para>
         /// </summary>
-        public ActionRegister xit;
+        public ActionRegister xIt { get; }
 
         /// <summary>
         /// Mark an asynchronous spec as pending
@@ -287,30 +293,30 @@ namespace NSpectator
         /// <para>xitAsync["should return false"] = async () => (await GetResultAsync()).should_be(false);</para>
         /// <para>(the example will be marked as pending, any lambda provided will not be executed)</para>
         /// </summary>
-        public AsyncActionRegister xitAsync;
+        public AsyncActionRegister xItAsync { get; }
 
         /// <summary>
         /// Set up a pending spec.
         /// <para>For Example:</para>
         /// <para>it["a test i haven't flushed out yet, but need to"] = todo;</para>
         /// </summary>
-        public readonly Action todo = () => { };
+        public readonly Action Todo = () => { };
 
         /// <summary>
         /// Set up a pending asynchronous spec.
         /// <para>For Example:</para>
         /// <para>itAsync["a test i haven't flushed out yet, but need to"] = todoAsync;</para>
         /// </summary>
-        public readonly Func<Task> todoAsync = () => Task.Run(() => { });
+        public readonly Func<Task> TodoAsync = () => Task.Run(() => { });
 
         /// <summary>
         /// Set up an expectation for a particular exception type to be thrown before expectation.
         /// <para>For Example:</para>
         /// <para>it["should throw exception"] = expect&lt;InvalidOperationException&gt;();</para>
         /// </summary>
-        public virtual Action expect<T>() where T : Exception
+        public virtual Action Expect<T>() where T : Exception
         {
-            return expect<T>(expectedMessage: null);
+            return Expect<T>(expectedMessage: null);
         }
 
         /// <summary>
@@ -318,9 +324,9 @@ namespace NSpectator
         /// <para>For Example:</para>
         /// <para>it["should throw exception"] = expect&lt;InvalidOperationException&gt;();</para>
         /// </summary>
-        public virtual Action expect<T>(string expectedMessage) where T : Exception
+        public virtual Action Expect<T>(string expectedMessage) where T : Exception
         {
-            var specContext = Context;
+            var specContext = InnerContext;
 
             return () =>
             {
@@ -339,9 +345,9 @@ namespace NSpectator
         /// <para>For Example:</para>
         /// <para>it["should throw exception"] = expect&lt;InvalidOperationException&gt;(() => SomeMethodThatThrowsException());</para>
         /// </summary>
-        public virtual Action expect<T>(Action action) where T : Exception
+        public virtual Action Expect<T>(Action action) where T : Exception
         {
-            return expect<T>(null, action);
+            return Expect<T>(null, action);
         }
 
         /// <summary>
@@ -349,7 +355,7 @@ namespace NSpectator
         /// <para>For Example:</para>
         /// <para>it["should throw exception with message Error"] = expect&lt;InvalidOperationException&gt;("Error", () => SomeMethodThatThrowsException());</para>
         /// </summary>
-        public virtual Action expect<T>(string expectedMessage, Action action) where T : Exception
+        public virtual Action Expect<T>(string expectedMessage, Action action) where T : Exception
         {
             return () =>
             {
@@ -377,9 +383,9 @@ namespace NSpectator
         /// <para>For Example:</para>
         /// <para>itAsync["should throw exception"] = expectAsync&lt;InvalidOperationException&gt;(async () => await SomeAsyncMethodThatThrowsException());</para>
         /// </summary>
-        public virtual Func<Task> expectAsync<T>(Func<Task> asyncAction) where T : Exception
+        public virtual Func<Task> ExpectAsync<T>(Func<Task> asyncAction) where T : Exception
         {
-            return expectAsync<T>(null, asyncAction);
+            return ExpectAsync<T>(null, asyncAction);
         }
 
         /// <summary>
@@ -387,7 +393,7 @@ namespace NSpectator
         /// <para>For Example:</para>
         /// <para>itAsync["should throw exception with message Error"] = expectAsync&lt;InvalidOperationException&gt;("Error", async () => await SomeAsyncMethodThatThrowsException());</para>
         /// </summary>
-        public virtual Func<Task> expectAsync<T>(string expectedMessage, Func<Task> asyncAction) where T : Exception
+        public virtual Func<Task> ExpectAsync<T>(string expectedMessage, Func<Task> asyncAction) where T : Exception
         {
             return async () =>
             {
@@ -432,19 +438,19 @@ namespace NSpectator
             return originalException;
         }
 
-        static string IncorrectType<T>() where T : Exception
+        private static string IncorrectType<T>() where T : Exception
         {
             return "Exception of type " + typeof(T).Name + " was not thrown.";
         }
 
-        static string IncorrectMessage(string expected, string actual)
+        private static string IncorrectMessage(string expected, string actual)
         {
             return $"Expected message: \"{expected}\" But was: \"{actual}\"";
         }
 
         void AddExample(ExampleBase example)
         {
-            Context.AddExample(example);
+            InnerContext.AddExample(example);
         }
 
         void AddContext(string name, string tags, Action action)
@@ -463,15 +469,15 @@ namespace NSpectator
 
         void RunContext(Context ctx, Action action)
         {
-            Context.AddContext(ctx);
+            InnerContext.AddContext(ctx);
 
-            var beforeContext = Context;
+            var beforeContext = InnerContext;
 
-            Context = ctx;
+            InnerContext = ctx;
 
             action();
 
-            Context = beforeContext;
+            InnerContext = beforeContext;
         }
 
         void AssertExpectedException<T>(Exception actualException, string expectedMessage) where T : Exception
@@ -510,18 +516,18 @@ namespace NSpectator
             }
         }
 
-        public virtual string OnError(string flattenedStackTrace)
+        protected virtual string OnError(string flattenedStackTrace)
         {
             return flattenedStackTrace;
         }
 
-        internal Context Context { get; set; }
+        internal Context InnerContext { get; set; }
 
         /// <summary>Tags required to be present or not present in context or example</summary>
         /// <remarks>
         /// Currently, multiple tags indicates any of the tags must be present to be included/excluded.  In other words, they are OR'd, not AND'd.
         /// NOTE: Cucumber's tags wiki offers ideas for handling tags: https://github.com/cucumber/cucumber/wiki/tags
         /// </remarks>
-        internal Tags tagsFilter = new Tags();
+        internal Tags TagsFilter = new Tags();
     }
 }

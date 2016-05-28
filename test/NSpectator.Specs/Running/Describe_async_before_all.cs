@@ -18,25 +18,25 @@ namespace NSpectator.Specs.Running
         {
             void given_async_before_all_is_set()
             {
-                beforeAllAsync = SetStateAsync;
+                BeforeAllAsync = SetStateAsync;
 
-                it["Should have final value"] = ShouldHaveFinalState;
+                It["Should have final value"] = ShouldHaveFinalState;
             }
 
             void given_async_before_all_fails()
             {
-                beforeAllAsync = FailAsync;
+                BeforeAllAsync = FailAsync;
 
-                it["Should fail"] = PassAlways;
+                It["Should fail"] = PassAlways;
             }
 
             void given_both_sync_and_async_before_all_are_set()
             {
-                beforeAll = SetAnotherState;
+                BeforeAll = SetAnotherState;
 
-                beforeAllAsync = SetStateAsync;
+                BeforeAllAsync = SetStateAsync;
 
-                it["Should not know what to expect"] = PassAlways;
+                It["Should not know what to expect"] = PassAlways;
             }
         }
 

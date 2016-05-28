@@ -17,16 +17,16 @@ namespace SampleSpecs.WebSite
         void when_creating_specifications()
         {
             // some of these specifications are meant to fail so you can see what the output looks like
-            it["true should be false"] = () => true.Should().BeFalse();
-            it["enumerable should be empty"] = () => new int[] { }.Should().BeEmpty();
-            it["enumerable should contain 1"] = () => new[] { 1 }.Should().Contain(1);
-            it["enumerable should not contain 1"] = () => new[] { 1 }.Should().NotContain(1);
-            it["1 should be 2"] = () => 1.Should().Be(2);
-            it["1 should be 1"] = () => 1.Should().Be(1);
-            it["1 should not be 1"] = () => 1.Should().NotBe(1);
-            it["1 should not be 2"] = () => 1.Should().NotBe(2);
-            it["\"\" should not be null"] = () => "".Should().NotBeNull();
-            it["some object should not be null"] = () => someObject.Should().NotBeNull();
+            It["true should be false"] = () => true.Should().BeFalse();
+            It["enumerable should be empty"] = () => new int[] { }.Should().BeEmpty();
+            It["enumerable should contain 1"] = () => new[] { 1 }.Should().Contain(1);
+            It["enumerable should not contain 1"] = () => new[] { 1 }.Should().NotContain(1);
+            It["1 should be 2"] = () => 1.Should().Be(2);
+            It["1 should be 1"] = () => 1.Should().Be(1);
+            It["1 should not be 1"] = () => 1.Should().NotBe(1);
+            It["1 should not be 2"] = () => 1.Should().NotBe(2);
+            It["\"\" should not be null"] = () => "".Should().NotBeNull();
+            It["some object should not be null"] = () => someObject.Should().NotBeNull();
             // EXPERIMENTAL - specify only takes a lambda and does
             // its best to make a sentence out of the code. YMMV.
             specify = () => "ninja".Should().NotBe("pirate", "because ninja is not pirate");

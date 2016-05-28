@@ -28,13 +28,13 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
 
             void a_context()
             {
-                beforeAllAsync = async () => await Task.Run(() => sequence += "B");
+                BeforeAllAsync = async () => await Task.Run(() => sequence += "B");
 
-                beforeAsync = async () => await Task.Run(() => sequence += "D");
+                BeforeAsync = async () => await Task.Run(() => sequence += "D");
                 specify = () => 1.Expected().ToBe(1);
-                afterAsync = async () => await Task.Run(() => sequence += "E");
+                AfterAsync = async () => await Task.Run(() => sequence += "E");
 
-                afterAllAsync = async () => await Task.Run(() => sequence += "G");
+                AfterAllAsync = async () => await Task.Run(() => sequence += "G");
             }
 
             async Task after_each()

@@ -37,7 +37,7 @@ namespace NSpectator.Specs
     {
         public class ClassWithBefore : Spec
         {
-            void BeforeEach()
+            void beforeEach()
             {
 
             }

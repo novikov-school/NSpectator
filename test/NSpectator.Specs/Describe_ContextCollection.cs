@@ -40,7 +40,7 @@ namespace NSpectator.Specs
         [Test]
         public void Should_aggregate_examples()
         {
-            contexts.Examples().Count().Should().Be(3);
+            contexts.Examples.Count().Should().Be(3);
         }
 
         [Test]
@@ -52,13 +52,13 @@ namespace NSpectator.Specs
         [Test]
         public void Should_aggregate_failures()
         {
-            contexts.Failures().Count().Should().Be(1);
+            contexts.Failures.Should().HaveCount(1);
         }
 
         [Test]
         public void Should_aggregate_pendings()
         {
-            contexts.Pendings().Count().Should().Be(1);
+            contexts.Pendings.Should().HaveCount(1);
         }
 
         [Test]

@@ -19,15 +19,15 @@ namespace SampleSpecs.Compare
 
         void given_new_vending_machine()
         {
-            before = () => machine = new VendingMachine();
+            Before = () => machine = new VendingMachine();
 
             specify = () => machine.Items().Expected().ToBeEmpty();
 
-            it["getting item A1 should throw ItemNotRegistered"] = expect<ItemNotRegisteredException>(() => machine.Item("A1"));
+            It["getting item A1 should throw ItemNotRegistered"] = Expect<ItemNotRegisteredException>(() => machine.Item("A1"));
 
-            context["given doritos are registered in A1 for 50 cents"] = () =>
+            Context["given doritos are registered in A1 for 50 cents"] = () =>
             {
-                before = () => machine.RegisterItem("A1", "doritos", .5m);
+                Before = () => machine.RegisterItem("A1", "doritos", .5m);
 
                 specify = () => machine.Items().Count().Expected().ToBe(1);
 
@@ -35,9 +35,9 @@ namespace SampleSpecs.Compare
 
                 specify = () => machine.Item("A1").Price.Expected().ToBe(.5m);
 
-                context["given a second item is registered"] = () =>
+                Context["given a second item is registered"] = () =>
                 {
-                    before = () => machine.RegisterItem("A2", "mountain dew", .6m);
+                    Before = () => machine.RegisterItem("A2", "mountain dew", .6m);
 
                     specify = () => machine.Items().Count().Expected().ToBe(2);
                 };

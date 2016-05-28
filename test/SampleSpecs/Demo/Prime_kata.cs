@@ -34,7 +34,7 @@ namespace SampleSpecs.Demo
                 { 8, new[] { 2, 2, 2 } },
                 { 9, new[] { 3, 3 } },
                 }.Do((given, expected) =>
-                    it[$"{given} should be {expected}"] = () => Primes(given).Should().Equal(expected)
+                    It[$"{given} should be {expected}"] = () => Primes(given).Should().Equal(expected)
                 );
         }
 

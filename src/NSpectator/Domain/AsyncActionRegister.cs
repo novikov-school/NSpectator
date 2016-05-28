@@ -18,10 +18,10 @@ namespace NSpectator.Domain
         /// <param name="asyncActionSetter"></param>
         public AsyncActionRegister(Action<string, string, Func<Task>> asyncActionSetter)
         {
-            this.asyncActionSetter = asyncActionSetter;
+            this.AsyncActionSetter = asyncActionSetter;
         }
 
-        Action<string, string, Func<Task>> asyncActionSetter;
+        private Action<string, string, Func<Task>> AsyncActionSetter { get; }
 
         /// <summary>
         /// Async example declaration
@@ -30,7 +30,7 @@ namespace NSpectator.Domain
         /// <param name="key"></param>
         public Func<Task> this[string key]
         {
-            set { asyncActionSetter(key, null, value); }
+            set { AsyncActionSetter(key, null, value); }
         }
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace NSpectator.Domain
         /// <param name="tags"></param>
         public Func<Task> this[string key, string tags]
         {
-            set { asyncActionSetter(key, tags, value); }
+            set { AsyncActionSetter(key, tags, value); }
         }
     }
 }

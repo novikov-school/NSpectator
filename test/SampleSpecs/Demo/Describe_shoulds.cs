@@ -17,7 +17,7 @@ namespace SampleSpecs.Demo
     {
         void given_a_non_empty_list()
         {
-            it["should not be empty"] = () => new[] { 1 }.Should().NotBeEmpty();
+            It["should not be empty"] = () => new[] { 1 }.Should().NotBeEmpty();
         }
     }
 }

@@ -16,9 +16,9 @@ namespace NSpectator.Domain.Formatters
             XmlTextWriter xml = new XmlTextWriter(sw);
 
             xml.WriteStartElement("Contexts");
-            xml.WriteAttributeString("TotalSpecs", contexts.Examples().Count().ToString());
-            xml.WriteAttributeString("TotalFailed", contexts.Failures().Count().ToString());
-            xml.WriteAttributeString("TotalPending", contexts.Pendings().Count().ToString());
+            xml.WriteAttributeString("TotalSpecs", contexts.Examples.Count().ToString());
+            xml.WriteAttributeString("TotalFailed", contexts.Failures.Count().ToString());
+            xml.WriteAttributeString("TotalPending", contexts.Pendings.Count().ToString());
 
             xml.WriteAttributeString("RunDate", DateTime.Now.ToString());
             contexts.DoIsolate(c => this.BuildContext(xml, c));

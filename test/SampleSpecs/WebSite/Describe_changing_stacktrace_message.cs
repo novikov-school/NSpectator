@@ -17,7 +17,7 @@ namespace SampleSpecs.WebSite
     {
         void given_a_context_that_throws_an_exception()
         {
-            it["the stack trace can be altered to provide more information"] = () => { throw new InvalidOperationException("An exception was thrown"); };
+            It["the stack trace can be altered to provide more information"] = () => { throw new InvalidOperationException("An exception was thrown"); };
         }
 
         public override string StackTraceToPrint(string flattenedStackTrace)

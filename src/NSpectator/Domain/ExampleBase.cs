@@ -9,11 +9,17 @@ namespace NSpectator.Domain
         public static string Parse(Expression expressionBody)
         {
             var body = expressionBody.ToString();
-            
-            var sentence = body.Replace(".Expected(", ".expected(").Replace(".ToBe(", ".to_be(");
-            sentence = sentence.Replace(")", " ");
-            sentence = sentence.Replace(".", " ");
-            sentence = sentence.Replace("(", " ").Replace("  ", " ").Trim().Replace("_", " ").Replace("\"", " ");
+
+            var cut = body.IndexOf(").");
+
+            var sentence = body.Substring(cut + 1, body.Length - cut - 1)
+                .Replace(")", " ")
+                .Replace(".", " ")
+                .Replace("(", " ")
+                .Replace("  ", " ")
+                .Trim()
+                .Replace("_", " ")
+                .Replace("\"", " ");
 
             while (sentence.Contains("  ")) sentence = sentence.Replace("  ", " ");
 
@@ -27,10 +33,12 @@ namespace NSpectator.Domain
 
         public abstract void Run(Spec spec);
 
-        public string FullName()
-        {
-            return Context.FullContext() + ". " + Spec + ".";
-        }
+        /// <summary>
+        /// Determine if the method is async
+        /// </summary>
+        public abstract bool IsAsync { get; }
+
+        public string FullName => Context.FullContext + ". " + Spec + ".";
 
         public bool Failed()
         {
@@ -50,6 +58,8 @@ namespace NSpectator.Domain
 
         public bool ShouldSkip(Tags tagsFilter)
         {
+            // TODO remove side effects from here (HasRun = true)
+
             return tagsFilter.ShouldSkip(Tags) || ((HasRun = true) && Pending);
         }
 
@@ -59,7 +69,7 @@ namespace NSpectator.Domain
             // but unfortunately calling ShouldSkip has side effects
             // see the HasRun assignment. calling ShouldSkip here thus
             // has side effects that fail some tests.
-            return false == tagsFilter.ShouldSkip(Tags);
+            return !tagsFilter.ShouldSkip(Tags);
         }
 
         public override string ToString()
@@ -79,11 +89,17 @@ namespace NSpectator.Domain
             Pending = pending;
         }
 
-        public bool Pending;
-        public bool HasRun;
-        public string Spec;
-        public List<string> Tags;
+        public bool Pending { get; set; }
+
+        public bool HasRun { get; set; }
+
+        public string Spec { get; }
+
+        public List<string> Tags { get; }
+
         public Exception Exception;
-        public Context Context;
+
+        public Context Context { get; internal set; }
+
     }
 }

@@ -25,33 +25,33 @@ namespace SampleSpecs.Demo
 
         void when_stocking_vending_machine_with_chips()
         {
-            act = () => vendingMachine.AddInventory("chips");
+            Act = () => vendingMachine.AddInventory("chips");
 
-            it["should contain chips with count of 1"] = () => vendingMachine.Inventory("chips").Should().Be(1);
+            It["should contain chips with count of 1"] = () => vendingMachine.Inventory("chips").Should().Be(1);
 
-            context["multiple chips added"] = () =>
+            Context["multiple chips added"] = () =>
             {
-                act = () => vendingMachine.AddInventory("chips");
+                Act = () => vendingMachine.AddInventory("chips");
 
-                it["should increment chip inventory with count of 2"] = () => vendingMachine.Inventory("chips").Should().Be(2);
+                It["should increment chip inventory with count of 2"] = () => vendingMachine.Inventory("chips").Should().Be(2);
             };
         }
 
         void when_buying_an_item()
         {
-            context["vending maching has inventory"] = () =>
+            Context["vending maching has inventory"] = () =>
             {
-                before = () =>
+                Before = () =>
                 {
                     vendingMachine.AddInventory("chips");
                     vendingMachine.PricePoint("chips", .5);
                 };
 
-                act = () => vendingMachine.Buy("chips");
+                Act = () => vendingMachine.Buy("chips");
 
-                it["should decrement inventory"] = () => vendingMachine.Inventory("chips").Should().Be(0);
+                It["should decrement inventory"] = () => vendingMachine.Inventory("chips").Should().Be(0);
 
-                it["should increment cash in machine"] = () => vendingMachine.Cash.Should().Be(.5);
+                It["should increment cash in machine"] = () => vendingMachine.Cash.Should().Be(.5);
             };
         }
     }

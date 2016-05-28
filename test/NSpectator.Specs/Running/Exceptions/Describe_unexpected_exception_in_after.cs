@@ -19,22 +19,22 @@ namespace NSpectator.Specs.Running.Exceptions
         {
             void method_level_context()
             {
-                context["When same exception thrown in after"] = () =>
+                Context["When same exception thrown in after"] = () =>
                 {
-                    before = () => { throw new KnownException(); };
+                    Before = () => { throw new KnownException(); };
 
-                    it["fails because of same exception thrown again in after"] = expect<KnownException>();
+                    It["fails because of same exception thrown again in after"] = Expect<KnownException>();
 
-                    after = () => { throw new KnownException(); };
+                    After = () => { throw new KnownException(); };
                 };
 
-                context["When different exception thrown in after"] = () =>
+                Context["When different exception thrown in after"] = () =>
                 {
-                    before = () => { throw new KnownException(); };
+                    Before = () => { throw new KnownException(); };
 
-                    it["fails because of different exception thrown in after"] = expect<KnownException>();
+                    It["fails because of different exception thrown in after"] = Expect<KnownException>();
 
-                    after = () => { throw new SomeOtherException(); };
+                    After = () => { throw new SomeOtherException(); };
                 };
             }
         }

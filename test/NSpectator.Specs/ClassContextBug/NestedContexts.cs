@@ -25,7 +25,7 @@ namespace NSpectator.Specs.ClassContextBug
 
         void Grand_Parent_Context()
         {
-            it["TestValue should be \"Grand Parent!!!\""] = () => TestValue.Should().Be("Grand Parent!!!");
+            It["TestValue should be \"Grand Parent!!!\""] = () => TestValue.Should().Be("Grand Parent!!!");
         }
     }
 
@@ -43,7 +43,7 @@ namespace NSpectator.Specs.ClassContextBug
 
         void Parent_Context()
         {
-            it["TestValue should be \"Grand Parent.Parent!!!@@@\""] = () => TestValue.Should().Be("Grand Parent.Parent!!!@@@");
+            It["TestValue should be \"Grand Parent.Parent!!!@@@\""] = () => TestValue.Should().Be("Grand Parent.Parent!!!@@@");
         }
     }
 
@@ -61,7 +61,7 @@ namespace NSpectator.Specs.ClassContextBug
 
         void Child_Context()
         {
-            it["TestValue should be \"Grand Parent.Parent.Child!!!@@@###\""] = () => TestValue.Should().Be("Grand Parent.Parent.Child!!!@@@###");
+            It["TestValue should be \"Grand Parent.Parent.Child!!!@@@###\""] = () => TestValue.Should().Be("Grand Parent.Parent.Child!!!@@@###");
         }
     }
 }

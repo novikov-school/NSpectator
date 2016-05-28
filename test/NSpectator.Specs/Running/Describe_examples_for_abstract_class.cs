@@ -25,7 +25,7 @@ namespace NSpectator.Specs.Running
 
             void list_manipulations()
             {
-                it["should be 1"] = () => ints.Should().Equal(1);
+                It["should be 1"] = () => ints.Should().Equal(1);
             }
         }
 
@@ -40,7 +40,7 @@ namespace NSpectator.Specs.Running
             {
                 //since abstract classes can only run in derived concrete context classes
                 //the context isn't quite what you might expect.
-                it["should be 1, 2, 3"] = () => ints.Should().Equal(1, 2, 3);
+                It["should be 1, 2, 3"] = () => ints.Should().Equal(1, 2, 3);
             }
         }
 
@@ -53,7 +53,7 @@ namespace NSpectator.Specs.Running
 
             void list_manipulations()
             {
-                it["should be 1, 2, 3 too"] = () => ints.Should().Equal(1, 2, 3);
+                It["should be 1, 2, 3 too"] = () => ints.Should().Equal(1, 2, 3);
             }
         }
 

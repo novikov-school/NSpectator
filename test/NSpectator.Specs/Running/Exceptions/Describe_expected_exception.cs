@@ -21,17 +21,17 @@ namespace NSpectator.Specs.Running.Exceptions
         {
             void method_level_context()
             {
-                before = () => { };
+                Before = () => { };
 
-                it["throws expected exception"] = expect<KnownException>(() => { throw new KnownException(); });
+                It["throws expected exception"] = Expect<KnownException>(() => { throw new KnownException(); });
 
-                it["throws expected exception with expected error message"] = expect<KnownException>("Testing", () => { throw new KnownException("Testing"); });
+                It["throws expected exception with expected error message"] = Expect<KnownException>("Testing", () => { throw new KnownException("Testing"); });
 
-                it["fails if expected exception does not throw"] = expect<KnownException>(() => { });
+                It["fails if expected exception does not throw"] = Expect<KnownException>(() => { });
 
-                it["fails if wrong exception thrown"] = expect<KnownException>(() => { throw new SomeOtherException(); });
+                It["fails if wrong exception thrown"] = Expect<KnownException>(() => { throw new SomeOtherException(); });
 
-                it["fails if wrong error message is returned"] = expect<KnownException>("Testing", () => { throw new KnownException("Blah"); });
+                It["fails if wrong error message is returned"] = Expect<KnownException>("Testing", () => { throw new KnownException("Blah"); });
             }
         }
 
@@ -51,24 +51,24 @@ namespace NSpectator.Specs.Running.Exceptions
         {
             void method_level_context()
             {
-                before = () => { };
+                Before = () => { };
 
-                itAsync["throws expected exception"] = expectAsync<KnownException>(async () =>
+                ItAsync["throws expected exception"] = ExpectAsync<KnownException>(async () =>
                     await Task.Run(() =>
                     {
                         throw new KnownException();
                     }));
 
-                itAsync["throws expected exception with expected error message"] = expectAsync<KnownException>("Testing", async () =>
+                ItAsync["throws expected exception with expected error message"] = ExpectAsync<KnownException>("Testing", async () =>
                     await Task.Run(() => { throw new KnownException("Testing"); }));
 
-                itAsync["fails if expected exception does not throw"] = expectAsync<KnownException>(async () =>
+                ItAsync["fails if expected exception does not throw"] = ExpectAsync<KnownException>(async () =>
                     await Task.Run(() => { }));
 
-                itAsync["fails if wrong exception thrown"] = expectAsync<KnownException>(async () =>
+                ItAsync["fails if wrong exception thrown"] = ExpectAsync<KnownException>(async () =>
                     await Task.Run(() => { throw new SomeOtherException(); }));
 
-                itAsync["fails if wrong error message is returned"] = expectAsync<KnownException>("Testing", async () =>
+                ItAsync["fails if wrong error message is returned"] = ExpectAsync<KnownException>("Testing", async () =>
                     await Task.Run(() => { throw new KnownException("Blah"); }));
             }
         }
@@ -89,33 +89,33 @@ namespace NSpectator.Specs.Running.Exceptions
         {
             void method_level_context()
             {
-                before = () => { };
+                Before = () => { };
 
-                itAsync["throws expected exception"] = expectAsync<KnownException>(async () =>
+                ItAsync["throws expected exception"] = ExpectAsync<KnownException>(async () =>
                 {
                     await Task.Run(() => { });
 
                     throw new KnownException();
                 });
 
-                itAsync["throws expected exception with expected error message"] = expectAsync<KnownException>("Testing", async () =>
+                ItAsync["throws expected exception with expected error message"] = ExpectAsync<KnownException>("Testing", async () =>
                 {
                     await Task.Run(() => { } );
 
                     throw new KnownException("Testing");
                 });
 
-                itAsync["fails if expected exception does not throw"] = expectAsync<KnownException>(async () =>
+                ItAsync["fails if expected exception does not throw"] = ExpectAsync<KnownException>(async () =>
                     await Task.Run(() => { }));
 
-                itAsync["fails if wrong exception thrown"] = expectAsync<KnownException>(async () =>
+                ItAsync["fails if wrong exception thrown"] = ExpectAsync<KnownException>(async () =>
                 {
                     await Task.Run(() => { } );
 
                     throw new SomeOtherException();
                 });
 
-                itAsync["fails if wrong error message is returned"] = expectAsync<KnownException>("Testing", async () =>
+                ItAsync["fails if wrong error message is returned"] = ExpectAsync<KnownException>("Testing", async () =>
                 {
                     await Task.Run(() => {  } );
 

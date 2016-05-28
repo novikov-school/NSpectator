@@ -40,7 +40,7 @@ namespace NSpectator.Specs.Running
         [Test]
         public void spec_name_should_reflect_name_specified_in_ActionRegister()
         {
-            TheExamples().First().Should().CastTo<Example>().Spec.Should().Be("Hello expected to be Hello");
+            TheExamples().First().Should().CastTo<Example>().Spec.Should().Be("ToBe Hello");
         }
 
         // no 'specify' available for AsyncExample, hence no need to test that on ExampleBase

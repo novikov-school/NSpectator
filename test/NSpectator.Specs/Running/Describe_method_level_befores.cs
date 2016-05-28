@@ -30,20 +30,20 @@ namespace NSpectator.Specs.Running
 
             void method_level_context()
             {
-                before = ContextLevelBefore;
+                Before = ContextLevelBefore;
 
-                context["sub context"] = () => 
+                Context["sub context"] = () => 
                 {
-                    before = SubContextBefore;
+                    Before = SubContextBefore;
 
-                    it["needs an example or it gets filtered"] = todo;
+                    It["needs an example or it gets filtered"] = Todo;
                 };
 
-                context["sub context with async before"] = () =>
+                Context["sub context with async before"] = () =>
                 {
-                    beforeAsync = AsyncSubContextBefore;
+                    BeforeAsync = AsyncSubContextBefore;
 
-                    it["needs another example or it gets filtered"] = todo;
+                    It["needs another example or it gets filtered"] = Todo;
                 };
             }
         }

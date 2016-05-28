@@ -16,7 +16,7 @@ namespace SampleSpecs.Bug
 {
     class App_config_detection : Spec
     {
-        void it_finds_app_config()
+        void It_finds_app_config()
         {
             ConfigurationManager.AppSettings["SomeConfigEntry"].Should().Be("Worky");
         }

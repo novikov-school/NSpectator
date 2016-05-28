@@ -20,25 +20,25 @@ namespace SampleSpecs.Demo
 
         void list_manipulation()
         {
-            before = () => ints = new List<int>();
+            Before = () => ints = new List<int>();
 
-            it["the ints collection should not be null"] = () => ints.Should().NotBeNull();
+            It["the ints collection should not be null"] = () => ints.Should().NotBeNull();
 
-            context["one item in list"] = () =>
+            Context["one item in list"] = () =>
             {
-                before = () => ints.Add(99);
+                Before = () => ints.Add(99);
 
-                it["should have 1 item in list"] = () => ints.Should().HaveCount(1);
+                It["should have 1 item in list"] = () => ints.Should().HaveCount(1);
 
-                it["should contain the number 99"] = () => ints.Should().Contain(99);
+                It["should contain the number 99"] = () => ints.Should().Contain(99);
 
-                context["another item in list"] = () =>
+                Context["another item in list"] = () =>
                 {
-                    before = () => ints.Add(26);
+                    Before = () => ints.Add(26);
 
-                    it["should have 2 items in list"] = () => ints.Should().HaveCount(2);
+                    It["should have 2 items in list"] = () => ints.Should().HaveCount(2);
 
-                    it["should contain the number 26"] = () => ints.Should().Contain(26);
+                    It["should contain the number 26"] = () => ints.Should().Contain(26);
                 };
             };
         }

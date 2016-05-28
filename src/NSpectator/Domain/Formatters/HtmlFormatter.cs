@@ -33,9 +33,9 @@ namespace NSpectator.Domain.Formatters
 
             sb.AppendLine();
             sb.Append("<div class=\"results\">");
-            sb.AppendFormat("Specs:<span>{0}</span>", contexts.Examples().Count());
-            sb.AppendFormat("Failed:<span class=\"spec-failed\">{0}</span>", contexts.Failures().Count());
-            sb.AppendFormat("Pending:<span class=\"spec-pending\">{0}</span>", contexts.Pendings().Count());
+            sb.AppendFormat("Specs:<span>{0}</span>", contexts.Examples.Count());
+            sb.AppendFormat("Failed:<span class=\"spec-failed\">{0}</span>", contexts.Failures.Count());
+            sb.AppendFormat("Pending:<span class=\"spec-pending\">{0}</span>", contexts.Pendings.Count());
             sb.AppendFormat("<div class=\"run-date\">Run Date: {0}</div>", DateTime.Now);
             sb.Append("</div>");
             sb.AppendLine();

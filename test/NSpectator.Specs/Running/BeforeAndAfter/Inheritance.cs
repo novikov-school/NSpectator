@@ -40,13 +40,13 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         {
             void a_context()
             {
-                beforeAll = () => sequence += "B";
+                BeforeAll = () => sequence += "B";
 
-                before = () => sequence += "D";
+                Before = () => sequence += "D";
                 specify = () => 1.Expected().ToBe(1);
-                after = () => sequence += "E";
+                After = () => sequence += "E";
 
-                afterAll = () => sequence += "G";
+                AfterAll = () => sequence += "G";
             }
         }
 

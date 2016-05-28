@@ -19,22 +19,22 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         {
             void a_context()
             {
-                beforeAllAsync = async () => await Task.Run(() => sequence += "A");
-                beforeAsync = async () => await Task.Run(() => sequence += "C");
+                BeforeAllAsync = async () => await Task.Run(() => sequence += "A");
+                BeforeAsync = async () => await Task.Run(() => sequence += "C");
 
-                context["a subcontext"] = () =>
+                Context["a subcontext"] = () =>
                 {
-                    beforeAllAsync = async () => await Task.Run(() => sequence += "B");
-                    beforeAsync = async () => await Task.Run(() => sequence += "D");
+                    BeforeAllAsync = async () => await Task.Run(() => sequence += "B");
+                    BeforeAsync = async () => await Task.Run(() => sequence += "D");
 
                     specify = () => 1.Expected().ToBe(1);
 
-                    afterAsync = async () => await Task.Run(() => sequence += "E");
-                    afterAllAsync = async () => await Task.Run(() => sequence += "G");
+                    AfterAsync = async () => await Task.Run(() => sequence += "E");
+                    AfterAllAsync = async () => await Task.Run(() => sequence += "G");
                 };
 
-                afterAsync = async () => await Task.Run(() => sequence += "F");
-                afterAllAsync = async () => await Task.Run(() => sequence += "H");
+                AfterAsync = async () => await Task.Run(() => sequence += "F");
+                AfterAllAsync = async () => await Task.Run(() => sequence += "H");
             }
         }
 

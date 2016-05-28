@@ -15,7 +15,7 @@ namespace SampleSpecs.WebSite
     {
         void given_the_world_has_not_come_to_an_end()
         {
-            it["Hello World should be Hello World"] = () => "Hello World".Should().Be("Hello World");
+            It["Hello World should be Hello World"] = () => "Hello World".Should().Be("Hello World");
         }
     }
 

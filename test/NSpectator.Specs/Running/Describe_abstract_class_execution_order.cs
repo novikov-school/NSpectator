@@ -43,7 +43,7 @@ namespace NSpectator.Specs.Running
 
             void abstract1_example()
             {
-                it["abstract1 tests nothing", "example_in_abtract_class"] = () => LogExample(classId: "1");
+                It["abstract1 tests nothing", "example_in_abtract_class"] = () => LogExample(classId: "1");
             }
 
             void before_each()
@@ -66,7 +66,7 @@ namespace NSpectator.Specs.Running
         {
             void concrete2_example()
             {
-                it["concrete2 tests nothing", "example_in_concrete_class_that_inherits_abstract"] = () => LogExample(classId: "2");
+                It["concrete2 tests nothing", "example_in_concrete_class_that_inherits_abstract"] = () => LogExample(classId: "2");
             }
 
             void before_each()
@@ -89,7 +89,7 @@ namespace NSpectator.Specs.Running
         {
             void abstract3_example()
             {
-                it["abstract3 tests nothing", "example_in_abstract_class_that_directly_inherits_from_concrete_class"] = () => LogExample(classId: "3");
+                It["abstract3 tests nothing", "example_in_abstract_class_that_directly_inherits_from_concrete_class"] = () => LogExample(classId: "3");
             }
 
             void before_each()
@@ -112,7 +112,7 @@ namespace NSpectator.Specs.Running
         {
             void abstract4_example()
             {
-                it["abstract4 tests nothing", "example_in_abstract_class_that_inherits_another_abstract_class"] = () => LogExample(classId: "4");
+                It["abstract4 tests nothing", "example_in_abstract_class_that_inherits_another_abstract_class"] = () => LogExample(classId: "4");
             }
 
             void before_each()
@@ -135,7 +135,7 @@ namespace NSpectator.Specs.Running
         {
             void concrete5_example()
             {
-                it["concrete5 tests nothing", "example_in_concrete_class_that_inherits_an_abstract_class_with_deep_inheritance_chain"] = () => LogExample(classId: "5");
+                It["concrete5 tests nothing", "example_in_concrete_class_that_inherits_an_abstract_class_with_deep_inheritance_chain"] = () => LogExample(classId: "5");
             }
 
             void before_each()

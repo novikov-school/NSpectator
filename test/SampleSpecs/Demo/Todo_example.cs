@@ -17,7 +17,7 @@ namespace SampleSpecs.Demo
     {
         void soon()
         {
-            it["everyone will have a drink"] = todo;
+            It["everyone will have a drink"] = Todo;
             xspecify = () => true.Should().BeFalse("because it should fails");
         }
     }

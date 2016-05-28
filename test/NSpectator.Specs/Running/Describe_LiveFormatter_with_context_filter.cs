@@ -21,14 +21,14 @@ namespace NSpectator.Specs.Running
         {
             void a_context_with_a_pending_example()
             {
-                it["pending example"] = todo;
+                It["pending example"] = Todo;
             }
 
             void a_context_with_a_grandchild_example()
             {
-                context["a context with an example"] = () =>
+                Context["a context with an example"] = () =>
                 {
-                    it["1 is 1"] = () => 1.Expected().ToBe(1);
+                    It["1 is 1"] = () => 1.Expected().ToBe(1);
                 };
             }
 

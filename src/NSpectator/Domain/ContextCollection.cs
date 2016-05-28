@@ -6,20 +6,13 @@ namespace NSpectator.Domain
 {
     public class ContextCollection : List<Context>
     {
-        public IEnumerable<ExampleBase> Examples()
-        {
-            return this.SelectMany(c => c.AllExamples());
-        }
+        public IEnumerable<ExampleBase> Examples => this.SelectMany(c => c.AllExamples());
+        
+        public IEnumerable<ExampleBase> Failures => Examples.Where(e => e.Exception != null);
+        
 
-        public IEnumerable<ExampleBase> Failures()
-        {
-            return Examples().Where(e => e.Exception != null);
-        }
-
-        public IEnumerable<ExampleBase> Pendings()
-        {
-            return Examples().Where(e => e.Pending);
-        }
+        public IEnumerable<ExampleBase> Pendings => Examples.Where(e => e.Pending);
+        
 
         public ContextCollection Build()
         {
@@ -59,7 +52,7 @@ namespace NSpectator.Domain
 
         public ExampleBase FindExample(string name)
         {
-            return Examples().FirstOrDefault(e => e.Spec == name);
+            return Examples.FirstOrDefault(e => e.Spec == name);
         }
 
         public ContextCollection(IEnumerable<Context> contexts) : base(contexts) {}
@@ -71,17 +64,17 @@ namespace NSpectator.Domain
             return AnyTaggedWith(Tags.Focus);
         }
 
-        public bool AnyTaggedWith(string tag)
+        bool AnyTaggedWith(string tag)
         {
             return AnyExamplesTaggedWith(tag) || AnyContextsTaggedWith(tag);
         }
 
-        public bool AnyContextsTaggedWith(string tag)
+        bool AnyContextsTaggedWith(string tag)
         {
             return AllContexts().Any(s => s.Tags.Contains(tag));
         }
 
-        public bool AnyExamplesTaggedWith(string tag)
+        bool AnyExamplesTaggedWith(string tag)
         {
             return AllContexts().SelectMany(s => s.AllExamples()).Any(s => s.Tags.Contains(tag));
         }
