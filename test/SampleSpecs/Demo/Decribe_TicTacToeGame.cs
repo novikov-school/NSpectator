@@ -29,7 +29,7 @@ namespace SampleSpecs.Demo
 
         void When_players_try_to_take_the_same_square()
         {
-            it["should throw exception"] = expect<InvalidOperationException>(() =>
+            It["should throw exception"] = Expect<InvalidOperationException>(() =>
                 players.Each(player => game.Play(player, 0, 0))
                 );
         }

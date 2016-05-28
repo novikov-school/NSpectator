@@ -21,7 +21,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
             {
                 //this context method wraps everything in lambdas (as context methods should),
                 //because it's behavior is deferred using lambdas, it is run after the methods declared below.
-                it["uses lambdas"] = () => sequence.Add("a_regular_context_method");
+                It["uses lambdas"] = () => sequence.Add("a_regular_context_method");
             }
 
             void messed_up_context()

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using NSpectator.Domain.Extensions;
 
 namespace NSpectator.Domain
 {
@@ -8,8 +9,15 @@ namespace NSpectator.Domain
     {
         public override void Run(Spec spec)
         {
+            if (IsAsync)
+            {
+                throw new ArgumentException("'It[]' cannot be set to an async delegate, please use 'ItAsync[]' instead");
+            }
+
             action();
         }
+
+        public override bool IsAsync => action.IsAsync();
 
         public Example(Expression<Action> expr, bool pending = false)
             : this(Parse(expr), null, expr.Compile(), pending) {}

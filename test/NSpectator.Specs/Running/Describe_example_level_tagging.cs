@@ -18,11 +18,11 @@ namespace NSpectator.Specs.Running
         {
             void has_tags_in_examples()
             {
-                it["is tagged with 'mytag'", "mytag"] = () => { 1.Should().Be(1); };
+                It["is tagged with 'mytag'", "mytag"] = () => { 1.Should().Be(1); };
 
-                it["has three tags", "mytag, expect-to-failure, foobar"] = () => { 1.Should().Be(1); };
+                It["has three tags", "mytag, expect-to-failure, foobar"] = () => { 1.Should().Be(1); };
 
-                it["does not have a tag"] = () => { true.Should().BeTrue(); };
+                It["does not have a tag"] = () => { true.Should().BeTrue(); };
             }
         }
 

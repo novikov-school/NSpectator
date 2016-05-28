@@ -24,7 +24,7 @@ namespace SampleSpecs.Demo
 
         void it_should_run_before_on_class_level()
         {
-            before = () => ints.Add(12);
+            Before = () => ints.Add(12);
 
             specify = () => ints.Count.Expected().ToBe(1);
         }

@@ -17,15 +17,15 @@ namespace SampleSpecs.WebSite
 
         void when_making_tea()
         {
-            context["that is 210 degrees"] = () =>
+            Context["that is 210 degrees"] = () =>
             {
-                before = () => MakeTea(210);
-                it["should be hot"] = () => tea.Taste().Should().Be("hot");
+                Before = () => MakeTea(210);
+                It["should be hot"] = () => tea.Taste().Should().Be("hot");
             };
-            context["that is 90 degrees"] = () =>
+            Context["that is 90 degrees"] = () =>
             {
-                before = () => MakeTea(90);
-                it["should be cold"] = () => tea.Taste().Should().Be("cold");
+                Before = () => MakeTea(90);
+                It["should be cold"] = () => tea.Taste().Should().Be("cold");
             };
         }
 

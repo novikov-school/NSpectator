@@ -10,26 +10,26 @@ namespace NSpectator.Specs.Running
         {
             void has_tags_in_contexts()
             {
-                context["is tagged with 'mytag'", "mytag"] = () =>
+                Context["is tagged with 'mytag'", "mytag"] = () =>
                 {
-                    it["is tagged with 'mytag'"] = () => { 1.Should().Be(1); };
+                    It["is tagged with 'mytag'"] = () => { 1.Should().Be(1); };
                 };
 
-                context["has three tags", "mytag, expect-to-failure, foobar"] = () =>
+                Context["has three tags", "mytag, expect-to-failure, foobar"] = () =>
                 {
-                    it["has three tags"] = () => { 1.Should().Be(1); };
+                    It["has three tags"] = () => { 1.Should().Be(1); };
                 };
 
-                context["does not have a tag"] = () =>
+                Context["does not have a tag"] = () =>
                 {
-                    it["does not have a tag"] = () => { true.Should().BeTrue(); };
+                    It["does not have a tag"] = () => { true.Should().BeTrue(); };
                 };
 
-                context["has a nested context", "nested-tag"] = () =>
+                Context["has a nested context", "nested-tag"] = () =>
                 {
-                    context["is the nested context"] = () =>
+                    Context["is the nested context"] = () =>
                     {
-                        it["is the nested example"] = () => { true.Should().BeTrue(); };
+                        It["is the nested example"] = () => { true.Should().BeTrue(); };
                     };
                 };
             }

@@ -20,10 +20,10 @@ namespace SampleSpecs.WebSite
 
         void given_the_sequence_continues_with_3()
         {
-            before = () => sequence += "3";
+            Before = () => sequence += "3";
 
             //the befores run in the order you would expect
-            it["sequence should be \"123\""] =
+            It["sequence should be \"123\""] =
                 () => sequence.Should().Be("123");
         }
     }

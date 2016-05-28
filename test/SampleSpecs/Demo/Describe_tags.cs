@@ -20,11 +20,11 @@ namespace SampleSpecs.Demo
             // tags can be used to filter which contexts and examples are executed:
             //     SpecRunner <path-to-specs-dll> --tag mytag-one,~mytag-two
 
-            context["when tags are specified at the context level", "mytag-one"] = () =>
+            Context["when tags are specified at the context level", "mytag-one"] = () =>
             {
-                it["tags all examples within that context"] = () => { 1.Should().Be(1); };
+                It["tags all examples within that context"] = () => { 1.Should().Be(1); };
 
-                context["when tags are nested", "mytag-two"] = () => { it["tags all the nested examples and nested contexts cumlatively"] = () => { 1.Should().Be(1); }; };
+                Context["when tags are nested", "mytag-two"] = () => { It["tags all the nested examples and nested contexts cumlatively"] = () => { 1.Should().Be(1); }; };
             };
         }
     }

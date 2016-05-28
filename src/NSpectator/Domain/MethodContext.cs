@@ -15,7 +15,7 @@ namespace NSpectator.Domain
             }
             catch (Exception e)
             {
-                Console.WriteLine("Exception executing context: {0}".With(FullContext()));
+                Console.WriteLine("Exception executing context: {0}".With(FullContext));
 
                 throw e;
             }

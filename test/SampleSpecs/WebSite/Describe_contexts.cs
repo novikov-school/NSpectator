@@ -19,18 +19,18 @@ namespace SampleSpecs.WebSite
         void describe_Account()
         {
             //contexts can be nested n-deep and contain befores and specifications
-            context["when withdrawing cash"] = () =>
+            Context["when withdrawing cash"] = () =>
             {
-                before = () => account = new Account();
-                context["account is in credit"] = () =>
+                Before = () => account = new Account();
+                Context["account is in credit"] = () =>
                 {
-                    before = () => account.Balance = 500;
-                    it["the Account dispenses cash"] = () => account.CanWithdraw(60).Should().BeTrue();
+                    Before = () => account.Balance = 500;
+                    It["the Account dispenses cash"] = () => account.CanWithdraw(60).Should().BeTrue();
                 };
-                context["account is overdrawn"] = () =>
+                Context["account is overdrawn"] = () =>
                 {
-                    before = () => account.Balance = -500;
-                    it["the Account does not dispense cash"] = () => account.CanWithdraw(60).Should().BeFalse();
+                    Before = () => account.Balance = -500;
+                    It["the Account does not dispense cash"] = () => account.CanWithdraw(60).Should().BeFalse();
                 };
             };
         }

@@ -24,7 +24,7 @@ namespace SampleSpecs.Demo
                 7, 8, 9
                 }.EachConsecutive2(
                     (smaller, larger) =>
-                        it["{0} should be greater than {1}".With(larger, smaller)] =
+                        It["{0} should be greater than {1}".With(larger, smaller)] =
                             () => larger.Should().BeGreaterThan(smaller));
         }
     }

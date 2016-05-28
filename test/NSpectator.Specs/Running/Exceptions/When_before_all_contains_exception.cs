@@ -19,41 +19,41 @@ namespace NSpectator.Specs.Running.Exceptions
         {
             void method_level_context()
             {
-                beforeAll = () => { throw new BeforeAllException(); };
+                BeforeAll = () => { throw new BeforeAllException(); };
 
                 // just by its presence, this will enforce tests as it should never be reported
-                afterAll = () => { throw new AfterAllException(); };
+                AfterAll = () => { throw new AfterAllException(); };
 
-                it["should fail this example because of beforeAll"] = () => "1".Should().Be("1");
+                It["should fail this example because of beforeAll"] = () => "1".Should().Be("1");
 
-                it["should also fail this example because of beforeAll"] = () => "1".Should().Be("1");
+                It["should also fail this example because of beforeAll"] = () => "1".Should().Be("1");
 
-                it["overrides exception from same level it"] = () => { throw new ItException(); };
+                It["overrides exception from same level it"] = () => { throw new ItException(); };
 
-                context["exception thrown by both beforeAll and nested before"] = () =>
+                Context["exception thrown by both beforeAll and nested before"] = () =>
                 {
-                    before = () => { throw new BeforeException(); };
+                    Before = () => { throw new BeforeException(); };
 
-                    it["overrides exception from nested before"] = () => "1".Should().Be("1");
+                    It["overrides exception from nested before"] = () => "1".Should().Be("1");
                 };
 
-                context["exception thrown by both beforeAll and nested act"] = () =>
+                Context["exception thrown by both beforeAll and nested act"] = () =>
                 {
-                    act = () => { throw new ActException(); };
+                    Act = () => { throw new ActException(); };
 
-                    it["overrides exception from nested act"] = () => "1".Should().Be("1");
+                    It["overrides exception from nested act"] = () => "1".Should().Be("1");
                 };
 
-                context["exception thrown by both beforeAll and nested it"] = () =>
+                Context["exception thrown by both beforeAll and nested it"] = () =>
                 {
-                    it["overrides exception from nested it"] = () => { throw new ItException(); };
+                    It["overrides exception from nested it"] = () => { throw new ItException(); };
                 };
 
-                context["exception thrown by both beforeAll and nested after"] = () =>
+                Context["exception thrown by both beforeAll and nested after"] = () =>
                 {
-                    it["overrides exception from nested after"] = () => "1".Should().Be("1");
+                    It["overrides exception from nested after"] = () => "1".Should().Be("1");
 
-                    after = () => { throw new AfterException(); };
+                    After = () => { throw new AfterException(); };
                 };
             }
         }

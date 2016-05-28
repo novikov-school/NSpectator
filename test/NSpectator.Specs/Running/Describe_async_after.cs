@@ -18,25 +18,25 @@ namespace NSpectator.Specs.Running
         {
             void given_async_after_is_set()
             {
-                it["Should have initial value"] = ShouldHaveInitialState;
+                It["Should have initial value"] = ShouldHaveInitialState;
 
-                afterAsync = SetStateAsync;
+                AfterAsync = SetStateAsync;
             }
 
             void given_async_after_fails()
             {
-                it["Should fail"] = PassAlways;
+                It["Should fail"] = PassAlways;
 
-                afterAsync = FailAsync;
+                AfterAsync = FailAsync;
             }
 
             void given_both_sync_and_async_after_are_set()
             {
-                it["Should not know what to do"] = PassAlways;
+                It["Should not know what to do"] = PassAlways;
 
-                after = SetAnotherState;
+                After = SetAnotherState;
 
-                afterAsync = SetStateAsync;
+                AfterAsync = SetStateAsync;
             }
         }
 

@@ -20,14 +20,14 @@ namespace SampleSpecs.Bug
 
         void Exception_thrown_in_act()
         {
-            act = () =>
+            Act = () =>
             {
                 MethodThrowsExceptionAndShouldBeInStackTrace();
 
                 isTrue = true;
             };
 
-            it["is true"] = () => isTrue.Should().BeTrue();
+            It["is true"] = () => isTrue.Should().BeTrue();
         }
 
         void MethodThrowsExceptionAndShouldBeInStackTrace()

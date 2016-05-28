@@ -28,5 +28,10 @@ namespace NSpectator.Specs
         {
             throw new NotImplementedException();
         }
+
+        public override bool IsAsync
+        {
+            get { throw new NotImplementedException(); }
+        }
     }
 }

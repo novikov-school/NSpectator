@@ -69,7 +69,7 @@ public partial class DebuggerShim
         var results = runner.Run(builder.Contexts().Build());
 
         // assert that there aren't any failures
-        results.Failures().Should().HaveCount(0, "all examples passed");
+        results.Failures.Should().HaveCount(0, "all examples passed");
     }
 
     /// <summary>

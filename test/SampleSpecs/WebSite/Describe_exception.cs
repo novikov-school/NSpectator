@@ -17,8 +17,8 @@ namespace SampleSpecs.WebSite
 
         void given_a_null_string()
         {
-            it["should throw null-ref"] =
-                expect<NullReferenceException>(() => nullString.Trim());
+            It["should throw null-ref"] =
+                Expect<NullReferenceException>(() => nullString.Trim());
         }
     }
 

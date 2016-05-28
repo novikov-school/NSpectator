@@ -19,19 +19,19 @@ namespace SampleSpecs.Demo
 
         void a_user()
         {
-            before = () => user = new User();
+            Before = () => user = new User();
 
             specify = () => user.Id.Should().NotBeDefault("because it is initialized");
 
-            context["user is admin"] = () =>
+            Context["user is admin"] = () =>
             {
-                before = () => user.Admin = true;
+                Before = () => user.Admin = true;
 
                 specify = () => user.Admin.Expected().True();
 
-                context["user is terminated"] = () =>
+                Context["user is terminated"] = () =>
                 {
-                    before = () => user.Terminated = true;
+                    Before = () => user.Terminated = true;
 
                     specify = () => user.Terminated.Expected().True();
                 };
@@ -39,7 +39,7 @@ namespace SampleSpecs.Demo
 
             specify = () => user.Admin.Expected().True();
 
-            it["should work"] = () => { };
+            It["should work"] = () => { };
 
             // soon.user_should_not_have_default_password();
         }

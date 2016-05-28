@@ -15,9 +15,9 @@ namespace SampleSpecs.WebSite
     {
         void when_creating_pending_specifications()
         {
-            it["pending spec"] = todo;
+            It["pending spec"] = Todo;
             //or just add an 'x' at the beginning of a specification that isn't quite ready
-            xit["\"\" should be \"something else\""] = () => "".Should().Be("something else");
+            xIt["\"\" should be \"something else\""] = () => "".Should().Be("something else");
         }
     }
 

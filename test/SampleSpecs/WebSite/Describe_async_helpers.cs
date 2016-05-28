@@ -21,15 +21,15 @@ namespace SampleSpecs.WebSite
 
         void When_making_tea()
         {
-            context["that is 210 degrees"] = () =>
+            Context["that is 210 degrees"] = () =>
             {
-                beforeAsync = async () => await MakeTeaAsync(210);
-                it["should be hot"] = () => tea.Taste().Should().Be("hot");
+                BeforeAsync = async () => await MakeTeaAsync(210);
+                It["should be hot"] = () => tea.Taste().Should().Be("hot");
             };
-            context["that is 90 degrees"] = () =>
+            Context["that is 90 degrees"] = () =>
             {
-                beforeAsync = async () => await MakeTeaAsync(90);
-                it["should be cold"] = () => tea.Taste().Should().Be("cold");
+                BeforeAsync = async () => await MakeTeaAsync(90);
+                It["should be cold"] = () => tea.Taste().Should().Be("cold");
             };
         }
 

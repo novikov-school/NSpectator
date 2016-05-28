@@ -17,9 +17,9 @@ namespace SampleSpecs.WebSite
 
         void adding_to_collection()
         {
-            before = () => collection.Add("Item 1");
+            Before = () => collection.Add("Item 1");
 
-            it["contains the entry"] = () =>
+            It["contains the entry"] = () =>
                 collection.Contains("Item 1").Should().Be(true);
         }
     }
@@ -36,9 +36,9 @@ namespace SampleSpecs.WebSite
 
         void specific_actions()
         {
-            before = () => collection.Add("Item 1");
+            Before = () => collection.Add("Item 1");
 
-            it["can add an item at the begining with ease"] = () =>
+            It["can add an item at the begining with ease"] = () =>
             {
                 linkedList.AddFirst("Item 2");
                 linkedList.First.Value.Should().Be("Item 2");
@@ -58,9 +58,9 @@ namespace SampleSpecs.WebSite
 
         void specific_actions()
         {
-            before = () => collection.Add("Item 1");
+            Before = () => collection.Add("Item 1");
 
-            it["an item can be referenced by index"] = () =>
+            It["an item can be referenced by index"] = () =>
                 list[0].Should().Be("Item 1");
         }
     }

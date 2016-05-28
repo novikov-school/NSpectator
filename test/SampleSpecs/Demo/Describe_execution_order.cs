@@ -112,31 +112,31 @@ namespace SampleSpecs.Demo
 
         void method_level_context()
         {
-            beforeAll = () => Increase("method: before all\n");
+            BeforeAll = () => Increase("method: before all\n");
 
-            before = () => WriteLine("method: before each");
+            Before = () => WriteLine("method: before each");
 
-            it["it works method 5"] = () => WriteLine("method: it works 5");
+            It["it works method 5"] = () => WriteLine("method: it works 5");
 
-            it["it works method 6"] = () => WriteLine("method: it works 6");
+            It["it works method 6"] = () => WriteLine("method: it works 6");
 
-            after = () => WriteLine("method: after each");
+            After = () => WriteLine("method: after each");
 
-            afterAll = () => Decrease("method: after all\n");
+            AfterAll = () => Decrease("method: after all\n");
 
-            context["sub context"] = () =>
+            Context["sub context"] = () =>
             {
-                beforeAll = () => Increase("sub: before all\n");
+                BeforeAll = () => Increase("sub: before all\n");
 
-                before = () => WriteLine("sub: before each");
+                Before = () => WriteLine("sub: before each");
 
-                it["it works sub 7"] = () => WriteLine("sub: it works 7 ");
+                It["it works sub 7"] = () => WriteLine("sub: it works 7 ");
 
-                it["it works sub 8"] = () => WriteLine("sub: it works 8 ");
+                It["it works sub 8"] = () => WriteLine("sub: it works 8 ");
 
-                after = () => WriteLine("sub: after each");
+                After = () => WriteLine("sub: after each");
 
-                afterAll = () => Decrease("sub: after all\n");
+                AfterAll = () => Decrease("sub: after all\n");
             };
         }
     }

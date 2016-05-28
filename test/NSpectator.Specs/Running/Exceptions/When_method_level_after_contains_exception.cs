@@ -26,7 +26,7 @@ namespace NSpectator.Specs.Running.Exceptions
 
             void should_fail_this_example()
             {
-                it["should fail"] = () => "hello".Should().Be("hello");
+                It["should fail"] = () => "hello".Should().Be("hello");
             }
         }
 

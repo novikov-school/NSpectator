@@ -16,10 +16,10 @@ namespace NSpectator.Domain.Formatters
             XmlTextWriter xml = new XmlTextWriter(sw);
 
             xml.WriteStartElement("testsuites");
-            xml.WriteAttributeString("tests", contexts.Examples().Count().ToString());
+            xml.WriteAttributeString("tests", contexts.Examples.Count().ToString());
             xml.WriteAttributeString("errors", "0");
-            xml.WriteAttributeString("failures", contexts.Failures().Count().ToString());
-            xml.WriteAttributeString("skip", contexts.Pendings().Count().ToString());
+            xml.WriteAttributeString("failures", contexts.Failures.Count().ToString());
+            xml.WriteAttributeString("skip", contexts.Pendings.Count().ToString());
 
             contexts.DoIsolate(c => this.BuildContext(xml, c));
             xml.WriteEndElement();

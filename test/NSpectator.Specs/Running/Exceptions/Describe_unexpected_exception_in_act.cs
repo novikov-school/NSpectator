@@ -18,14 +18,14 @@ namespace NSpectator.Specs.Running.Exceptions
         {
             void method_level_context()
             {
-                context["when exception thrown from act and example itself has a failure"] = () =>
+                Context["when exception thrown from act and example itself has a failure"] = () =>
                 {
-                    act = () => 
+                    Act = () => 
                     { 
                         throw new KnownException("unexpected failure"); 
                     };
 
-                    it["reports example level failure and act failure"] = () => 
+                    It["reports example level failure and act failure"] = () => 
                     {
                         throw new KnownException("example level failure");
                     };
@@ -54,14 +54,14 @@ namespace NSpectator.Specs.Running.Exceptions
         {
             void method_level_context()
             {
-                context["when exception thrown from act and example itself has a failure"] = () =>
+                Context["when exception thrown from act and example itself has a failure"] = () =>
                 {
-                    act = () =>
+                    Act = () =>
                     {
                         throw new KnownException("unexpected failure");
                     };
 
-                    it["reports example level failure and act failure"] = () =>
+                    It["reports example level failure and act failure"] = () =>
                     {
                         "expected".Should().Be("expected");
                     };
@@ -90,14 +90,14 @@ namespace NSpectator.Specs.Running.Exceptions
         {
             void method_level_context()
             {
-                context["when exception thrown from act and example itself has a failure"] = () =>
+                Context["when exception thrown from act and example itself has a failure"] = () =>
                 {
-                    actAsync = async () => await Task.Run(() =>
+                    ActAsync = async () => await Task.Run(() =>
                     {
                         throw new KnownException("unexpected failure");
                     });
 
-                    itAsync["reports example level failure and act failure"] = async () => await Task.Run(() =>
+                    ItAsync["reports example level failure and act failure"] = async () => await Task.Run(() =>
                     {
                         throw new KnownException("example level failure");
                     });
@@ -126,14 +126,14 @@ namespace NSpectator.Specs.Running.Exceptions
         {
             void method_level_context()
             {
-                context["when exception thrown from act and example itself has a failure"] = () =>
+                Context["when exception thrown from act and example itself has a failure"] = () =>
                 {
-                    actAsync = async () => await Task.Run(() =>
+                    ActAsync = async () => await Task.Run(() =>
                     {
                         throw new KnownException("unexpected failure");
                     });
 
-                    itAsync["reports example level failure and act failure"] = async () =>
+                    ItAsync["reports example level failure and act failure"] = async () =>
                     {
                         await Task.Delay(0);
 

@@ -54,7 +54,7 @@ namespace NSpectator.Domain.Formatters
 
         public string FailureSummary(ContextCollection contexts)
         {
-            var failures = new List<ExampleBase>(contexts.Failures());
+            var failures = new List<ExampleBase>(contexts.Failures);
 
             if (failures.Count == 0) return string.Empty;
 
@@ -67,7 +67,7 @@ namespace NSpectator.Domain.Formatters
 
         public string WriteFailure(ExampleBase example)
         {
-            var failure = "\n" + example.FullName().Replace("_", " ") + "\n";
+            var failure = "\n" + example.FullName.Replace("_", " ") + "\n";
 
             failure += example.Exception.CleanMessage() + "\n";
 
@@ -95,9 +95,9 @@ namespace NSpectator.Domain.Formatters
         public string Summary(ContextCollection contexts)
         {
             var summary = "{0} Examples, {1} Failed, {2} Pending".With(
-                contexts.Examples().Count(),
-                contexts.Failures().Count(),
-                contexts.Pendings().Count()
+                contexts.Examples.Count(),
+                contexts.Failures.Count(),
+                contexts.Pendings.Count()
                 );
 
             if (contexts.AnyTaggedWithFocus())

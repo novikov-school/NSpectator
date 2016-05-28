@@ -12,6 +12,11 @@ namespace NSpectator.Domain
             asyncAction.Offload();
         }
 
+        public override bool IsAsync
+        {
+            get { return true; }
+        }
+
         /* No need for the following: 
          * Async lambda expressions cannot be converted to expression trees
 

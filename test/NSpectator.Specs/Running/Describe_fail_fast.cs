@@ -20,25 +20,25 @@ namespace NSpectator.Specs.Running
         {
             void given_a_spec_with_multiple_failures()
             {
-                it["this one isn't a failure"] = () => "not failure".Should().Be("not failure");
+                It["this one isn't a failure"] = () => "not failure".Should().Be("not failure");
 
-                it["this one is a failure"] = () => "hi".Should().Be("hello");
+                It["this one is a failure"] = () => "hi".Should().Be("hello");
 
-                it["this one also fails"] = () => "another".Should().Be("failure");
+                It["this one also fails"] = () => "another".Should().Be("failure");
 
-                context["nested examples"] = () =>
+                Context["nested examples"] = () =>
                 {
-                    it["is skipped"] = () => "skipped".Should().Be("skipped");
+                    It["is skipped"] = () => "skipped".Should().Be("skipped");
 
-                    it["is also skipped"] = () => "skipped".Should().Be("skipped");
+                    It["is also skipped"] = () => "skipped".Should().Be("skipped");
                 };
             }
 
             void another_context()
             {
-                it["does not run because of failure on line 20"] = () => true.Should().BeTrue();
+                It["does not run because of failure on line 20"] = () => true.Should().BeTrue();
 
-                it["also does not run because of failure on line 20"] = () => true.Should().BeTrue();
+                It["also does not run because of failure on line 20"] = () => true.Should().BeTrue();
             }
         }
 
@@ -72,9 +72,9 @@ namespace NSpectator.Specs.Running
 
             formatter.WrittenExamples.Count.Should().Be(2);
 
-            formatter.WrittenExamples.First().FullName().Should().Contain("this one isn't a failure");
+            formatter.WrittenExamples.First().FullName.Should().Contain("this one isn't a failure");
 
-            formatter.WrittenExamples.Last().FullName().Should().Contain("this one is a failure");
+            formatter.WrittenExamples.Last().FullName.Should().Contain("this one is a failure");
         }
     }
 }

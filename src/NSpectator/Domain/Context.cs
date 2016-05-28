@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using NSpectator.Domain.Extensions;
 using NSpectator.Domain.Formatters;
 
 namespace NSpectator.Domain
@@ -33,6 +34,11 @@ namespace NSpectator.Domain
                 throw new ArgumentException("A single context cannot have both a 'before' and an 'beforeAsync' set, please pick one of the two");
             }
 
+            if (Before != null && Before.IsAsync())
+            {
+                throw new ArgumentException("'before' cannot be set to an async delegate, please use 'beforeAsync' instead");
+            }
+
             Before.SafeInvoke();
 
             BeforeAsync.SafeInvoke();
@@ -44,7 +50,12 @@ namespace NSpectator.Domain
 
             if (BeforeAll != null && BeforeAllAsync != null)
             {
-                throw new ArgumentException("A single context cannot have both a 'beforeAll' and an 'beforeAllAsync' set, please pick one of the two");
+                throw new ArgumentException("A single context cannot have both a 'BeforeAll' and an 'BeforeAllAsync' set, please pick one of the two");
+            }
+
+            if (BeforeAll != null && BeforeAll.IsAsync())
+            {
+                throw new ArgumentException("'BeforeAll' cannot be set to an async delegate, please use 'BeforeAllAsync' instead");
             }
 
             BeforeAll.SafeInvoke();
@@ -101,6 +112,11 @@ namespace NSpectator.Domain
                 throw new ArgumentException("A single context cannot have both an 'after' and an 'afterAsync' set, please pick one of the two");
             }
 
+            if (After != null && After.IsAsync())
+            {
+                throw new ArgumentException("'after' cannot be set to an async delegate, please use 'afterAsync' instead");
+            }
+
             After.SafeInvoke();
 
             AfterAsync.SafeInvoke();
@@ -110,6 +126,11 @@ namespace NSpectator.Domain
             if (AfterInstance != null && AfterInstanceAsync != null)
             {
                 throw new ArgumentException("A single class cannot have both a sync and an async class-level 'after_each' set, please pick one of the two");
+            }
+
+            if (Act != null && Act.IsAsync())
+            {
+                throw new ArgumentException("'act' cannot be set to an async delegate, please use 'actAsync' instead");
             }
 
             AfterInstance.SafeInvoke(instance);
@@ -128,6 +149,11 @@ namespace NSpectator.Domain
             if (AfterAll != null && AfterAllAsync != null)
             {
                 throw new ArgumentException("A single context cannot have both an 'afterAll' and an 'afterAllAsync' set, please pick one of the two");
+            }
+
+            if (AfterAll != null && AfterAll.IsAsync())
+            {
+                throw new ArgumentException("'afterAll' cannot be set to an async delegate, please use 'afterAllAsync' instead");
             }
 
             AfterAll.SafeInvoke();
@@ -159,7 +185,7 @@ namespace NSpectator.Domain
 
         public IEnumerable<ExampleBase> AllExamples()
         {
-            return Contexts.Examples().Union(Examples);
+            return Contexts.Examples.Union(Examples);
         }
 
         public bool IsPending()
@@ -181,6 +207,13 @@ namespace NSpectator.Domain
             child.Tags.AddRange(child.Parent.Tags);
 
             Contexts.Add(child);
+        }
+
+        public void SetParentContext(Context parent)
+        {
+            Level = parent.Level + 1;
+            Parent = parent;
+            Tags.AddRange(parent.Tags);
         }
 
         /// <summary>
@@ -261,18 +294,15 @@ namespace NSpectator.Domain
 
         public virtual void Build(Spec instance = null)
         {
-            instance.Context = this;
+            instance.InnerContext = this;
 
             savedInstance = instance;
 
             Contexts.DoIsolate(c => c.Build(instance));
         }
 
-        public string FullContext()
-        {
-            return Parent != null ? Parent.FullContext() + ". " + Name : Name;
-        }
-
+        public string FullContext => Parent != null ? Parent.FullContext + ". " + Name : Name;
+        
         public bool RunAndHandleException(Action<Spec> action, Spec spec, ref Exception exceptionToSet)
         {
             bool hasThrown = false;
@@ -299,14 +329,21 @@ namespace NSpectator.Domain
 
         public void Exercise(ExampleBase example, Spec spec)
         {
-            if (example.ShouldSkip(spec.tagsFilter)) return;
+            if (example.ShouldSkip(spec.TagsFilter))
+            {
+                Action<Spec> dummyExampleRunner = _ => HandleSkipped(example);
+
+                RunAndHandleException(dummyExampleRunner, spec, ref example.Exception);
+
+                return;
+            }
 
             RunAndHandleException(RunBefores, spec, ref Exception);
 
             RunAndHandleException(RunActs, spec, ref Exception);
 
             RunAndHandleException(example.Run, spec, ref example.Exception);
-
+            
             bool exceptionThrownInAfters = RunAndHandleException(RunAfters, spec, ref Exception);
 
             // when an expected exception is thrown and is set to be cleared by 'expect<>',
@@ -327,14 +364,11 @@ namespace NSpectator.Domain
 
         public IEnumerable<Context> AllContexts()
         {
-            return new[] { this }.Union(ChildContexts());
+            return new[] { this }.Union(ChildContexts);
         }
 
-        public IEnumerable<Context> ChildContexts()
-        {
-            return Contexts.SelectMany(c => new[] { c }.Union(c.ChildContexts()));
-        }
-
+        public IEnumerable<Context> ChildContexts => Contexts.SelectMany(c => new[] { c }.Union(c.ChildContexts));
+        
         public bool HasAnyFailures()
         {
             return AllExamples().Any(e => e.Failed());
@@ -356,11 +390,19 @@ namespace NSpectator.Domain
 
         bool AnyUnfilteredExampleInSubTree(Spec spec)
         {
-            Func<ExampleBase, bool> shouldNotSkip = e => e.ShouldNotSkip(spec.tagsFilter);
+            Func<ExampleBase, bool> shouldNotSkip = e => e.ShouldNotSkip(spec.TagsFilter);
 
-            bool anyExampleOrSubExample = Examples.Any(shouldNotSkip) || Contexts.Examples().Any(shouldNotSkip);
+            bool anyExampleOrSubExample = Examples.Any(shouldNotSkip) || Contexts.Examples.Any(shouldNotSkip);
 
             return anyExampleOrSubExample;
+        }
+
+        void HandleSkipped(ExampleBase example)
+        {
+            if (example != null && example.IsAsync)
+            {
+                throw new ArgumentException("'xIt' cannot be set to an async delegate, please use 'xItAsync' instead");
+            }
         }
 
         public override string ToString()
@@ -403,20 +445,36 @@ namespace NSpectator.Domain
             this.isPending = isPending;
         }
 
-        public string Name;
-        public int Level;
-        public List<string> Tags;
-        public List<ExampleBase> Examples;
+        public string Name { get; set; }
+
+        public int Level { get; set; }
+
+        public List<string> Tags { get; set; }
+
+        public List<ExampleBase> Examples { get; }
+
         public ContextCollection Contexts;
+
+        #region [ Hook delegates ]
+
         public Action Before, Act, After, BeforeAll, AfterAll;
+
         public Action<Spec> BeforeInstance, ActInstance, AfterInstance, BeforeAllInstance, AfterAllInstance;
+
         public Func<Task> BeforeAsync, ActAsync, AfterAsync, BeforeAllAsync, AfterAllAsync;
+
         public Action<Spec> BeforeInstanceAsync, ActInstanceAsync, AfterInstanceAsync, BeforeAllInstanceAsync, AfterAllInstanceAsync;
-        public Context Parent;
+
+        #endregion
+
+        public Context Parent { get; private set; }
+
         public Exception ExceptionBeforeAll, Exception, ExceptionAfterAll;
+
         public bool ClearExpectedException;
 
         Spec savedInstance;
+
         bool alreadyWritten, isPending;
     }
 }

@@ -17,22 +17,22 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         {
             void a_context()
             {
-                beforeAll = () => sequence = "A";
-                before = () => sequence += "C";
+                BeforeAll = () => sequence = "A";
+                Before = () => sequence += "C";
 
-                context["a subcontext"] = () =>
+                Context["a subcontext"] = () =>
                 {
-                    beforeAll = () => sequence += "B";
-                    before = () => sequence += "D";
+                    BeforeAll = () => sequence += "B";
+                    Before = () => sequence += "D";
 
                     specify = () => 1.Expected().ToBe(1);
 
-                    after = () => sequence += "E";
-                    afterAll = () => sequence += "G";
+                    After = () => sequence += "E";
+                    AfterAll = () => sequence += "G";
                 };
 
-                after = () => sequence += "F";
-                afterAll = () => sequence += "H";
+                After = () => sequence += "F";
+                AfterAll = () => sequence += "H";
             }
         }
 

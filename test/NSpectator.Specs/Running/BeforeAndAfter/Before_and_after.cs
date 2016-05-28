@@ -19,12 +19,12 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         {
             void as_long_as_the_world_has_not_come_to_an_end()
             {
-                beforeAll = () => sequence = "A";
-                before = () => sequence += "B";
-                it["spec 1"] = () => sequence += "1";
-                it["spec 2"] = () => sequence += "2"; //two specs cause before_each and after_each to run twice
-                after = () => sequence += "C";
-                afterAll = () => sequence += "D";
+                BeforeAll = () => sequence = "A";
+                Before = () => sequence += "B";
+                It["spec 1"] = () => sequence += "1";
+                It["spec 2"] = () => sequence += "2"; //two specs cause before_each and after_each to run twice
+                After = () => sequence += "C";
+                AfterAll = () => sequence += "D";
             }
         }
 
@@ -45,12 +45,12 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         {
             void as_long_as_the_world_has_not_come_to_an_end()
             {
-                beforeAll = () => sequence = "A";
-                beforeEach = () => sequence += "B";
-                it["spec 1"] = () => sequence += "1";
-                it["spec 2"] = () => sequence += "2"; //two specs cause before_each and after_each to run twice
-                afterEach = () => sequence += "C";
-                afterAll = () => sequence += "D";
+                BeforeAll = () => sequence = "A";
+                BeforeEach = () => sequence += "B";
+                It["spec 1"] = () => sequence += "1";
+                It["spec 2"] = () => sequence += "2"; //two specs cause before_each and after_each to run twice
+                AfterEach = () => sequence += "C";
+                AfterAll = () => sequence += "D";
             }
         }
 

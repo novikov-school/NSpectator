@@ -18,7 +18,7 @@ namespace NSpectator.Specs.Running
         {
             void given_async_example_is_set()
             {
-                itAsync["Should wait for its task to complete"] = async () =>
+                ItAsync["Should wait for its task to complete"] = async () =>
                 {
                     await SetStateAsync();
 
@@ -28,7 +28,7 @@ namespace NSpectator.Specs.Running
 
             void given_async_example_fails()
             {
-                itAsync["Should fail asynchronously"] = FailAsync;
+                ItAsync["Should fail asynchronously"] = FailAsync;
             }
         }
 

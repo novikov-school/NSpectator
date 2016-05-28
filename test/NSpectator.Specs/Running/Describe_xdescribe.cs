@@ -19,9 +19,9 @@ namespace NSpectator.Specs.Running
         {
             void method_level_context()
             {
-                xdescribe["sub context"] = () =>
+                xDescribe["sub context"] = () =>
                 {
-                    it["needs an example or it gets filtered"] =
+                    It["needs an example or it gets filtered"] =
                         () => "Hello World".Should().Be("Hello World");
                 };
             }
