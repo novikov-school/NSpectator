@@ -30,7 +30,7 @@ namespace NSpectator.Specs.Running
                     ints.Should().HaveCount(1);
                 };
 
-                specify = () => ints.Should().HaveCount(1, "because nothing more added");
+                Specify = () => ints.Should().HaveCount(1, "because nothing more added");
             }
         }
 

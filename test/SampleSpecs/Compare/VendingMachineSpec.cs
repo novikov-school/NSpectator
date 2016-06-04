@@ -21,7 +21,7 @@ namespace SampleSpecs.Compare
         {
             Before = () => machine = new VendingMachine();
 
-            specify = () => machine.Items().Expected().ToBeEmpty();
+            Specify = () => machine.Items().Expected().ToBeEmpty();
 
             It["getting item A1 should throw ItemNotRegistered"] = Expect<ItemNotRegisteredException>(() => machine.Item("A1"));
 
@@ -29,17 +29,17 @@ namespace SampleSpecs.Compare
             {
                 Before = () => machine.RegisterItem("A1", "doritos", .5m);
 
-                specify = () => machine.Items().Count().Expected().ToBe(1);
+                Specify = () => machine.Items().Count().Expected().ToBe(1);
 
-                specify = () => machine.Item("A1").Name.Expected().ToBe("doritos");
+                Specify = () => machine.Item("A1").Name.Expected().ToBe("doritos");
 
-                specify = () => machine.Item("A1").Price.Expected().ToBe(.5m);
+                Specify = () => machine.Item("A1").Price.Expected().ToBe(.5m);
 
                 Context["given a second item is registered"] = () =>
                 {
                     Before = () => machine.RegisterItem("A2", "mountain dew", .6m);
 
-                    specify = () => machine.Items().Count().Expected().ToBe(2);
+                    Specify = () => machine.Items().Count().Expected().ToBe(2);
                 };
             };
             // got to force/refactor getting rid of the dictionary soon

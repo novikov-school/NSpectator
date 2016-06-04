@@ -21,23 +21,23 @@ namespace SampleSpecs.Demo
         {
             Before = () => user = new User();
 
-            specify = () => user.Id.Should().NotBeDefault("because it is initialized");
+            Specify = () => user.Id.Should().NotBeDefault("because it is initialized");
 
             Context["user is admin"] = () =>
             {
                 Before = () => user.Admin = true;
 
-                specify = () => user.Admin.Expected().True();
+                Specify = () => user.Admin.Expected().True();
 
                 Context["user is terminated"] = () =>
                 {
                     Before = () => user.Terminated = true;
 
-                    specify = () => user.Terminated.Expected().True();
+                    Specify = () => user.Terminated.Expected().True();
                 };
             };
 
-            specify = () => user.Admin.Expected().True();
+            Specify = () => user.Admin.Expected().True();
 
             It["should work"] = () => { };
 

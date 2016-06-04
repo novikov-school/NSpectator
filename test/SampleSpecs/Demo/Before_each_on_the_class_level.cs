@@ -26,7 +26,7 @@ namespace SampleSpecs.Demo
         {
             Before = () => ints.Add(12);
 
-            specify = () => ints.Count.Expected().ToBe(1);
+            Specify = () => ints.Count.Expected().ToBe(1);
         }
     }
 }

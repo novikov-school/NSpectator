@@ -29,7 +29,7 @@ namespace SampleSpecs.WebSite
             It["some object should not be null"] = () => someObject.Should().NotBeNull();
             // EXPERIMENTAL - specify only takes a lambda and does
             // its best to make a sentence out of the code. YMMV.
-            specify = () => "ninja".Should().NotBe("pirate", "because ninja is not pirate");
+            Specify = () => "ninja".Should().NotBe("pirate", "because ninja is not pirate");
         }
     }
 

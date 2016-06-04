@@ -34,7 +34,7 @@ namespace NSpectator
         /// <para>For Example:</para>
         /// <para>specify = () => _controller.should_be(false);</para>
         /// </summary>
-        public virtual Expression<Action> specify
+        public virtual Expression<Action> Specify
         {
             set { AddExample(new Example(value)); }
         }
@@ -51,7 +51,7 @@ namespace NSpectator
         /// <para>xspecify = () => _controller.Expected().False();</para>
         /// <para>(the example will be marked as pending any lambda provided will not be executed)</para>
         /// </summary>
-        public virtual Expression<Action> xspecify
+        public virtual Expression<Action> xSpecify
         {
             set { AddExample(new Example(value, pending: true)); }
         }

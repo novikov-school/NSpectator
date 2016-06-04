@@ -28,8 +28,8 @@ namespace SampleSpecs.Demo
                             )
                         );
 
-                specify = () => game.Finished.Expected().True();
-                specify = () => game.Draw.Expected().True();
+                Specify = () => game.Finished.Expected().True();
+                Specify = () => game.Draw.Expected().True();
             };
         }
 
@@ -43,7 +43,7 @@ namespace SampleSpecs.Demo
                 {
                     Before = () => 0.To(2, column => game.Play(player, index, column));
 
-                    specify = () => game.Finished.Expected().True();
+                    Specify = () => game.Finished.Expected().True();
 
                     It[$"winner should be {player}"] = () => game.Winner.Should().Be(player);
                 };
@@ -52,7 +52,7 @@ namespace SampleSpecs.Demo
                 {
                     Before = () => 0.To(2, row => game.Play(player, row, index));
 
-                    specify = () => game.Finished.Expected().True();
+                    Specify = () => game.Finished.Expected().True();
 
                     It[$"winner should be {player}"] = () => game.Winner.Should().Be(player);
                 };
@@ -64,7 +64,7 @@ namespace SampleSpecs.Demo
                 {
                     Before = () => 0.To(2).Each(index => game.Play(player, index, index));
 
-                    specify = () => game.Finished.Expected().True();
+                    Specify = () => game.Finished.Expected().True();
 
                     It["winner should be {0}".With(player)] = () => game.Winner.Should().Be(player);
                 };
@@ -78,7 +78,7 @@ namespace SampleSpecs.Demo
                         game.Play(player, 0, 2);
                     };
 
-                    specify = () => game.Finished.Expected().True();
+                    Specify = () => game.Finished.Expected().True();
 
                     It[$"winner should be {player}"] = () => game.Winner.Should().Be(player);
                 };

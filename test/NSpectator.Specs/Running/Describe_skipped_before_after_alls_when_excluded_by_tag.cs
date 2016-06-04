@@ -32,7 +32,7 @@ namespace NSpectator.Specs.Running
         {
             void it_specifies_something()
             {
-                specify = () => true.Expected().True();
+                Specify = () => true.Expected().True();
             }
         }
 
@@ -72,7 +72,7 @@ namespace NSpectator.Specs.Running
         {
             void it_specifies_something()
             {
-                specify = () => true.Expected().True();
+                Specify = () => true.Expected().True();
             }
         }
 

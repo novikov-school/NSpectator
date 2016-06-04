@@ -31,7 +31,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
                 BeforeAll = () => sequence += "B";
 
                 Before = () => sequence += "D";
-                specify = () => 1.Expected().ToBe(1);
+                Specify = () => 1.Expected().ToBe(1);
                 After = () => sequence += "E";
 
                 AfterAll = () => sequence += "G";

@@ -18,7 +18,7 @@ namespace SampleSpecs.Demo
     {
         void should_still_run_tests()
         {
-            specify = () => "Test".Expected().ToBe("Test");
+            Specify = () => "Test".Expected().ToBe("Test");
         }
     }
 }

@@ -27,14 +27,14 @@ namespace SampleSpecs.Bug
                 {
                     Before = () => ints.Add(1); //      before(:each) { @array << "sibling 1" }
 
-                    specify = () => ints.Count.Expected().ToBe(1); //      it { @array.count.should == 1 }
+                    Specify = () => ints.Count.Expected().ToBe(1); //      it { @array.count.should == 1 }
                 }; //    end
 
                 Describe["another sibling context"] = () => //    context "another sibling context" do
                 {
                     Before = () => ints.Add(1); //      before(:each) { @array << "sibling 2" }
 
-                    specify = () => ints.Count.Expected().ToBe(1); //      it { @array.count.should == 1 }
+                    Specify = () => ints.Count.Expected().ToBe(1); //      it { @array.count.should == 1 }
                 }; //    end
             }; //  end
         } //end

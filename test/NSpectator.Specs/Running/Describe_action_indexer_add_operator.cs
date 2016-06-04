@@ -21,7 +21,7 @@ namespace NSpectator.Specs.Running
         {
             void method_level_context()
             {
-                specify = () => "Hello".Expected().ToBe("Hello");
+                Specify = () => "Hello".Expected().ToBe("Hello");
             }
         }
 
