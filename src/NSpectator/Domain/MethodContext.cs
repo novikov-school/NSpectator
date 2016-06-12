@@ -27,6 +27,6 @@ namespace NSpectator.Domain
             this.method = method;
         }
 
-        MethodInfo method;
+        private MethodInfo method;
     }
 }
