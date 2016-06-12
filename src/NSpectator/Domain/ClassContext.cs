@@ -6,6 +6,9 @@ using NSpectator.Domain.Extensions;
 
 namespace NSpectator.Domain
 {
+    /// <summary>
+    /// Class-level context
+    /// </summary>
     public class ClassContext : Context
     {
         public override void Build(Spec instance = null)
@@ -22,7 +25,7 @@ namespace NSpectator.Domain
 
             var spec = SpecType.Instance<Spec>();
 
-            spec.TagsFilter = tagsFilter ?? new Tags();
+            spec.TagsFilter = TagsFilter ?? new Tags();
 
             base.Build(spec);
         }
@@ -134,7 +137,7 @@ namespace NSpectator.Domain
 
             this.conventions = conventions ?? new DefaultConventions().Initialize();
 
-            this.tagsFilter = tagsFilter;
+            this.TagsFilter = tagsFilter;
 
             if (type != typeof(Spec))
             {
@@ -144,7 +147,7 @@ namespace NSpectator.Domain
 
         public Type SpecType { get; }
 
-        public Tags tagsFilter;
+        public Tags TagsFilter { get; set; }
 
         List<Type> classHierarchyToClass = new List<Type>();
 

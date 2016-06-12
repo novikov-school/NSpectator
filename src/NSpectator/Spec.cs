@@ -14,6 +14,9 @@ namespace NSpectator
     /// </summary>
     public class Spec
     {
+        /// <summary>
+        /// ctor
+        /// </summary>
         public Spec()
         {
             Context = new ActionRegister(AddContext);
@@ -440,34 +443,34 @@ namespace NSpectator
 
         private static string IncorrectType<T>() where T : Exception
         {
-            return "Exception of type " + typeof(T).Name + " was not thrown.";
+            return $"Exception of type {typeof(T).Name} was not thrown.";
         }
 
         private static string IncorrectMessage(string expected, string actual)
         {
-            return $"Expected message: \"{expected}\" But was: \"{actual}\"";
+            return $@"Expected message: ""{expected}"" But was: ""{actual}""";
         }
 
-        void AddExample(ExampleBase example)
+        private void AddExample(ExampleBase example)
         {
             InnerContext.AddExample(example);
         }
 
-        void AddContext(string name, string tags, Action action)
+        private void AddContext(string name, string tags, Action action)
         {
             var childContext = new Context(name, tags);
 
             RunContext(childContext, action);
         }
 
-        void AddIgnoredContext(string name, string tags, Action action)
+        private void AddIgnoredContext(string name, string tags, Action action)
         {
             var ignored = new Context(name, tags, isPending: true);
 
             RunContext(ignored, action);
         }
 
-        void RunContext(Context ctx, Action action)
+        private void RunContext(Context ctx, Action action)
         {
             InnerContext.AddContext(ctx);
 
@@ -480,7 +483,7 @@ namespace NSpectator
             InnerContext = beforeContext;
         }
 
-        void AssertExpectedException<T>(Exception actualException, string expectedMessage) where T : Exception
+        private void AssertExpectedException<T>(Exception actualException, string expectedMessage) where T : Exception
         {
             var expectedType = typeof(T);
             Exception matchingException = null;

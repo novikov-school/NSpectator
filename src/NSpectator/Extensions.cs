@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace NSpectator
 {
+    /// <summary>
+    /// Extension methods class
+    /// </summary>
     public static class Extensions
     {
         /// <summary>
@@ -121,6 +124,12 @@ namespace NSpectator
             }
         }
 
+        /// <summary>
+        /// Execute action on enumerable
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="action"></param>
+        /// <typeparam name="T"></typeparam>
         [DebuggerNonUserCode]
         public static void Each<T>(this IEnumerable<T> list, Action<T> action)
         {

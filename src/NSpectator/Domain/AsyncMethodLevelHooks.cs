@@ -31,30 +31,30 @@ namespace NSpectator.Domain
             runner.Run(spec);
         }
 
-        readonly AsyncMethodRunner runner;
+        private readonly AsyncMethodRunner runner;
     }
 
-    public class AsyncMethodLevelBefore : AsyncMethodLevelHook
+    internal class AsyncMethodLevelBefore : AsyncMethodLevelHook
     {
         public AsyncMethodLevelBefore(MethodInfo method) : base(method, "before_each") {}
     }
 
-    public class AsyncMethodLevelAct : AsyncMethodLevelHook
+    internal class AsyncMethodLevelAct : AsyncMethodLevelHook
     {
         public AsyncMethodLevelAct(MethodInfo method) : base(method, "act_each") {}
     }
 
-    public class AsyncMethodLevelAfter : AsyncMethodLevelHook
+    internal class AsyncMethodLevelAfter : AsyncMethodLevelHook
     {
         public AsyncMethodLevelAfter(MethodInfo method) : base(method, "after_each") {}
     }
 
-    public class AsyncMethodLevelBeforeAll : AsyncMethodLevelHook
+    internal class AsyncMethodLevelBeforeAll : AsyncMethodLevelHook
     {
         public AsyncMethodLevelBeforeAll(MethodInfo method) : base(method, "before_all") {}
     }
 
-    public class AsyncMethodLevelAfterAll : AsyncMethodLevelHook
+    internal class AsyncMethodLevelAfterAll : AsyncMethodLevelHook
     {
         public AsyncMethodLevelAfterAll(MethodInfo method) : base(method, "after_all") {}
     }
