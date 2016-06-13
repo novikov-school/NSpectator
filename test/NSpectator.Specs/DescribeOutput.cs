@@ -93,8 +93,6 @@ namespace NSpectator.Specs
             var expectedString = ScrubStackTrace(ScrubNewLines(output.GetField("Output").GetValue(null) as string));
             var actualString = ScrubStackTrace(string.Join("\n", actual)).Trim();
             actualString.Should().Be(expectedString);
-
-            var guid = Guid.NewGuid();
         }
 
         static string ScrubNewLines(string s)

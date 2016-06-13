@@ -5,10 +5,8 @@
 // ReSharper disable ArrangeTypeMemberModifiers
 // ReSharper disable InconsistentNaming
 #endregion
-
 using System.Threading.Tasks;
 using NUnit.Framework;
-using FluentAssertions;
 
 namespace NSpectator.Specs.Running
 {
@@ -42,8 +40,7 @@ namespace NSpectator.Specs.Running
                 It["Should not know what to expect"] = PassAlways;
             }
 
-            [Test]
-            void Given_act_is_set_to_async_lambda()
+            public void Given_act_is_set_to_async_lambda()
             {
                 Act = async () => { await Task.Delay(0); };
 
@@ -55,17 +52,16 @@ namespace NSpectator.Specs.Running
                 Func<Task> asyncUntaggedDelegate = () => { return Task.Delay(0); };
 
                 // set to async method
-                act = SetStateAsync;
+                Act = SetStateAsync;
 
                 // set to async tagged delegate
-                act = asyncTaggedDelegate;
+                Act = asyncTaggedDelegate;
 
                 // set to async untagged delegate
-                act = asyncUntaggedDelegate;
+                Act = asyncUntaggedDelegate;
                 */
             }
         }
-    
 
         [SetUp]
         public void Setup()
@@ -92,7 +88,7 @@ namespace NSpectator.Specs.Running
         }
 
         [Test]
-        public void sync_act_set_to_async_lambda_fails()
+        public void Sync_act_set_to_async_lambda_fails()
         {
             ExampleRunsWithException("Should fail because act is set to async lambda");
         }
