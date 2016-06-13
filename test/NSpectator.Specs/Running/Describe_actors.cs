@@ -12,8 +12,8 @@ using FluentAssertions;
 
 namespace NSpectator.Specs.Running
 {
-    //[TestFixture]
-    //[Category("RunningSpecs")]
+    [TestFixture]
+    [Category("RunningSpecs")]
     public class Describe_actors : Describe_todo
     {
         public class ActorRegister

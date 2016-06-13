@@ -52,7 +52,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
             Run(typeof (Before_all_sample_spec));
 
             // the two improperly crafted context methods are executed first in the order they were declared
-            // while nspec is building up its model of contexts and examples
+            // while NSpectator is building up its model of contexts and examples
             // then the class level before and properly crafted spec (wrapped in lambda) is executed.
 
             // The moral of the story is context methods that don't have their behavior wrapped 

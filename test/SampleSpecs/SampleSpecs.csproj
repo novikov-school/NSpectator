@@ -95,7 +95,6 @@
     <Compile Include="WebSite\Describe_pending.cs" />
     <Compile Include="Demo\Describe_PrimeFactors.cs" />
     <Compile Include="WebSite\Describe_shared_behavior.cs" />
-    <Compile Include="WebSite\Describe_specifications.cs" />
     <Compile Include="Demo\Multiple_befores.cs" />
     <Compile Include="Demo\Describe_VendingMachine.cs" />
     <Compile Include="WebSite\My_first_spec.cs" />

@@ -7,7 +7,6 @@
 #endregion
 using System.Collections.Generic;
 using NSpectator;
-using FluentAssertions;
 
 namespace SampleSpecs.Bug
 {
@@ -19,7 +18,7 @@ namespace SampleSpecs.Bug
         {
             Before = () => ints = new List<int>(); //  before(:each) { @array = Array.new }
 
-            Context["something that works in rspec but not nspec"] = () => //  context "something that works in rspec but not nspec" do
+            Context["something that works in rspec but not with NSpectator"] = () => //  context "something that works in rspec but not nspec" do
             {
                 Before = () => ints.Add(1);
 

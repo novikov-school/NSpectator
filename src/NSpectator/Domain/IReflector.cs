@@ -3,10 +3,17 @@ using System.Reflection;
 
 namespace NSpectator.Domain
 {
+    /// <summary>
+    /// Default IReflector implementation
+    /// </summary>
     public class Reflector : IReflector
     {
-        readonly string dll;
+        private readonly string dll;
 
+        /// <summary>
+        /// Construct reflector from assembly file name
+        /// </summary>
+        /// <param name="dll"></param>
         public Reflector(string dll)
         {
             this.dll = dll;
@@ -23,6 +30,9 @@ namespace NSpectator.Domain
         }
     }
 
+    /// <summary>
+    /// Reflector is used to find types in the assembly
+    /// </summary>
     public interface IReflector
     {
         Type[] GetTypesFrom();

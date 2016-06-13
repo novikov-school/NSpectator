@@ -420,10 +420,11 @@ namespace NSpectator
         }
 
         /// <summary>
-        /// Override this method to alter the stack trace that NSpec prints.  This is useful to override
-        /// if you want to provide additional information (eg. information from a log that is generated out of proc).
+        /// Override this method to alter the stack trace that NSpectator prints. 
+        /// This is useful to override if you want to provide additional information 
+        /// (eg. information from a log that is generated out of proc).
         /// </summary>
-        /// <param name="flattenedStackTrace">A clean stack trace that excludes NSpec specfic namespaces</param>
+        /// <param name="flattenedStackTrace">A clean stack trace that excludes NSpectator specific namespaces</param>
         /// <returns></returns>
         public virtual string StackTraceToPrint(string flattenedStackTrace)
         {
@@ -499,11 +500,9 @@ namespace NSpectator
                 {
                     foreach (var innerException in aggregateException.InnerExceptions)
                     {
-                        if (innerException.GetType() == expectedType)
-                        {
-                            matchingException = innerException;
-                            break;
-                        }
+                        if (innerException.GetType() != expectedType) continue;
+                        matchingException = innerException;
+                        break;
                     }
                 }
             }

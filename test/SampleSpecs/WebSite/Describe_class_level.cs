@@ -25,7 +25,7 @@ namespace SampleSpecs.WebSite
         }
 
         // prefixing a method with "it_" or "specify_"
-        // will tell nspec to treat the method as an example
+        // should tells NSpectator to treat the method as an example
         void specify_given_befores_and_acts_run_in_the_correct_sequence()
         {
             sequence.Should().Be("arrange, act");

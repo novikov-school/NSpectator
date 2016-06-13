@@ -85,7 +85,7 @@ namespace NSpectator.Specs.Running
         [Test]
         public void the_stack_trace_for_last_example_should_be_the_the_original_stack_trace()
         {
-            classContext.Examples.Last().Exception.StackTrace.Should().NotMatch("^.*at NSpec.Domain.Example");
+            classContext.Examples.Last().Exception.StackTrace.Should().NotMatch("^.*at NSpectator.Domain.Example");
         }
     }
 

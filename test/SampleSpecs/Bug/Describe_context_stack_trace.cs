@@ -7,7 +7,6 @@
 // ReSharper disable InconsistentNaming
 
 #endregion
-
 using System;
 using FluentAssertions;
 using NSpectator;
