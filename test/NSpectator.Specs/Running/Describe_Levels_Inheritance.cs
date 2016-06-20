@@ -6,14 +6,15 @@
 // ReSharper disable InconsistentNaming
 #endregion
 using NUnit.Framework;
+using Slant.Expectations;
 
 namespace NSpectator.Specs.Running
 {
     public class Describe_Levels_Inheritance : When_running_specs
     {
-        class parent_context : Spec { }
+        class Parent_context : Spec { }
 
-        class child_context : parent_context
+        class Child_context : Parent_context
         {
             void it_is()
             {
@@ -24,17 +25,17 @@ namespace NSpectator.Specs.Running
         [SetUp]
         public void Setup()
         {
-            Run(new[] { typeof(parent_context), typeof(child_context) });
+            Run(new[] { typeof(Parent_context), typeof(Child_context) });
         }
 
         [Test]
-        public void parent_class_is_level_1()
+        public void Parent_class_is_level_1()
         {
             TheContext("parent context").Level.Expected().ToBe(1);
         }
 
         [Test]
-        public void child_class_is_level_2()
+        public void Child_class_is_level_2()
         {
             TheContext("child context").Level.Expected().ToBe(2);
         }

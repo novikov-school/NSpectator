@@ -7,6 +7,7 @@
 #endregion
 using NUnit.Framework;
 using System.Threading.Tasks;
+using Slant.Expectations;
 
 namespace NSpectator.Specs.Running.BeforeAndAfter
 {

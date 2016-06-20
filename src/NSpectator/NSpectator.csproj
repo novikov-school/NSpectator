@@ -44,14 +44,6 @@
     <AssemblyOriginatorKeyFile>NSpectator.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FluentAssertions, Version=4.8.0.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\FluentAssertions.4.8.0\lib\net45\FluentAssertions.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="FluentAssertions.Core, Version=4.8.0.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\FluentAssertions.4.8.0\lib\net45\FluentAssertions.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -91,18 +83,9 @@
     <Compile Include="Domain\Tags.cs" />
     <Compile Include="Each.cs" />
     <Compile Include="Domain\ActionRegister.cs" />
-    <Compile Include="Expectations.cs" />
-    <Compile Include="Expectations\BooleanExpectations.cs" />
-    <Compile Include="Expectations\DateTimeExpectations.cs" />
-    <Compile Include="Expectations\GenericCollectionExpectations.cs" />
-    <Compile Include="Expectations\ObjectExpectations.cs" />
-    <Compile Include="Expectations\ReferenceTypeExpectation.cs" />
-    <Compile Include="Expectations\SimpleTimeSpanExpectations.cs" />
-    <Compile Include="Expectations\StringExpectations.cs" />
     <Compile Include="Spec.cs" />
     <Compile Include="Domain\Context.cs" />
     <Compile Include="Domain\Example.cs" />
-    <Compile Include="AssertionExtensions.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Domain\IReflector.cs" />
     <Compile Include="Domain\SpecFinder.cs" />
@@ -111,7 +94,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="NSpectator.snk" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

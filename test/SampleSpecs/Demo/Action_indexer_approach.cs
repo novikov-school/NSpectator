@@ -10,6 +10,7 @@
 using NSpectator;
 using SampleSpecs.Model;
 using FluentAssertions;
+using Slant.Expectations;
 
 namespace SampleSpecs.Demo
 {

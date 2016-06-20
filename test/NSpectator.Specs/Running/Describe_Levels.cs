@@ -6,6 +6,7 @@
 // ReSharper disable InconsistentNaming
 #endregion
 using NUnit.Framework;
+using Slant.Expectations;
 
 namespace NSpectator.Specs.Running
 {

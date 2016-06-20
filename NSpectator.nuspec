@@ -10,28 +10,19 @@
         <projectUrl>http://www.nspectator.org</projectUrl>
         <iconUrl>http://nspectator.org/assets/logo.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>NSpectator is a ready-to-use solution for development using .NET with Context/Specification flavor. Toolset is intended to be used to drive development through specifying behavior and interaction at the unit level. NSpectator has only one dependency on popular flexible FluentAssertions library for implementing expectations.</description>
+        <description>NSpectator is a ready-to-use solution for development using .NET with Context/Specification flavor. Toolset is intended to be used to drive development through specifying behavior and interaction at the unit level. NSpectator has no dependencies. Feel free to use any assertion library.</description>
         <summary>NSpectator is a toolset for .NET agile development with the xSpec (context/specification) flavor.</summary>
         <releaseNotes>See github page for details</releaseNotes>
         <copyright>Copyright (c) NSpectator Development Team</copyright>
         <language>en-US</language>
         <tags>agile testing bdd tdd spec fluent nunit mstest unit-testing</tags>
-        <dependencies>
-            <group targetFramework=".NETFramework4.5">
-                <dependency id="FluentAssertions" version="4.8.0" />
-            </group>
-        </dependencies>
     </metadata>
     <files>
         <file src="license.txt" />
         <file src="test\NSpectator.Specs\DebuggerShim.cs" target="content\DebuggerShim.cs" />
         <file src="src\NSpectator\bin\Release\NSpectator.dll" target="lib\NSpectator.dll" />
         <file src="src\NSpectator\bin\Release\NSpectator.pdb" target="lib\NSpectator.pdb" />
-		<file src="src\NSpectator\bin\Release\NSpectator.XML" target="lib\NSpectator.XML" />
-        <file src="src\SpecRunner\bin\Release\FluentAssertions.Core.dll" target="tools\FluentAssertions.Core.dll" />
-        <file src="src\SpecRunner\bin\Release\FluentAssertions.Core.pdb" target="tools\FluentAssertions.Core.pdb" />
-        <file src="src\SpecRunner\bin\Release\FluentAssertions.dll" target="tools\FluentAssertions.dll" />
-        <file src="src\SpecRunner\bin\Release\FluentAssertions.pdb" target="tools\FluentAssertions.pdb" />
+	<file src="src\NSpectator\bin\Release\NSpectator.XML" target="lib\NSpectator.XML" />
         <file src="src\SpecRunner\bin\Release\NSpectator.dll" target="tools\NSpectator.dll" />
         <file src="src\SpecRunner\bin\Release\NSpectator.pdb" target="tools\NSpectator.pdb" />
         <file src="src\SpecRunner\bin\Release\SpecRunner.exe" target="tools\SpecRunner.exe" />

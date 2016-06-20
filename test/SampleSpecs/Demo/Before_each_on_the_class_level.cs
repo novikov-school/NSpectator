@@ -10,6 +10,7 @@
 
 using System.Collections.Generic;
 using NSpectator;
+using Slant.Expectations;
 
 namespace SampleSpecs.Demo
 {
