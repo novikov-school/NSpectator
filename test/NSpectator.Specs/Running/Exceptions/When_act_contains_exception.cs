@@ -8,6 +8,7 @@
 using NSpectator.Domain;
 using NUnit.Framework;
 using FluentAssertions;
+using Slant.Expectations;
 
 namespace NSpectator.Specs.Running.Exceptions
 {

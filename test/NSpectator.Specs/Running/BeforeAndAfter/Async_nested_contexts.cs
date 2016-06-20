@@ -8,6 +8,7 @@
 using NUnit.Framework;
 using System.Threading.Tasks;
 using FluentAssertions;
+using Slant.Expectations;
 
 namespace NSpectator.Specs.Running.BeforeAndAfter
 {

@@ -11,6 +11,7 @@ using NSpectator.Domain;
 using NSpectator.Domain.Formatters;
 using NUnit.Framework;
 using FluentAssertions;
+using Slant.Expectations;
 
 namespace NSpectator.Specs.Running
 {

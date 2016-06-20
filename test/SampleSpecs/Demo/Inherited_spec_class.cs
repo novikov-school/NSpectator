@@ -9,6 +9,7 @@
 #endregion
 
 using NSpectator;
+using Slant.Expectations;
 
 namespace SampleSpecs.Demo
 {

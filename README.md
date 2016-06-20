@@ -65,9 +65,7 @@ class Describe_prime_factors : Spec
 
 ### Samples
 
-Basic usage you can see in the [samples folder of the repository](https://github.com/nspectator/NSpectator/tree/master/samples)
-
-Also take a look at separate [Katas repository](https://github.com/nspectator/katas)
+Take a look at separate [Katas repository](https://github.com/nspectator/katas)
 
 ## Contributing
 
