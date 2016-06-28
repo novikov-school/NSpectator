@@ -5,12 +5,14 @@
 // ReSharper disable ArrangeTypeMemberModifiers
 // ReSharper disable InconsistentNaming
 #endregion
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using FluentAssertions;
 using NSpectator.Domain;
 using NSpectator.Domain.Formatters;
-using FluentAssertions;
 using NSpectator;
 // ReSharper disable once CheckNamespace
 
@@ -69,7 +71,10 @@ public partial class DebuggerShim
         var results = runner.Run(builder.Contexts().Build());
 
         // assert that there aren't any failures
-        results.Failures.Should().HaveCount(0, "all examples passed");
+        if (results.Failures.Any())
+        {
+            throw new Exception("all examples should pass");
+        }
     }
 
     /// <summary>
