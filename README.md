@@ -11,7 +11,7 @@
 NSpectator is ready-to-use solution for development using .NET with Context/Specification flavor. It can be used in different approaches where Specification-By-Example is applicable, including TDD, ATDD, BDD or another agile technics. Toolset is intended to be used to drive development through specifying behavior and interaction at the unit level. 
 NSpectator has only one dependency on popular flexible [FluentAssertions](https://github.com/dennisdoomen/fluentassertions) library. It`s important not to depend on specific unit test framework.
 
-Development was started by [Jonny Novikov](http://jonnynovikov.com) inspired by [RSpec](http://rspec.info/) and based upon hereditary framework [NSpec](https://github.com/mattflo/NSpec) written by [Matt Florence](http://twitter.com/mattflo) and [Amir Rajan] (http://twitter.com/amirrajan). We shaped and benefited by hard work from our [contributors](https://github.com/nspectator/NSpectator/contributors)
+Development was started by [Jonny Novikov](http://jonnynovikov.com) inspired by [RSpec](http://rspec.info/) and based upon hereditary framework [NSpec](https://github.com/mattflo/NSpec) written by [Matt Florence](http://twitter.com/mattflo) and [Amir Rajan](http://twitter.com/amirrajan). We shaped and benefited by hard work from our [contributors](https://github.com/nspectator/NSpectator/contributors)
 
 # Installation
 
@@ -77,7 +77,14 @@ Feature requests, bugs & issues are handled on [NSpectator Youtrack InCloud](htt
 
 Use github authorization (gray bottom button) for signup or login.
 
-## Thanks to
+## :scroll: License
+
+[MIT][license] © [NSpectator Development Team][website]
+
+[license]: http://showalicense.com/?fullname=NSpectator%20Development%20Team)&year=2016#license-mit
+[website]: http://nspectator.org
+
+## :thumbsup: Thanks to
 
 [Jetbrains](https://www.jetbrains.com/) Community Support for providing great tools for NSpectator Development Team
 
