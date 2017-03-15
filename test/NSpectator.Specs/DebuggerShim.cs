@@ -10,7 +10,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using FluentAssertions;
 using NSpectator.Domain;
 using NSpectator.Domain.Formatters;
 using NSpectator;

@@ -149,8 +149,8 @@ namespace NSpectator.Domain
 
         public Tags TagsFilter { get; set; }
 
-        List<Type> classHierarchyToClass = new List<Type>();
+        private List<Type> classHierarchyToClass = new List<Type>();
 
-        Conventions conventions;
+        private Conventions conventions;
     }
 }

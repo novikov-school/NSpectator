@@ -70,7 +70,7 @@ namespace NSpectator
         /// <para>For Example:</para>
         /// <para>before = () => someList = new List&lt;int&gt;();</para>
         /// <para>The before can be a multi-line lambda.  Setting the member multiple times through out sub-contexts will not override the action, but instead will append to your setup (this is a good thing).  
-        /// For more information visit https://github.com/nspectator/NSpectator/wiki</para>
+        /// For more information visit https://github.com/nspectator/NSpectator/wiki </para>
         /// </summary>
         public virtual Action Before
         {
@@ -484,7 +484,7 @@ namespace NSpectator
             InnerContext = beforeContext;
         }
 
-        private void AssertExpectedException<T>(Exception actualException, string expectedMessage) where T : Exception
+        private static void AssertExpectedException<T>(Exception actualException, string expectedMessage) where T : Exception
         {
             var expectedType = typeof(T);
             Exception matchingException = null;
@@ -518,6 +518,11 @@ namespace NSpectator
             }
         }
 
+        /// <summary>
+        /// Error handler
+        /// </summary>
+        /// <param name="flattenedStackTrace"></param>
+        /// <returns></returns>
         protected virtual string OnError(string flattenedStackTrace)
         {
             return flattenedStackTrace;
