@@ -79,7 +79,7 @@ Use github authorization (gray bottom button) for signup or login.
 
 ## :scroll: License
 
-[MIT][http://showalicense.com/?fullname=NSpectator%20Development%20Team&year=2016#license-mit] © [NSpectator Development Team][http://nspectator.org]
+[MIT](http://showalicense.com/?fullname=NSpectator%20Development%20Team&year=2016#license-mit) © [NSpectator Development Team](http://nspectator.org)
 
 ## :thumbsup: Thanks to
 

@@ -200,6 +200,10 @@ namespace NSpectator
                 yield return i;
         }
 
+        /// <summary>
+        /// Execute action on IEnumerable&lt;int&gt; range from start to end
+        /// eg. 1.To(3, print) would execute print on items [1,2,3]
+        /// </summary>
         public static void To(this int start, int end, Action<int> action)
         {
             To(start, end).Do(action);
@@ -216,16 +220,32 @@ namespace NSpectator
             return string.Format(source, o);
         }
 
+        /// <summary>
+        /// Safe invoke with null check
+        /// </summary>
+        /// <param name="action"></param>
+        /// <param name="t"></param>
+        /// <typeparam name="T"></typeparam>
         public static void SafeInvoke<T>(this Action<T> action, T t)
         {
             action?.Invoke(t);
         }
 
+        /// <summary>
+        /// Safe invoke with null check
+        /// </summary>
+        /// <param name="action"></param>
         public static void SafeInvoke(this Action action)
         {
             action?.Invoke();
         }
 
+        /// <summary>
+        /// Safe invoke with null check
+        /// </summary>
+        /// <param name="asyncAction"></param>
+        /// <param name="t"></param>
+        /// <typeparam name="T"></typeparam>
         public static void SafeInvoke<T>(this Func<T, Task> asyncAction, T t)
         {
             if (asyncAction != null)
@@ -236,11 +256,19 @@ namespace NSpectator
             }
         }
 
+        /// <summary>
+        /// Safe invoke with null check
+        /// </summary>
+        /// <param name="asyncAction"></param>
         public static void SafeInvoke(this Func<Task> asyncAction)
         {
             asyncAction?.Offload();
         }
 
+        /// <summary>
+        /// Offload async function
+        /// </summary>
+        /// <param name="asyncWork"></param>
         public static void Offload(this Func<Task> asyncWork)
         {
             try
@@ -255,6 +283,11 @@ namespace NSpectator
             }
         }
 
+        /// <summary>
+        /// Sanitize object array
+        /// </summary>
+        /// <param name="source"></param>
+        /// <returns></returns>
         public static string[] Sanitize(this object[] source)
         {
             return source.ToList().Select(o =>

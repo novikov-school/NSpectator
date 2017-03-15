@@ -6,7 +6,7 @@
 
 [assembly: AssemblyCompany("NSpectator")]
 [assembly: AssemblyProduct("NSpectator")]
-[assembly: AssemblyCopyright("Copyright (c) 2011-2016 The NSpectator Development Teams")]
+[assembly: AssemblyCopyright("Copyright (c) 2011-2017 The NSpectator Development Teams")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
