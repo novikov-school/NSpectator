@@ -6,7 +6,7 @@
 
 [assembly: AssemblyCompany("NSpectator")]
 [assembly: AssemblyProduct("NSpectator")]
-[assembly: AssemblyCopyright("Copyright (c) 2011-2017 The NSpectator Development Teams")]
+[assembly: AssemblyCopyright("Copyright (c) 2011-2018 The NSpectator Development Teams")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -21,5 +21,5 @@
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 
-[assembly: AssemblyVersion("2.0.2")]
-[assembly: AssemblyFileVersion("2.0.2")]
+[assembly: AssemblyVersion("2.1.0")]
+[assembly: AssemblyFileVersion("2.1.0")]
