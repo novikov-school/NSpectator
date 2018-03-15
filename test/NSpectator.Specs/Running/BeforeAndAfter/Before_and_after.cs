@@ -6,7 +6,7 @@
 // ReSharper disable InconsistentNaming
 #endregion
 using NUnit.Framework;
-using Slant.Expectations;
+using FluentAssertions;
 
 namespace NSpectator.Specs.Running.BeforeAndAfter
 {
@@ -34,7 +34,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         {
             Run(typeof(SpecClass));
 
-            Sequence_spec.sequence.Expected().ToBe("AB1CB2CD");
+            Sequence_spec.sequence.Should().Be("AB1CB2CD");
         }
     }
 
@@ -60,7 +60,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         {
             Run(typeof(SpecClass));
 
-            Sequence_spec.sequence.Expected().ToBe("AB1CB2CD");
+            Sequence_spec.sequence.Should().Be("AB1CB2CD");
         }
     }
 }

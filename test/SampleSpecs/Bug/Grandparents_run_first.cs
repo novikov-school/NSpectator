@@ -7,7 +7,7 @@
 #endregion
 using System.Collections.Generic;
 using NSpectator;
-using Slant.Expectations;
+using FluentAssertions;
 
 namespace SampleSpecs.Bug
 {
@@ -27,14 +27,14 @@ namespace SampleSpecs.Bug
                 {
                     Before = () => ints.Add(1); //      before(:each) { @array << "sibling 1" }
 
-                    Specify = () => ints.Count.Expected().ToBe(1); //      it { @array.count.should == 1 }
+                    Specify = () => ints.Count.Should().Be(1, ""); //      it { @array.count.should == 1 }
                 }; //    end
 
                 Describe["another sibling context"] = () => //    context "another sibling context" do
                 {
                     Before = () => ints.Add(1); //      before(:each) { @array << "sibling 2" }
 
-                    Specify = () => ints.Count.Expected().ToBe(1); //      it { @array.count.should == 1 }
+                    Specify = () => ints.Count.Should().Be(1, ""); //      it { @array.count.should == 1 }
                 }; //    end
             }; //  end
         } //end

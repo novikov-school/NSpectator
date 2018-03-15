@@ -10,7 +10,7 @@
 
 using NSpectator;
 using FluentAssertions;
-using Slant.Expectations;
+using FluentAssertions;
 
 namespace SampleSpecs.Demo
 {
@@ -29,8 +29,8 @@ namespace SampleSpecs.Demo
                             )
                         );
 
-                Specify = () => game.Finished.Expected().True();
-                Specify = () => game.Draw.Expected().True();
+                Specify = () => game.Finished.Should().BeTrue("");
+                Specify = () => game.Draw.Should().BeTrue("");
             };
         }
 
@@ -44,7 +44,7 @@ namespace SampleSpecs.Demo
                 {
                     Before = () => 0.To(2, column => game.Play(player, index, column));
 
-                    Specify = () => game.Finished.Expected().True();
+                    Specify = () => game.Finished.Should().BeTrue("");
 
                     It[$"winner should be {player}"] = () => game.Winner.Should().Be(player);
                 };
@@ -53,7 +53,7 @@ namespace SampleSpecs.Demo
                 {
                     Before = () => 0.To(2, row => game.Play(player, row, index));
 
-                    Specify = () => game.Finished.Expected().True();
+                    Specify = () => game.Finished.Should().BeTrue("");
 
                     It[$"winner should be {player}"] = () => game.Winner.Should().Be(player);
                 };
@@ -65,7 +65,7 @@ namespace SampleSpecs.Demo
                 {
                     Before = () => 0.To(2).Each(index => game.Play(player, index, index));
 
-                    Specify = () => game.Finished.Expected().True();
+                    Specify = () => game.Finished.Should().BeTrue("");
 
                     It["winner should be {0}".With(player)] = () => game.Winner.Should().Be(player);
                 };
@@ -79,7 +79,7 @@ namespace SampleSpecs.Demo
                         game.Play(player, 0, 2);
                     };
 
-                    Specify = () => game.Finished.Expected().True();
+                    Specify = () => game.Finished.Should().BeTrue("");
 
                     It[$"winner should be {player}"] = () => game.Winner.Should().Be(player);
                 };

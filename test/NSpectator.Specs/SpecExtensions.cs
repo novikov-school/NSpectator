@@ -15,8 +15,6 @@ namespace NSpectator.Specs
 {
     public class ExampleBaseAssertions : ReferenceTypeAssertions<ExampleBase, ExampleBaseAssertions>
     {
-        protected override string Context => "ExampleBase";
-
         public ExampleBaseAssertions(ExampleBase example)
         {
             Subject = example;
@@ -33,6 +31,8 @@ namespace NSpectator.Specs
             Execute.Assertion.ForCondition(!this.Subject.HasRun || this.Subject.Exception != null).BecauseOf(because).FailWith("Expected example to have failed {reason}");
             return new AndConstraint<ExampleBaseAssertions>(this);
         }
+
+        protected override string Identifier { get; } = "ExampleBase";
     }
 
     public static class SpecExtensions

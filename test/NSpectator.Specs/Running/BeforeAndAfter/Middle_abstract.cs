@@ -7,7 +7,7 @@
 #endregion
 using NUnit.Framework;
 using FluentAssertions;
-using Slant.Expectations;
+using FluentAssertions;
 
 namespace NSpectator.Specs.Running.BeforeAndAfter
 {
@@ -51,7 +51,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         {
             void it_one_is_one()
             {
-                1.Expected().ToBe(1);
+                1.Should().Be(1);
             }
         }
 

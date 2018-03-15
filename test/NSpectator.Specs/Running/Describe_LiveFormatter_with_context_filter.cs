@@ -11,7 +11,7 @@ using NSpectator.Domain;
 using NSpectator.Domain.Formatters;
 using NUnit.Framework;
 using FluentAssertions;
-using Slant.Expectations;
+using FluentAssertions;
 
 namespace NSpectator.Specs.Running
 {
@@ -29,7 +29,7 @@ namespace NSpectator.Specs.Running
             {
                 Context["a context with an example"] = () =>
                 {
-                    It["1 is 1"] = () => 1.Expected().ToBe(1);
+                    It["1 is 1"] = () => 1.Should().Be(1);
                 };
             }
 

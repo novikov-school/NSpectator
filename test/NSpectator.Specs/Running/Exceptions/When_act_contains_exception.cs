@@ -8,7 +8,7 @@
 using NSpectator.Domain;
 using NUnit.Framework;
 using FluentAssertions;
-using Slant.Expectations;
+using FluentAssertions;
 
 namespace NSpectator.Specs.Running.Exceptions
 {
@@ -66,63 +66,63 @@ namespace NSpectator.Specs.Running.Exceptions
         public void the_example_level_failure_should_indicate_a_context_failure()
         {
             TheExample("should fail this example because of act")
-                .Exception.Expect<ExampleFailureException>();
+                .Exception.Should().BeOfType<ExampleFailureException>();
             TheExample("should also fail this example because of act")
-                .Exception.Expect<ExampleFailureException>();
+                .Exception.Should().BeOfType<ExampleFailureException>();
             TheExample("overrides exception from same level it")
-                .Exception.Expect<ExampleFailureException>();
+                .Exception.Should().BeOfType<ExampleFailureException>();
             TheExample("preserves exception from nested before")
-                .Exception.Expect<ExampleFailureException>();
+                .Exception.Should().BeOfType<ExampleFailureException>();
             TheExample("overrides exception from nested act")
-                .Exception.Expect<ExampleFailureException>();
+                .Exception.Should().BeOfType<ExampleFailureException>();
             TheExample("overrides exception from nested it")
-                .Exception.Expect<ExampleFailureException>();
+                .Exception.Should().BeOfType<ExampleFailureException>();
             TheExample("overrides exception from nested after")
-                .Exception.Expect<ExampleFailureException>();
+                .Exception.Should().BeOfType<ExampleFailureException>();
         }
 
         [Test]
         public void examples_with_only_act_failure_should_fail_because_of_act()
         {
             TheExample("should fail this example because of act").Exception
-                .InnerException.Expect<ActException>();
+                .InnerException.Should().BeOfType<ActException>();
             TheExample("should also fail this example because of act").Exception
-                .InnerException.Expect<ActException>();
+                .InnerException.Should().BeOfType<ActException>();
         }
 
         [Test]
         public void it_should_throw_exception_from_act_not_from_same_level_it()
         {
             TheExample("overrides exception from same level it")
-                .Exception.InnerException.Expect<ActException>();
+                .Exception.InnerException.Should().BeOfType<ActException>();
         }
 
         [Test]
         public void it_should_throw_exception_from_nested_before_not_from_act()
         {
             TheExample("preserves exception from nested before")
-                .Exception.InnerException.Expect<BeforeException>();
+                .Exception.InnerException.Should().BeOfType<BeforeException>();
         }
 
         [Test]
         public void it_should_throw_exception_from_act_not_from_nested_act()
         {
             TheExample("overrides exception from nested act")
-                .Exception.InnerException.Expect<ActException>();
+                .Exception.InnerException.Should().BeOfType<ActException>();
         }
 
         [Test]
         public void it_should_throw_exception_from_act_not_from_nested_it()
         {
             TheExample("overrides exception from nested it")
-                .Exception.InnerException.Expect<ActException>();
+                .Exception.InnerException.Should().BeOfType<ActException>();
         }
 
         [Test]
         public void it_should_throw_exception_from_act_not_from_nested_after()
         {
             TheExample("overrides exception from nested after")
-                .Exception.InnerException.Expect<ActException>();
+                .Exception.InnerException.Should().BeOfType<ActException>();
         }
     }
 }

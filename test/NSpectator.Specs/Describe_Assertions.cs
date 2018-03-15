@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using FluentAssertions;
 using NUnit.Framework;
-using Slant.Expectations;
+using FluentAssertions;
 
 namespace NSpectator.Specs
 {
@@ -26,17 +26,7 @@ namespace NSpectator.Specs
             var twentyMinutes = new TimeSpan(0, 20, 0);
             var tenMinuteTolerance = new TimeSpan(0, 10, 0);
 
-            thirtyMinutes.Expected().ToBeCloseTo(twentyMinutes, tenMinuteTolerance);
-        }
-
-        [Test]
-        public void Given_datetimes_Should_be_able_to_assert_on_is_close_to_with_tolerance()
-        {
-            var arg1 = new DateTime(2012, 2, 1); // {2/1/2012}
-            var arg2 = new DateTime(2012, 2, 2); // {2/2/2012}
-            var oneDayTolerance = new DateTime(TimeSpan.TicksPerDay);
-
-            arg1.Expected().ToBeCloseTo(arg2, oneDayTolerance);
+            thirtyMinutes.Should().BeCloseTo(twentyMinutes, tenMinuteTolerance);
         }
 
         [Test]

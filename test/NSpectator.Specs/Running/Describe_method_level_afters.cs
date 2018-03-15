@@ -69,24 +69,5 @@ namespace NSpectator.Specs.Running
         {
             classContext.AfterInstanceAsync.Should().BeNull();
         }
-
-        [Test]
-        public void it_should_set_after_on_method_level_context()
-        {
-            methodContext.After.Should().Be(SpecClass.ContextLevelAfter);
-        }
-
-        [Test]
-        public void it_should_set_after_on_sub_context()
-        {
-            methodContext.Contexts.First().After.Should().Be(SpecClass.SubContextAfter);
-        }
-
-        [Test]
-        [Category("Async")]
-        public void it_should_set_async_after_on_sub_context()
-        {
-            methodContext.Contexts.Last().AfterAsync.Should().Be(SpecClass.AsyncSubContextAfter);
-        }
     }
 }

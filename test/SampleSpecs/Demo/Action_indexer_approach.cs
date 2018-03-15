@@ -10,7 +10,6 @@
 using NSpectator;
 using SampleSpecs.Model;
 using FluentAssertions;
-using Slant.Expectations;
 
 namespace SampleSpecs.Demo
 {
@@ -28,17 +27,17 @@ namespace SampleSpecs.Demo
             {
                 Before = () => user.Admin = true;
 
-                Specify = () => user.Admin.Expected().True();
+                Specify = () => user.Admin.Should().BeTrue("");
 
                 Context["user is terminated"] = () =>
                 {
                     Before = () => user.Terminated = true;
 
-                    Specify = () => user.Terminated.Expected().True();
+                    Specify = () => user.Terminated.Should().BeTrue("");
                 };
             };
 
-            Specify = () => user.Admin.Expected().True();
+            Specify = () => user.Admin.Should().BeTrue("");
 
             It["should work"] = () => { };
 

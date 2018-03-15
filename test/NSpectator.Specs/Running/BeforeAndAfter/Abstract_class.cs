@@ -6,7 +6,7 @@
 // ReSharper disable InconsistentNaming
 #endregion
 using NUnit.Framework;
-using Slant.Expectations;
+using FluentAssertions;
 
 namespace NSpectator.Specs.Running.BeforeAndAfter
 {
@@ -30,7 +30,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
                 BeforeAll = () => sequence += "B";
 
                 Before = () => sequence += "D";
-                Specify = () => 1.Expected().ToBe(1);
+                Specify = () => 1.Should().Be(1, empty_reason);
                 After = () => sequence += "E";
 
                 AfterAll = () => sequence += "G";
@@ -53,7 +53,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         public void all_features_are_supported_from_abstract_classes_when_run_under_the_context_of_a_derived_concrete()
         {
             Run(typeof(Concrete));
-            Sequence_spec.sequence.Expected().ToBe("ABCDEFGH");
+            Sequence_spec.sequence.Should().Be("ABCDEFGH");
         }
     }
 }

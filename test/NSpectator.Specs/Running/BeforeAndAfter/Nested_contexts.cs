@@ -7,7 +7,7 @@
 #endregion
 using NUnit.Framework;
 using FluentAssertions;
-using Slant.Expectations;
+using FluentAssertions;
 
 namespace NSpectator.Specs.Running.BeforeAndAfter
 {
@@ -26,7 +26,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
                     BeforeAll = () => sequence += "B";
                     Before = () => sequence += "D";
 
-                    Specify = () => 1.Expected().ToBe(1);
+                    Specify = () => 1.Should().Be(1, empty_reason);
 
                     After = () => sequence += "E";
                     AfterAll = () => sequence += "G";

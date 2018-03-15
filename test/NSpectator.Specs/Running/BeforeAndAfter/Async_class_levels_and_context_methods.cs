@@ -8,7 +8,7 @@
 using NUnit.Framework;
 using System.Threading.Tasks;
 using FluentAssertions;
-using Slant.Expectations;
+using FluentAssertions;
 
 namespace NSpectator.Specs.Running.BeforeAndAfter
 {
@@ -34,7 +34,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
                 BeforeAllAsync = async () => await Task.Run(() => sequence += "B");
 
                 BeforeAsync = async () => await Task.Run(() => sequence += "D");
-                Specify = () => 1.Expected().ToBe(1);
+                Specify = () => 1.Should().Be(1, empty_reason);
                 AfterAsync = async () => await Task.Run(() => sequence += "E");
 
                 AfterAllAsync = async () => await Task.Run(() => sequence += "G");

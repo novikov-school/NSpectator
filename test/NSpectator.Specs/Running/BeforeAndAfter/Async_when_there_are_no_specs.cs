@@ -7,7 +7,7 @@
 #endregion
 using NUnit.Framework;
 using System.Threading.Tasks;
-using Slant.Expectations;
+using FluentAssertions;
 
 namespace NSpectator.Specs.Running.BeforeAndAfter
 {
@@ -34,7 +34,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         {
             Run(typeof(Async_before_all_example_spec));
 
-            Sequence_spec.sequence.Expected().ToBeEmpty();
+            Sequence_spec.sequence.Should().BeEmpty();
         }
 
         class Async_before_each_example_spec : Sequence_spec
@@ -50,7 +50,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         {
             Run(typeof(Async_before_each_example_spec));
 
-            Sequence_spec.sequence.Expected().ToBeEmpty();
+            Sequence_spec.sequence.Should().BeEmpty();
         }
 
         class After_each_example_spec : Sequence_spec
@@ -66,7 +66,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         {
             Run(typeof (After_each_example_spec));
 
-            Sequence_spec.sequence.Expected().ToBeEmpty();
+            Sequence_spec.sequence.Should().BeEmpty();
         }
 
         class After_all_example_spec : Sequence_spec
@@ -82,7 +82,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         {
             Run(typeof (After_all_example_spec));
 
-            Sequence_spec.sequence.Expected().ToBeEmpty();
+            Sequence_spec.sequence.Should().BeEmpty();
         }
     }
 }

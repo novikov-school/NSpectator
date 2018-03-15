@@ -10,7 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using NSpectator;
-using Slant.Expectations;
+using FluentAssertions;
 
 namespace SampleSpecs.Compare
 {
@@ -22,7 +22,7 @@ namespace SampleSpecs.Compare
         {
             Before = () => machine = new VendingMachine();
 
-            Specify = () => machine.Items().Expected().ToBeEmpty();
+            Specify = () => machine.Items().Should().NotBeEmpty("");
 
             It["getting item A1 should throw ItemNotRegistered"] = Expect<ItemNotRegisteredException>(() => machine.Item("A1"));
 
@@ -30,17 +30,17 @@ namespace SampleSpecs.Compare
             {
                 Before = () => machine.RegisterItem("A1", "doritos", .5m);
 
-                Specify = () => machine.Items().Count().Expected().ToBe(1);
+                Specify = () => machine.Items().Should().HaveCount(1, "");
 
-                Specify = () => machine.Item("A1").Name.Expected().ToBe("doritos");
+                Specify = () => machine.Item("A1").Name.Should().Be("doritos", "");
 
-                Specify = () => machine.Item("A1").Price.Expected().ToBe(.5m);
+                Specify = () => machine.Item("A1").Price.Should().Be(.5m, "");
 
                 Context["given a second item is registered"] = () =>
                 {
                     Before = () => machine.RegisterItem("A2", "mountain dew", .6m);
 
-                    Specify = () => machine.Items().Count().Expected().ToBe(2);
+                    Specify = () => machine.Items().Should().HaveCount(2, empty_reason);
                 };
             };
             // got to force/refactor getting rid of the dictionary soon

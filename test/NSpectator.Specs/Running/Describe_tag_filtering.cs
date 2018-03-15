@@ -8,7 +8,7 @@
 using System.Linq;
 using NUnit.Framework;
 using FluentAssertions;
-using Slant.Expectations;
+using FluentAssertions;
 
 namespace NSpectator.Specs.Running
 {
@@ -47,7 +47,7 @@ namespace NSpectator.Specs.Running
             [Tag("method-tag-one")]
             void has_tag_at_method_level_context()
             {
-                It["tests nothing"] = () => 1.Expected().ToBe(1);
+                It["tests nothing"] = () => 1.Should().Be(1);
             }
 
             [Tag("method-tag-two")]
@@ -55,12 +55,12 @@ namespace NSpectator.Specs.Running
             {
                 Context["is tagged with 'mytag'", "mytag"] = () =>
                 {
-                    It["is tagged with 'mytag'"] = () => 1.Expected().ToBe(1);
+                    It["is tagged with 'mytag'"] = () => 1.Should().Be(1);
                 };
 
                 Context["has three tags", "mytag,expect-to-failure,foobar"] = () =>
                 {
-                    It["has three tags"] = () => { 1.Expected().ToBe(1); };
+                    It["has three tags"] = () => { 1.Should().Be(1); };
                 };
 
                 Context["does not have a tag"] = () =>

@@ -9,7 +9,7 @@
 #endregion
 
 using NSpectator;
-using Slant.Expectations;
+using FluentAssertions;
 
 namespace SampleSpecs.Demo
 {
@@ -19,7 +19,7 @@ namespace SampleSpecs.Demo
     {
         void should_still_run_tests()
         {
-            Specify = () => "Test".Expected().ToBe("Test");
+            Specify = () => "Test".Should().Be("Test", empty_reason);
         }
     }
 }

@@ -7,7 +7,7 @@
 #endregion
 using NUnit.Framework;
 using System.Threading.Tasks;
-using Slant.Expectations;
+using FluentAssertions;
 
 namespace NSpectator.Specs.Running.BeforeAndAfter
 {
@@ -32,7 +32,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
                 BeforeAllAsync = async () => await Task.Run(() => sequence += "B");
 
                 BeforeAsync = async () => await Task.Run(() => sequence += "D");
-                Specify = () => 1.Expected().ToBe(1);
+                Specify = () => 1.Should().Be(1, empty_reason);
                 AfterAsync = async () => await Task.Run(() => sequence += "E");
 
                 AfterAllAsync = async () => await Task.Run(() => sequence += "G");
@@ -55,7 +55,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
         public void all_async_features_are_supported_from_abstract_classes_when_run_under_the_context_of_a_derived_concrete()
         {
             Run(typeof(Concrete));
-            Sequence_spec.sequence.Expected().ToBe("ABCDEFGH");
+            Sequence_spec.sequence.Should().Be("ABCDEFGH");
         }
     }
 }

@@ -7,7 +7,6 @@
 #endregion
 using NUnit.Framework;
 using FluentAssertions;
-using Slant.Expectations;
 
 namespace NSpectator.Specs.Running
 {
@@ -33,7 +32,7 @@ namespace NSpectator.Specs.Running
         {
             void it_specifies_something()
             {
-                Specify = () => true.Expected().True();
+                Specify = () => true.Should().BeTrue("");
             }
         }
 
@@ -73,7 +72,7 @@ namespace NSpectator.Specs.Running
         {
             void it_specifies_something()
             {
-                Specify = () => true.Expected().True();
+                Specify = () => true.Should().BeTrue("");
             }
         }
 
@@ -87,7 +86,7 @@ namespace NSpectator.Specs.Running
         [Test]
         public void should_skip_innocent_bystander_after_all()
         {
-            InnocentBystander.sequence.Expected().ToBeEmpty();
+            InnocentBystander.sequence.Should().BeEmpty();
         }
     }
 }

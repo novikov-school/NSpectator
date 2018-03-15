@@ -8,7 +8,7 @@
 using NSpectator.Domain;
 using NUnit.Framework;
 using FluentAssertions;
-using Slant.Expectations;
+using FluentAssertions;
 
 namespace NSpectator.Specs
 {
@@ -20,7 +20,7 @@ namespace NSpectator.Specs
         public void Should_clear_quotes()
         {
             // TODO: it should be expanded
-            new Example(() => "hello".Expected().ToBe("hello")).Spec.Should().Be("ToBe hello");
+            new Example(() => "hello".Should().Be("hello", string.Empty)).Spec.Should().Be("ToBe hello");
         }
 
         // no 'specify' available for AsyncExample, hence no way to test that on AsyncExample

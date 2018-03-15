@@ -6,7 +6,7 @@
 // ReSharper disable InconsistentNaming
 #endregion
 using NUnit.Framework;
-using Slant.Expectations;
+using FluentAssertions;
 
 namespace NSpectator.Specs.Running
 {
@@ -18,7 +18,7 @@ namespace NSpectator.Specs.Running
         {
             void it_is()
             {
-                "is".Expected().ToBe("is");
+                "is".Should().Be("is");
             }
         }
 
@@ -31,13 +31,13 @@ namespace NSpectator.Specs.Running
         [Test]
         public void Parent_class_is_level_1()
         {
-            TheContext("parent context").Level.Expected().ToBe(1);
+            TheContext("parent context").Level.Should().Be(1);
         }
 
         [Test]
         public void Child_class_is_level_2()
         {
-            TheContext("child context").Level.Expected().ToBe(2);
+            TheContext("child context").Level.Should().Be(2);
         }
     }
 }

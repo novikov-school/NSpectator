@@ -10,7 +10,7 @@
 
 using System.Collections.Generic;
 using NSpectator;
-using Slant.Expectations;
+using FluentAssertions;
 
 namespace SampleSpecs.Demo
 {
@@ -27,7 +27,7 @@ namespace SampleSpecs.Demo
         {
             Before = () => ints.Add(12);
 
-            Specify = () => ints.Count.Expected().ToBe(1);
+            Specify = () => ints.Count.Should().Be(1, empty_reason);
         }
     }
 }

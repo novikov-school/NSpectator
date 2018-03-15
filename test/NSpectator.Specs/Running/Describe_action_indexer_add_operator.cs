@@ -10,7 +10,7 @@ using System.Linq;
 using NSpectator.Domain;
 using NUnit.Framework;
 using FluentAssertions;
-using Slant.Expectations;
+using FluentAssertions;
 
 namespace NSpectator.Specs.Running
 {
@@ -22,7 +22,7 @@ namespace NSpectator.Specs.Running
         {
             void method_level_context()
             {
-                Specify = () => "Hello".Expected().ToBe("Hello");
+                Specify = () => "Hello".Should().Be("Hello", empty_reason);
             }
         }
 
