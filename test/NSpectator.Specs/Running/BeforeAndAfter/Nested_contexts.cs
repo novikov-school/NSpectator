@@ -26,7 +26,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
                     BeforeAll = () => sequence += "B";
                     Before = () => sequence += "D";
 
-                    Specify = () => 1.Should().Be(1, empty_reason);
+                    Specify = () => 1.Should().Be(1, todo_reason);
 
                     After = () => sequence += "E";
                     AfterAll = () => sequence += "G";

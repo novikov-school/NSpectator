@@ -14,7 +14,7 @@ namespace NSpectator
     /// </summary>
     public class Spec
     {
-        public static string empty_reason => string.Empty;
+        public static string todo_reason => string.Empty;
 
         /// <summary>
         /// ctor

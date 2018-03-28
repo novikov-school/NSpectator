@@ -40,7 +40,7 @@ namespace SampleSpecs.Compare
                 {
                     Before = () => machine.RegisterItem("A2", "mountain dew", .6m);
 
-                    Specify = () => machine.Items().Should().HaveCount(2, empty_reason);
+                    Specify = () => machine.Items().Should().HaveCount(2, todo_reason);
                 };
             };
             // got to force/refactor getting rid of the dictionary soon

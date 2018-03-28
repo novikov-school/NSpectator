@@ -34,7 +34,7 @@ namespace NSpectator.Specs.Running.BeforeAndAfter
                 BeforeAllAsync = async () => await Task.Run(() => sequence += "B");
 
                 BeforeAsync = async () => await Task.Run(() => sequence += "D");
-                Specify = () => 1.Should().Be(1, empty_reason);
+                Specify = () => 1.Should().Be(1, todo_reason);
                 AfterAsync = async () => await Task.Run(() => sequence += "E");
 
                 AfterAllAsync = async () => await Task.Run(() => sequence += "G");

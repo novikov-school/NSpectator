@@ -22,7 +22,7 @@ namespace NSpectator.Specs.Running
         {
             void method_level_context()
             {
-                Specify = () => "Hello".Should().Be("Hello", empty_reason);
+                Specify = () => "Hello".Should().Be("Hello", todo_reason);
             }
         }
 

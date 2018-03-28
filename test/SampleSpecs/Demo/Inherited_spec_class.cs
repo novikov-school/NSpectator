@@ -19,7 +19,7 @@ namespace SampleSpecs.Demo
     {
         void should_still_run_tests()
         {
-            Specify = () => "Test".Should().Be("Test", empty_reason);
+            Specify = () => "Test".Should().Be("Test", todo_reason);
         }
     }
 }
